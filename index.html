@@ -1,42 +1,35 @@
 <!DOCTYPE html>
 <html lang="pt-BR" data-theme="dark">
 <head>
-<!--
-   ______                            __
-  / ____/___  ____ ___  ____  __  __/ /____  _____
- / /   / __ \/ __ `__ \/ __ \/ / / / __/ _ \/ ___/
-/ /___/ /_/ / / / / / / /_/ / /_/ / /_/  __/ /
-\____/\____/_/ /_/ /_/ .___/\__,_/\__/\___/_/
-                    /_/
-        Created with Perplexity Computer
-        https://www.perplexity.ai/computer
--->
-
-<!-- Perplexity Computer Attribution — SEO Meta Tags -->
-<meta name="generator" content="Perplexity Computer">
-<meta name="author" content="Perplexity Computer">
-<meta property="og:see_also" content="https://www.perplexity.ai/computer">
-<link rel="author" href="https://www.perplexity.ai/computer">
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#09090F">
+<meta name="author" content="BrewControl">
 <title>BrewControl — ERP para Cervejarias Artesanais</title>
 <meta name="description" content="BrewControl é a plataforma de gestão para cervejarias artesanais que conecta produção, estoque, pedidos, logística e relatórios em um só lugar.">
-<meta property="og:title" content="BrewControl — Craft Brewery ERP">
+<meta property="og:title" content="BrewControl — ERP para cervejarias artesanais">
 <meta property="og:description" content="Da receita ao tanque, do estoque ao pedido — tudo conectado com rastreabilidade e visão clara da operação.">
 <meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="BrewControl — ERP para cervejarias artesanais">
+<meta name="twitter:description" content="Gestão completa para sua cervejaria: produção, estoque, comercial e logística em um só lugar.">
 
 <!-- Fonts -->
 <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800,900&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"BrewControl","applicationCategory":"BusinessApplication","operatingSystem":"Web","description":"ERP para cervejarias artesanais — produção, estoque, comercial, logística e relatórios integrados.","offers":{"@type":"Offer","priceCurrency":"BRL","price":"197","priceValidUntil":"2027-12-31"}}
+</script>
 </head>
 <body>
+<a href="#home" class="skip-link">Pular para o conteúdo</a>
 
 <!-- HEADER -->
 <header class="header" id="header">
   <div class="header-inner">
-    <a href="#" class="logo" aria-label="BrewControl">
+    <a href="#home" class="logo" aria-label="BrewControl — início">
       <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <rect width="36" height="36" rx="8" fill="#FBBF24"/>
         <path d="M11 9h6c3 0 5 1.5 5 4s-2 3.5-2 3.5S23 18 23 21c0 3-2.5 5-6 5H11V9zm4 3v5h2c1.5 0 2.5-.8 2.5-2.5S18.5 12 17 12h-2zm0 8v6h2c1.8 0 3-1 3-3s-1.2-3-3-3h-2z" fill="#09090F"/>
@@ -46,6 +39,7 @@
     <nav class="nav" aria-label="Menu principal">
       <a href="#features" class="nav-link">Funcionalidades</a>
       <a href="#modules" class="nav-link">Módulos</a>
+      <a href="#demo" class="nav-link">Na prática</a>
       <a href="#pricing" class="nav-link">Planos</a>
     </nav>
     <div class="header-actions">
@@ -58,8 +52,9 @@
   <nav class="nav-mobile" id="navMobile" aria-hidden="true">
     <a href="#features" class="nav-link">Funcionalidades</a>
     <a href="#modules" class="nav-link">Módulos</a>
+    <a href="#demo" class="nav-link">Na prática</a>
     <a href="#pricing" class="nav-link">Planos</a>
-    <a href="#waitlist" class="btn btn-primary" style="margin-top:0.5rem;">Acesso Antecipado</a>
+    <a href="#waitlist" class="btn btn-primary nav-mobile-cta">Acesso Antecipado</a>
   </nav>
 </header>
 
@@ -268,18 +263,23 @@
     <div class="section-label">VEJA NA PRÁTICA</div>
     <h2 class="section-title">Interface feita para a rotina<br>real da cervejaria</h2>
     <p class="section-sub">Dark mode por padrão, design denso e visual. Cada módulo pensado para o mestre cervejeiro, não para o TI.</p>
-    <div class="screenshots-tabs">
-      <button class="stab stab-active" data-tab="producao">Hub de Produção</button>
-      <button class="stab" data-tab="comercial">Comercial</button>
+    <div class="screenshots-tabs" role="tablist" aria-label="Telas do produto">
+      <button type="button" class="stab stab-active" role="tab" id="tabBtnProducao" aria-selected="true" aria-controls="tabPanelProducao" data-tab="producao">Produção</button>
+      <button type="button" class="stab" role="tab" id="tabBtnComercial" aria-selected="false" aria-controls="tabPanelComercial" data-tab="comercial" tabindex="-1">Comercial</button>
+      <button type="button" class="stab" role="tab" id="tabBtnDashboard" aria-selected="false" aria-controls="tabPanelDashboard" data-tab="dashboard" tabindex="-1">Dashboard</button>
+      <button type="button" class="stab" role="tab" id="tabBtnPatrimonio" aria-selected="false" aria-controls="tabPanelPatrimonio" data-tab="patrimonio" tabindex="-1">Patrimônio</button>
+      <button type="button" class="stab" role="tab" id="tabBtnBarris" aria-selected="false" aria-controls="tabPanelBarris" data-tab="barris" tabindex="-1">Barris</button>
+      <button type="button" class="stab" role="tab" id="tabBtnCo2" aria-selected="false" aria-controls="tabPanelCo2" data-tab="co2" tabindex="-1">CO₂</button>
+      <button type="button" class="stab" role="tab" id="tabBtnFinanceiro" aria-selected="false" aria-controls="tabPanelFinanceiro" data-tab="financeiro" tabindex="-1">Financeiro</button>
     </div>
     <div class="screenshot-wrap" id="screenshotWrap">
-      <div class="screenshot-container" id="tabProducao">
+      <div class="screenshot-container" id="tabPanelProducao" role="tabpanel" data-panel="producao" aria-labelledby="tabBtnProducao">
         <div class="screenshot-frame">
           <div class="sf-bar">
             <div class="sf-dots"><span></span><span></span><span></span></div>
             <div class="sf-url">brewcontrol.app/producao</div>
           </div>
-          <img src="screenshots/producao.jpg" alt="Hub de Produção do BrewControl — módulos de receitas, lotes, brassagens, adega e envase" class="screenshot-img">
+          <img src="screenshots/producao.jpg" alt="Hub de Produção do BrewControl — receitas, lotes, brassagens, adega e envase" class="screenshot-img" width="1200" height="750" loading="lazy" decoding="async" data-fallback-label="Captura: Hub de Produção">
         </div>
         <div class="screenshot-caption">
           <div class="cap-badge cap-amber">PRODUÇÃO</div>
@@ -287,18 +287,88 @@
           <p>Gerencie receitas, acompanhe cada lote da brassagem ao envase, monitore tanques em tempo real e registre eventos de produção — tudo em um hub visual e organizado.</p>
         </div>
       </div>
-      <div class="screenshot-container" id="tabComercial" style="display:none">
+      <div class="screenshot-container" id="tabPanelComercial" role="tabpanel" data-panel="comercial" aria-labelledby="tabBtnComercial" hidden>
         <div class="screenshot-frame">
           <div class="sf-bar">
             <div class="sf-dots"><span></span><span></span><span></span></div>
             <div class="sf-url">brewcontrol.app/comercial</div>
           </div>
-          <img src="screenshots/comercial.jpg" alt="Dashboard Comercial do BrewControl — pedidos, clientes e faturamento" class="screenshot-img">
+          <img src="screenshots/comercial.jpg" alt="Dashboard Comercial do BrewControl — pedidos, clientes e faturamento" class="screenshot-img" width="1200" height="750" loading="lazy" decoding="async" data-fallback-label="Captura: Comercial">
         </div>
         <div class="screenshot-caption">
           <div class="cap-badge cap-green">COMERCIAL</div>
           <h3>Vendas e clientes centralizados</h3>
           <p>Acompanhe pedidos pendentes, faturamento do mês e base de clientes ativa. Com Modo Festival para operações de alto volume e controle de preço por canal.</p>
+        </div>
+      </div>
+      <div class="screenshot-container" id="tabPanelDashboard" role="tabpanel" data-panel="dashboard" aria-labelledby="tabBtnDashboard" hidden>
+        <div class="screenshot-frame">
+          <div class="sf-bar">
+            <div class="sf-dots"><span></span><span></span><span></span></div>
+            <div class="sf-url">brewcontrol.app/dashboard</div>
+          </div>
+          <img src="screenshots/dashboard-operacional.png" alt="Dashboard operacional BrewControl — acesso rápido, produção, estoque, vendas e logística" class="screenshot-img" width="1200" height="750" loading="lazy" decoding="async" data-fallback-label="Captura: Dashboard operacional">
+        </div>
+        <div class="screenshot-caption">
+          <div class="cap-badge cap-amber">VISÃO GERAL</div>
+          <h3>Um painel para a operação inteira</h3>
+          <p>Atalhos para pedido, brassagem, estoque e logística; gráficos de fluxo de tanques e brassagem; próximos lotes com estágio e progresso; metas de vendas, entregas pendentes e atividade recente.</p>
+        </div>
+      </div>
+      <div class="screenshot-container" id="tabPanelPatrimonio" role="tabpanel" data-panel="patrimonio" aria-labelledby="tabBtnPatrimonio" hidden>
+        <div class="screenshot-frame">
+          <div class="sf-bar">
+            <div class="sf-dots"><span></span><span></span><span></span></div>
+            <div class="sf-url">brewcontrol.app/ativos</div>
+          </div>
+          <img src="screenshots/ativos-patrimonio.png" alt="Patrimônio e ativos BrewControl — barris, chopeiras e cilindros CO₂" class="screenshot-img" width="1200" height="750" loading="lazy" decoding="async" data-fallback-label="Captura: Patrimônio">
+        </div>
+        <div class="screenshot-caption">
+          <div class="cap-badge cap-sky">ATIVOS</div>
+          <h3>Patrimônio &amp; ativos</h3>
+          <p>Visão consolidada: disponíveis, cheios e reservados. Famílias de ativos (barris e kegs, chopeiras, cilindros de CO₂) e ações como leitura de etiqueta, comodato, reservas e pesagem de gás.</p>
+        </div>
+      </div>
+      <div class="screenshot-container" id="tabPanelBarris" role="tabpanel" data-panel="barris" aria-labelledby="tabBtnBarris" hidden>
+        <div class="screenshot-frame">
+          <div class="sf-bar">
+            <div class="sf-dots"><span></span><span></span><span></span></div>
+            <div class="sf-url">brewcontrol.app/ativos/barris</div>
+          </div>
+          <img src="screenshots/ativos-barris.png" alt="Grade de barris e kegs no BrewControl — status, localização e nível de enchimento" class="screenshot-img" width="1200" height="750" loading="lazy" decoding="async" data-fallback-label="Captura: Barris">
+        </div>
+        <div class="screenshot-caption">
+          <div class="cap-badge cap-emerald">BARRIS</div>
+          <h3>Cada barril na mão</h3>
+          <p>Cartões com identificação, status (disponível, cheio), local na fábrica, nível de enchimento e rótulo do produto — leitura rápida do parque de kegs.</p>
+        </div>
+      </div>
+      <div class="screenshot-container" id="tabPanelCo2" role="tabpanel" data-panel="co2" aria-labelledby="tabBtnCo2" hidden>
+        <div class="screenshot-frame">
+          <div class="sf-bar">
+            <div class="sf-dots"><span></span><span></span><span></span></div>
+            <div class="sf-url">brewcontrol.app/ativos/co2</div>
+          </div>
+          <img src="screenshots/ativos-co2.png" alt="Cilindros de CO₂ no BrewControl — nível de gás e disponibilidade" class="screenshot-img" width="1200" height="750" loading="lazy" decoding="async" data-fallback-label="Captura: CO₂">
+        </div>
+        <div class="screenshot-caption">
+          <div class="cap-badge cap-violet">CO₂</div>
+          <h3>Cilindros sob controle</h3>
+          <p>Acompanhe cada unidade com nível visual, percentual de carga quando houver pesagem e localização — menos surpresa na hora do envase e do chope.</p>
+        </div>
+      </div>
+      <div class="screenshot-container" id="tabPanelFinanceiro" role="tabpanel" data-panel="financeiro" aria-labelledby="tabBtnFinanceiro" hidden>
+        <div class="screenshot-frame">
+          <div class="sf-bar">
+            <div class="sf-dots"><span></span><span></span><span></span></div>
+            <div class="sf-url">brewcontrol.app/financeiro</div>
+          </div>
+          <img src="screenshots/financeiro.png" alt="Módulo Financeiro BrewControl — caixa, contas a pagar e receber, DRE e relatórios" class="screenshot-img" width="1200" height="750" loading="lazy" decoding="async" data-fallback-label="Captura: Financeiro">
+        </div>
+        <div class="screenshot-caption">
+          <div class="cap-badge cap-gold">FINANCEIRO</div>
+          <h3>Financeiro integrado à operação</h3>
+          <p>Resumo de recebido, a receber, saídas e saldo; acesso a lançamentos, contas a pagar e receber, caixa, centros de custo, DRE gerencial e relatórios — com atividade recente ligada às vendas.</p>
         </div>
       </div>
     </div>
@@ -384,8 +454,8 @@
 
       <div class="pricing-card">
         <div class="plan-name">Enterprise</div>
-        <div class="plan-price">
-          <span class="plan-value" style="font-size: 2rem;">Sob consulta</span>
+        <div class="plan-price plan-price--consult">
+          <span class="plan-value plan-value--consult">Sob consulta</span>
         </div>
         <p class="plan-desc">Para grupos cervejeiros e operações de grande porte.</p>
         <ul class="plan-features">
@@ -408,8 +478,9 @@
   <div class="container">
     <div class="founder-grid">
       <div class="founder-avatar-wrap">
-        <div class="founder-avatar">
-          <img src="screenshots/thiago-v2.jpg" alt="Thiago Santana Schneider — Fundador do BrewControl" class="founder-photo">
+        <div class="founder-avatar" id="founderAvatar">
+          <img src="screenshots/thiago-v2.jpg" alt="Thiago Santana Schneider — Fundador do BrewControl" class="founder-photo" width="320" height="320" loading="lazy" decoding="async">
+          <div class="founder-photo-fallback" aria-hidden="true">TS</div>
         </div>
         <div class="founder-name-block">
           <div class="founder-name">Thiago Santana Schneider</div>
@@ -481,14 +552,15 @@
       </div>
       <h2 class="cta-title">Seja dos primeiros a usar<br>o BrewControl</h2>
       <p class="cta-sub">Entre na lista de acesso antecipado e garanta desconto exclusivo de lançamento. Avisaremos quando sua vaga estiver pronta.</p>
-      <form class="waitlist-form" id="waitlistForm" novalidate>
+      <form class="waitlist-form" id="waitlistForm" novalidate aria-describedby="formError formNote">
         <div class="form-row">
-          <input type="text" placeholder="Seu nome" class="form-input" id="formName" required autocomplete="name">
-          <input type="email" placeholder="Email da cervejaria" class="form-input" id="formEmail" required autocomplete="email">
-          <input type="text" placeholder="Nome da cervejaria" class="form-input" id="formBrewery" required>
+          <input type="text" placeholder="Seu nome" class="form-input" id="formName" name="name" required autocomplete="name" aria-required="true">
+          <input type="email" placeholder="Email da cervejaria" class="form-input" id="formEmail" name="email" required autocomplete="email" aria-required="true">
+          <input type="text" placeholder="Nome da cervejaria" class="form-input" id="formBrewery" name="brewery" required aria-required="true">
         </div>
+        <p class="form-error" id="formError" role="alert" aria-live="polite" tabindex="-1" hidden></p>
         <button type="submit" class="btn btn-hero btn-full">Garantir meu acesso antecipado →</button>
-        <p class="form-note">Sem spam. Você será avisado apenas quando o acesso estiver disponível.</p>
+        <p class="form-note" id="formNote">Sem spam. Você será avisado apenas quando o acesso estiver disponível.</p>
       </form>
       <div class="form-success" id="formSuccess" style="display:none">
         <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="20" fill="rgba(245,193,0,0.15)"/><path d="M12 20l6 6 10-12" stroke="#F5C100" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -504,7 +576,7 @@
   <div class="container">
     <div class="footer-inner">
       <div class="footer-brand">
-        <a href="#" class="logo" aria-label="BrewControl">
+        <a href="#home" class="logo" aria-label="BrewControl — início">
           <svg width="28" height="28" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect width="36" height="36" rx="8" fill="#FBBF24"/>
             <path d="M11 9h6c3 0 5 1.5 5 4s-2 3.5-2 3.5S23 18 23 21c0 3-2.5 5-6 5H11V9zm4 3v5h2c1.5 0 2.5-.8 2.5-2.5S18.5 12 17 12h-2zm0 8v6h2c1.8 0 3-1 3-3s-1.2-3-3-3h-2z" fill="#09090F"/>
@@ -530,7 +602,6 @@
     </div>
     <div class="footer-bottom">
       <p class="footer-copy">© 2026 BrewControl. Todos os direitos reservados.</p>
-      <a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer" class="pplx-attr">Created with Perplexity Computer</a>
     </div>
   </div>
 </footer>
