@@ -141,13 +141,35 @@ function clearFormError() {
   formError.hidden = true;
 }
 
+function getWaitlistDb() {
+  const cfg = window.BREWCONTROL_SITE && window.BREWCONTROL_SITE.firebase;
+  if (!cfg || !cfg.apiKey || !cfg.projectId) return null;
+  if (typeof firebase === 'undefined') return null;
+  try {
+    if (!firebase.apps.length) {
+      firebase.initializeApp(cfg);
+    }
+    return firebase.firestore();
+  } catch (err) {
+    console.error('Firebase init:', err);
+    return null;
+  }
+}
+
+function trackWaitlistLead() {
+  if (typeof window.gtag === 'function' && window.BREWCONTROL_SITE && window.BREWCONTROL_SITE.ga4MeasurementId) {
+    window.gtag('event', 'generate_lead', { currency: 'BRL', value: 1 });
+  }
+}
+
 if (form) {
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     clearFormError();
     const nameEl = document.getElementById('formName');
     const emailEl = document.getElementById('formEmail');
     const breweryEl = document.getElementById('formBrewery');
+    const submitBtn = document.getElementById('waitlistSubmit');
     const name = nameEl?.value.trim() ?? '';
     const email = emailEl?.value.trim() ?? '';
     const brewery = breweryEl?.value.trim() ?? '';
@@ -185,9 +207,48 @@ if (form) {
       emailEl?.focus();
       return;
     }
+
+    const db = getWaitlistDb();
+    const labelSubmit = submitBtn ? submitBtn.textContent : '';
+
+    if (db) {
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.setAttribute('aria-busy', 'true');
+        submitBtn.textContent = 'Enviando…';
+      }
+      try {
+        await db.collection('waitlist').add({
+          name,
+          email,
+          brewery,
+          emailLower: email.toLowerCase(),
+          source: 'landing',
+          createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+          userAgent: String(navigator.userAgent || '').slice(0, 240),
+        });
+        trackWaitlistLead();
+        form.style.display = 'none';
+        if (success) success.style.display = 'flex';
+      } catch (err) {
+        console.error('Waitlist Firestore:', err);
+        showFormError('Não foi possível enviar agora. Tente de novo ou fale pelo WhatsApp.');
+        formError?.focus();
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.removeAttribute('aria-busy');
+          submitBtn.textContent = labelSubmit;
+        }
+      }
+      return;
+    }
+
+    trackWaitlistLead();
+    console.warn('Waitlist: Firebase não configurado — lead só no console.');
+    console.log('Waitlist entry:', { name, email, brewery });
     form.style.display = 'none';
     if (success) success.style.display = 'flex';
-    console.log('Waitlist entry:', { name, email, brewery });
   });
 }
 

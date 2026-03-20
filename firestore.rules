@@ -1,0 +1,22 @@
+rules_version = '2';
+
+// Cole estas regras em: Firebase Console → Firestore Database → Regras → Publicar
+// A coleção "waitlist" aceita apenas novos documentos vindos da landing (sem leitura pública).
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /waitlist/{docId} {
+      allow create: if request.resource.data.source == 'landing'
+        && request.resource.data.name is string
+        && request.resource.data.name.size() > 0
+        && request.resource.data.name.size() < 120
+        && request.resource.data.email is string
+        && request.resource.data.email.size() > 3
+        && request.resource.data.email.size() < 320
+        && request.resource.data.brewery is string
+        && request.resource.data.brewery.size() > 0
+        && request.resource.data.brewery.size() < 200;
+      allow read, update, delete: if false;
+    }
+  }
+}

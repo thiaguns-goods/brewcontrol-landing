@@ -19,6 +19,7 @@
 <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800,900&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
+<script src="site-config.js"></script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"SoftwareApplication","name":"BrewControl","applicationCategory":"BusinessApplication","operatingSystem":"Web","description":"ERP para cervejarias artesanais — produção, estoque, comercial, logística e relatórios integrados.","offers":{"@type":"Offer","priceCurrency":"BRL","price":"197","priceValidUntil":"2027-12-31"}}
 </script>
@@ -485,11 +486,7 @@
         <div class="founder-name-block">
           <div class="founder-name">Thiago Santana Schneider</div>
           <div class="founder-role">Fundador &amp; Mestre Cervejeiro</div>
-          <div class="founder-badges">
-            <span class="fbadge">Mestre Cervejeiro</span>
-            <span class="fbadge">Sommelier</span>
-            <span class="fbadge">Biotecnologia</span>
-          </div>
+          <p class="founder-specialty">Mestre cervejeiro especialista em Biotecnologia e sommelier</p>
         </div>
       </div>
       <div class="founder-content">
@@ -559,7 +556,7 @@
           <input type="text" placeholder="Nome da cervejaria" class="form-input" id="formBrewery" name="brewery" required aria-required="true">
         </div>
         <p class="form-error" id="formError" role="alert" aria-live="polite" tabindex="-1" hidden></p>
-        <button type="submit" class="btn btn-hero btn-full">Garantir meu acesso antecipado →</button>
+        <button type="submit" class="btn btn-hero btn-full" id="waitlistSubmit">Garantir meu acesso antecipado →</button>
         <p class="form-note" id="formNote">Sem spam. Você será avisado apenas quando o acesso estiver disponível.</p>
       </form>
       <div class="form-success" id="formSuccess" style="display:none">
@@ -606,6 +603,8 @@
   </div>
 </footer>
 
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
 <script src="main.js"></script>
 </body>
 </html>

@@ -184,6 +184,13 @@ button { cursor: pointer; background: none; border: none; font: inherit; }
   transform: translateY(-2px);
   box-shadow: 0 0 48px rgba(251,191,36,0.4);
 }
+.btn-hero:disabled,
+.btn-hero[aria-busy='true'] {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 0 0 24px rgba(251,191,36,0.15);
+}
 
 .btn-ghost {
   background: rgba(255,255,255,0.04);
@@ -986,15 +993,14 @@ button { cursor: pointer; background: none; border: none; font: inherit; }
 .founder-avatar.is-photo-missing .founder-photo-fallback { display: flex; }
 .founder-name { font-size: var(--text-base); font-weight: 700; color: var(--color-text); line-height: 1.3; }
 .founder-role { font-size: var(--text-xs); color: var(--color-amber); font-weight: 600; margin-top: var(--space-1); letter-spacing: 0.04em; }
-.founder-badges { display: flex; flex-wrap: wrap; gap: var(--space-2); justify-content: center; margin-top: var(--space-3); }
-.fbadge {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-full);
-  padding: 0.25rem 0.7rem;
-  font-size: var(--text-xs);
+.founder-specialty {
+  margin-top: var(--space-3);
+  font-size: var(--text-sm);
   color: var(--color-text-muted);
   font-weight: 500;
+  line-height: 1.5;
+  max-width: 22ch;
+  margin-inline: auto;
 }
 .founder-title {
   font-size: var(--text-2xl);
