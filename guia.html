@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guia do Usuário — BrewControl</title>
+<meta name="description" content="Guia completo do BrewControl ERP para cervejarias artesanais.">
+<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #09090F;
+  --bg-2: #0F0F1A;
+  --bg-3: #14141F;
+  --border: rgba(255,255,255,0.06);
+  --amber: #F5C100;
+  --amber-2: #FBBF24;
+  --text: #E5E7EB;
+  --text-muted: #9CA3AF;
+  --green: #34D399;
+  --blue: #60A5FA;
+  --orange: #FB923C;
+}
+*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Satoshi', system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--amber); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* HEADER */
+.guide-header {
+  background: var(--bg-2);
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: 'Cabinet Grotesk', system-ui, sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--text);
+  text-decoration: none;
+}
+.header-logo svg { flex-shrink: 0; }
+.logo-sub { display: block; font-size: 0.55rem; letter-spacing: 0.12em; color: var(--text-muted); font-weight: 500; }
+.header-back {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  transition: border-color 0.2s, color 0.2s;
+}
+.header-back:hover { border-color: var(--amber); color: var(--amber); text-decoration: none; }
+
+/* LAYOUT */
+.guide-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  gap: 3rem;
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .guide-layout { grid-template-columns: 1fr; padding: 1rem; }
+  .toc { display: none; }
+}
+
+/* TOC */
+.toc {
+  position: sticky;
+  top: 80px;
+  background: var(--bg-3);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.25rem;
+}
+.toc h4 {
+  font-family: 'Cabinet Grotesk', system-ui, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 0.75rem;
+}
+.toc ol {
+  list-style: none;
+  counter-reset: toc-counter;
+}
+.toc ol li {
+  counter-increment: toc-counter;
+  padding: 0.2rem 0;
+}
+.toc ol li a {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  transition: color 0.15s;
+  display: block;
+  line-height: 1.4;
+}
+.toc ol li a:hover { color: var(--text); text-decoration: none; }
+
+/* CONTENT */
+.guide-content h1 {
+  font-family: 'Cabinet Grotesk', system-ui, sans-serif;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--amber);
+  margin-top: 3rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+  scroll-margin-top: 90px;
+}
+.guide-content h1:first-child { margin-top: 0; }
+.guide-content h2 {
+  font-family: 'Cabinet Grotesk', system-ui, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  padding-left: 0.75rem;
+  border-left: 3px solid var(--amber-2);
+}
+.guide-content h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-top: 1.25rem;
+  margin-bottom: 0.35rem;
+}
+.guide-content p {
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+  max-width: 72ch;
+}
+.guide-content p strong { color: var(--text); }
+.guide-content ol, .guide-content ul {
+  margin: 0.5rem 0 1rem 1.5rem;
+  color: var(--text-muted);
+}
+.guide-content ol { list-style: decimal; }
+.guide-content ul { list-style: disc; }
+.guide-content li {
+  margin-bottom: 0.3rem;
+  padding-left: 0.25rem;
+}
+.guide-content li strong { color: var(--text); }
+
+/* TIPS */
+.tip {
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin: 1rem 0;
+  font-size: 0.9rem;
+  border: 1px solid;
+}
+.tip-info {
+  background: rgba(96,165,250,0.08);
+  border-color: rgba(96,165,250,0.2);
+  color: #93C5FD;
+}
+.tip-warn {
+  background: rgba(251,146,60,0.08);
+  border-color: rgba(251,146,60,0.25);
+  color: #FED7AA;
+}
+.tip p { color: inherit; max-width: none; margin: 0; }
+
+/* HERO */
+.guide-hero {
+  text-align: center;
+  padding: 3rem 2rem 2rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-2);
+}
+.guide-hero .badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: rgba(245,193,0,0.1);
+  color: var(--amber);
+  border: 1px solid rgba(245,193,0,0.25);
+  border-radius: 20px;
+  padding: 0.25rem 0.75rem;
+  margin-bottom: 1rem;
+}
+.guide-hero h1 {
+  font-family: 'Cabinet Grotesk', system-ui, sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+.guide-hero p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* FOOTER */
+.guide-footer {
+  text-align: center;
+  padding: 2rem;
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  margin-top: 4rem;
+}
+</style>
+</head>
+<body>
+
+<header class="guide-header">
+  <a href="index.html" class="header-logo">
+    <svg width="32" height="32" viewBox="0 0 36 36" fill="none">
+      <rect width="36" height="36" rx="8" fill="#FBBF24"/>
+      <path d="M11 9h6c3 0 5 1.5 5 4s-2 3.5-2 3.5S23 18 23 21c0 3-2.5 5-6 5H11V9zm4 3v5h2c1.5 0 2.5-.8 2.5-2.5S18.5 12 17 12h-2zm0 8v6h2c1.8 0 3-1 3-3s-1.2-3-3-3h-2z" fill="#09090F"/>
+    </svg>
+    <span>BREWCONTROL<span class="logo-sub">GUIA DO USUÁRIO</span></span>
+  </a>
+  <a href="index.html" class="header-back">← Voltar ao site</a>
+</header>
+
+<div class="guide-hero">
+  <div class="badge">Documentação</div>
+  <h1>Guia do Usuário — BrewControl</h1>
+  <p>ERP para Cervejarias Artesanais &nbsp;·&nbsp; Versão 2.0 &nbsp;·&nbsp; Março 2026</p>
+</div>
+
+<div class="guide-layout">
+  <nav class="toc"><h4>Índice</h4><ol><li><a href="#1--o-que---o-brewcontrol">1. O Que é o BrewControl</a></li><li><a href="#2--primeiro-acesso-e-navega--o">2. Primeiro Acesso e Navegação</a></li><li><a href="#3--configura--o-inicial---administrador">3. Configuração Inicial — Administrador</a></li><li><a href="#4--m-dulo-de-produ--o">4. Módulo de Produção</a></li><li><a href="#5--m-dulo-de-almoxarifado">5. Módulo de Almoxarifado</a></li><li><a href="#6--m-dulo-de-barris-e-ativos">6. Módulo de Barris e Ativos</a></li><li><a href="#7--m-dulo-comercial">7. Módulo Comercial</a></li><li><a href="#8--m-dulo-de-log-stica">8. Módulo de Logística</a></li><li><a href="#9--m-dulo-financeiro">9. Módulo Financeiro</a></li><li><a href="#10--m-dulo-brewpub---atendimento-e-pdv">10. Módulo Brewpub — Atendimento e PDV</a></li><li><a href="#11--pdv-mobile---balc-o-e-torneiras">11. PDV Mobile — Balcão e Torneiras</a></li><li><a href="#12--relat-rios-e-indicadores">12. Relatórios e Indicadores</a></li><li><a href="#13--rotinas-di-rias-por-fun--o">13. Rotinas Diárias por Função</a></li><li><a href="#14--perguntas-frequentes-e-erros-comuns">14. Perguntas Frequentes e Erros Comuns</a></li><li><a href="#15--boas-pr-ticas-de-uso">15. Boas Práticas de Uso</a></li><li><a href="#16--suporte-e-contato">16. Suporte e Contato</a></li></ol></nav>
+  <main class="guide-content">
+    <h3>🍺  BrewControl</h3>
+<h3>GUIA DO USUÁRIO</h3>
+<p>ERP para Cervejarias Artesanais</p>
+<p>Versão 2.0  ·  Março 2026</p>
+<p>app.brewcontrol.app.br</p>
+<h1 id="1--o-que---o-brewcontrol">1. O Que é o BrewControl</h1>
+<p>O BrewControl é um sistema de gestão (ERP) feito especialmente para cervejarias artesanais brasileiras. Ele cobre todo o ciclo da cerveja — do planejamento do lote até a entrega no cliente — em um único sistema, acessível pelo navegador em qualquer dispositivo.</p>
+<p>O sistema é dividido em módulos. Cada usuário vê apenas o que é necessário para a sua função, tornando a operação mais simples e segura.</p>
+<h2>1.1 Módulos do Sistema</h2>
+<h3>Produção: Planejamento e execução dos lotes de cerveja (brassagem, fermentação, envase)</h3>
+<h3>Almoxarifado: Controle de insumos: malte, lúpulo, levedura, adjuntos e embalagens</h3>
+<h3>Barris / Kegs: Gestão do parque de barris como ativos rastreados, comodatos e devoluções</h3>
+<h3>Comercial: Clientes, pedidos de venda, orçamentos e reservas de produto</h3>
+<h3>Logística: Rotas de entrega, registro de entregas e devoluções</h3>
+<h3>Financeiro: Recebimentos, contas a pagar, fluxo de caixa e relatórios gerenciais</h3>
+<h3>Brewpub / PDV: Atendimento de mesas, cardápio, comanda, caixa e fechamento do turno</h3>
+<h3>PDV Mobile: Controle de torneiras e vendas de chopp no balcão via dispositivo móvel</h3>
+<h2>1.2 Papéis de Usuário</h2>
+<p>O sistema usa controle de acesso por papel (função). Cada papel libera os módulos e ações correspondentes:</p>
+<h2>1.3 Glossário Essencial</h2>
+<h3>Brassagem: Processo de produção de um lote de cerveja em um único dia (brew day).</h3>
+<h3>Lote: Conjunto de uma ou mais brassagens da mesma receita.</h3>
+<h3>Mostura: Etapa de conversão do amido do malte em açúcar (mash).</h3>
+<h3>Fermentação: Atuação da levedura convertendo açúcar em álcool e CO₂.</h3>
+<h3>OG / FG: Densidade original (antes) e final (depois) da fermentação.</h3>
+<h3>Barril / Keg: Ativo retornável para armazenar e servir cerveja.</h3>
+<h3>Comodato: Empréstimo de barril ou chopeira para o cliente.</h3>
+<h3>Cigano: Cervejeiro que produz em instalações de terceiros (lote terceirizado).</h3>
+<h3>P1 / P2: P1 = Planejamento do lote; P2 = Execução (Brew Day).</h3>
+<h3>CMV: Custo de Mercadoria Vendida — custo direto dos insumos de um produto.</h3>
+<h3>KDS: Kitchen Display System — tela da cozinha que exibe pedidos em tempo real.</h3>
+<h3>Comanda: Registro de consumo de uma mesa, encerrada no pagamento.</h3>
+<h3>Tenant: Conta de uma cervejaria no sistema (multi-tenant = múltiplos clientes).</h3>
+<h1 id="2--primeiro-acesso-e-navega--o">2. Primeiro Acesso e Navegação</h1>
+<h2>2.1 Entrando no Sistema</h2>
+<ol><li>Acesse app.brewcontrol.app.br no navegador (Chrome ou Edge recomendados).</li><li>Digite o e-mail e a senha fornecidos pelo administrador da sua cervejaria.</li><li>Na primeira vez, o sistema pode pedir para você trocar a senha.</li><li>Após o login, você verá o painel principal com os módulos liberados para o seu papel.</li></ol>
+<div class="tip tip-info"><p>DICA  O BrewControl funciona no computador, tablet e celular. Em celulares, use o menu hambúrguer (☰) para navegar entre os módulos.</p></div>
+<div class="tip tip-warn"><p>ATENÇÃO  Se você vir 'Acesso negado' em algum módulo, peça ao administrador para verificar o seu papel de usuário.</p></div>
+<h2>2.2 Navegação Principal</h2>
+<p>A barra lateral esquerda é o menu principal. Ela mostra apenas os módulos liberados para o seu papel. Clique em qualquer item para acessar o módulo.</p>
+<p>No topo da tela você encontra:</p>
+<ul><li>Nome da cervejaria ativa (se você pertence a mais de uma)</li><li>Sino de notificações: alertas de estoque baixo, barris pendentes, entregas atrasadas</li><li>Avatar com seu nome: acesso às configurações da sua conta e botão de sair</li></ul>
+<h2>2.3 Padrões Visuais do Sistema</h2>
+<p>O BrewControl usa cores e ícones padronizados para facilitar a leitura rápida:</p>
+<ul><li>Verde = ativo, concluído, aprovado</li><li>Amarelo = em andamento, aguardando, atenção</li><li>Vermelho = atrasado, crítico, erro, cancelado</li><li>Azul = informativo, planejado, reservado</li><li>Badges numerados = quantidade de itens pendentes naquele contexto</li></ul>
+<h1 id="3--configura--o-inicial---administrador">3. Configuração Inicial — Administrador</h1>
+<p>Esta seção é para o administrador que está configurando o sistema pela primeira vez. Siga o checklist abaixo antes de liberar o acesso para a equipe.</p>
+<h2>3.1 Dados da Cervejaria</h2>
+<p>Acesse Admin → Configurações para preencher:</p>
+<ul><li>Nome fantasia e razão social</li><li>CNPJ e endereço completo</li><li>Logotipo (usado em documentos PDF e recibos)</li><li>Configurações de notificação (e-mail para alertas críticos)</li></ul>
+<h2>3.2 Criando Usuários</h2>
+<ol><li>Acesse Admin → Usuários → Novo Usuário.</li><li>Preencha nome, e-mail e defina o papel (função).</li><li>O sistema enviará um e-mail de convite com o link de primeiro acesso.</li><li>O usuário define a própria senha no primeiro login.</li></ol>
+<h3>BOA PRÁTICA  Crie um usuário com papel Viewer para o sócio ou contador. Assim eles podem acompanhar os números sem risco de alterar dados.</h3>
+<h2>3.3 Configurando Equipamentos de Produção</h2>
+<p>Em Admin → Equipamentos, cadastre os equipamentos da sua fábrica:</p>
+<ul><li>Tipo: monobloco, bibloco, tribloco, pentabloco</li><li>Capacidade de brassagem (litros)</li><li>Nome identificador (ex: 'Tribloco 400L')</li></ul>
+<p>Os equipamentos são selecionados durante o planejamento dos lotes, então é importante cadastrá-los antes de começar a usar o módulo de Produção.</p>
+<h2>3.4 Configurando Tanques</h2>
+<p>Em Admin → Tanques, cadastre seus tanques de fermentação/maturação:</p>
+<ul><li>Nome do tanque (ex: 'Fermentador 1', 'Tank 500L')</li><li>Capacidade em litros</li><li>Tipo: fermentador, maturador, bright beer tank, unitank</li></ul>
+<p>O sistema usa os tanques para calcular disponibilidade e mostrar o que está ocupado no painel de produção.</p>
+<h2>3.5 Perfis de Produção</h2>
+<p>Antes de cadastrar receitas, crie os perfis que serão reutilizados:</p>
+<ul><li>Perfis de Mostura: temperaturas e tempos de cada etapa (ex: 'Pale Ale Básico: 67°C por 60min')</li><li>Perfis de Fermentação: temperatura, tempo, diacetil rest (ex: 'Lager Fria: 10°C por 14 dias')</li><li>Perfis de Água: ajuste de minerais por estilo (ex: 'Água Pilsen: dureza 50 ppm')</li></ul>
+<p>Acesse: Produção → Perfis → [Mostura / Fermentação / Água]</p>
+<h1 id="4--m-dulo-de-produ--o">4. Módulo de Produção</h1>
+<p>O módulo de Produção é dividido em duas fases: P1 (Planejamento) e P2 (Execução — Brew Day). Um lote de cerveja começa sempre no P1 e avança para o P2 quando a produção começa.</p>
+<h2>4.1 Fase P1 — Planejamento do Lote</h2>
+<h3>4.1.1 Criando uma Receita</h3>
+<p>Acesse Produção → Receitas → Nova Receita.</p>
+<ol><li>Defina o nome da cerveja, estilo (Ex: American IPA, Pilsen Alemã) e cor EBC.</li><li>Defina o volume de brassagem (litros que sairão do equipamento).</li><li>Adicione os ingredientes: malte base, maltes especiais, lúpulos, levedura, adjuntos e água.</li><li>Para cada ingrediente: nome, quantidade (kg/g/ml/un), ponto de adição (mostura, fervura, dry hop).</li><li>Associe um perfil de mostura e um perfil de fermentação.</li><li>Salve a receita. Ela ficará disponível para criar lotes.</li></ol>
+<div class="tip tip-info"><p>DICA  Use o campo 'Notas da Receita' para registrar observações do cervejeiro (ex: 'dry hop por 5 dias a 18°C para aroma mais intenso').</p></div>
+<h3>4.1.2 Criando um Lote de Produção</h3>
+<p>Acesse Produção → Lotes → Novo Lote.</p>
+<ol><li>Selecione a receita.</li><li>Defina o volume total do lote (pode ser maior que uma brassagem).</li><li>O sistema calcula automaticamente quantas brassagens são necessárias.</li><li>Escolha o tanque de destino.</li><li>Defina a data prevista de início da brassagem.</li><li>Salve. O lote aparecerá no painel de produção com status 'Planejado'.</li></ol>
+<h3>4.1.3 Planejando as Brassagens</h3>
+<p>Cada lote pode ter uma ou mais brassagens (quando o volume é maior que a capacidade do equipamento). Para cada brassagem:</p>
+<ul><li>Selecione o equipamento de brassagem</li><li>Defina a data prevista</li><li>O sistema mostra a disponibilidade do equipamento naquela data</li><li>Confirme para criar a brassagem em status 'Agendada'</li></ul>
+<h2>4.2 Fase P2 — Brew Day (Execução)</h2>
+<p>Acesse Produção → Brassagens → [selecione a brassagem do dia] → Iniciar Brew Day.</p>
+<p>O Brew Day é guiado por um wizard (assistente passo a passo). Cada etapa deve ser concluída antes de avançar para a próxima.</p>
+<h3>→ Mostura: Registre temperatura de entrada da água, temperatura atingida no mash e tempo de repouso.</h3>
+<h3>→ Filtragem: Registre o volume de mosto coletado e a densidade pré-fervura (OG pré-fervura).</h3>
+<h3>→ Fervura: Registre as adições de lúpulo com horário. O sistema usa o perfil da receita como guia.</h3>
+<h3>→ Resfriamento: Registre a temperatura de saída e o volume transferido para o fermentador.</h3>
+<h3>→ Transferência: Selecione o tanque de destino e confirme o volume transferido.</h3>
+<h3>→ OG: Registre a densidade original (OG) medida no densímetro ou refratômetro.</h3>
+<h3>→ Inoculação: Registre a levedura utilizada, quantidade e temperatura de inoculação.</h3>
+<h3>→ Fermentação: Registre leituras periódicas de temperatura e densidade (FG). O sistema rastreia o progresso.</h3>
+<h3>→ Condicionamento: Registre ajustes finais: dry hop, correções de sabor, carbonatação.</h3>
+<h3>→ Envase: Registre o volume envasado em cada barril ou embalagem.</h3>
+<div class="tip tip-warn"><p>IMPORTANTE  Os eventos de produção são imutáveis: nunca são apagados. Se errou algum dado, registre um novo evento de correção com o motivo. Isso garante rastreabilidade total do lote.</p></div>
+<h2>4.3 Lote Terceirizado (Cigano)</h2>
+<p>Se você produz em instalações de terceiros ou presta serviço de produção para outro cervejeiro:</p>
+<ol><li>Na criação do lote, ative a opção 'Lote Terceirizado'.</li><li>Informe o nome da cervejaria cliente.</li><li>O sistema marca o lote com origem 'terceirizado' e pula o consumo automático de estoque (pois os insumos são do cliente, não do seu almoxarifado).</li></ol>
+<h1 id="5--m-dulo-de-almoxarifado">5. Módulo de Almoxarifado</h1>
+<p>O Almoxarifado controla todos os insumos da fábrica: maltes, lúpulos, leveduras, adjuntos, embalagens e materiais auxiliares. O saldo de estoque é calculado automaticamente com base nas entradas e saídas registradas.</p>
+<h2>5.1 Cadastrando Insumos</h2>
+<p>Acesse Almoxarifado → Insumos → Novo Insumo.</p>
+<ul><li>Nome e categoria (malte, lúpulo, levedura, adjunto, embalagem, auxiliar)</li><li>Unidade de medida (kg, g, L, ml, unidade, caixa)</li><li>Estoque mínimo de alerta (o sistema avisa quando ficar abaixo desse nível)</li><li>Fornecedor preferencial (quando o módulo de Fornecedores estiver ativo)</li></ul>
+<h2>5.2 Registrando Entradas</h2>
+<ol><li>Acesse Almoxarifado → Movimentações → Nova Entrada.</li><li>Selecione o insumo e o fornecedor.</li><li>Informe a quantidade recebida, o valor total da nota e a data.</li><li>O sistema atualiza o saldo automaticamente.</li></ol>
+<h3>BOA PRÁTICA  Registre as entradas no mesmo dia do recebimento. Isso mantém o saldo sempre preciso e evita surpresas na hora de planejar uma brassagem.</h3>
+<h2>5.3 Consumo Automático vs. Manual</h2>
+<p>O consumo de insumos acontece de duas formas:</p>
+<ul><li>Automático: ao registrar eventos de produção no Brew Day, o sistema debita automaticamente os insumos da receita do estoque.</li><li>Manual: acesse Movimentações → Nova Saída para registrar perdas, amostras para análise ou transferências com motivo obrigatório.</li></ul>
+<h2>5.4 Inventário</h2>
+<ol><li>Acesse Almoxarifado → Inventário → Iniciar Contagem.</li><li>O sistema mostra o saldo teórico (calculado) de cada insumo.</li><li>Digite a quantidade física contada.</li><li>O sistema gera automaticamente os ajustes de entrada ou saída com log auditável.</li><li>Confirme o inventário. As divergências ficam registradas no histórico.</li></ol>
+<h1 id="6--m-dulo-de-barris-e-ativos">6. Módulo de Barris e Ativos</h1>
+<p>Cada barril é um ativo rastreado individualmente. O sistema usa eventos para registrar tudo que acontece com o barril: enchimento, entrega, devolução, manutenção. O status do barril é sempre calculado com base no histórico de eventos — nunca editado diretamente.</p>
+<h2>6.1 Cadastrando Barris</h2>
+<p>Acesse Ativos → Barris → Novo Barril.</p>
+<ul><li>Código ou número do barril (pode ser o código gravado no barril físico)</li><li>Capacidade (30L, 50L, etc.)</li><li>Tipo (inox, PET, growler)</li><li>Data de aquisição</li></ul>
+<p>Após o cadastro, o barril entra com status 'Disponível'.</p>
+<h2>6.2 Fluxo do Barril</h2>
+<h3>Disponível: Barril limpo, vazio e pronto para encher.</h3>
+<h3>Cheio: Envasado com produto. Associado a um lote de produção.</h3>
+<h3>Reservado: Separado para um pedido. Ainda não saiu da fábrica.</h3>
+<h3>Em Campo: Entregue ao cliente em comodato.</h3>
+<h3>Aguard. Dev.: Cliente confirmou devolução, aguardando recolhimento.</h3>
+<h3>Em Manutenção: Barril com defeito em reparo.</h3>
+<h2>6.3 Enchendo um Barril</h2>
+<ol><li>Após o envase no Brew Day, o sistema registra automaticamente o barril como 'Cheio'.</li><li>Ou acesse Ativos → Barris → [barril] → Registrar Envase.</li><li>Informe o lote de origem e o volume envasado.</li><li>O status muda para 'Cheio' e o barril fica disponível para pedidos.</li></ol>
+<h2>6.4 Comodato — Barril em Campo</h2>
+<p>Quando um barril é entregue ao cliente em comodato, o sistema rastreia automaticamente:</p>
+<ul><li>Data da saída e cliente responsável</li><li>Tempo em campo (dias)</li><li>Alerta de comodato vencido (configurável: ex. 30 dias sem devolução)</li></ul>
+<p>A devolução é registrada no módulo de Logística no momento da recolha.</p>
+<h1 id="7--m-dulo-comercial">7. Módulo Comercial</h1>
+<p>O módulo Comercial gerencia os clientes B2B, pedidos de venda e reservas de produto. Um pedido criado aqui reserva produto logicamente — o estoque só baixa de fato quando a entrega é executada no módulo de Logística.</p>
+<h2>7.1 Cadastrando Clientes</h2>
+<ol><li>Acesse Comercial → Clientes → Novo Cliente.</li><li>Preencha: razão social, nome fantasia, CNPJ, e-mail, telefone, endereço de entrega.</li><li>Defina a condição de pagamento padrão (ex: Boleto 30 dias, À vista no ato).</li><li>Opcionalmente, cadastre quantos barris esse cliente tem em comodato como limite máximo.</li><li>Salve. O cliente já aparece disponível na criação de pedidos.</li></ol>
+<h2>7.2 Criando um Pedido de Venda</h2>
+<ol><li>Acesse Comercial → Pedidos → Novo Pedido.</li><li>Selecione o cliente.</li><li>Defina a data de entrega desejada.</li><li>Adicione os itens: produto (cerveja, barril, embalagem), quantidade, preço.</li><li>Selecione a condição de pagamento para este pedido.</li><li>Se o pedido inclui chopeira ou cilindro de CO₂, selecione o ativo específico para reservar.</li><li>Confirme o pedido. O status vai para 'Confirmado' e o produto é reservado.</li></ol>
+<div class="tip tip-info"><p>DICA  O campo 'Observações da entrega' aparece para o motorista no momento da entrega. Use para informar horário de recebimento, portaria ou pessoa de contato.</p></div>
+<h2>7.3 Acompanhando Pedidos</h2>
+<p>Na lista de pedidos, você vê todos os pedidos com seus status:</p>
+<ul><li>Rascunho: em edição, ainda não confirmado</li><li>Confirmado: reserva feita, aguardando entrega</li><li>Em rota: entregador saiu com o pedido</li><li>Entregue: entrega confirmada, estoque baixado</li><li>Cancelado: pedido cancelado com motivo registrado</li></ul>
+<h1 id="8--m-dulo-de-log-stica">8. Módulo de Logística</h1>
+<p>O módulo de Logística organiza as entregas por rotas. É aqui que o estoque é efetivamente baixado e os ativos (barris, chopeiras, cilindros) são transferidos para o cliente.</p>
+<h2>8.1 Planejando uma Rota de Entrega</h2>
+<ol><li>Acesse Logística → Rotas → Nova Rota.</li><li>Defina a data e o veículo/motorista responsável.</li><li>Adicione os pedidos confirmados que serão entregues nessa rota.</li><li>O sistema calcula a distância estimada com base nos CEPs dos clientes.</li><li>Organize a sequência de paradas (arraste e solte na ordem desejada).</li><li>Salve a rota. Ela fica disponível para execução no dia da entrega.</li></ol>
+<h2>8.2 Executando a Entrega</h2>
+<ol><li>No dia da entrega, acesse a rota e clique 'Iniciar Rota'.</li><li>Para cada parada: confirme os itens entregues, registre quem recebeu.</li><li>Se houver devolução de barril, registre os barris devolvidos nesta parada.</li><li>Ao concluir a parada, o status do pedido muda para 'Entregue' e o estoque é baixado.</li><li>Ao concluir a última parada, finalize a rota.</li></ol>
+<div class="tip tip-warn"><p>ATENÇÃO  Somente a execução da entrega baixa o estoque. Criar o pedido no Comercial apenas reserva o produto — não desconta do saldo.</p></div>
+<h1 id="9--m-dulo-financeiro">9. Módulo Financeiro</h1>
+<p>O Financeiro do BrewControl é gerencial — mostra o fluxo de caixa real da cervejaria, contas a receber, contas a pagar e indicadores de desempenho. Não substitui o sistema contábil fiscal, mas é o painel de controle financeiro do dia a dia.</p>
+<h2>9.1 Lançamentos Financeiros</h2>
+<p>Todo movimento de dinheiro é um lançamento. Lançamentos são criados automaticamente pelo sistema (ex: quando uma entrega é concluída, gera uma conta a receber) ou manualmente.</p>
+<p>Tipos de lançamento:</p>
+<ul><li>Receita: dinheiro que entra (pagamento de pedido, venda no brewpub)</li><li>Despesa: dinheiro que sai (compra de insumo, conta fixa, salário)</li><li>Transferência: movimento entre contas (ex: caixa físico → conta bancária)</li></ul>
+<h2>9.2 Registrando um Recebimento</h2>
+<ol><li>Acesse Financeiro → Contas a Receber.</li><li>Localize o pedido ou lançamento pendente.</li><li>Clique em 'Registrar Recebimento'.</li><li>Informe a data, o valor recebido e a forma de pagamento (PIX, boleto, cartão, dinheiro, transferência).</li><li>Confirme. O lançamento passa para status 'Recebido'.</li></ol>
+<h2>9.3 Dashboard Financeiro</h2>
+<p>O painel financeiro mostra:</p>
+<ul><li>Total a receber (no mês atual e próximos 30 dias)</li><li>Total recebido no mês</li><li>Total de despesas no mês</li><li>Saldo do período</li><li>Gráfico de entradas vs. saídas por semana</li><li>Lista de parcelas em atraso com destaque em vermelho</li></ul>
+<h2>9.4 Planos de Assinatura</h2>
+<p>Acesse Financeiro → Plano para visualizar e gerenciar sua assinatura do BrewControl. Você vê o plano atual, a data de vencimento e os módulos incluídos. Módulos não incluídos no plano aparecem travados com botão 'Fazer upgrade'.</p>
+<h1 id="10--m-dulo-brewpub---atendimento-e-pdv">10. Módulo Brewpub — Atendimento e PDV</h1>
+<p>O módulo Brewpub é o sistema de ponto de venda do bar. Funciona para cervejarias com taproom, brewpub completo com cozinha ou bar de chope. O sistema adapta automaticamente o que aparece conforme os módulos ativos da sua cervejaria.</p>
+<h2>10.1 Perfis de Operação</h2>
+<h2>10.2 Mapa de Mesas</h2>
+<p>A tela principal do Brewpub é o mapa de mesas. Cada mesa aparece como um card colorido:</p>
+<ul><li>Verde: mesa livre</li><li>Vermelho: mesa ocupada — mostra garçom, valor acumulado e tempo de ocupação</li><li>Amarelo: aguardando atendimento</li><li>Azul: mesa reservada</li></ul>
+<p>Para abrir uma mesa:</p>
+<ol><li>Toque no card da mesa desejada.</li><li>Informe o número de pessoas e o nome ou PIN do garçom responsável.</li><li>A mesa abre e aparece como 'Ocupada' para todos os dispositivos.</li></ol>
+<h2>10.3 Lançando Itens na Comanda</h2>
+<ol><li>Toque na mesa ocupada → Lançar pedido.</li><li>Navegue pelas categorias do cardápio (Chopes, Drinks, Petiscos, Pratos...).</li><li>Toque no item e ajuste a quantidade.</li><li>Adicione observações se necessário (ex: 'sem gelo', 'bem passado').</li><li>Confirme. O pedido vai automaticamente para a impressora correta:</li></ol>
+<ul><li>Bebidas → impressora do bar</li><li>Comida → impressora da cozinha / KDS</li></ul>
+<ol><li>O garçom recebe confirmação na tela.</li></ol>
+<div class="tip tip-info"><p>DICA  Itens podem ser adicionados em várias rodadas sem fechar a comanda. A comanda só fecha quando o cliente paga.</p></div>
+<h2>10.4 Cancelando um Item</h2>
+<ol><li>Acesse a comanda → toque no item → Cancelar item.</li><li>Digite o motivo do cancelamento.</li><li>Se necessário, informe o PIN do gerente para autorizar.</li><li>O cancelamento fica registrado no log auditável.</li></ol>
+<h2>10.5 Transferências e Divisões</h2>
+<p>Situações especiais que o sistema suporta:</p>
+<ul><li>Transferir item para outra mesa: útil quando o cliente muda de lugar</li><li>Transferir mesa inteira: mesa 4 vira mesa 7, por exemplo</li><li>Dividir conta: em partes iguais ou por seleção manual de itens por pessoa</li><li>Juntar mesas: agrupa duas mesas em uma comanda única</li></ul>
+<h2>10.6 Cardápio e Torneiras</h2>
+<p>O cardápio é configurado em Admin → Brewpub → Cardápio. Cada item tem:</p>
+<ul><li>Nome, descrição, foto e preço</li><li>Categoria (Chopes, Cervejas, Drinks, Petiscos, Pratos, Sobremesas)</li><li>Destino de impressão: bar ou cozinha</li><li>Status ativo/inativo (para tirar do cardápio temporariamente)</li></ul>
+<p>Torneiras e Chope:</p>
+<ul><li>Cada torneira é vinculada a um barril físico do módulo Ativos</li><li>Ao lançar um copo de chope, o volume é debitado do barril automaticamente</li><li>O sistema mostra o nível estimado de cada torneira em tempo real</li><li>Alerta automático quando o barril está próximo de acabar</li><li>Quando o barril acaba, a torneira desaparece do cardápio do garçom automaticamente</li></ul>
+<h2>10.7 Fechamento de Mesa e Pagamento</h2>
+<ol><li>Acesse a mesa → Fechar Comanda.</li><li>Revise os itens e o valor total.</li><li>Selecione a forma de pagamento: dinheiro, PIX (QR code gerado na tela), cartão crédito/débito, voucher ou misto.</li><li>Para divisão de conta: selecione 'Dividir' antes do pagamento.</li><li>Confirme o pagamento.</li><li>O sistema registra a venda no financeiro automaticamente.</li><li>O cupom de consumo (não fiscal) pode ser impresso ou enviado.</li></ol>
+<h2>10.8 Caixa e Turno</h2>
+<p>Abertura do turno:</p>
+<ol><li>Acesse Brewpub → Caixa → Abrir Turno.</li><li>Informe o operador responsável e o saldo inicial em dinheiro.</li></ol>
+<p>Durante o turno:</p>
+<ul><li>Sangria: retirada de dinheiro com motivo registrado</li><li>Suporte: múltiplos operadores podem trabalhar no mesmo turno</li></ul>
+<p>Fechamento do turno:</p>
+<ol><li>Acesse Brewpub → Caixa → Fechar Turno.</li><li>Informe o valor contado em caixa por forma de pagamento.</li><li>O sistema compara com o valor calculado e mostra a diferença.</li><li>Confirme o fechamento. O relatório do turno fica disponível para impressão.</li></ol>
+<h1 id="11--pdv-mobile---balc-o-e-torneiras">11. PDV Mobile — Balcão e Torneiras</h1>
+<p>O PDV Mobile é uma tela pública acessada pelo endereço brewcontrol.app.br/brewpub — sem necessidade de login, protegida por PIN. É usada no tablet do balcão para controle de chopp nas torneiras.</p>
+<h2>11.1 Acessando o PDV Mobile</h2>
+<ol><li>Abra o link brewcontrol.app.br/brewpub no tablet ou computador do balcão.</li><li>Digite o PIN de 4 dígitos configurado pelo administrador.</li><li>A tela de torneiras aparece com o status de cada barril em tempo real.</li></ol>
+<h2>11.2 Registrando uma Venda de Chopp</h2>
+<ol><li>Toque na torneira correspondente.</li><li>Toque em '+1 Copo' para registrar uma venda.</li><li>O sistema debita o volume do barril e registra a venda no histórico.</li><li>Para registrar uma perda (espuma excessiva, derramamento): toque em 'Registrar Perda'.</li></ol>
+<h2>11.3 Modo Simples vs. Modo Copos</h2>
+<ul><li>Modo Simples: apenas registra +1 venda por toque (sem escolher o tamanho do copo)</li><li>Modo Copos: o operador escolhe o tamanho do copo a cada venda (300ml, 400ml, 500ml)</li></ul>
+<p>O modo é configurado pelo administrador em Admin → Brewpub → Configurações do PDV.</p>
+<h2>11.4 Encerramento de Sessão</h2>
+<ol><li>Acesse o menu → Encerrar Sessão.</li><li>O sistema exibe um resumo: vendas do turno por torneira, volume total vendido, total de perdas.</li><li>Confirme para encerrar. Os dados ficam no histórico.</li></ol>
+<h1 id="12--relat-rios-e-indicadores">12. Relatórios e Indicadores</h1>
+<p>O BrewControl gera relatórios e documentos em PDF diretamente das telas de cada módulo.</p>
+<h2>12.1 Relatórios Disponíveis</h2>
+<h3>Produção</h3>
+<ul><li>Ficha de brassagem (detalhamento completo do lote)</li><li>Histórico de eventos de um lote</li><li>Consumo de insumos por lote</li></ul>
+<h3>Almoxarifado</h3>
+<ul><li>Saldo atual por categoria</li><li>Movimentações do período</li><li>Inventário comparativo (teórico vs. físico)</li></ul>
+<h3>Comercial</h3>
+<ul><li>Pedidos por cliente</li><li>Pedidos por período</li><li>Produtos mais vendidos</li></ul>
+<h3>Financeiro</h3>
+<ul><li>Contas a receber do período</li><li>Fluxo de caixa</li><li>Extrato por forma de pagamento</li></ul>
+<h3>Brewpub</h3>
+<ul><li>Relatório de turno</li><li>Vendas por produto</li><li>Volume de chopp por torneira</li><li>Ticket médio por mesa</li></ul>
+<h2>12.2 Como Exportar</h2>
+<p>Em qualquer tela de relatório, use os botões:</p>
+<ul><li>PDF: gera o documento formatado com logo da cervejaria para imprimir ou compartilhar</li><li>CSV: exporta os dados em planilha para análise no Excel ou Google Sheets</li></ul>
+<h1 id="13--rotinas-di-rias-por-fun--o">13. Rotinas Diárias por Função</h1>
+<h2>13.1 Checklist de Abertura — Caixa / Gerente</h2>
+<ol><li>Acesse o Brewpub → verificar mesas abertas (se alguma ficou do dia anterior).</li><li>Abra o turno de caixa com o saldo inicial.</li><li>Verifique o nível de cada torneira no painel de Ativos → Barris.</li><li>Cheque o painel de Almoxarifado por alertas de estoque mínimo.</li><li>Confirme as entregas do dia em Logística → Rotas.</li></ol>
+<h2>13.2 Rotina de Produção — Cervejeiro</h2>
+<ol><li>Verifique a brassagem do dia em Produção → Brassagens.</li><li>Registre as leituras de fermentação dos tanques ativos (temperatura, densidade).</li><li>Execute os eventos do Brew Day se houver brassagem programada.</li><li>Registre qualquer ajuste (adição de lúpulo, nutrientes, corrações de pH) como evento.</li></ol>
+<h2>13.3 Rotina Comercial</h2>
+<ol><li>Verifique os pedidos com entrega prevista para hoje em Comercial → Pedidos.</li><li>Confirme com a logística que os pedidos estão em rota.</li><li>Registre novos pedidos recebidos por WhatsApp, e-mail ou visita.</li><li>Acompanhe os recebimentos pendentes em Financeiro → Contas a Receber.</li></ol>
+<h2>13.4 Checklist de Fechamento — Caixa / Gerente</h2>
+<ol><li>Feche o turno de caixa: conte o dinheiro e confirme o fechamento.</li><li>Verifique se todas as mesas foram fechadas.</li><li>Confirme as entregas do dia como 'Entregues' no módulo Logística.</li><li>Revise os alertas do dia no sino de notificações.</li></ol>
+<h1 id="14--perguntas-frequentes-e-erros-comuns">14. Perguntas Frequentes e Erros Comuns</h1>
+<h3>P: Não consigo ver um módulo no menu.</h3>
+<p>R: Seu usuário provavelmente não tem o papel necessário. Peça ao administrador para verificar suas permissões em Admin → Usuários.</p>
+<h3>P: O saldo de estoque está errado.</h3>
+<p>R: Acesse o histórico de movimentações do insumo (Almoxarifado → Insumos → [item] → Histórico). Verifique se houve consumo automático não esperado após um evento de produção. Para correção: faça um inventário e registre o ajuste com motivo.</p>
+<h3>P: O barril sumiu do estoque.</h3>
+<p>R: O barril provavelmente foi entregue e está 'Em Campo'. Acesse Ativos → Barris e filtre por status 'Em Campo'.</p>
+<h3>P: O pedido não está avançando para 'Entregue'.</h3>
+<p>R: A entrega precisa ser registrada no módulo Logística → Rotas. Só o registro da execução da entrega muda o status do pedido.</p>
+<h3>P: A comanda sumiu no Brewpub.</h3>
+<p>R: Verifique se a mesa foi fechada por outro operador. Acesse Brewpub → Histórico de Comandas para localizar.</p>
+<h3>P: O financeiro não está mostrando um pagamento que fizemos.</h3>
+<p>R: O pagamento precisa ser registrado manualmente em Financeiro → Contas a Receber → Registrar Recebimento. Entregas confirmadas geram a conta a receber, mas o recebimento em si sempre precisa de confirmação.</p>
+<h3>P: Errei um dado em um evento de produção.</h3>
+<p>R: Eventos de produção não podem ser editados ou apagados. Registre um novo evento de correção com o valor correto e o motivo da correção. O sistema mantém ambos no histórico para rastreabilidade.</p>
+<h3>P: O nome do meu plano está como 'Trial'.</h3>
+<p>R: O período de avaliação gratuita está ativo. Acesse Financeiro → Plano para contratar um plano ou entre em contato pelo suporte.</p>
+<h1 id="15--boas-pr-ticas-de-uso">15. Boas Práticas de Uso</h1>
+<h2>15.1 Para a Equipe de Produção</h2>
+<ul><li>Registre os eventos no mesmo dia em que acontecem. Dados retroativos reduzem a precisão dos relatórios.</li><li>Sempre leia a densidade no início e no fim da fermentação — são dados críticos para o cálculo do teor alcoólico.</li><li>Use o campo de Notas para registrar observações que não cabem nos campos estruturados.</li><li>Quando um lote apresentar desvio (temperatura fora do perfil, OG errada), registre o evento de desvio imediatamente com o motivo.</li></ul>
+<h2>15.2 Para o Comercial</h2>
+<ul><li>Preencha o endereço completo dos clientes, incluindo CEP. O sistema usa o CEP para calcular distância e sugerir frete.</li><li>Defina a condição de pagamento padrão no cadastro do cliente para agilizar a criação de pedidos.</li><li>Use o campo de Observações para registrar combinados especiais (ex: 'prefere entrega às terças pela manhã').</li></ul>
+<h2>15.3 Para o Financeiro</h2>
+<ul><li>Registre os recebimentos no mesmo dia do depósito ou transferência. Isso mantém o fluxo de caixa preciso.</li><li>Categorize cada lançamento corretamente — isso alimentará futuramente o DRE e o fluxo por competência.</li></ul>
+<h2>15.4 Para o Brewpub</h2>
+<ul><li>Sempre abra o turno antes de começar a atender. O fechamento de caixa depende da abertura correta.</li><li>Treine garçons para lançar os itens no momento do pedido, não no fechamento da mesa.</li><li>Configure o estoque mínimo dos barris para receber alertas antes de acabar, evitando torneiras secas.</li></ul>
+<h1 id="16--suporte-e-contato">16. Suporte e Contato</h1>
+<p>Em caso de dúvidas ou problemas técnicos, entre em contato:</p>
+<ul><li>Site: www.brewcontrol.app.br</li><li>E-mail de suporte: suporte@brewcontrol.app.br</li><li>Central de Ajuda: ajuda.brewcontrol.app.br</li><li>Chat dentro do sistema: ícone de balão no canto inferior direito da tela</li></ul>
+<p>Para sugestões de melhorias, novos recursos ou feedback, acesse o menu do seu perfil → 'Enviar Sugestão'.</p>
+<p>BrewControl ERP  ·  Feito para cervejeiros brasileiros  🍺</p>
+<h3>app.brewcontrol.app.br</h3>
+  </main>
+</div>
+
+<footer class="guide-footer">
+  <p>© 2026 BrewControl. Todos os direitos reservados. &nbsp;·&nbsp; <a href="index.html">Voltar ao site</a> &nbsp;·&nbsp; <a href="https://wa.me/5527981848184">Suporte via WhatsApp</a></p>
+</footer>
+
+</body>
+</html>

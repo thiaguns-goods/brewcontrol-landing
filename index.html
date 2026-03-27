@@ -15,11 +15,19 @@
 <meta name="twitter:title" content="BrewControl — ERP para cervejarias artesanais">
 <meta name="twitter:description" content="Gestão completa para sua cervejaria: produção, estoque, comercial e logística em um só lugar.">
 
+<!-- SUBSTITUIR G-XXXXXXXXXX PELO SEU ID DO GA4 (atual: G-JVBBG635J3) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JVBBG635J3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-JVBBG635J3');
+</script>
+
 <!-- Fonts -->
 <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800,900&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
-<script src="site-config.js"></script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"SoftwareApplication","name":"BrewControl","applicationCategory":"BusinessApplication","operatingSystem":"Web","description":"ERP para cervejarias artesanais — produção, estoque, comercial, logística e relatórios integrados.","offers":{"@type":"Offer","priceCurrency":"BRL","price":"197","priceValidUntil":"2027-12-31"}}
 </script>
@@ -42,6 +50,7 @@
       <a href="#modules" class="nav-link">Módulos</a>
       <a href="#demo" class="nav-link">Na prática</a>
       <a href="#pricing" class="nav-link">Planos</a>
+      <a href="guia.html" class="nav-link">Guia do Usuário</a>
     </nav>
     <div class="header-actions">
       <a href="#waitlist" class="btn btn-primary">Acesso Antecipado</a>
@@ -55,7 +64,8 @@
     <a href="#modules" class="nav-link">Módulos</a>
     <a href="#demo" class="nav-link">Na prática</a>
     <a href="#pricing" class="nav-link">Planos</a>
-    <a href="#waitlist" class="btn btn-primary nav-mobile-cta">Acesso Antecipado</a>
+    <a href="guia.html" class="nav-link">Guia do Usuário</a>
+    <a href="https://app.brewcontrol.app.br" class="btn btn-primary nav-mobile-cta" target="_blank" rel="noopener noreferrer">Acesso Antecipado</a>
   </nav>
 </header>
 
@@ -73,12 +83,12 @@
     <h1 class="hero-title">Gestão completa<br>para sua <span class="accent-amber">cervejaria</span></h1>
     <p class="hero-sub">BrewControl conecta produção, estoque, pedidos, logística e relatórios em uma única plataforma. Feito para substituir planilhas e WhatsApp pela rotina real da fábrica.</p>
     <div class="hero-cta">
-      <a href="#waitlist" class="btn btn-hero">Quero acesso antecipado</a>
+      <a href="https://app.brewcontrol.app.br" class="btn btn-hero" target="_blank" rel="noopener noreferrer">Quero acesso antecipado</a>
       <a href="#modules" class="btn btn-ghost">Ver funcionalidades</a>
     </div>
     <div class="hero-stats">
       <div class="stat">
-        <span class="stat-num">10+</span>
+        <span class="stat-num">12+</span>
         <span class="stat-label">Módulos integrados</span>
       </div>
       <div class="stat-divider"></div>
@@ -199,59 +209,140 @@
     <p class="section-sub">Do planejamento da brassagem até a entrega ao cliente — cada etapa da operação coberta.</p>
     <div class="modules-grid">
 
+      <!-- PRODUÇÃO — featured -->
       <div class="module-card module-featured">
         <div class="module-icon-wrap" style="background: rgba(245,193,0,0.12); border-color: rgba(245,193,0,0.2);">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F5C100" stroke-width="1.5"><path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/></svg>
         </div>
         <div class="module-tag">PRINCIPAL</div>
         <h3 class="module-title">Hub de Produção</h3>
-        <p class="module-desc">Gerencie receitas, estilos BJCP, lotes completos, equipamentos, tanques e brassagens. Da receita ao tanque com linha do tempo completa.</p>
+        <p class="module-desc">Gerencie receitas, estilos BJCP, lotes completos, equipamentos, tanques e brassagens. Da receita ao envase com linha do tempo e rastreabilidade total.</p>
         <ul class="module-list">
           <li>Receitas &amp; Estilos com fichas técnicas</li>
-          <li>Lotes de produção (P1 à adega)</li>
-          <li>Brassagens com registro por etapa</li>
-          <li>Adega &amp; Tanques em tempo real</li>
+          <li>Lotes de produção P1 (planejamento) e P2 (Brew Day)</li>
+          <li>Adega &amp; Tanques com status em tempo real</li>
+          <li>Envase, Inteligência &amp; Programação de Compras</li>
         </ul>
       </div>
 
+      <!-- BREWPUB -->
+      <div class="module-card">
+        <div class="module-icon-wrap" style="background: rgba(251,146,60,0.12); border-color: rgba(251,146,60,0.2);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FB923C" stroke-width="1.5"><path d="M8 2h8v2H8zM6 4h12v14H6zM6 18c0 2 2 4 6 4s6-2 6-4"/><path d="M10 10h4M10 14h4"/></svg>
+        </div>
+        <h3 class="module-title">Brewpub &amp; Bar</h3>
+        <p class="module-desc">Gestão completa do bar integrado à cervejaria: mesas, comandas, cardápio com chope, caixa do turno e controle de torneiras.</p>
+        <ul class="module-list">
+          <li>Comandas por mesa com cardápio do bar</li>
+          <li>Torneiras vinculadas aos barris da adega</li>
+          <li>Caixa do dia e turno com abertura/fechamento</li>
+          <li>Receita do bar integrada ao Financeiro</li>
+        </ul>
+      </div>
+
+      <!-- ATIVOS & BARRIS -->
+      <div class="module-card">
+        <div class="module-icon-wrap" style="background: rgba(52,211,153,0.1); border-color: rgba(52,211,153,0.2);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+        </div>
+        <h3 class="module-title">Ativos &amp; Barris</h3>
+        <p class="module-desc">56+ ativos rastreados individualmente: barris e kegs, chopeiras e equipamentos, cilindros de CO₂. Comodato, reservas e pesagem de gás.</p>
+        <ul class="module-list">
+          <li>Barris com status (cheio, disponível, em cliente)</li>
+          <li>Chopeiras e cilindros com nível visual de CO₂</li>
+          <li>Histórico imutável de eventos por ativo</li>
+          <li>Comodato, ler etiqueta e Painel TV</li>
+        </ul>
+      </div>
+
+      <!-- FINANCEIRO -->
+      <div class="module-card">
+        <div class="module-icon-wrap" style="background: rgba(34,197,94,0.1); border-color: rgba(34,197,94,0.2);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <h3 class="module-title">Financeiro</h3>
+        <p class="module-desc">Controle gerencial completo: lançamentos, contas a receber e pagar, caixa operacional, DRE gerencial e receitas separadas por origem.</p>
+        <ul class="module-list">
+          <li>Pipeline de recebíveis por canal (B2B, Bar, PDV)</li>
+          <li>DRE Gerencial e Centros de Custo</li>
+          <li>Contas a pagar e fluxo de caixa</li>
+          <li>Relatórios financeiros por período e cliente</li>
+        </ul>
+      </div>
+
+      <!-- ALMOXARIFADO -->
       <div class="module-card">
         <div class="module-icon-wrap" style="background: rgba(80,160,120,0.1); border-color: rgba(80,160,120,0.2);">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#50A078" stroke-width="1.5"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
         </div>
         <h3 class="module-title">Almoxarifado</h3>
-        <p class="module-desc">Controle total de insumos, embalagens e materiais. Entradas, saídas, alertas de estoque mínimo e rastreabilidade por lote.</p>
+        <p class="module-desc">Controle total de insumos: malte, lúpulo, levedura e adjuntos. Custo médio ponderado automático, inventário físico e consumo integrado à produção.</p>
+        <ul class="module-list">
+          <li>81+ insumos categorizados com custo médio</li>
+          <li>Consumo automático vinculado às brassagens</li>
+          <li>Inventário físico com ajuste auditável</li>
+          <li>Programação de compras inteligente</li>
+        </ul>
       </div>
 
+      <!-- COMERCIAL -->
       <div class="module-card">
         <div class="module-icon-wrap" style="background: rgba(100,140,220,0.1); border-color: rgba(100,140,220,0.2);">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6B8FDC" stroke-width="1.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
         </div>
         <h3 class="module-title">Comercial</h3>
-        <p class="module-desc">Pedidos, clientes, faturamento e metas de venda. Modo Festival para operações de alto volume. Preço por canal.</p>
+        <p class="module-desc">Pedidos B2B, clientes, metas e tabela de preços por canal. Modo Festival para alto volume. Alertas de entrega atrasada e pagamento em aberto.</p>
+        <ul class="module-list">
+          <li>Pedidos com reserva lógica de estoque</li>
+          <li>Preço por canal: Delivery, Distribuidor, Festival</li>
+          <li>Metas de vendas com acompanhamento</li>
+          <li>Sessões Festival para operações especiais</li>
+        </ul>
       </div>
 
+      <!-- LOGÍSTICA -->
       <div class="module-card">
         <div class="module-icon-wrap" style="background: rgba(200,100,80,0.1); border-color: rgba(200,100,80,0.2);">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C86450" stroke-width="1.5"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
         </div>
         <h3 class="module-title">Logística</h3>
-        <p class="module-desc">Entregas, rotas, controle de barris e ativos. Rastreamento de devoluções e histórico completo de movimentações.</p>
+        <p class="module-desc">Rotas de entrega, controle de ativos em campo, devoluções de barris e nova coleta. Entregas do dia com calendário e controle de km rodados.</p>
+        <ul class="module-list">
+          <li>Rotas com múltiplas paradas e sequência</li>
+          <li>Baixa de estoque na execução da entrega</li>
+          <li>Barris em campo: comodatos e devoluções</li>
+          <li>Controle de KM e histórico de rotas</li>
+        </ul>
       </div>
 
+      <!-- FISCAL -->
+      <div class="module-card">
+        <div class="module-icon-wrap" style="background: rgba(168,85,247,0.1); border-color: rgba(168,85,247,0.2);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A855F7" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <h3 class="module-title">Fiscal</h3>
+        <p class="module-desc">Emissão de NF-e e NFC-e integrada à SEFAZ. Robô Fiscal para consulta automática, documentos emitidos e cancelamento — tudo sem sair do sistema.</p>
+        <ul class="module-list">
+          <li>NFC-e automática ao fechar comanda do bar</li>
+          <li>NF-e para vendas B2B ao confirmar entrega</li>
+          <li>Robô Fiscal: consulta automática de documentos</li>
+          <li>Histórico de emissões com DANFE e XML</li>
+        </ul>
+      </div>
+
+      <!-- PDV MOBILE -->
       <div class="module-card">
         <div class="module-icon-wrap" style="background: rgba(170,120,200,0.1); border-color: rgba(170,120,200,0.2);">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#AA78C8" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/><path d="M9 6h6M9 10h6M9 14h4"/></svg>
         </div>
         <h3 class="module-title">PDV Mobile</h3>
-        <p class="module-desc">Ponto de venda otimizado para celular e tablet. Ideal para taprooms, festivais e vendas diretas com checkout rápido.</p>
-      </div>
-
-      <div class="module-card">
-        <div class="module-icon-wrap" style="background: rgba(245,193,0,0.08); border-color: rgba(245,193,0,0.15);">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F5C100" stroke-width="1.5"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
-        </div>
-        <h3 class="module-title">Relatórios</h3>
-        <p class="module-desc">Dashboards de produção, financeiro e comercial. Indicadores de eficiência, custo por lote e performance de vendas.</p>
+        <p class="module-desc">Ponto de venda no balcão via tablet ou celular, sem login. Controle de torneiras em tempo real, vendas de chopp por toque e resumo de sessão.</p>
+        <ul class="module-list">
+          <li>Acesso por PIN — sem precisar de conta</li>
+          <li>Modo torneiras: +1 copo por toque</li>
+          <li>Débito automático no barril vinculado</li>
+          <li>Resumo de sessão ao encerrar</li>
+        </ul>
       </div>
 
     </div>
@@ -265,22 +356,41 @@
     <h2 class="section-title">Interface feita para a rotina<br>real da cervejaria</h2>
     <p class="section-sub">Dark mode por padrão, design denso e visual. Cada módulo pensado para o mestre cervejeiro, não para o TI.</p>
     <div class="screenshots-tabs" role="tablist" aria-label="Telas do produto">
-      <button type="button" class="stab stab-active" role="tab" id="tabBtnProducao" aria-selected="true" aria-controls="tabPanelProducao" data-tab="producao">Produção</button>
+      <button type="button" class="stab stab-active" role="tab" id="tabBtnDashboard" aria-selected="true" aria-controls="tabPanelDashboard" data-tab="dashboard">Dashboard</button>
+      <button type="button" class="stab" role="tab" id="tabBtnProducao" aria-selected="false" aria-controls="tabPanelProducao" data-tab="producao" tabindex="-1">Produção</button>
+      <button type="button" class="stab" role="tab" id="tabBtnBrewpub" aria-selected="false" aria-controls="tabPanelBrewpub" data-tab="brewpub" tabindex="-1">Brewpub</button>
       <button type="button" class="stab" role="tab" id="tabBtnComercial" aria-selected="false" aria-controls="tabPanelComercial" data-tab="comercial" tabindex="-1">Comercial</button>
-      <button type="button" class="stab" role="tab" id="tabBtnDashboard" aria-selected="false" aria-controls="tabPanelDashboard" data-tab="dashboard" tabindex="-1">Dashboard</button>
-      <button type="button" class="stab" role="tab" id="tabBtnPatrimonio" aria-selected="false" aria-controls="tabPanelPatrimonio" data-tab="patrimonio" tabindex="-1">Patrimônio</button>
-      <button type="button" class="stab" role="tab" id="tabBtnBarris" aria-selected="false" aria-controls="tabPanelBarris" data-tab="barris" tabindex="-1">Barris</button>
-      <button type="button" class="stab" role="tab" id="tabBtnCo2" aria-selected="false" aria-controls="tabPanelCo2" data-tab="co2" tabindex="-1">CO₂</button>
+      <button type="button" class="stab" role="tab" id="tabBtnAlmoxarifado" aria-selected="false" aria-controls="tabPanelAlmoxarifado" data-tab="almoxarifado" tabindex="-1">Almoxarifado</button>
+      <button type="button" class="stab" role="tab" id="tabBtnPatrimonio" aria-selected="false" aria-controls="tabPanelPatrimonio" data-tab="patrimonio" tabindex="-1">Ativos</button>
       <button type="button" class="stab" role="tab" id="tabBtnFinanceiro" aria-selected="false" aria-controls="tabPanelFinanceiro" data-tab="financeiro" tabindex="-1">Financeiro</button>
+      <button type="button" class="stab" role="tab" id="tabBtnLogistica" aria-selected="false" aria-controls="tabPanelLogistica" data-tab="logistica" tabindex="-1">Logística</button>
+      <button type="button" class="stab" role="tab" id="tabBtnFiscal" aria-selected="false" aria-controls="tabPanelFiscal" data-tab="fiscal" tabindex="-1">Fiscal</button>
     </div>
     <div class="screenshot-wrap" id="screenshotWrap">
-      <div class="screenshot-container" id="tabPanelProducao" role="tabpanel" data-panel="producao" aria-labelledby="tabBtnProducao">
+      <!-- DASHBOARD — primeiro (novo padrão) -->
+      <div class="screenshot-container" id="tabPanelDashboard" role="tabpanel" data-panel="dashboard" aria-labelledby="tabBtnDashboard">
+        <div class="screenshot-frame">
+          <div class="sf-bar">
+            <div class="sf-dots"><span></span><span></span><span></span></div>
+            <div class="sf-url">brewcontrol.app/dashboard</div>
+          </div>
+          <img src="screenshots/dashboard-operacional.png" alt="Dashboard operacional BrewControl — visão geral da cervejaria em tempo real" class="screenshot-img" width="1200" height="750" loading="lazy" decoding="async" data-fallback-label="Captura: Dashboard operacional">
+        </div>
+        <div class="screenshot-caption">
+          <div class="cap-badge cap-amber">VISÃO GERAL</div>
+          <h3>Tudo da operação em uma tela</h3>
+          <p>Lotes em produção, estoque pronto, pedidos do dia e entregas agendadas — com acesso rápido para as ações mais usadas. Alertas de entrega atrasada e aviso de implantação pendente no topo.</p>
+        </div>
+      </div>
+
+      <!-- PRODUÇÃO -->
+      <div class="screenshot-container" id="tabPanelProducao" role="tabpanel" data-panel="producao" aria-labelledby="tabBtnProducao" hidden>
         <div class="screenshot-frame">
           <div class="sf-bar">
             <div class="sf-dots"><span></span><span></span><span></span></div>
             <div class="sf-url">brewcontrol.app/producao</div>
           </div>
-          <img src="screenshots/producao.jpg" alt="Hub de Produção do BrewControl — receitas, lotes, brassagens, adega e envase" class="screenshot-img" width="1200" height="750" loading="lazy" decoding="async" data-fallback-label="Captura: Hub de Produção">
+          <img src="screenshots/producao.png" alt="Hub de Produção do BrewControl — receitas, lotes, brassagens, adega e envase" class="screenshot-img" width="1200" height="750" loading="lazy" decoding="async" data-fallback-label="Captura: Hub de Produção">
         </div>
         <div class="screenshot-caption">
           <div class="cap-badge cap-amber">PRODUÇÃO</div>
@@ -288,13 +398,30 @@
           <p>Gerencie receitas, acompanhe cada lote da brassagem ao envase, monitore tanques em tempo real e registre eventos de produção — tudo em um hub visual e organizado.</p>
         </div>
       </div>
+      <!-- BREWPUB -->
+      <div class="screenshot-container" id="tabPanelBrewpub" role="tabpanel" data-panel="brewpub" aria-labelledby="tabBtnBrewpub" hidden>
+        <div class="screenshot-frame">
+          <div class="sf-bar">
+            <div class="sf-dots"><span></span><span></span><span></span></div>
+            <div class="sf-url">brewcontrol.app/pdv</div>
+          </div>
+          <img src="screenshots/brewpub.png" alt="Brewpub BrewControl — comandas, cardápio, caixa, turno e torneiras integradas aos barris" class="screenshot-img" width="1200" height="750" loading="lazy" decoding="async" data-fallback-label="Captura: Brewpub">
+        </div>
+        <div class="screenshot-caption">
+          <div class="cap-badge" style="background:rgba(251,146,60,0.15);color:#FB923C;border-color:rgba(251,146,60,0.3)">BREWPUB</div>
+          <h3>Bar integrado à cervejaria</h3>
+          <p>Comandas por mesa, cardápio com chope vinculado às torneiras, caixa do dia, turno de caixa com abertura e fechamento. Receita do bar alimenta o financeiro automaticamente.</p>
+        </div>
+      </div>
+
+      <!-- COMERCIAL -->
       <div class="screenshot-container" id="tabPanelComercial" role="tabpanel" data-panel="comercial" aria-labelledby="tabBtnComercial" hidden>
         <div class="screenshot-frame">
           <div class="sf-bar">
             <div class="sf-dots"><span></span><span></span><span></span></div>
             <div class="sf-url">brewcontrol.app/comercial</div>
           </div>
-          <img src="screenshots/comercial.jpg" alt="Dashboard Comercial do BrewControl — pedidos, clientes e faturamento" class="screenshot-img" width="1200" height="750" loading="lazy" decoding="async" data-fallback-label="Captura: Comercial">
+          <img src="screenshots/comercial.png" alt="Dashboard Comercial do BrewControl — pedidos, clientes e faturamento" class="screenshot-img" width="1200" height="750" loading="lazy" decoding="async" data-fallback-label="Captura: Comercial">
         </div>
         <div class="screenshot-caption">
           <div class="cap-badge cap-green">COMERCIAL</div>
@@ -302,18 +429,19 @@
           <p>Acompanhe pedidos pendentes, faturamento do mês e base de clientes ativa. Com Modo Festival para operações de alto volume e controle de preço por canal.</p>
         </div>
       </div>
-      <div class="screenshot-container" id="tabPanelDashboard" role="tabpanel" data-panel="dashboard" aria-labelledby="tabBtnDashboard" hidden>
+      <!-- ALMOXARIFADO -->
+      <div class="screenshot-container" id="tabPanelAlmoxarifado" role="tabpanel" data-panel="almoxarifado" aria-labelledby="tabBtnAlmoxarifado" hidden>
         <div class="screenshot-frame">
           <div class="sf-bar">
             <div class="sf-dots"><span></span><span></span><span></span></div>
-            <div class="sf-url">brewcontrol.app/dashboard</div>
+            <div class="sf-url">brewcontrol.app/almoxarifado</div>
           </div>
-          <img src="screenshots/dashboard-operacional.png" alt="Dashboard operacional BrewControl — acesso rápido, produção, estoque, vendas e logística" class="screenshot-img" width="1200" height="750" loading="lazy" decoding="async" data-fallback-label="Captura: Dashboard operacional">
+          <img src="screenshots/almoxarifado.png" alt="Almoxarifado BrewControl — estoque de insumos, custo médio e movimentações" class="screenshot-img" width="1200" height="750" loading="lazy" decoding="async" data-fallback-label="Captura: Almoxarifado">
         </div>
         <div class="screenshot-caption">
-          <div class="cap-badge cap-amber">VISÃO GERAL</div>
-          <h3>Um painel para a operação inteira</h3>
-          <p>Atalhos para pedido, brassagem, estoque e logística; gráficos de fluxo de tanques e brassagem; próximos lotes com estágio e progresso; metas de vendas, entregas pendentes e atividade recente.</p>
+          <div class="cap-badge cap-emerald">ALMOXARIFADO</div>
+          <h3>Estoque de insumos sob controle</h3>
+          <p>Cadastro com custo médio ponderado, categorias por tipo (malte, lúpulo, levedura, adjunto), movimentações rastreadas e alerta de estoque mínimo — integrado ao consumo automático das brassagens.</p>
         </div>
       </div>
       <div class="screenshot-container" id="tabPanelPatrimonio" role="tabpanel" data-panel="patrimonio" aria-labelledby="tabBtnPatrimonio" hidden>
@@ -330,34 +458,6 @@
           <p>Visão consolidada: disponíveis, cheios e reservados. Famílias de ativos (barris e kegs, chopeiras, cilindros de CO₂) e ações como leitura de etiqueta, comodato, reservas e pesagem de gás.</p>
         </div>
       </div>
-      <div class="screenshot-container" id="tabPanelBarris" role="tabpanel" data-panel="barris" aria-labelledby="tabBtnBarris" hidden>
-        <div class="screenshot-frame">
-          <div class="sf-bar">
-            <div class="sf-dots"><span></span><span></span><span></span></div>
-            <div class="sf-url">brewcontrol.app/ativos/barris</div>
-          </div>
-          <img src="screenshots/ativos-barris.png" alt="Grade de barris e kegs no BrewControl — status, localização e nível de enchimento" class="screenshot-img" width="1200" height="750" loading="lazy" decoding="async" data-fallback-label="Captura: Barris">
-        </div>
-        <div class="screenshot-caption">
-          <div class="cap-badge cap-emerald">BARRIS</div>
-          <h3>Cada barril na mão</h3>
-          <p>Cartões com identificação, status (disponível, cheio), local na fábrica, nível de enchimento e rótulo do produto — leitura rápida do parque de kegs.</p>
-        </div>
-      </div>
-      <div class="screenshot-container" id="tabPanelCo2" role="tabpanel" data-panel="co2" aria-labelledby="tabBtnCo2" hidden>
-        <div class="screenshot-frame">
-          <div class="sf-bar">
-            <div class="sf-dots"><span></span><span></span><span></span></div>
-            <div class="sf-url">brewcontrol.app/ativos/co2</div>
-          </div>
-          <img src="screenshots/ativos-co2.png" alt="Cilindros de CO₂ no BrewControl — nível de gás e disponibilidade" class="screenshot-img" width="1200" height="750" loading="lazy" decoding="async" data-fallback-label="Captura: CO₂">
-        </div>
-        <div class="screenshot-caption">
-          <div class="cap-badge cap-violet">CO₂</div>
-          <h3>Cilindros sob controle</h3>
-          <p>Acompanhe cada unidade com nível visual, percentual de carga quando houver pesagem e localização — menos surpresa na hora do envase e do chope.</p>
-        </div>
-      </div>
       <div class="screenshot-container" id="tabPanelFinanceiro" role="tabpanel" data-panel="financeiro" aria-labelledby="tabBtnFinanceiro" hidden>
         <div class="screenshot-frame">
           <div class="sf-bar">
@@ -370,6 +470,38 @@
           <div class="cap-badge cap-gold">FINANCEIRO</div>
           <h3>Financeiro integrado à operação</h3>
           <p>Resumo de recebido, a receber, saídas e saldo; acesso a lançamentos, contas a pagar e receber, caixa, centros de custo, DRE gerencial e relatórios — com atividade recente ligada às vendas.</p>
+        </div>
+      </div>
+
+      <!-- LOGÍSTICA -->
+      <div class="screenshot-container" id="tabPanelLogistica" role="tabpanel" data-panel="logistica" aria-labelledby="tabBtnLogistica" hidden>
+        <div class="screenshot-frame">
+          <div class="sf-bar">
+            <div class="sf-dots"><span></span><span></span><span></span></div>
+            <div class="sf-url">brewcontrol.app/logistica</div>
+          </div>
+          <img src="screenshots/logistica.png" alt="Logística BrewControl — rotas de entrega, barris em campo e controle de km" class="screenshot-img" width="1200" height="750" loading="lazy" decoding="async" data-fallback-label="Captura: Logística">
+        </div>
+        <div class="screenshot-caption">
+          <div class="cap-badge cap-sky">LOGÍSTICA</div>
+          <h3>Entregas organizadas, ativos rastreados</h3>
+          <p>Rotas com múltiplas paradas e sequência de entrega, baixa automática de estoque na execução, controle de barris em comodato e devoluções, histórico de km rodados por motorista.</p>
+        </div>
+      </div>
+
+      <!-- FISCAL -->
+      <div class="screenshot-container" id="tabPanelFiscal" role="tabpanel" data-panel="fiscal" aria-labelledby="tabBtnFiscal" hidden>
+        <div class="screenshot-frame">
+          <div class="sf-bar">
+            <div class="sf-dots"><span></span><span></span><span></span></div>
+            <div class="sf-url">brewcontrol.app/fiscal</div>
+          </div>
+          <img src="screenshots/fiscal.png" alt="Módulo Fiscal BrewControl — NF-e, NFC-e, SEFAZ e Robô Fiscal" class="screenshot-img" width="1200" height="750" loading="lazy" decoding="async" data-fallback-label="Captura: Fiscal">
+        </div>
+        <div class="screenshot-caption">
+          <div class="cap-badge" style="background:rgba(168,85,247,0.15);color:#A855F7;border-color:rgba(168,85,247,0.3)">FISCAL</div>
+          <h3>NF-e e NFC-e integrados ao fluxo</h3>
+          <p>Emissão de NF-e para vendas B2B e NFC-e para o bar, transmissão direta à SEFAZ, Robô Fiscal para consulta automática de documentos, histórico com DANFE e XML — sem sair do BrewControl.</p>
         </div>
       </div>
     </div>
@@ -588,6 +720,7 @@
           <a href="#modules">Módulos</a>
           <a href="#pricing">Planos</a>
           <a href="#demo">Demo</a>
+          <a href="guia.html">Guia do Usuário</a>
         </div>
         <div class="footer-col">
           <div class="footer-col-title">Empresa</div>
@@ -603,8 +736,7 @@
   </div>
 </footer>
 
-<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+<script type="module" src="waitlist.js"></script>
 <script src="main.js"></script>
 </body>
 </html>
