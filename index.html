@@ -1,780 +1,663 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-theme="dark">
+<html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#09090F">
-<meta name="author" content="BrewControl">
-<title>BrewControl — ERP para Cervejarias Artesanais</title>
-<meta name="description" content="BrewControl é a plataforma de gestão para cervejarias artesanais que conecta produção, estoque, pedidos, logística e relatórios em um só lugar.">
-<meta property="og:title" content="BrewControl — ERP para cervejarias artesanais">
-<meta property="og:description" content="Da receita ao tanque, do estoque ao pedido — tudo conectado com rastreabilidade e visão clara da operação.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#050508">
+<title>BrewControl — ERP industrial para cervejarias</title>
+<meta name="description" content="BrewControl: ERP industrial para cervejarias artesanais. Produção, estoque, comercial, logística, fiscal e financeiro em uma única plataforma mobile-first.">
+<meta property="og:title" content="BrewControl — ERP industrial para cervejarias">
+<meta property="og:description" content="Da brassagem ao envase, do tanque à torneira, do pedido à nota fiscal. Uma única plataforma mobile-first.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="BrewControl — ERP para cervejarias artesanais">
-<meta name="twitter:description" content="Gestão completa para sua cervejaria: produção, estoque, comercial e logística em um só lugar.">
 
-<!-- SUBSTITUIR G-XXXXXXXXXX PELO SEU ID DO GA4 (atual: G-JVBBG635J3) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-JVBBG635J3"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-JVBBG635J3');
-</script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-JVBBG635J3');</script>
 
-<!-- Fonts -->
 <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800,900&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="landing-v2.css">
 
-<link rel="stylesheet" href="style.css">
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"SoftwareApplication","name":"BrewControl","applicationCategory":"BusinessApplication","operatingSystem":"Web","description":"ERP para cervejarias artesanais — produção, estoque, comercial, logística e relatórios integrados.","offers":{"@type":"Offer","priceCurrency":"BRL","price":"197","priceValidUntil":"2027-12-31"}}
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"BrewControl","applicationCategory":"BusinessApplication","operatingSystem":"Web","description":"ERP para cervejarias artesanais — produção, estoque, comercial, logística e relatórios integrados.","offers":{"@type":"Offer","priceCurrency":"BRL","price":"99","priceValidUntil":"2027-12-31"}}</script>
+
+<script>
+  window.__TWEAKS_DEFAULTS__ = {
+    "direction": "balanced",
+    "intensity": 1.6,
+    "accent": "copper"
+  };
 </script>
 </head>
-<body>
-<a href="#home" class="skip-link">Pular para o conteúdo</a>
+<body data-screen-label="landing">
+<div class="grain"></div>
 
-<!-- HEADER -->
-<header class="header" id="header">
-  <div class="header-inner">
-    <a href="#home" class="logo" aria-label="BrewControl — início">
-      <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <rect width="36" height="36" rx="8" fill="#FBBF24"/>
-        <path d="M11 9h6c3 0 5 1.5 5 4s-2 3.5-2 3.5S23 18 23 21c0 3-2.5 5-6 5H11V9zm4 3v5h2c1.5 0 2.5-.8 2.5-2.5S18.5 12 17 12h-2zm0 8v6h2c1.8 0 3-1 3-3s-1.2-3-3-3h-2z" fill="#09090F"/>
-      </svg>
-      <span class="logo-text">BREWCONTROL<span class="logo-sub">CRAFT BREWERY ERP</span></span>
+<!-- ============ HEADER ============ -->
+<header class="header">
+  <div class="wrap header-inner">
+    <a href="#home" class="brand">
+      <span class="brand-mark">B</span>
+      <span class="brand-text">
+        <span class="brand-name">BREWCONTROL</span>
+        <span class="brand-tag">CRAFT BREWERY ERP</span>
+      </span>
     </a>
-    <nav class="nav" aria-label="Menu principal">
-      <a href="#features" class="nav-link">Funcionalidades</a>
-      <a href="#modules" class="nav-link">Módulos</a>
-      <a href="#demo" class="nav-link">Na prática</a>
-      <a href="#pricing" class="nav-link">Planos</a>
-      <a href="guia.html" class="nav-link">Guia do Usuário</a>
+    <nav class="nav">
+      <a href="#modules">Módulos</a>
+      <a href="#demo">Na prática</a>
+      <a href="#diff">Diferenciais</a>
+      <a href="#pricing">Planos</a>
+      <a href="#about">Fundador</a>
+      <a href="guia.html">Guia</a>
     </nav>
-    <div class="header-actions">
-      <a href="#waitlist" class="btn btn-primary">Acesso Antecipado</a>
-    </div>
-    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
-      <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect y="4" width="22" height="2" rx="1" fill="currentColor"/><rect y="10" width="22" height="2" rx="1" fill="currentColor"/><rect y="16" width="22" height="2" rx="1" fill="currentColor"/></svg>
+    <a href="#waitlist" class="btn btn-primary">Acesso Antecipado</a>
+    <button class="menu-toggle" aria-label="Menu">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 6h14M3 10h14M3 14h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
     </button>
   </div>
-  <nav class="nav-mobile" id="navMobile" aria-hidden="true">
-    <a href="#features" class="nav-link">Funcionalidades</a>
-    <a href="#modules" class="nav-link">Módulos</a>
-    <a href="#demo" class="nav-link">Na prática</a>
-    <a href="#pricing" class="nav-link">Planos</a>
-    <a href="guia.html" class="nav-link">Guia do Usuário</a>
-    <a href="https://app.brewcontrol.app.br" class="btn btn-primary nav-mobile-cta" target="_blank" rel="noopener noreferrer">Acesso Antecipado</a>
-  </nav>
 </header>
 
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-bg">
-    <div class="hero-grain"></div>
-    <div class="hero-glow"></div>
-  </div>
-  <div class="container">
-    <div class="hero-badge">
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="3" fill="#F5C100"/><circle cx="7" cy="7" r="6" stroke="#F5C100" stroke-width="1.5" stroke-dasharray="2 2"/></svg>
-      Agora em acesso antecipado
-    </div>
-    <h1 class="hero-title">Gestão completa<br>para sua <span class="accent-amber">cervejaria</span></h1>
-    <p class="hero-sub">BrewControl conecta produção, estoque, pedidos, logística e relatórios em uma única plataforma. Feito para substituir planilhas e WhatsApp pela rotina real da fábrica.</p>
-    <div class="hero-cta">
-      <a href="https://app.brewcontrol.app.br" class="btn btn-hero" target="_blank" rel="noopener noreferrer">Quero acesso antecipado</a>
-      <a href="#modules" class="btn btn-ghost">Ver funcionalidades</a>
-    </div>
-    <div class="hero-stats">
-      <div class="stat">
-        <span class="stat-num">12+</span>
-        <span class="stat-label">Módulos integrados</span>
+<!-- ============ HERO ============ -->
+<section class="hero" id="home" data-screen-label="hero">
+  <div class="hero-bg"></div>
+  <div class="wrap hero-grid">
+
+    <!-- LADO ESQUERDO — COPY -->
+    <div class="hero-copy">
+      <div class="eyebrow">Ops · status · acesso antecipado aberto</div>
+      <h1 class="hero-title">
+        ERP industrial<br>
+        <span class="line-2">feito no chão da fábrica.</span>
+      </h1>
+      <p class="hero-sub">
+        Da brassagem ao envase, do tanque à torneira, do pedido à nota fiscal.
+        BrewControl conecta produção, estoque, comercial, logística e financeiro em uma
+        plataforma mobile-first — pensada para operar a cervejaria, não um ERP genérico.
+      </p>
+      <div class="hero-cta">
+        <a href="#waitlist" class="btn btn-primary">Entrar na lista de acesso →</a>
+        <a href="#demo" class="btn btn-ghost">Ver o sistema em operação</a>
       </div>
-      <div class="stat-divider"></div>
-      <div class="stat">
-        <span class="stat-num">100%</span>
-        <span class="stat-label">Mobile-first</span>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat">
-        <span class="stat-num">Real-time</span>
-        <span class="stat-label">Dados em tempo real</span>
-      </div>
-    </div>
-  </div>
-  <!-- App preview mockup -->
-  <div class="hero-preview-wrap">
-    <div class="container">
-      <div class="hero-preview">
-        <div class="preview-bar">
-          <span class="preview-dot"></span><span class="preview-dot"></span><span class="preview-dot"></span>
-          <span class="preview-url">brewcontrol.app</span>
+
+      <div class="hero-telemetry">
+        <div class="tele-item">
+          <div class="tele-label">Módulos integrados</div>
+          <div class="tele-value"><span data-count="12" class="mono">0</span><span class="tele-unit">+</span></div>
         </div>
-        <div class="preview-screen">
-          <div class="preview-sidebar">
-            <div class="ps-logo">BREWCONTROL</div>
-            <div class="ps-item ps-active">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/></svg> Produção
+        <div class="tele-item">
+          <div class="tele-label">Ativos rastreados</div>
+          <div class="tele-value"><span data-count="56" class="mono">0</span><span class="tele-unit">ind.</span></div>
+        </div>
+        <div class="tele-item">
+          <div class="tele-label">Uptime real-time</div>
+          <div class="tele-value"><span data-count="99.9" data-suffix="%" class="mono">0</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LADO DIREITO — FÁBRICA ANIMADA + APP FLUTUANTE -->
+    <div class="hero-canvas scanlines">
+      <div class="hud-bar">
+        <div class="hud-group">
+          <span class="hud-dot"></span>
+          <span>LIVE · PLANTA 01</span>
+        </div>
+        <div class="hud-group">
+          <span>LT-2604</span>
+          <span style="color: var(--copper-400)">BRASSAGEM</span>
+        </div>
+      </div>
+
+      <!-- Cena SVG da planta -->
+      <svg class="ff-plant" viewBox="0 0 600 680" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+        <defs>
+          <linearGradient id="tank" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#3A3A4A"/>
+            <stop offset="0.45" stop-color="#1C1C28"/>
+            <stop offset="1" stop-color="#0E0E16"/>
+          </linearGradient>
+          <linearGradient id="tankRim" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#4A4A5E"/>
+            <stop offset="0.5" stop-color="#7A7A8E"/>
+            <stop offset="1" stop-color="#4A4A5E"/>
+          </linearGradient>
+          <linearGradient id="copper" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="oklch(0.80 0.12 55)"/>
+            <stop offset="0.5" stop-color="oklch(0.60 0.14 52)"/>
+            <stop offset="1" stop-color="oklch(0.40 0.13 48)"/>
+          </linearGradient>
+        </defs>
+
+        <!-- Piso -->
+        <rect x="0" y="560" width="600" height="120" fill="#0F0F18"/>
+        <line x1="0" y1="560" x2="600" y2="560" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+
+        <!-- Luz volumétrica -->
+        <ellipse cx="300" cy="340" rx="280" ry="140" fill="oklch(0.68 0.14 55)" opacity="0.07" filter="blur(20)"/>
+
+        <!-- Tubulação superior -->
+        <path d="M 40 90 L 560 90" stroke="#3A3A4A" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <path d="M 40 90 L 560 90" stroke="#55556A" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+        <!-- Válvulas -->
+        <circle cx="150" cy="90" r="10" fill="#2A2A3A" stroke="#55556A" stroke-width="1.2"/>
+        <circle cx="150" cy="90" r="3" fill="oklch(0.76 0.14 155)"/>
+        <circle cx="300" cy="90" r="10" fill="#2A2A3A" stroke="#55556A" stroke-width="1.2"/>
+        <circle cx="300" cy="90" r="3" fill="oklch(0.70 0.20 35)">
+          <animate attributeName="opacity" values="1;0.3;1" dur="1.2s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="450" cy="90" r="10" fill="#2A2A3A" stroke="#55556A" stroke-width="1.2"/>
+        <circle cx="450" cy="90" r="3" fill="oklch(0.78 0.14 85)"/>
+
+        <!-- Dutos verticais -->
+        <line x1="150" y1="95" x2="150" y2="170" stroke="#3A3A4A" stroke-width="4" stroke-linecap="round"/>
+        <line x1="300" y1="95" x2="300" y2="170" stroke="#3A3A4A" stroke-width="4" stroke-linecap="round"/>
+        <line x1="450" y1="95" x2="450" y2="170" stroke="#3A3A4A" stroke-width="4" stroke-linecap="round"/>
+
+        <!-- TANQUE 1 — brassadeira cobre -->
+        <g transform="translate(100, 170)">
+          <path d="M 0 30 L 10 10 L 90 10 L 100 30 Z" fill="url(#copper)" stroke="#1A1A26" stroke-width="1"/>
+          <ellipse cx="50" cy="10" rx="40" ry="6" fill="oklch(0.50 0.13 45)" stroke="#1A1A26"/>
+          <rect x="0" y="28" width="100" height="180" fill="url(#copper)" stroke="#1A1A26" stroke-width="1"/>
+          <rect x="16" y="32" width="6" height="170" fill="rgba(255,255,255,0.35)" opacity="0.6"/>
+          <g fill="#1A1A26"><circle cx="8" cy="40" r="2"/><circle cx="92" cy="40" r="2"/><circle cx="8" cy="196" r="2"/><circle cx="92" cy="196" r="2"/></g>
+          <g transform="translate(50, 120)">
+            <circle r="16" fill="#0E0E16" stroke="#55556A" stroke-width="1.5"/>
+            <circle r="14" fill="#1A1A26"/>
+            <line x1="0" y1="0" x2="0" y2="-11" stroke="oklch(0.70 0.15 40)" stroke-width="1.8" stroke-linecap="round" style="transform-origin:center;animation:gauge-needle 3s ease-in-out infinite;"/>
+            <circle r="1.5" fill="#8A8A9A"/>
+          </g>
+          <path d="M -8 208 L 108 208 L 100 220 L 0 220 Z" fill="#14141E" stroke="#1A1A26"/>
+          <g transform="translate(50, 238)">
+            <ellipse cx="0" cy="0" rx="20" ry="8" fill="oklch(0.22 0.03 55)"/>
+            <path d="M -12 -4 Q -8 -18 0 -26 Q 8 -18 12 -4 Q 8 2 0 2 Q -8 2 -12 -4 Z" fill="oklch(0.75 0.22 50)">
+              <animate attributeName="d" dur="0.35s" repeatCount="indefinite" values="M -12 -4 Q -8 -18 0 -26 Q 8 -18 12 -4 Q 8 2 0 2 Q -8 2 -12 -4 Z;M -10 -4 Q -7 -20 0 -28 Q 7 -20 10 -4 Q 7 2 0 2 Q -7 2 -10 -4 Z;M -12 -4 Q -8 -18 0 -26 Q 8 -18 12 -4 Q 8 2 0 2 Q -8 2 -12 -4 Z"/>
+            </path>
+            <path d="M -6 -4 Q -4 -14 0 -20 Q 4 -14 6 -4 Q 4 2 0 2 Q -4 2 -6 -4 Z" fill="oklch(0.85 0.15 80)">
+              <animate attributeName="opacity" values="1;0.6;1" dur="0.2s" repeatCount="indefinite"/>
+            </path>
+          </g>
+        </g>
+
+        <!-- Steam above tank 1 -->
+        <foreignObject x="130" y="50" width="40" height="140" style="overflow:visible">
+          <div xmlns="http://www.w3.org/1999/xhtml" class="steam" style="position:relative;width:40px;height:140px;">
+            <span></span><span></span><span></span><span></span>
+          </div>
+        </foreignObject>
+
+        <!-- TANQUE 2 — fermentador -->
+        <g transform="translate(250, 170)">
+          <ellipse cx="50" cy="16" rx="45" ry="10" fill="url(#tankRim)"/>
+          <rect x="5" y="16" width="90" height="200" fill="url(#tank)" stroke="#1A1A26"/>
+          <rect x="14" y="20" width="6" height="190" fill="rgba(255,255,255,0.12)"/>
+          <rect x="30" y="60" width="40" height="140" fill="#0A0A10" stroke="#2A2A3A"/>
+          <clipPath id="clipVisor"><rect x="30" y="60" width="40" height="140"/></clipPath>
+          <g clip-path="url(#clipVisor)">
+            <rect x="30" y="90" width="40" height="110" fill="oklch(0.60 0.15 60)"/>
+            <rect x="30" y="90" width="40" height="8" fill="oklch(0.92 0.08 85)" opacity="0.9">
+              <animate attributeName="x" values="30;25;30" dur="3s" repeatCount="indefinite"/>
+            </rect>
+          </g>
+          <path d="M 5 216 L 95 216 L 70 260 L 30 260 Z" fill="url(#tank)" stroke="#1A1A26"/>
+          <g transform="translate(50, 8)">
+            <rect x="-4" y="-18" width="8" height="14" fill="#55556A"/>
+            <circle cx="0" cy="-24" r="6" fill="#0E0E16" stroke="#55556A"/>
+            <circle cx="0" cy="-24" r="2.5" fill="oklch(0.60 0.15 60)"/>
+            <circle cx="-2" cy="-26" r="1" fill="rgba(255,255,255,0.8)">
+              <animate attributeName="cy" values="-22;-28;-22" dur="1.6s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values="0;1;0" dur="1.6s" repeatCount="indefinite"/>
+            </circle>
+          </g>
+          <rect x="36" y="220" width="28" height="14" fill="rgba(255,255,255,0.06)" rx="2"/>
+          <text x="50" y="230" text-anchor="middle" font-family="JetBrains Mono" font-size="7" fill="oklch(0.80 0.10 55)">FV-04</text>
+          <rect x="5" y="236" width="90" height="16" fill="#0A0A10" stroke="#2A2A3A"/>
+          <text x="12" y="247" font-family="JetBrains Mono" font-size="8" fill="#8A8A9A">T</text>
+          <text x="22" y="247" font-family="JetBrains Mono" font-size="9" fill="oklch(0.72 0.12 220)">18.4°C</text>
+          <text x="60" y="247" font-family="JetBrains Mono" font-size="8" fill="#8A8A9A">SG</text>
+          <text x="74" y="247" font-family="JetBrains Mono" font-size="9" fill="oklch(0.80 0.10 55)">1.014</text>
+        </g>
+
+        <!-- Bubbles -->
+        <foreignObject x="280" y="230" width="40" height="140">
+          <div xmlns="http://www.w3.org/1999/xhtml" class="bubbles" data-bubbles="14" style="position:relative;width:40px;height:140px;"></div>
+        </foreignObject>
+
+        <!-- TANQUE 3 — serving -->
+        <g transform="translate(400, 170)">
+          <ellipse cx="50" cy="16" rx="45" ry="10" fill="url(#tankRim)"/>
+          <rect x="5" y="16" width="90" height="200" fill="url(#tank)" stroke="#1A1A26"/>
+          <rect x="14" y="20" width="6" height="190" fill="rgba(255,255,255,0.12)"/>
+          <path d="M 5 216 L 95 216 L 70 260 L 30 260 Z" fill="url(#tank)" stroke="#1A1A26"/>
+          <rect x="25" y="90" width="50" height="80" fill="rgba(0,0,0,0.4)" rx="3" stroke="rgba(255,255,255,0.08)"/>
+          <text x="50" y="120" text-anchor="middle" font-family="Cabinet Grotesk" font-size="14" fill="oklch(0.80 0.10 55)" font-weight="800">IPA</text>
+          <text x="50" y="140" text-anchor="middle" font-family="JetBrains Mono" font-size="7" fill="#8A8A9A">BRITE TANK</text>
+          <text x="50" y="154" text-anchor="middle" font-family="JetBrains Mono" font-size="7" fill="#8A8A9A">L-2604</text>
+          <g transform="translate(50, 260)">
+            <rect x="-6" y="0" width="12" height="18" fill="#55556A"/>
+            <rect x="-10" y="18" width="20" height="6" fill="oklch(0.60 0.14 52)" rx="1"/>
+            <rect x="-2" y="24" width="4" height="14" fill="oklch(0.60 0.14 52)"/>
+          </g>
+        </g>
+
+        <!-- Jato de cerveja -->
+        <foreignObject x="440" y="455" width="20" height="70">
+          <div xmlns="http://www.w3.org/1999/xhtml" class="stream" style="position:relative;width:5px;height:70px;margin:0 auto;"></div>
+        </foreignObject>
+
+        <!-- Copo -->
+        <g transform="translate(430, 520)">
+          <path d="M 0 0 L 40 0 L 36 42 L 4 42 Z" fill="rgba(0,0,0,0.3)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+          <clipPath id="clipGlass"><path d="M 0 0 L 40 0 L 36 42 L 4 42 Z"/></clipPath>
+          <g clip-path="url(#clipGlass)">
+            <rect x="0" y="16" width="40" height="26" fill="oklch(0.78 0.16 75)">
+              <animate attributeName="y" values="20;4;20" dur="6s" repeatCount="indefinite"/>
+              <animate attributeName="height" values="22;38;22" dur="6s" repeatCount="indefinite"/>
+            </rect>
+            <rect x="0" y="14" width="40" height="6" fill="oklch(0.95 0.05 85)">
+              <animate attributeName="y" values="18;2;18" dur="6s" repeatCount="indefinite"/>
+            </rect>
+          </g>
+          <rect x="5" y="2" width="2" height="36" fill="rgba(255,255,255,0.3)"/>
+        </g>
+
+        <!-- Engrenagens -->
+        <g transform="translate(50, 450)" opacity="0.4">
+          <g style="transform-box:fill-box;transform-origin:center;animation:gear-rotate 12s linear infinite;">
+            <circle r="18" fill="none" stroke="#55556A" stroke-width="1.5"/>
+            <circle r="6" fill="none" stroke="#55556A" stroke-width="1.5"/>
+            <g fill="#55556A">
+              <rect x="-2" y="-22" width="4" height="6"/><rect x="-2" y="16" width="4" height="6"/>
+              <rect x="-22" y="-2" width="6" height="4"/><rect x="16" y="-2" width="6" height="4"/>
+            </g>
+          </g>
+        </g>
+        <g transform="translate(90, 480)" opacity="0.4">
+          <g style="transform-box:fill-box;transform-origin:center;animation:gear-rotate 8s linear infinite reverse;">
+            <circle r="12" fill="none" stroke="#55556A" stroke-width="1.2"/>
+            <circle r="4" fill="none" stroke="#55556A" stroke-width="1.2"/>
+            <g fill="#55556A">
+              <rect x="-1.5" y="-15" width="3" height="4"/><rect x="-1.5" y="11" width="3" height="4"/>
+              <rect x="-15" y="-1.5" width="4" height="3"/><rect x="11" y="-1.5" width="4" height="3"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+
+      <!-- Partículas de grão -->
+      <div class="grains" data-grains="18" style="pointer-events:none;z-index:3;position:absolute;inset:0;overflow:hidden;"></div>
+
+      <!-- App mini flutuante -->
+      <div class="hero-app-float">
+        <div class="app-mini">
+          <div class="bar"><span></span><span></span><span></span><span class="url">brewcontrol.app/produção</span></div>
+          <div class="screen">
+            <div class="side">
+              <b>MENU</b>
+              <u class="on"></u><u></u><u></u><u></u><u></u>
             </div>
-            <div class="ps-item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg> Almoxarifado
-            </div>
-            <div class="ps-item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg> Comercial
-            </div>
-            <div class="ps-item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg> Logística
-            </div>
-            <div class="ps-item">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"/></svg> Relatórios
+            <div class="main">
+              <div class="head">
+                <b>HUB · PRODUÇÃO</b>
+                <span class="sub">LT-2604</span>
+              </div>
+              <div class="cards">
+                <div class="card"><b>RECEITAS</b><u data-count="34" class="mono">0</u></div>
+                <div class="card"><b>LOTES ATIVOS</b><u data-count="7" class="mono">0</u></div>
+                <div class="card"><b>TANQUES</b><u>5/8</u></div>
+              </div>
             </div>
           </div>
-          <div class="preview-main">
-            <div class="pm-header">
-              <div>
-                <div class="pm-title">HUB DE PRODUÇÃO</div>
-                <div class="pm-sub">MÓDULO PRINCIPAL</div>
-              </div>
-              <div class="pm-btn">+ NOVO LOTE</div>
-            </div>
-            <div class="pm-grid">
-              <div class="pm-card pm-card-amber">
-                <div class="pm-card-label">CRIAR PADRÃO</div>
-                <div class="pm-card-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-                </div>
-                <div class="pm-card-title">Receitas &amp; Estilos</div>
-                <div class="pm-card-desc">Fichas técnicas e biblioteca BJCP</div>
-              </div>
-              <div class="pm-card pm-card-green">
-                <div class="pm-card-label">GERENCIAR LOTES</div>
-                <div class="pm-card-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="2"/></svg>
-                </div>
-                <div class="pm-card-title">Lotes de Produção</div>
-                <div class="pm-card-desc">Do planejamento à adega</div>
-              </div>
-              <div class="pm-card pm-card-violet">
-                <div class="pm-card-label">LOTES EM ANDAMENTO</div>
-                <div class="pm-card-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-                </div>
-                <div class="pm-card-title">Brassagens</div>
-                <div class="pm-card-desc">Execução e linha do tempo</div>
-              </div>
-            </div>
-          </div>
         </div>
+      </div>
+
+      <div class="hud-footer">
+        <div class="kv">TEMP <b>96.2°C</b></div>
+        <div class="kv">OG <b>1.058</b></div>
+        <div class="kv">FLOW <b>42 L/h</b></div>
+        <div class="kv">SYS <b style="color:oklch(0.76 0.14 155)">NOMINAL</b></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PROBLEMA -->
-<section class="section section-problem" id="features">
-  <div class="container">
-    <div class="section-label">O PROBLEMA</div>
-    <h2 class="section-title">Sua cervejaria merece mais<br>que planilhas e WhatsApp</h2>
-    <div class="problem-grid">
-      <div class="problem-card">
-        <div class="problem-icon">📋</div>
-        <h3>Planilhas desconectadas</h3>
-        <p>Receitas em um lugar, estoque em outro, pedidos no WhatsApp. Dados espalhados significam erros e retrabalho.</p>
+<!-- ============ PROBLEMA ============ -->
+<section class="section" id="problem" data-screen-label="problema">
+  <div class="wrap">
+    <div class="section-hd">
+      <div class="section-label">O PROBLEMA</div>
+      <h2 class="section-title">Sua cervejaria merece mais<br>que <span class="accent">planilhas e WhatsApp</span>.</h2>
+    </div>
+    <div class="prob-grid">
+      <div class="prob-card">
+        <div class="prob-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="4" width="16" height="16" rx="1"/><path d="M4 10h16M10 4v16"/></svg></div>
+        <h3>Dados espalhados</h3>
+        <p>Receitas numa planilha, estoque noutra, pedidos no WhatsApp. Informação fragmentada gera erro, retrabalho e noites perdidas na fechação.</p>
       </div>
-      <div class="problem-card">
-        <div class="problem-icon">🔍</div>
-        <h3>Sem rastreabilidade</h3>
-        <p>Qual lote usou qual insumo? Quando o tanque vai ficar livre? Sem visão do que está acontecendo na fábrica.</p>
+      <div class="prob-card">
+        <div class="prob-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></div>
+        <h3>Zero rastreabilidade</h3>
+        <p>Qual lote usou qual malte, qual tanque, qual brassador? Sem histórico imutável, não há diagnóstico — e nem conversa com a SEFAZ.</p>
       </div>
-      <div class="problem-card">
-        <div class="problem-icon">📱</div>
-        <h3>Nada funciona no celular</h3>
-        <p>ERPs genéricos foram feitos para desktops. O chão de fábrica precisa de um sistema mobile-first.</p>
+      <div class="prob-card">
+        <div class="prob-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M10 18h4"/></svg></div>
+        <h3>Desktop-only no chão de fábrica</h3>
+        <p>ERPs genéricos foram pensados para escritório. O brewmaster e o entregador precisam da operação no celular, com uma mão livre.</p>
       </div>
-      <div class="problem-card">
-        <div class="problem-icon">📊</div>
-        <h3>Gestão no escuro</h3>
-        <p>Sem relatórios em tempo real, decisões de produção e comerciais são baseadas em feeling, não em dados.</p>
+      <div class="prob-card">
+        <div class="prob-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20V10M10 20V4M16 20v-8M22 20V6"/></svg></div>
+        <h3>Decisão no escuro</h3>
+        <p>Sem visão financeira por canal, CMV em tempo real e DRE gerencial, margem e custo são achismo. Você descobre o prejuízo no mês seguinte.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- MÓDULOS -->
-<section class="section" id="modules">
-  <div class="container">
-    <div class="section-label">PLATAFORMA COMPLETA</div>
-    <h2 class="section-title">Tudo que a cervejaria precisa<br>em um só lugar</h2>
-    <p class="section-sub">Do planejamento da brassagem até a entrega ao cliente — cada etapa da operação coberta.</p>
+<!-- ============ MÓDULOS ============ -->
+<section class="section" id="modules" data-screen-label="modulos">
+  <div class="wrap">
+    <div class="section-hd">
+      <div class="section-label">PLATAFORMA COMPLETA</div>
+      <h2 class="section-title">Tudo que a cervejaria precisa.<br><span class="accent">Uma única fonte da verdade.</span></h2>
+      <p class="section-sub">12+ módulos integrados que operam o ciclo completo — da receita ao recebível, do airlock à NF-e.</p>
+    </div>
     <div class="modules-grid">
-
-      <!-- PRODUÇÃO — featured -->
-      <div class="module-card module-featured">
-        <div class="module-icon-wrap" style="background: rgba(245,193,0,0.12); border-color: rgba(245,193,0,0.2);">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F5C100" stroke-width="1.5"><path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/></svg>
-        </div>
-        <div class="module-tag">PRINCIPAL</div>
-        <h3 class="module-title">Hub de Produção</h3>
-        <p class="module-desc">Gerencie receitas, estilos BJCP, lotes completos, equipamentos, tanques e brassagens. Da receita ao envase com linha do tempo e rastreabilidade total.</p>
-        <ul class="module-list">
-          <li>Receitas &amp; Estilos com fichas técnicas</li>
-          <li>Lotes de produção P1 (planejamento) e P2 (Brew Day)</li>
-          <li>Adega &amp; Tanques com status em tempo real</li>
-          <li>Envase, Inteligência &amp; Programação de Compras</li>
-        </ul>
+      <div class="mod-card featured">
+        <div class="mod-head"><div class="mod-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/></svg></div><div class="mod-tag">PRINCIPAL</div></div>
+        <h3 class="mod-title">Hub de Produção</h3>
+        <p class="mod-desc">Receitas, estilos BJCP, lotes, brassagens, adega, envase e programação de compras. Do Brew Day ao Brite Tank com rastreabilidade total.</p>
+        <ul class="mod-list"><li>Receitas &amp; fichas técnicas com variantes</li><li>Lotes P1 (planejamento) &amp; P2 (Brew Day mobile)</li><li>Adega &amp; Tanques em tempo real</li><li>Envase, Inteligência &amp; Compras</li></ul>
       </div>
-
-      <!-- BREWPUB -->
-      <div class="module-card">
-        <div class="module-icon-wrap" style="background: rgba(251,146,60,0.12); border-color: rgba(251,146,60,0.2);">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FB923C" stroke-width="1.5"><path d="M8 2h8v2H8zM6 4h12v14H6zM6 18c0 2 2 4 6 4s6-2 6-4"/><path d="M10 10h4M10 14h4"/></svg>
-        </div>
-        <h3 class="module-title">Brewpub &amp; Bar</h3>
-        <p class="module-desc">Gestão completa do bar integrado à cervejaria: mesas, comandas, cardápio com chope, caixa do turno e controle de torneiras.</p>
-        <ul class="module-list">
-          <li>Comandas por mesa com cardápio do bar</li>
-          <li>Torneiras vinculadas aos barris da adega</li>
-          <li>Caixa do dia e turno com abertura/fechamento</li>
-          <li>Receita do bar integrada ao Financeiro</li>
-        </ul>
+      <div class="mod-card">
+        <div class="mod-head"><div class="mod-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 4h12v14H6zM6 18c0 2 2 4 6 4s6-2 6-4"/></svg></div></div>
+        <h3 class="mod-title">Brewpub &amp; Bar</h3>
+        <p class="mod-desc">Mesas, comandas, KDS, caixa do turno, torneiras vinculadas a barris da adega.</p>
+        <ul class="mod-list"><li>Comandas por mesa e cardápio</li><li>Torneiras ligadas aos barris</li><li>KDS — tela de cozinha</li><li>Receita do bar → Financeiro</li></ul>
       </div>
-
-      <!-- ATIVOS & BARRIS -->
-      <div class="module-card">
-        <div class="module-icon-wrap" style="background: rgba(52,211,153,0.1); border-color: rgba(52,211,153,0.2);">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
-        </div>
-        <h3 class="module-title">Ativos &amp; Barris</h3>
-        <p class="module-desc">56+ ativos rastreados individualmente: barris e kegs, chopeiras e equipamentos, cilindros de CO₂. Comodato, reservas e pesagem de gás.</p>
-        <ul class="module-list">
-          <li>Barris com status (cheio, disponível, em cliente)</li>
-          <li>Chopeiras e cilindros com nível visual de CO₂</li>
-          <li>Histórico imutável de eventos por ativo</li>
-          <li>Comodato, ler etiqueta e Painel TV</li>
-        </ul>
+      <div class="mod-card">
+        <div class="mod-head"><div class="mod-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div></div>
+        <h3 class="mod-title">Ativos &amp; Barris</h3>
+        <p class="mod-desc">56+ ativos rastreados: barris, chopeiras, cilindros de CO₂. Comodato, pesagem de gás, painel TV.</p>
+        <ul class="mod-list"><li>Status individual por ativo</li><li>Nível visual de CO₂</li><li>Histórico imutável de eventos</li><li>Ler etiqueta &amp; Painel TV</li></ul>
       </div>
-
-      <!-- FINANCEIRO -->
-      <div class="module-card">
-        <div class="module-icon-wrap" style="background: rgba(34,197,94,0.1); border-color: rgba(34,197,94,0.2);">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-        </div>
-        <h3 class="module-title">Financeiro</h3>
-        <p class="module-desc">Controle gerencial completo: lançamentos, contas a receber e pagar, caixa operacional, DRE gerencial e receitas separadas por origem.</p>
-        <ul class="module-list">
-          <li>Pipeline de recebíveis por canal (B2B, Bar, PDV)</li>
-          <li>DRE Gerencial e Centros de Custo</li>
-          <li>Contas a pagar e fluxo de caixa</li>
-          <li>Relatórios financeiros por período e cliente</li>
-        </ul>
+      <div class="mod-card">
+        <div class="mod-head"><div class="mod-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div></div>
+        <h3 class="mod-title">Financeiro</h3>
+        <p class="mod-desc">Lançamentos, contas a pagar e receber, caixa operacional, DRE gerencial e centros de custo.</p>
+        <ul class="mod-list"><li>Pipeline de recebíveis por canal</li><li>DRE Gerencial &amp; Centros de Custo</li><li>Fluxo de caixa em tempo real</li><li>Relatórios por período &amp; cliente</li></ul>
       </div>
-
-      <!-- ALMOXARIFADO -->
-      <div class="module-card">
-        <div class="module-icon-wrap" style="background: rgba(80,160,120,0.1); border-color: rgba(80,160,120,0.2);">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#50A078" stroke-width="1.5"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-        </div>
-        <h3 class="module-title">Almoxarifado</h3>
-        <p class="module-desc">Controle total de insumos: malte, lúpulo, levedura e adjuntos. Custo médio ponderado automático, inventário físico e consumo integrado à produção.</p>
-        <ul class="module-list">
-          <li>81+ insumos categorizados com custo médio</li>
-          <li>Consumo automático vinculado às brassagens</li>
-          <li>Inventário físico com ajuste auditável</li>
-          <li>Programação de compras inteligente</li>
-        </ul>
+      <div class="mod-card">
+        <div class="mod-head"><div class="mod-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div></div>
+        <h3 class="mod-title">Almoxarifado</h3>
+        <p class="mod-desc">81+ insumos, custo médio ponderado automático, inventário físico e consumo vinculado às brassagens.</p>
+        <ul class="mod-list"><li>Malte, lúpulo, levedura, adjuntos</li><li>Custo médio ponderado</li><li>Inventário auditável</li><li>Programação de compras</li></ul>
       </div>
-
-      <!-- COMERCIAL -->
-      <div class="module-card">
-        <div class="module-icon-wrap" style="background: rgba(100,140,220,0.1); border-color: rgba(100,140,220,0.2);">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6B8FDC" stroke-width="1.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-        </div>
-        <h3 class="module-title">Comercial</h3>
-        <p class="module-desc">Pedidos B2B, clientes, metas e tabela de preços por canal. Modo Festival para alto volume. Alertas de entrega atrasada e pagamento em aberto.</p>
-        <ul class="module-list">
-          <li>Pedidos com reserva lógica de estoque</li>
-          <li>Preço por canal: Delivery, Distribuidor, Festival</li>
-          <li>Metas de vendas com acompanhamento</li>
-          <li>Sessões Festival para operações especiais</li>
-        </ul>
+      <div class="mod-card">
+        <div class="mod-head"><div class="mod-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></div></div>
+        <h3 class="mod-title">Comercial</h3>
+        <p class="mod-desc">Pedidos B2B, clientes, metas e tabela de preços por canal. Modo Festival para alto volume.</p>
+        <ul class="mod-list"><li>Pedidos com reserva lógica</li><li>Preço por canal (Delivery, Distribuidor)</li><li>Metas de vendas</li><li>Sessões Festival</li></ul>
       </div>
-
-      <!-- LOGÍSTICA -->
-      <div class="module-card">
-        <div class="module-icon-wrap" style="background: rgba(200,100,80,0.1); border-color: rgba(200,100,80,0.2);">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C86450" stroke-width="1.5"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-        </div>
-        <h3 class="module-title">Logística</h3>
-        <p class="module-desc">Rotas de entrega, controle de ativos em campo, devoluções de barris e nova coleta. Entregas do dia com calendário e controle de km rodados.</p>
-        <ul class="module-list">
-          <li>Rotas com múltiplas paradas e sequência</li>
-          <li>Baixa de estoque na execução da entrega</li>
-          <li>Barris em campo: comodatos e devoluções</li>
-          <li>Controle de KM e histórico de rotas</li>
-        </ul>
+      <div class="mod-card">
+        <div class="mod-head"><div class="mod-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div></div>
+        <h3 class="mod-title">Logística</h3>
+        <p class="mod-desc">Rotas com múltiplas paradas, baixa de estoque na execução, barris em campo e controle de km.</p>
+        <ul class="mod-list"><li>Sequência de paradas</li><li>Comodato &amp; devoluções</li><li>KM rodado por motorista</li><li>Nova coleta automatizada</li></ul>
       </div>
-
-      <!-- FISCAL -->
-      <div class="module-card">
-        <div class="module-icon-wrap" style="background: rgba(168,85,247,0.1); border-color: rgba(168,85,247,0.2);">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A855F7" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-        </div>
-        <h3 class="module-title">Fiscal</h3>
-        <p class="module-desc">Emissão de NF-e e NFC-e integrada à SEFAZ. Robô Fiscal para consulta automática, documentos emitidos e cancelamento — tudo sem sair do sistema.</p>
-        <ul class="module-list">
-          <li>NFC-e automática ao fechar comanda do bar</li>
-          <li>NF-e para vendas B2B ao confirmar entrega</li>
-          <li>Robô Fiscal: consulta automática de documentos</li>
-          <li>Histórico de emissões com DANFE e XML</li>
-        </ul>
+      <div class="mod-card">
+        <div class="mod-head"><div class="mod-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div></div>
+        <h3 class="mod-title">Fiscal</h3>
+        <p class="mod-desc">NF-e e NFC-e integrados à SEFAZ. Robô Fiscal consulta, emite, cancela e armazena DANFE/XML.</p>
+        <ul class="mod-list"><li>NFC-e automática no bar</li><li>NF-e automática em vendas B2B</li><li>Robô Fiscal &amp; consulta</li><li>Histórico com DANFE/XML</li></ul>
       </div>
-
-      <!-- PDV MOBILE -->
-      <div class="module-card">
-        <div class="module-icon-wrap" style="background: rgba(170,120,200,0.1); border-color: rgba(170,120,200,0.2);">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#AA78C8" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/><path d="M9 6h6M9 10h6M9 14h4"/></svg>
-        </div>
-        <h3 class="module-title">PDV Mobile</h3>
-        <p class="module-desc">Ponto de venda no balcão via tablet ou celular, sem login. Controle de torneiras em tempo real, vendas de chopp por toque e resumo de sessão.</p>
-        <ul class="module-list">
-          <li>Acesso por PIN — sem precisar de conta</li>
-          <li>Modo torneiras: +1 copo por toque</li>
-          <li>Débito automático no barril vinculado</li>
-          <li>Resumo de sessão ao encerrar</li>
-        </ul>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- SCREENSHOT SECTION -->
-<section class="section section-alt" id="demo">
-  <div class="container">
-    <div class="section-label">VEJA NA PRÁTICA</div>
-    <h2 class="section-title">Interface feita para a rotina<br>real da cervejaria</h2>
-    <p class="section-sub">Dark mode por padrão, design denso e visual. Cada módulo pensado para o mestre cervejeiro, não para o TI.</p>
-    <div class="screenshots-tabs" role="tablist" aria-label="Telas do produto">
-      <button type="button" class="stab stab-active" role="tab" id="tabBtnDashboard" aria-selected="true" aria-controls="tabPanelDashboard" data-tab="dashboard">Dashboard</button>
-      <button type="button" class="stab" role="tab" id="tabBtnProducao" aria-selected="false" aria-controls="tabPanelProducao" data-tab="producao" tabindex="-1">Produção</button>
-      <button type="button" class="stab" role="tab" id="tabBtnBrewpub" aria-selected="false" aria-controls="tabPanelBrewpub" data-tab="brewpub" tabindex="-1">Brewpub</button>
-      <button type="button" class="stab" role="tab" id="tabBtnComercial" aria-selected="false" aria-controls="tabPanelComercial" data-tab="comercial" tabindex="-1">Comercial</button>
-      <button type="button" class="stab" role="tab" id="tabBtnAlmoxarifado" aria-selected="false" aria-controls="tabPanelAlmoxarifado" data-tab="almoxarifado" tabindex="-1">Almoxarifado</button>
-      <button type="button" class="stab" role="tab" id="tabBtnPatrimonio" aria-selected="false" aria-controls="tabPanelPatrimonio" data-tab="patrimonio" tabindex="-1">Ativos</button>
-      <button type="button" class="stab" role="tab" id="tabBtnFinanceiro" aria-selected="false" aria-controls="tabPanelFinanceiro" data-tab="financeiro" tabindex="-1">Financeiro</button>
-      <button type="button" class="stab" role="tab" id="tabBtnLogistica" aria-selected="false" aria-controls="tabPanelLogistica" data-tab="logistica" tabindex="-1">Logística</button>
-      <button type="button" class="stab" role="tab" id="tabBtnFiscal" aria-selected="false" aria-controls="tabPanelFiscal" data-tab="fiscal" tabindex="-1">Fiscal</button>
-    </div>
-    <div class="screenshot-wrap" id="screenshotWrap">
-      <!-- DASHBOARD — primeiro (novo padrão) -->
-      <div class="screenshot-container" id="tabPanelDashboard" role="tabpanel" data-panel="dashboard" aria-labelledby="tabBtnDashboard">
-        <div class="screenshot-frame">
-          <div class="sf-bar">
-            <div class="sf-dots"><span></span><span></span><span></span></div>
-            <div class="sf-url">brewcontrol.app/dashboard</div>
-          </div>
-          <img src="screenshots/dashboard-operacional.png" alt="Dashboard operacional BrewControl — visão geral da cervejaria em tempo real" class="screenshot-img" width="1200" height="750" loading="lazy" decoding="async" data-fallback-label="Captura: Dashboard operacional">
-        </div>
-        <div class="screenshot-caption">
-          <div class="cap-badge cap-amber">VISÃO GERAL</div>
-          <h3>Tudo da operação em uma tela</h3>
-          <p>Lotes em produção, estoque pronto, pedidos do dia e entregas agendadas — com acesso rápido para as ações mais usadas. Alertas de entrega atrasada e aviso de implantação pendente no topo.</p>
-        </div>
-      </div>
-
-      <!-- PRODUÇÃO -->
-      <div class="screenshot-container" id="tabPanelProducao" role="tabpanel" data-panel="producao" aria-labelledby="tabBtnProducao" hidden>
-        <div class="screenshot-frame">
-          <div class="sf-bar">
-            <div class="sf-dots"><span></span><span></span><span></span></div>
-            <div class="sf-url">brewcontrol.app/producao</div>
-          </div>
-          <img src="screenshots/producao.png" alt="Hub de Produção do BrewControl — receitas, lotes, brassagens, adega e envase" class="screenshot-img" width="1200" height="750" loading="lazy" decoding="async" data-fallback-label="Captura: Hub de Produção">
-        </div>
-        <div class="screenshot-caption">
-          <div class="cap-badge cap-amber">PRODUÇÃO</div>
-          <h3>Do planejamento à adega</h3>
-          <p>Gerencie receitas, acompanhe cada lote da brassagem ao envase, monitore tanques em tempo real e registre eventos de produção — tudo em um hub visual e organizado.</p>
-        </div>
-      </div>
-      <!-- BREWPUB -->
-      <div class="screenshot-container" id="tabPanelBrewpub" role="tabpanel" data-panel="brewpub" aria-labelledby="tabBtnBrewpub" hidden>
-        <div class="screenshot-frame">
-          <div class="sf-bar">
-            <div class="sf-dots"><span></span><span></span><span></span></div>
-            <div class="sf-url">brewcontrol.app/pdv</div>
-          </div>
-          <img src="screenshots/brewpub.png" alt="Brewpub BrewControl — comandas, cardápio, caixa, turno e torneiras integradas aos barris" class="screenshot-img" width="1200" height="750" loading="lazy" decoding="async" data-fallback-label="Captura: Brewpub">
-        </div>
-        <div class="screenshot-caption">
-          <div class="cap-badge" style="background:rgba(251,146,60,0.15);color:#FB923C;border-color:rgba(251,146,60,0.3)">BREWPUB</div>
-          <h3>Bar integrado à cervejaria</h3>
-          <p>Comandas por mesa, cardápio com chope vinculado às torneiras, caixa do dia, turno de caixa com abertura e fechamento. Receita do bar alimenta o financeiro automaticamente.</p>
-        </div>
-      </div>
-
-      <!-- COMERCIAL -->
-      <div class="screenshot-container" id="tabPanelComercial" role="tabpanel" data-panel="comercial" aria-labelledby="tabBtnComercial" hidden>
-        <div class="screenshot-frame">
-          <div class="sf-bar">
-            <div class="sf-dots"><span></span><span></span><span></span></div>
-            <div class="sf-url">brewcontrol.app/comercial</div>
-          </div>
-          <img src="screenshots/comercial.png" alt="Dashboard Comercial do BrewControl — pedidos, clientes e faturamento" class="screenshot-img" width="1200" height="750" loading="lazy" decoding="async" data-fallback-label="Captura: Comercial">
-        </div>
-        <div class="screenshot-caption">
-          <div class="cap-badge cap-green">COMERCIAL</div>
-          <h3>Vendas e clientes centralizados</h3>
-          <p>Acompanhe pedidos pendentes, faturamento do mês e base de clientes ativa. Com Modo Festival para operações de alto volume e controle de preço por canal.</p>
-        </div>
-      </div>
-      <!-- ALMOXARIFADO -->
-      <div class="screenshot-container" id="tabPanelAlmoxarifado" role="tabpanel" data-panel="almoxarifado" aria-labelledby="tabBtnAlmoxarifado" hidden>
-        <div class="screenshot-frame">
-          <div class="sf-bar">
-            <div class="sf-dots"><span></span><span></span><span></span></div>
-            <div class="sf-url">brewcontrol.app/almoxarifado</div>
-          </div>
-          <img src="screenshots/almoxarifado.png" alt="Almoxarifado BrewControl — estoque de insumos, custo médio e movimentações" class="screenshot-img" width="1200" height="750" loading="lazy" decoding="async" data-fallback-label="Captura: Almoxarifado">
-        </div>
-        <div class="screenshot-caption">
-          <div class="cap-badge cap-emerald">ALMOXARIFADO</div>
-          <h3>Estoque de insumos sob controle</h3>
-          <p>Cadastro com custo médio ponderado, categorias por tipo (malte, lúpulo, levedura, adjunto), movimentações rastreadas e alerta de estoque mínimo — integrado ao consumo automático das brassagens.</p>
-        </div>
-      </div>
-      <div class="screenshot-container" id="tabPanelPatrimonio" role="tabpanel" data-panel="patrimonio" aria-labelledby="tabBtnPatrimonio" hidden>
-        <div class="screenshot-frame">
-          <div class="sf-bar">
-            <div class="sf-dots"><span></span><span></span><span></span></div>
-            <div class="sf-url">brewcontrol.app/ativos</div>
-          </div>
-          <img src="screenshots/ativos-patrimonio.png" alt="Patrimônio e ativos BrewControl — barris, chopeiras e cilindros CO₂" class="screenshot-img" width="1200" height="750" loading="lazy" decoding="async" data-fallback-label="Captura: Patrimônio">
-        </div>
-        <div class="screenshot-caption">
-          <div class="cap-badge cap-sky">ATIVOS</div>
-          <h3>Patrimônio &amp; ativos</h3>
-          <p>Visão consolidada: disponíveis, cheios e reservados. Famílias de ativos (barris e kegs, chopeiras, cilindros de CO₂) e ações como leitura de etiqueta, comodato, reservas e pesagem de gás.</p>
-        </div>
-      </div>
-      <div class="screenshot-container" id="tabPanelFinanceiro" role="tabpanel" data-panel="financeiro" aria-labelledby="tabBtnFinanceiro" hidden>
-        <div class="screenshot-frame">
-          <div class="sf-bar">
-            <div class="sf-dots"><span></span><span></span><span></span></div>
-            <div class="sf-url">brewcontrol.app/financeiro</div>
-          </div>
-          <img src="screenshots/financeiro.png" alt="Módulo Financeiro BrewControl — caixa, contas a pagar e receber, DRE e relatórios" class="screenshot-img" width="1200" height="750" loading="lazy" decoding="async" data-fallback-label="Captura: Financeiro">
-        </div>
-        <div class="screenshot-caption">
-          <div class="cap-badge cap-gold">FINANCEIRO</div>
-          <h3>Financeiro integrado à operação</h3>
-          <p>Resumo de recebido, a receber, saídas e saldo; acesso a lançamentos, contas a pagar e receber, caixa, centros de custo, DRE gerencial e relatórios — com atividade recente ligada às vendas.</p>
-        </div>
-      </div>
-
-      <!-- LOGÍSTICA -->
-      <div class="screenshot-container" id="tabPanelLogistica" role="tabpanel" data-panel="logistica" aria-labelledby="tabBtnLogistica" hidden>
-        <div class="screenshot-frame">
-          <div class="sf-bar">
-            <div class="sf-dots"><span></span><span></span><span></span></div>
-            <div class="sf-url">brewcontrol.app/logistica</div>
-          </div>
-          <img src="screenshots/logistica.png" alt="Logística BrewControl — rotas de entrega, barris em campo e controle de km" class="screenshot-img" width="1200" height="750" loading="lazy" decoding="async" data-fallback-label="Captura: Logística">
-        </div>
-        <div class="screenshot-caption">
-          <div class="cap-badge cap-sky">LOGÍSTICA</div>
-          <h3>Entregas organizadas, ativos rastreados</h3>
-          <p>Rotas com múltiplas paradas e sequência de entrega, baixa automática de estoque na execução, controle de barris em comodato e devoluções, histórico de km rodados por motorista.</p>
-        </div>
-      </div>
-
-      <!-- FISCAL -->
-      <div class="screenshot-container" id="tabPanelFiscal" role="tabpanel" data-panel="fiscal" aria-labelledby="tabBtnFiscal" hidden>
-        <div class="screenshot-frame">
-          <div class="sf-bar">
-            <div class="sf-dots"><span></span><span></span><span></span></div>
-            <div class="sf-url">brewcontrol.app/fiscal</div>
-          </div>
-          <img src="screenshots/fiscal.png" alt="Módulo Fiscal BrewControl — NF-e, NFC-e, SEFAZ e Robô Fiscal" class="screenshot-img" width="1200" height="750" loading="lazy" decoding="async" data-fallback-label="Captura: Fiscal">
-        </div>
-        <div class="screenshot-caption">
-          <div class="cap-badge" style="background:rgba(168,85,247,0.15);color:#A855F7;border-color:rgba(168,85,247,0.3)">FISCAL</div>
-          <h3>NF-e e NFC-e integrados ao fluxo</h3>
-          <p>Emissão de NF-e para vendas B2B e NFC-e para o bar, transmissão direta à SEFAZ, Robô Fiscal para consulta automática de documentos, histórico com DANFE e XML — sem sair do BrewControl.</p>
-        </div>
+      <div class="mod-card">
+        <div class="mod-head"><div class="mod-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></div></div>
+        <h3 class="mod-title">PDV Mobile</h3>
+        <p class="mod-desc">Ponto de venda no balcão via tablet ou celular, sem login. Modo torneira, débito no barril, resumo de sessão.</p>
+        <ul class="mod-list"><li>Acesso por PIN</li><li>+1 copo por toque</li><li>Débito automático no barril</li><li>Resumo de sessão</li></ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- DIFERENCIAIS -->
-<section class="section" id="differentials">
-  <div class="container">
-    <div class="section-label">POR QUE BREWCONTROL</div>
-    <h2 class="section-title">Feito para cervejeiros,<br>não para contadores</h2>
+<!-- ============ DEMO ============ -->
+<section class="section" id="demo" data-screen-label="demo">
+  <div class="wrap">
+    <div class="section-hd">
+      <div class="section-label">VEJA NA PRÁTICA</div>
+      <h2 class="section-title">Interface para a <span class="accent">rotina real</span><br>da cervejaria.</h2>
+      <p class="section-sub">Dark por padrão, denso, visual. Cada módulo pensado para o mestre cervejeiro — não para o TI.</p>
+    </div>
+    <div class="demo-tabs">
+      <button class="demo-tab active" data-demo-tab="dashboard">Dashboard</button>
+      <button class="demo-tab" data-demo-tab="producao">Produção</button>
+      <button class="demo-tab" data-demo-tab="brewpub">Brewpub</button>
+      <button class="demo-tab" data-demo-tab="comercial">Comercial</button>
+      <button class="demo-tab" data-demo-tab="almoxarifado">Almoxarifado</button>
+      <button class="demo-tab" data-demo-tab="patrimonio">Ativos</button>
+      <button class="demo-tab" data-demo-tab="financeiro">Financeiro</button>
+      <button class="demo-tab" data-demo-tab="logistica">Logística</button>
+      <button class="demo-tab" data-demo-tab="fiscal">Fiscal</button>
+    </div>
+    <div class="demo-stage">
+      <div class="demo-panel active" data-demo-panel="dashboard">
+        <div class="demo-frame"><img src="screenshots/dashboard-operacional.png" alt="Dashboard operacional" loading="lazy"></div>
+        <div class="demo-caption"><div class="cap-badge">VISÃO GERAL</div><h3>Toda a operação em uma tela.</h3><p>Lotes em produção, estoque pronto, pedidos do dia e entregas agendadas. Alertas de atraso e ações rápidas no topo.</p></div>
+      </div>
+      <div class="demo-panel" data-demo-panel="producao">
+        <div class="demo-frame"><img src="screenshots/producao.png" alt="Produção" loading="lazy"></div>
+        <div class="demo-caption"><div class="cap-badge">PRODUÇÃO</div><h3>Do planejamento à adega.</h3><p>Receitas, lotes, brassagens, tanques em tempo real e eventos de produção — hub visual para o chão de fábrica.</p></div>
+      </div>
+      <div class="demo-panel" data-demo-panel="brewpub">
+        <div class="demo-frame"><img src="screenshots/brewpub.png" alt="Brewpub" loading="lazy"></div>
+        <div class="demo-caption"><div class="cap-badge">BREWPUB</div><h3>Bar integrado à cervejaria.</h3><p>Comandas por mesa, cardápio com chope vinculado às torneiras, caixa do turno com abertura e fechamento.</p></div>
+      </div>
+      <div class="demo-panel" data-demo-panel="comercial">
+        <div class="demo-frame"><img src="screenshots/comercial.png" alt="Comercial" loading="lazy"></div>
+        <div class="demo-caption"><div class="cap-badge">COMERCIAL</div><h3>Vendas e clientes centralizados.</h3><p>Pedidos pendentes, faturamento, Modo Festival para alto volume e controle de preço por canal.</p></div>
+      </div>
+      <div class="demo-panel" data-demo-panel="almoxarifado">
+        <div class="demo-frame"><img src="screenshots/almoxarifado.png" alt="Almoxarifado" loading="lazy"></div>
+        <div class="demo-caption"><div class="cap-badge">ALMOXARIFADO</div><h3>Insumos sob controle.</h3><p>Custo médio ponderado, categorias por tipo, movimentações rastreadas e alerta de mínimo — integrado às brassagens.</p></div>
+      </div>
+      <div class="demo-panel" data-demo-panel="patrimonio">
+        <div class="demo-frame"><img src="screenshots/ativos-patrimonio.png" alt="Ativos" loading="lazy"></div>
+        <div class="demo-caption"><div class="cap-badge">ATIVOS</div><h3>Patrimônio &amp; ativos.</h3><p>Disponíveis, cheios, reservados. Barris, chopeiras, cilindros CO₂ com comodato, reservas e pesagem de gás.</p></div>
+      </div>
+      <div class="demo-panel" data-demo-panel="financeiro">
+        <div class="demo-frame"><img src="screenshots/financeiro.png" alt="Financeiro" loading="lazy"></div>
+        <div class="demo-caption"><div class="cap-badge">FINANCEIRO</div><h3>Financeiro ligado à operação.</h3><p>Recebido, a receber, saídas e saldo; DRE gerencial, caixa e centros de custo — com atividade em tempo real.</p></div>
+      </div>
+      <div class="demo-panel" data-demo-panel="logistica">
+        <div class="demo-frame"><img src="screenshots/logistica.png" alt="Logística" loading="lazy"></div>
+        <div class="demo-caption"><div class="cap-badge">LOGÍSTICA</div><h3>Entregas e ativos em campo.</h3><p>Rotas com múltiplas paradas, baixa automática na execução, barris em comodato e devoluções.</p></div>
+      </div>
+      <div class="demo-panel" data-demo-panel="fiscal">
+        <div class="demo-frame"><img src="screenshots/fiscal.png" alt="Fiscal" loading="lazy"></div>
+        <div class="demo-caption"><div class="cap-badge">FISCAL</div><h3>NF-e e NFC-e no fluxo.</h3><p>Transmissão à SEFAZ, Robô Fiscal automático, histórico com DANFE e XML — sem sair do BrewControl.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DIFERENCIAIS ============ -->
+<section class="section" id="diff" data-screen-label="diferenciais">
+  <div class="wrap">
+    <div class="section-hd">
+      <div class="section-label">POR QUE BREWCONTROL</div>
+      <h2 class="section-title">Feito para cervejeiros,<br><span class="accent">não para contadores.</span></h2>
+    </div>
     <div class="diff-grid">
-      <div class="diff-item">
-        <div class="diff-num">01</div>
-        <h3>Mobile-first de verdade</h3>
-        <p>Interface projetada para uso no celular e tablet, tanto no chão de fábrica quanto nas entregas e no taproom. Não é um desktop adaptado.</p>
-      </div>
-      <div class="diff-item">
-        <div class="diff-num">02</div>
-        <h3>Rastreabilidade completa</h3>
-        <p>Cada litro de cerveja tem origem rastreada: qual receita, quais insumos, qual tanque, qual brassador. Transparência total da operação.</p>
-      </div>
-      <div class="diff-item">
-        <div class="diff-num">03</div>
-        <h3>Dados em tempo real</h3>
-        <p>Estoque, tanques, pedidos e financeiro atualizados em tempo real. Tome decisões baseadas no que está acontecendo agora, não em planilhas de ontem.</p>
-      </div>
-      <div class="diff-item">
-        <div class="diff-num">04</div>
-        <h3>Operação integrada</h3>
-        <p>Produção, almoxarifado, comercial, logística e financeiro conectados. Uma ação em um módulo reflete automaticamente nos outros.</p>
-      </div>
+      <div class="diff-item"><div class="diff-num">01 / MOBILE-FIRST</div><h3>Celular e tablet no chão de fábrica</h3><p>Interface para o brewmaster com luva, o entregador com prancheta e o barman no balcão. Não é desktop adaptado.</p></div>
+      <div class="diff-item"><div class="diff-num">02 / RASTREABILIDADE</div><h3>Cada litro tem origem auditável</h3><p>Qual receita, quais insumos, qual tanque, qual brassador. Histórico imutável — transparência para operação, cliente e fisco.</p></div>
+      <div class="diff-item"><div class="diff-num">03 / REAL-TIME</div><h3>Dados que não ficam velhos</h3><p>Estoque, tanques, pedidos e financeiro atualizados no momento. Decida pelo que está acontecendo agora, não pela planilha de ontem.</p></div>
+      <div class="diff-item"><div class="diff-num">04 / INTEGRAÇÃO</div><h3>Uma ação, cinco módulos</h3><p>Fechar comanda emite NFC-e, abate barril, lança receita no caixa. Uma alteração reflete em toda a cadeia — sem duplo lançamento.</p></div>
     </div>
   </div>
 </section>
 
-<!-- PRICING -->
-<section class="section section-pricing" id="pricing">
-  <div class="container">
-    <div class="section-label">PLANOS</div>
-    <h2 class="section-title">Um plano para cada perfil de operação</h2>
-    <p class="section-sub">Bar, cervejeiro cigano, fábrica ou brewpub completo — escolha o que faz sentido para o seu negócio.</p>
-    <div class="pricing-grid pricing-grid--4">
-
-      <!-- Bar -->
-      <div class="pricing-card">
-        <div class="plan-emoji">🍽️</div>
-        <div class="plan-name">Bar</div>
-        <div class="plan-price">
-          <span class="plan-currency">R$</span>
-          <span class="plan-value">99</span>
-          <span class="plan-period">/mês</span>
-        </div>
-        <p class="plan-desc">Para bares, restaurantes e brewpubs sem produção própria.</p>
-        <ul class="plan-features">
-          <li><span class="check">✓</span> Até 8 usuários</li>
-          <li><span class="check">✓</span> PDV completo — comandas e mesas</li>
-          <li><span class="check">✓</span> Fichas técnicas com CMV automático</li>
-          <li><span class="check">✓</span> KDS — tela de cozinha</li>
-          <li><span class="check">✓</span> Gestão de barris de chope</li>
-          <li><span class="check">✓</span> Almoxarifado F&amp;B</li>
-          <li><span class="check">✓</span> Financeiro integrado</li>
-        </ul>
-        <a href="#waitlist" class="btn btn-outline">Começar</a>
-      </div>
-
-      <!-- Cigano -->
-      <div class="pricing-card">
-        <div class="plan-emoji">🚚</div>
-        <div class="plan-name">Cigano</div>
-        <div class="plan-price">
-          <span class="plan-currency">R$</span>
-          <span class="plan-value">129</span>
-          <span class="plan-period">/mês</span>
-        </div>
-        <p class="plan-desc">Para cervejeiros que produzem em fábrica terceira.</p>
-        <ul class="plan-features">
-          <li><span class="check">✓</span> Até 10 usuários</li>
-          <li><span class="check">✓</span> Tudo do plano Bar</li>
-          <li><span class="check">✓</span> Barris e ativos próprios + comodato</li>
-          <li><span class="check">✓</span> Lotes terceirizados (sua receita, fábrica terceira)</li>
-          <li><span class="check">✓</span> Almoxarifado de insumos enviados</li>
-          <li><span class="check">✓</span> Logística de recebimento</li>
-          <li><span class="check">✓</span> Financeiro completo</li>
-        </ul>
-        <a href="#waitlist" class="btn btn-outline">Começar</a>
-      </div>
-
-      <!-- Produtor -->
-      <div class="pricing-card">
-        <div class="plan-emoji">🏭</div>
-        <div class="plan-name">Produtor</div>
-        <div class="plan-price">
-          <span class="plan-currency">R$</span>
-          <span class="plan-value">129</span>
-          <span class="plan-period">/mês</span>
-        </div>
-        <p class="plan-desc">Para cervejarias e fábricas sem operação de bar.</p>
-        <ul class="plan-features">
-          <li><span class="check">✓</span> Até 10 usuários</li>
-          <li><span class="check">✓</span> Produção completa — brassagem e fermentação</li>
-          <li><span class="check">✓</span> Almoxarifado de insumos</li>
-          <li><span class="check">✓</span> Comercial B2B + Logística de entregas</li>
-          <li><span class="check">✓</span> Barris e ativos</li>
-          <li><span class="check">✓</span> Financeiro gerencial</li>
-        </ul>
-        <a href="#waitlist" class="btn btn-outline">Começar</a>
-      </div>
-
-      <!-- Brewery — DESTAQUE -->
-      <div class="pricing-card pricing-featured">
-        <div class="plan-badge">MAIS COMPLETO</div>
-        <div class="plan-emoji">🍺</div>
-        <div class="plan-name">Brewery</div>
-        <div class="plan-price">
-          <span class="plan-currency">R$</span>
-          <span class="plan-value">199</span>
-          <span class="plan-period">/mês</span>
-        </div>
-        <p class="plan-desc">Cervejaria com bar ou brewpub próprio — operação 360°.</p>
-        <ul class="plan-features">
-          <li><span class="check">✓</span> Até 20 usuários</li>
-          <li><span class="check">✓</span> Tudo do Produtor + tudo do Bar</li>
-          <li><span class="check">✓</span> PDV + Brassagem integrados</li>
-          <li><span class="check">✓</span> Fichas técnicas + CMV automático</li>
-          <li><span class="check">✓</span> KDS de cozinha</li>
-          <li><span class="check">✓</span> Financeiro unificado — fábrica e bar</li>
-        </ul>
-        <a href="#waitlist" class="btn btn-hero">Começar agora</a>
-      </div>
-
+<!-- ============ PRICING ============ -->
+<section class="section" id="pricing" data-screen-label="planos">
+  <div class="wrap">
+    <div class="section-hd">
+      <div class="section-label">PLANOS</div>
+      <h2 class="section-title">Um plano para cada perfil<br>de operação.</h2>
+      <p class="section-sub">Bar, cigano, fábrica ou brewpub 360°. 14 dias de teste. Sem fidelidade.</p>
     </div>
-
-    <!-- Enterprise faixa separada -->
-    <div class="pricing-enterprise">
-      <div class="pricing-enterprise-content">
-        <div class="plan-emoji plan-emoji--lg">🏢</div>
-        <div>
-          <div class="plan-name">Enterprise</div>
-          <p class="plan-desc">Para redes, franquias e operações multi-unidade. Usuários ilimitados, todos os módulos, SLA garantido e onboarding personalizado.</p>
-        </div>
+    <div class="price-grid">
+      <div class="price-card">
+        <div class="pct">BAR</div>
+        <div class="pname">Bar</div>
+        <div class="pprice">R$99<small>/mês</small></div>
+        <p class="pdesc">Bares, restaurantes e brewpubs sem produção própria.</p>
+        <ul><li>Até 8 usuários</li><li>PDV — comandas e mesas</li><li>Fichas com CMV automático</li><li>KDS — tela de cozinha</li><li>Gestão de barris de chope</li><li>Almoxarifado F&amp;B</li><li>Financeiro integrado</li></ul>
+        <a href="#waitlist" class="btn btn-outline">Começar</a>
+      </div>
+      <div class="price-card">
+        <div class="pct">CIGANO</div>
+        <div class="pname">Cigano</div>
+        <div class="pprice">R$129<small>/mês</small></div>
+        <p class="pdesc">Cervejeiros que produzem em fábrica terceira.</p>
+        <ul><li>Até 10 usuários</li><li>Tudo do plano Bar</li><li>Ativos próprios + comodato</li><li>Lotes terceirizados</li><li>Almoxarifado de envios</li><li>Logística de recebimento</li><li>Financeiro completo</li></ul>
+        <a href="#waitlist" class="btn btn-outline">Começar</a>
+      </div>
+      <div class="price-card">
+        <div class="pct">PRODUTOR</div>
+        <div class="pname">Produtor</div>
+        <div class="pprice">R$129<small>/mês</small></div>
+        <p class="pdesc">Cervejarias e fábricas sem operação de bar.</p>
+        <ul><li>Até 10 usuários</li><li>Produção completa</li><li>Almoxarifado de insumos</li><li>Comercial B2B + Logística</li><li>Barris e ativos</li><li>Financeiro gerencial</li><li>Relatórios por canal</li></ul>
+        <a href="#waitlist" class="btn btn-outline">Começar</a>
+      </div>
+      <div class="price-card featured">
+        <div class="pbadge">MAIS COMPLETO</div>
+        <div class="pct">BREWERY 360°</div>
+        <div class="pname">Brewery</div>
+        <div class="pprice">R$199<small>/mês</small></div>
+        <p class="pdesc">Cervejaria com bar ou brewpub próprio.</p>
+        <ul><li>Até 20 usuários</li><li>Tudo do Produtor + tudo do Bar</li><li>PDV + Brassagem integrados</li><li>Fichas técnicas + CMV automático</li><li>KDS de cozinha</li><li>Financeiro unificado</li><li>Prioridade no suporte</li></ul>
+        <a href="#waitlist" class="btn btn-primary">Começar agora</a>
+      </div>
+    </div>
+    <div class="enterprise-band">
+      <div>
+        <div class="pct">ENTERPRISE</div>
+        <div class="pname">Enterprise</div>
+        <p class="pdesc">Redes, franquias e multi-unidade. Usuários ilimitados, todos os módulos, SLA garantido e onboarding personalizado.</p>
       </div>
       <a href="#contact" class="btn btn-outline">Falar com a equipe</a>
     </div>
-
-    <p class="pricing-note">Todos os planos incluem 14 dias de teste gratuito. Sem contrato de fidelidade — cancele quando quiser.</p>
+    <p class="pricing-note">Todos os planos incluem 14 dias de teste gratuito. Sem fidelidade — cancele quando quiser.</p>
   </div>
 </section>
 
-<!-- SOBRE O FUNDADOR -->
-<section class="section section-founder" id="about">
-  <div class="container">
+<!-- ============ FUNDADOR ============ -->
+<section class="section" id="about" data-screen-label="fundador">
+  <div class="wrap">
     <div class="founder-grid">
-      <div class="founder-avatar-wrap">
-        <div class="founder-avatar" id="founderAvatar">
-          <img src="screenshots/thiago-v2.jpg" alt="Thiago Santana Schneider — Fundador do BrewControl" class="founder-photo" width="320" height="320" loading="lazy" decoding="async">
-          <div class="founder-photo-fallback" aria-hidden="true">TS</div>
+      <div>
+        <div class="founder-photo-wrap">
+          <img src="screenshots/thiago-v2.jpg" alt="Thiago Santana Schneider — Fundador do BrewControl">
         </div>
         <div class="founder-name-block">
           <div class="founder-name">Thiago Santana Schneider</div>
-          <div class="founder-role">Fundador &amp; Mestre Cervejeiro</div>
-          <p class="founder-specialty">Mestre cervejeiro especialista em Biotecnologia e sommelier</p>
+          <div class="founder-role">Fundador · Mestre Cervejeiro</div>
+          <p class="founder-specialty">Biotecnologia · Sommelier · 9 anos de cerveja artesanal</p>
         </div>
       </div>
-      <div class="founder-content">
+      <div>
         <div class="section-label">QUEM ESTÁ POR TRÁS</div>
-        <h2 class="founder-title">Feito por quem vive<br>a realidade da cervejaria</h2>
+        <h2 class="section-title" style="margin-bottom:1.5rem">Construído por quem vive<br><span class="accent">a realidade da fábrica.</span></h2>
         <div class="founder-story">
-          <p>Cervejeiro desde 2017, passei pelos bastidores de várias cervejarias e vi de perto os desafios de cada setor — da produção ao comercial. Antes disso, tive uma loja de insumos e entendo também o lado do fornecedor.</p>
-          <p>Com toda essa vivência, ficou clara uma coisa: a rotina de quem faz cerveja é pesada. Planilhas, WhatsApp, informações espalhadas — o dia a dia consome energia que deveria estar no que realmente importa: <strong>fazer o negócio crescer.</strong></p>
-          <p>O BrewControl nasceu disso. Uma ferramenta construída por cervejeiro para cervejeiro — para tirar o peso das tarefas repetitivas e deixar você focado no que ama fazer.</p>
+          <p>Cervejeiro desde 2017, passei pelos bastidores de várias cervejarias. Vi de perto os desafios de cada setor — da brassagem ao comercial. Antes disso, tive uma loja de insumos, então entendo também o lado do fornecedor.</p>
+          <p>De toda essa vivência ficou clara uma coisa: a rotina de quem faz cerveja é pesada. Planilhas, WhatsApp, informação espalhada — consumindo a energia que deveria estar no que realmente importa: <strong>fazer o negócio crescer</strong>.</p>
+          <p>O BrewControl nasceu disso. Uma ferramenta construída por cervejeiro para cervejeiro — para tirar o peso das tarefas repetitivas e devolver o foco para o que você ama fazer.</p>
         </div>
-        <div class="founder-timeline">
-          <div class="ftl-item"><span class="ftl-year">2017</span><span class="ftl-desc">Início na cerveja artesanal</span></div>
-          <div class="ftl-item"><span class="ftl-year">+</span><span class="ftl-desc">Loja de insumos cervejeiros</span></div>
-          <div class="ftl-item"><span class="ftl-year">+</span><span class="ftl-desc">Mestre Cervejeiro, Sommelier &amp; Pós-grad. Biotecnologia</span></div>
-          <div class="ftl-item"><span class="ftl-year">2026</span><span class="ftl-desc">Fundação do BrewControl</span></div>
+        <div class="timeline">
+          <span><b>2017</b>Início na cerveja artesanal</span>
+          <span><b>+</b>Loja de insumos</span>
+          <span><b>+</b>Mestre Cervejeiro · Sommelier</span>
+          <span><b>+</b>Pós-grad. Biotecnologia</span>
+          <span><b>2026</b>BrewControl</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CONTATO -->
-<section class="section section-contact" id="contact">
-  <div class="container">
-    <div class="contact-inner">
+<!-- ============ CONTATO ============ -->
+<section class="section" id="contact" data-screen-label="contato">
+  <div class="wrap">
+    <div class="section-hd">
       <div class="section-label">CONTATO</div>
-      <h2 class="contact-title">Fale com a gente</h2>
-      <p class="contact-sub">Dúvidas, parcerias ou demonstração personalizada — estamos à disposição.</p>
-      <div class="contact-cards">
-        <a href="https://wa.me/5527981848184" target="_blank" rel="noopener noreferrer" class="contact-card">
-          <div class="contact-icon" style="color:#25D366;">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-          </div>
-          <div>
-            <div class="contact-label">WhatsApp</div>
-            <div class="contact-value">(27) 98184-8184</div>
-          </div>
-        </a>
-        <a href="mailto:thiaguns@gmail.com" class="contact-card">
-          <div class="contact-icon" style="color:#F5C100;">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          </div>
-          <div>
-            <div class="contact-label">Email</div>
-            <div class="contact-value">thiaguns@gmail.com</div>
-          </div>
-        </a>
-      </div>
+      <h2 class="section-title">Fale diretamente<br>com o fundador.</h2>
+      <p class="section-sub">Dúvidas, parcerias ou demonstração personalizada.</p>
+    </div>
+    <div class="contact-cards">
+      <a href="https://wa.me/5527981848184" target="_blank" rel="noopener" class="contact-card">
+        <div class="ci"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style="color:oklch(0.76 0.14 155)"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.05 21.785a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26C3.001 7.342 7.436 2.908 12.888 2.908c2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg></div>
+        <div><div class="cl">WhatsApp</div><div class="cv">(27) 98184-8184</div></div>
+      </a>
+      <a href="mailto:thiaguns@gmail.com" class="contact-card">
+        <div class="ci"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+        <div><div class="cl">Email</div><div class="cv">thiaguns@gmail.com</div></div>
+      </a>
     </div>
   </div>
 </section>
 
-<!-- WAITLIST / CTA FINAL -->
-<section class="section section-cta" id="waitlist">
-  <div class="container">
-    <div class="cta-inner">
-      <div class="cta-badge">
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1L8.8 5.2L13 5.5L9.8 8.2L10.8 12.5L7 10.1L3.2 12.5L4.2 8.2L1 5.5L5.2 5.2L7 1Z" fill="#F5C100"/></svg>
-        Acesso Antecipado — vagas limitadas
-      </div>
-      <h2 class="cta-title">Seja dos primeiros a usar<br>o BrewControl</h2>
-      <p class="cta-sub">Entre na lista de acesso antecipado e garanta desconto exclusivo de lançamento. Avisaremos quando sua vaga estiver pronta.</p>
-      <form class="waitlist-form" id="waitlistForm" novalidate aria-describedby="formError formNote">
-        <div class="form-row">
-          <input type="text" placeholder="Seu nome" class="form-input" id="formName" name="name" required autocomplete="name" aria-required="true">
-          <input type="email" placeholder="Email da cervejaria" class="form-input" id="formEmail" name="email" required autocomplete="email" aria-required="true">
-          <input type="text" placeholder="Nome da cervejaria" class="form-input" id="formBrewery" name="brewery" required aria-required="true">
-        </div>
-        <p class="form-error" id="formError" role="alert" aria-live="polite" tabindex="-1" hidden></p>
-        <button type="submit" class="btn btn-hero btn-full" id="waitlistSubmit">Garantir meu acesso antecipado →</button>
-        <p class="form-note" id="formNote">Sem spam. Você será avisado apenas quando o acesso estiver disponível.</p>
+<!-- ============ WAITLIST ============ -->
+<section class="section" id="waitlist" data-screen-label="waitlist">
+  <div class="wrap">
+    <div class="waitlist-card">
+      <div class="eyebrow">Acesso Antecipado · vagas limitadas</div>
+      <h2>Seja dos primeiros a operar<br>com o BrewControl.</h2>
+      <p>Entre na lista e garanta desconto de lançamento. Avisamos assim que sua vaga estiver pronta.</p>
+      <form class="waitlist-form" id="waitlistForm" novalidate>
+        <input type="text" id="formName" name="name" placeholder="Seu nome" required autocomplete="name">
+        <input type="email" id="formEmail" name="email" placeholder="Email da cervejaria" required autocomplete="email">
+        <input type="text" id="formBrewery" name="brewery" placeholder="Nome da cervejaria" required>
+        <button type="submit" class="btn btn-primary btn-full">Garantir meu acesso antecipado →</button>
       </form>
-      <div class="form-success" id="formSuccess" style="display:none">
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="20" fill="rgba(245,193,0,0.15)"/><path d="M12 20l6 6 10-12" stroke="#F5C100" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <h3>Você está na lista!</h3>
+      <div class="form-success" id="formSuccess">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="20" fill="oklch(0.68 0.14 55 / 0.18)"/><path d="M12 20l6 6 10-12" stroke="oklch(0.68 0.14 55)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3 style="font-size:1.3rem;color:var(--fog-100);margin-top:0.6rem">Você está na lista.</h3>
         <p>Entraremos em contato quando seu acesso estiver pronto.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ============ FOOTER ============ -->
 <footer class="footer">
-  <div class="container">
+  <div class="wrap">
     <div class="footer-inner">
-      <div class="footer-brand">
-        <a href="#home" class="logo" aria-label="BrewControl — início">
-          <svg width="28" height="28" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="36" height="36" rx="8" fill="#FBBF24"/>
-            <path d="M11 9h6c3 0 5 1.5 5 4s-2 3.5-2 3.5S23 18 23 21c0 3-2.5 5-6 5H11V9zm4 3v5h2c1.5 0 2.5-.8 2.5-2.5S18.5 12 17 12h-2zm0 8v6h2c1.8 0 3-1 3-3s-1.2-3-3-3h-2z" fill="#09090F"/>
-          </svg>
-          <span class="logo-text" style="font-size: 0.9rem;">BREWCONTROL<span class="logo-sub">CRAFT BREWERY ERP</span></span>
+      <div>
+        <a href="#home" class="brand">
+          <span class="brand-mark">B</span>
+          <span class="brand-text">
+            <span class="brand-name">BREWCONTROL</span>
+            <span class="brand-tag">CRAFT BREWERY ERP</span>
+          </span>
         </a>
-        <p class="footer-tagline">Da receita ao cliente, tudo conectado.</p>
+        <p style="color:var(--fog-400);margin-top:1rem;font-size:0.9rem">Da receita ao cliente, tudo conectado.</p>
       </div>
       <div class="footer-links">
         <div class="footer-col">
-          <div class="footer-col-title">Plataforma</div>
+          <b>Plataforma</b>
           <a href="#modules">Módulos</a>
           <a href="#pricing">Planos</a>
-          <a href="#demo">Demo</a>
+          <a href="#demo">Na prática</a>
           <a href="guia.html">Guia do Usuário</a>
         </div>
         <div class="footer-col">
-          <div class="footer-col-title">Empresa</div>
-          <a href="#about">Sobre o Fundador</a>
+          <b>Empresa</b>
+          <a href="#about">Fundador</a>
           <a href="#contact">Contato</a>
-          <a href="https://wa.me/5527981848184" target="_blank">WhatsApp</a>
+          <a href="https://wa.me/5527981848184" target="_blank" rel="noopener">WhatsApp</a>
         </div>
         <div class="footer-col">
-          <div class="footer-col-title">Legal</div>
+          <b>Legal</b>
           <a href="https://www.iubenda.com/privacy-policy/97313076" target="_blank" rel="noopener noreferrer">Política de Privacidade</a>
           <a href="https://www.iubenda.com/privacy-policy/97313076/cookie-policy" target="_blank" rel="noopener noreferrer">Política de Cookies</a>
           <a href="https://app.brewcontrol.app.br/termos" target="_blank" rel="noopener noreferrer">Termos de Uso</a>
@@ -782,19 +665,42 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p class="footer-copy">© 2026 BrewControl. Todos os direitos reservados.</p>
-      <p class="footer-legal-links">
-        <a href="https://www.iubenda.com/privacy-policy/97313076" target="_blank" rel="noopener noreferrer">Política de Privacidade</a>
-        &nbsp;·&nbsp;
-        <a href="https://www.iubenda.com/privacy-policy/97313076/cookie-policy" target="_blank" rel="noopener noreferrer">Política de Cookies</a>
-        &nbsp;·&nbsp;
-        <a href="https://app.brewcontrol.app.br/termos" target="_blank" rel="noopener noreferrer">Termos de Uso</a>
-      </p>
+      <span>© 2026 BrewControl. Todos os direitos reservados.</span>
+      <span class="mono" style="color:var(--fog-600)">v2.0 · INDUSTRIAL</span>
     </div>
   </div>
 </footer>
 
+<!-- ============ TWEAKS PANEL (design preview) ============ -->
+<div class="tweaks-panel" id="tweaksPanel">
+  <h4>
+    <span>Tweaks</span>
+    <button id="tweaksClose" aria-label="Fechar">✕</button>
+  </h4>
+  <div class="tweak-row">
+    <label>Direção visual</label>
+    <div class="tweak-options">
+      <button data-tweak="direction:conservative">Conserv.</button>
+      <button data-tweak="direction:balanced">Equilib.</button>
+      <button data-tweak="direction:bold">Ousada</button>
+    </div>
+  </div>
+  <div class="tweak-row">
+    <label>Acento</label>
+    <div class="tweak-options">
+      <button data-tweak="accent:copper">Cobre</button>
+      <button data-tweak="accent:amber">Âmbar</button>
+      <button data-tweak="accent:steel">Aço</button>
+    </div>
+  </div>
+  <div class="tweak-row">
+    <label>Intensidade das animações</label>
+    <input type="range" id="intensitySlider" min="0" max="1.6" step="0.1" value="1">
+  </div>
+</div>
+
 <script type="module" src="waitlist.js"></script>
-<script src="main.js"></script>
+<script src="landing-v2.js"></script>
 </body>
 </html>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
