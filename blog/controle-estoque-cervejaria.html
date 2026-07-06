@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#050508">
+<title>Como Controlar o Estoque da Cervejaria sem Perder Litro (nem Dinheiro)</title>
+<meta name="description" content="Por que o estoque da cervejaria 'some' mesmo com planilha atualizada, e como um sistema de gestão resolve isso na raiz — insumos e barris incluídos.">
+<link rel="canonical" href="https://brewcontrol.app.br/blog/controle-estoque-cervejaria.html">
+<meta property="og:title" content="Como Controlar o Estoque da Cervejaria sem Perder Litro (nem Dinheiro)">
+<meta property="og:description" content="Por que o estoque 'some' mesmo com planilha atualizada, e como resolver isso na raiz.">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:url" content="https://brewcontrol.app.br/blog/controle-estoque-cervejaria.html">
+<meta property="og:site_name" content="BrewControl">
+<meta property="og:image" content="https://brewcontrol.app.br/screenshots/almoxarifado.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800,900&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../landing-v2.css">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Como Controlar o Estoque da Cervejaria sem Perder Litro (nem Dinheiro)","description":"Por que o estoque 'some' mesmo com planilha atualizada, e como um sistema de gestão resolve isso na raiz.","image":"https://brewcontrol.app.br/screenshots/almoxarifado.png","author":{"@type":"Person","name":"Thiago Santana Schneider"},"publisher":{"@type":"Organization","name":"BrewControl"},"datePublished":"2026-07-03"}</script>
+</head>
+<body data-screen-label="blog-post">
+<div class="grain"></div>
+
+<header class="header">
+  <div class="wrap header-inner">
+    <a href="../index.html#home" class="brand">
+      <span class="brand-mark">B</span>
+      <span class="brand-text">
+        <span class="brand-name">BREWCONTROL</span>
+        <span class="brand-tag">CRAFT BREWERY ERP</span>
+      </span>
+    </a>
+    <nav class="nav">
+      <a href="../index.html#modules">Módulos</a>
+      <a href="../index.html#novidades">Novidades</a>
+      <a href="../index.html#fundadora">Seja Fundadora</a>
+      <a href="../index.html#pricing">Planos</a>
+      <a href="../guia.html">Guia</a>
+      <a href="index.html">Blog</a>
+    </nav>
+    <a href="../index.html#waitlist" class="btn btn-primary">Acesso Antecipado</a>
+  </div>
+</header>
+
+<article class="blog-article">
+  <a href="index.html" class="blog-back">← Voltar pro blog</a>
+  <span class="cat">Estoque</span>
+  <h1>Como controlar o estoque da cervejaria sem perder litro (nem dinheiro)</h1>
+  <p class="lede">Insumo que "acaba antes da hora", barril que não volta, saldo que nunca bate com a contagem física — quase sempre o problema não é falta de atenção, é o método.</p>
+
+  <p>Se você já contou o estoque físico e o número não bateu com o que estava na planilha, saiba que isso não é exceção — é a regra de quem controla estoque manualmente. O motivo é simples: numa planilha, o saldo é um número que alguém digita depois que o consumo já aconteceu. Entre o momento real do consumo e o momento do lançamento, sempre cabe um esquecimento.</p>
+
+  <h2>Os dois estoques que mais "somem" numa cervejaria</h2>
+  <p><strong>Insumos:</strong> malte, lúpulo, levedura e embalagem somem aos poucos — um saco aberto que rende menos do que o esperado, uma sobra que ninguém registra, uma perda na brassagem que não é lançada porque "não é significativa". Sozinhas, pequenas, mas somadas ao longo do mês, viram uma diferença real de custo.</p>
+  <p><strong>Barris:</strong> diferente de um insumo, o barril não é consumido — ele circula. Sai cheio, some, deveria voltar vazio. O problema é que "controlar circulação" com planilha significa uma pessoa lembrar de atualizar uma célula toda vez que um barril muda de mão. Na correria do dia a dia, isso simplesmente não acontece de forma consistente.</p>
+
+  <figure>
+    <img src="../screenshots/almoxarifado.png" alt="Tela de almoxarifado do BrewControl com saldo de insumos" loading="lazy">
+    <figcaption>Saldo de insumos calculado automaticamente a partir de cada movimentação — não é um campo que alguém edita.</figcaption>
+  </figure>
+
+  <h2>Por que "atualizar a planilha direitinho" não resolve</h2>
+  <p>Mesmo cervejarias organizadas, que realmente tentam manter a planilha em dia, esbarram no mesmo limite: o lançamento depende de alguém lembrar, digitar certo, e ninguém sobrescrever por engano. Não é falta de disciplina — é que o método em si não tem trava nenhuma contra erro humano.</p>
+  <p>O que resolve isso na raiz é inverter a lógica: em vez de o estoque ser <em>editado</em>, ele passa a ser <em>calculado</em>. Cada evento (uma brassagem, uma entrega, uma devolução de barril) gera automaticamente o lançamento de consumo ou de movimentação — ninguém precisa lembrar de atualizar nada, porque o saldo é sempre a soma de tudo que já aconteceu.</p>
+
+  <h2>Barril como ativo, não como "produto que saiu"</h2>
+  <p>Outra mudança importante é tratar cada barril como um ativo com identidade própria, não como uma linha genérica de estoque. Isso significa que cada barril tem seu próprio histórico — quando foi cheio, pra qual cliente foi, quando voltou, se está na chopeira ou em manutenção. Some um barril, e dá pra saber exatamente em qual etapa ele estava pela última vez.</p>
+
+  <figure>
+    <img src="../screenshots/ativos-barris.png" alt="Tela de controle de barris (ativos) do BrewControl" loading="lazy">
+    <figcaption>Cada barril com status e histórico próprio — nada de "sumir" sem rastro.</figcaption>
+  </figure>
+
+  <h2>Na prática, o que fazer ainda hoje (mesmo sem trocar de sistema)</h2>
+  <ul>
+    <li>Registre a perda de brassagem como um número, mesmo pequeno — não ignore "porque é pouco".</li>
+    <li>Numere fisicamente os barris e mantenha uma lista simples de "cliente + data de saída" — o básico de rastreabilidade.</li>
+    <li>Faça contagem física mensal e compare com o número da planilha — a diferença aponta exatamente onde está o vazamento.</li>
+  </ul>
+  <p>Esses passos ajudam, mas têm limite: eles dependem de disciplina manual. Quando a operação cresce, só automatizar o cálculo do saldo resolve de vez.</p>
+
+  <div class="cta-box">
+    <h3>Quer testar sem pagar nada?</h3>
+    <p>Abrimos 5 vagas no Programa Cervejaria Fundadora: acesso completo ao BrewControl por 6 meses, de graça — você paga só o que é de terceiro (IA e emissão de nota fiscal).</p>
+    <a href="https://wa.me/5527981848184?text=Ol%C3%A1%21%20Li%20o%20artigo%20sobre%20controle%20de%20estoque%20e%20quero%20saber%20mais%20sobre%20o%20Programa%20Cervejaria%20Fundadora." target="_blank" rel="noopener" class="btn btn-primary">Quero ser cervejaria fundadora →</a>
+  </div>
+</article>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-inner">
+      <div>
+        <a href="../index.html#home" class="brand">
+          <span class="brand-mark">B</span>
+          <span class="brand-text">
+            <span class="brand-name">BREWCONTROL</span>
+            <span class="brand-tag">CRAFT BREWERY ERP</span>
+          </span>
+        </a>
+        <p style="color:var(--fog-400);margin-top:1rem;font-size:0.9rem">Da receita ao cliente, tudo conectado.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <b>Plataforma</b>
+          <a href="../index.html#modules">Módulos</a>
+          <a href="../index.html#pricing">Planos</a>
+          <a href="../guia.html">Guia do Usuário</a>
+          <a href="index.html">Blog</a>
+        </div>
+        <div class="footer-col">
+          <b>Empresa</b>
+          <a href="../index.html#about">Fundador</a>
+          <a href="../index.html#contact">Contato</a>
+          <a href="https://wa.me/5527981848184" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+        <div class="footer-col">
+          <b>Legal</b>
+          <a href="https://www.iubenda.com/privacy-policy/97313076" target="_blank" rel="noopener noreferrer">Política de Privacidade</a>
+          <a href="https://www.iubenda.com/privacy-policy/97313076/cookie-policy" target="_blank" rel="noopener noreferrer">Política de Cookies</a>
+          <a href="https://app.brewcontrol.app.br/termos" target="_blank" rel="noopener noreferrer">Termos de Uso</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 BrewControl. Todos os direitos reservados.</span>
+      <span class="mono" style="color:var(--fog-600)">v2.0 · INDUSTRIAL</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
