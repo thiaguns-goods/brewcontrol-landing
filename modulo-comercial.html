@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#050508">
+<title>Módulo Comercial — BrewControl | Pedidos B2B, Preço por Canal e Modo Festival</title>
+<meta name="description" content="Pedidos B2B com reserva lógica de estoque, tabela de preço por canal e Modo Festival pra alto volume — o módulo Comercial do BrewControl.">
+<link rel="canonical" href="https://brewcontrol.app.br/modulo-comercial.html">
+<meta property="og:title" content="Módulo Comercial — BrewControl">
+<meta property="og:description" content="Pedidos B2B, preço por canal e Modo Festival pra alto volume, com reserva automática de estoque.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="https://brewcontrol.app.br/screenshots/comercial.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800,900&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="landing-v2.css">
+</head>
+<body data-screen-label="modulo-comercial">
+<div class="grain"></div>
+
+<!-- ============ HEADER ============ -->
+<header class="header">
+  <div class="wrap header-inner">
+    <a href="index.html#home" class="brand">
+      <span class="brand-mark">B</span>
+      <span class="brand-text">
+        <span class="brand-name">BREWCONTROL</span>
+        <span class="brand-tag">CRAFT BREWERY ERP</span>
+      </span>
+    </a>
+    <nav class="nav">
+      <a href="index.html#modules">Módulos</a>
+      <a href="index.html#novidades">Novidades</a>
+      <a href="index.html#fundadora">Seja Fundadora</a>
+      <a href="index.html#pricing">Planos</a>
+      <a href="guia.html">Guia</a>
+      <a href="blog/index.html">Blog</a>
+    </nav>
+    <a href="index.html#waitlist" class="btn btn-primary">Acesso Antecipado</a>
+  </div>
+</header>
+
+<!-- ============ HERO — cena própria "Esteira 01": pedido andando por 3 estações, caixas empilhando, preço por canal ============ -->
+<section class="hero mod-hero" id="mod-hero-comercial">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <div class="section-label">MÓDULO COMERCIAL</div>
+      <h1 class="hero-title cine-reveal cine-left in-view">
+        <span class="line-1">Cada pedido no canal certo,</span>
+        <span class="line-2">no preço <span class="accent">certo.</span></span>
+      </h1>
+      <p class="section-sub cine-reveal cine-left in-view" style="transition-delay:120ms">Pedidos B2B com reserva lógica de estoque, tabela de preço por canal (Delivery, Distribuidor, Varejo) e Modo Festival pra não travar em dia de alto volume.</p>
+      <a href="https://wa.me/5527981848184?text=Ol%C3%A1%21%20Quero%20testar%20o%20m%C3%B3dulo%20Comercial%20do%20BrewControl." target="_blank" rel="noopener" class="btn btn-primary cine-reveal cine-left in-view" style="transition-delay:220ms">Quero testar o Comercial →</a>
+    </div>
+
+    <!-- LADO DIREITO — PEDIDO NA ESTEIRA + APP FLUTUANTE -->
+    <div class="hero-canvas scanlines cine-reveal cine-right in-view" id="heroPlant" style="transition-delay:100ms">
+      <div class="hud-bar">
+        <div class="hud-group">
+          <span class="hud-dot"></span>
+          <span>LIVE · ESTEIRA 01</span>
+        </div>
+        <div class="hud-group">
+          <span>PED-4471</span>
+          <span style="color: var(--copper-400)">FATURADO</span>
+        </div>
+      </div>
+
+      <svg class="ff-plant" viewBox="0 0 600 680" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+        <defs>
+          <linearGradient id="copper" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="oklch(0.80 0.12 55)"/>
+            <stop offset="0.5" stop-color="oklch(0.60 0.14 52)"/>
+            <stop offset="1" stop-color="oklch(0.40 0.13 48)"/>
+          </linearGradient>
+          <linearGradient id="rackMetal" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#4A4A5E"/>
+            <stop offset="1" stop-color="#2A2A3A"/>
+          </linearGradient>
+        </defs>
+
+        <rect x="0" y="560" width="600" height="120" fill="#0F0F18"/>
+        <line x1="0" y1="560" x2="600" y2="560" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <ellipse cx="300" cy="260" rx="270" ry="160" fill="oklch(0.68 0.14 55)" opacity="0.07" filter="blur(20)"/>
+
+        <!-- ETIQUETA DE PREÇO POR CANAL (trocando de valor) -->
+        <g transform="translate(170, 130)">
+          <path d="M -46 -22 L 30 -22 Q 40 -22 46 -14 L 46 14 Q 40 22 30 22 L -46 22 Z" fill="#14141E" stroke="#2A2A3A" stroke-width="1.5"/>
+          <circle cx="30" cy="0" r="4" fill="#0A0A10" stroke="#55556A"/>
+          <text x="-14" y="-6" text-anchor="middle" font-family="JetBrains Mono" font-size="7" fill="#8A8A9A">
+            <animate attributeName="opacity" values="1;1;0;0;0;0" keyTimes="0;0.3;0.35;0.65;0.68;1" dur="6s" repeatCount="indefinite"/>
+            DELIVERY
+          </text>
+          <text x="-14" y="10" text-anchor="middle" font-family="JetBrains Mono" font-size="13" fill="oklch(0.80 0.10 55)" font-weight="700">
+            <animate attributeName="opacity" values="1;1;0;0;0;0" keyTimes="0;0.3;0.35;0.65;0.68;1" dur="6s" repeatCount="indefinite"/>
+            R$ 18,90
+          </text>
+          <text x="-14" y="-6" text-anchor="middle" font-family="JetBrains Mono" font-size="7" fill="#8A8A9A">
+            <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.3;0.35;0.65;0.68;1" dur="6s" repeatCount="indefinite"/>
+            DISTRIBUIDOR
+          </text>
+          <text x="-14" y="10" text-anchor="middle" font-family="JetBrains Mono" font-size="13" fill="oklch(0.80 0.10 55)" font-weight="700">
+            <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.3;0.35;0.65;0.68;1" dur="6s" repeatCount="indefinite"/>
+            R$ 14,20
+          </text>
+          <text x="-14" y="-6" text-anchor="middle" font-family="JetBrains Mono" font-size="7" fill="#8A8A9A">
+            <animate attributeName="opacity" values="0;0;0;0;1;1" keyTimes="0;0.3;0.35;0.65;0.68;1" dur="6s" repeatCount="indefinite"/>
+            VAREJO
+          </text>
+          <text x="-14" y="10" text-anchor="middle" font-family="JetBrains Mono" font-size="13" fill="oklch(0.80 0.10 55)" font-weight="700">
+            <animate attributeName="opacity" values="0;0;0;0;1;1" keyTimes="0;0.3;0.35;0.65;0.68;1" dur="6s" repeatCount="indefinite"/>
+            R$ 22,50
+          </text>
+        </g>
+
+        <!-- ESTEIRA — linha + 3 estações -->
+        <g transform="translate(0, 280)">
+          <line x1="90" y1="0" x2="510" y2="0" stroke="#2A2A3A" stroke-width="6" stroke-linecap="round"/>
+          <line x1="90" y1="0" x2="510" y2="0" stroke="#3A3A4A" stroke-width="6" stroke-linecap="round" stroke-dasharray="2 14">
+            <animate attributeName="stroke-dashoffset" values="0;-32" dur="1.4s" repeatCount="indefinite"/>
+          </line>
+
+          <!-- rolo esquerdo -->
+          <g transform="translate(90,0)" style="transform-box:fill-box;transform-origin:center;animation:gear-rotate 3s linear infinite;">
+            <circle r="12" fill="none" stroke="#55556A" stroke-width="2"/>
+            <line x1="-8" y1="0" x2="8" y2="0" stroke="#55556A" stroke-width="2"/>
+            <line x1="0" y1="-8" x2="0" y2="8" stroke="#55556A" stroke-width="2"/>
+          </g>
+          <!-- rolo direito -->
+          <g transform="translate(510,0)" style="transform-box:fill-box;transform-origin:center;animation:gear-rotate 3s linear infinite;">
+            <circle r="12" fill="none" stroke="#55556A" stroke-width="2"/>
+            <line x1="-8" y1="0" x2="8" y2="0" stroke="#55556A" stroke-width="2"/>
+            <line x1="0" y1="-8" x2="0" y2="8" stroke="#55556A" stroke-width="2"/>
+          </g>
+
+          <circle cx="150" cy="0" r="9" fill="oklch(0.68 0.14 55)"/>
+          <text x="150" y="26" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="oklch(0.80 0.10 55)">PEDIDO</text>
+
+          <circle cx="300" cy="0" r="11" fill="oklch(0.68 0.14 55)" stroke="#0E0E16" stroke-width="3"/>
+          <circle cx="300" cy="0" r="16" fill="none" stroke="oklch(0.68 0.14 55)" stroke-width="1.5" opacity="0.6">
+            <animate attributeName="r" values="11;20;11" dur="1.8s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.7;0;0.7" dur="1.8s" repeatCount="indefinite"/>
+          </circle>
+          <text x="300" y="30" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="oklch(0.90 0.12 55)" font-weight="700">APROVADO</text>
+
+          <circle cx="450" cy="0" r="9" fill="#3A3A4A"/>
+          <text x="450" y="26" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#8A8A9A">FATURADO</text>
+
+          <!-- PEDIDO viajando pela esteira -->
+          <g transform="translate(150,-24)">
+            <animateTransform attributeName="transform" type="translate" values="150,-24;450,-24;450,-24" keyTimes="0;0.7;1" dur="5.5s" repeatCount="indefinite"/>
+            <rect x="-16" y="-20" width="32" height="40" rx="3" fill="url(#copper)" stroke="#1A1A26" stroke-width="1.5"/>
+            <path d="M 6 -20 L 16 -10 L 6 -10 Z" fill="oklch(0.50 0.13 45)"/>
+            <line x1="-9" y1="-8" x2="9" y2="-8" stroke="rgba(0,0,0,0.3)" stroke-width="1.5"/>
+            <line x1="-9" y1="-2" x2="9" y2="-2" stroke="rgba(0,0,0,0.3)" stroke-width="1.5"/>
+            <line x1="-9" y1="4" x2="4" y2="4" stroke="rgba(0,0,0,0.3)" stroke-width="1.5"/>
+          </g>
+        </g>
+
+        <!-- CAIXAS EMPILHANDO junto ao FATURADO -->
+        <g transform="translate(450, 260)">
+          <rect x="-20" y="-18" width="40" height="26" fill="url(#rackMetal)" stroke="#1A1A26" rx="2">
+            <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.08;0.82;0.92;1" dur="8s" begin="0s" repeatCount="indefinite"/>
+          </rect>
+          <rect x="-20" y="-46" width="40" height="26" fill="url(#rackMetal)" stroke="#1A1A26" rx="2">
+            <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.08;0.82;0.92;1" dur="8s" begin="1.4s" repeatCount="indefinite"/>
+          </rect>
+          <rect x="-20" y="-74" width="40" height="26" fill="url(#rackMetal)" stroke="#1A1A26" rx="2">
+            <animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.08;0.82;0.92;1" dur="8s" begin="2.8s" repeatCount="indefinite"/>
+          </rect>
+        </g>
+
+        <g transform="translate(150, 600)" opacity="0.4">
+          <g style="transform-box:fill-box;transform-origin:center;animation:gear-rotate 12s linear infinite;">
+            <circle r="18" fill="none" stroke="#55556A" stroke-width="1.5"/>
+            <circle r="6" fill="none" stroke="#55556A" stroke-width="1.5"/>
+            <g fill="#55556A">
+              <rect x="-2" y="-22" width="4" height="6"/><rect x="-2" y="16" width="4" height="6"/>
+              <rect x="-22" y="-2" width="6" height="4"/><rect x="16" y="-2" width="6" height="4"/>
+            </g>
+          </g>
+        </g>
+        <g transform="translate(450, 610)" opacity="0.4">
+          <g style="transform-box:fill-box;transform-origin:center;animation:gear-rotate 8s linear infinite reverse;">
+            <circle r="12" fill="none" stroke="#55556A" stroke-width="1.2"/>
+            <circle r="4" fill="none" stroke="#55556A" stroke-width="1.2"/>
+            <g fill="#55556A">
+              <rect x="-1.5" y="-15" width="3" height="4"/><rect x="-1.5" y="11" width="3" height="4"/>
+              <rect x="-15" y="-1.5" width="4" height="3"/><rect x="11" y="-1.5" width="4" height="3"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+
+      <div class="grains" data-grains="18" style="pointer-events:none;z-index:3;position:absolute;inset:0;overflow:hidden;"></div>
+
+      <div class="hero-app-float" id="heroAppFloat">
+        <div class="app-mini">
+          <div class="bar"><span></span><span></span><span></span><span class="url">brewcontrol.app/comercial</span></div>
+          <div class="screen">
+            <div class="side">
+              <b>MENU</b>
+              <u></u><u></u><u class="on"></u><u></u><u></u>
+            </div>
+            <div class="main">
+              <div class="head">
+                <b>HUB · COMERCIAL</b>
+                <span class="sub">PED-4471</span>
+              </div>
+              <div class="cards">
+                <div class="card"><b>PEDIDOS HOJE</b><u data-count="24" class="mono">0</u></div>
+                <div class="card"><b>FATURADO HOJE</b><u>R$8.160</u></div>
+                <div class="card"><b>CANAIS</b><u data-count="3" class="mono">0</u></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hud-footer">
+        <div class="kv">PEDIDOS <b>24</b></div>
+        <div class="kv">TICKET MÉDIO <b>R$ 340</b></div>
+        <div class="kv">CANAL <b style="color:var(--copper-400)">DELIVERY</b></div>
+        <div class="kv">SYS <b style="color:oklch(0.76 0.14 155)">NOMINAL</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BENEFÍCIOS ============ -->
+<section class="section" style="position:relative;overflow:hidden">
+  <div class="scroll-glow" id="glowLayer"></div>
+  <div class="wrap">
+    <div class="section-hd cine-reveal">
+      <div class="section-label">BENEFÍCIOS</div>
+      <h2 class="section-title reveal-mask"><span>Não é só uma tela de <span class="accent">pedido.</span></span></h2>
+    </div>
+    <div class="mod-benefit-grid">
+      <div class="mod-benefit-card cine-reveal">
+        <div class="glow"></div>
+        <div class="mbc-body">
+          <div class="diff-num">RESERVA LÓGICA DE ESTOQUE</div>
+          <h3>Pedido aprovado já reserva o estoque</h3>
+          <p>Ninguém vende duas vezes o mesmo lote: o pedido aprovado reserva a quantidade na hora, sem depender de conferência manual.</p>
+        </div>
+      </div>
+      <div class="mod-benefit-card cine-reveal" style="transition-delay:80ms">
+        <div class="glow"></div>
+        <div class="mbc-body">
+          <div class="diff-num">PREÇO POR CANAL</div>
+          <h3>Cada canal com a tabela certa, sem confusão</h3>
+          <p>Delivery, distribuidor, varejo — cada canal com seu preço, sem planilha paralela pra saber qual vale pra quem.</p>
+        </div>
+      </div>
+      <div class="mod-benefit-card cine-reveal" style="transition-delay:160ms">
+        <div class="glow"></div>
+        <div class="mbc-body">
+          <div class="diff-num">MODO FESTIVAL</div>
+          <h3>Alto volume sem travar o caixa</h3>
+          <p>Sessões dedicadas pra evento e festival aguentam o pico de pedidos sem derrubar o fluxo do dia a dia.</p>
+        </div>
+      </div>
+      <div class="mod-benefit-card cine-reveal" style="transition-delay:240ms">
+        <div class="glow"></div>
+        <div class="mbc-body">
+          <div class="diff-num">METAS DE VENDAS</div>
+          <h3>Acompanhe a meta em tempo real, não no fim do mês</h3>
+          <p>Veja o progresso da meta comercial junto com pedido, faturamento e canal, tudo na mesma tela.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMO FUNCIONA ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-hd cine-reveal">
+      <div class="section-label">COMO FUNCIONA</div>
+      <h2 class="section-title">3 passos, do pedido ao faturamento.</h2>
+    </div>
+    <div class="mod-steps">
+      <div class="mod-step cine-reveal cine-left">
+        <div class="step-num">01</div>
+        <h3>Registre o pedido</h3>
+        <p>Cliente, canal e itens — o sistema já aplica a tabela de preço certa sozinho.</p>
+      </div>
+      <div class="mod-step cine-reveal" style="transition-delay:100ms">
+        <div class="step-num">02</div>
+        <h3>Aprove com reserva automática</h3>
+        <p>Ao aprovar, o estoque é reservado na hora — sem duplo lançamento e sem surpresa depois.</p>
+      </div>
+      <div class="mod-step cine-reveal cine-right" style="transition-delay:200ms">
+        <div class="step-num">03</div>
+        <h3>Fature e acompanhe a meta</h3>
+        <p>Pedido faturado dispara o financeiro e atualiza a meta de vendas em tempo real.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NÚMEROS ============ -->
+<section class="section">
+  <div class="wrap mod-stats">
+    <div class="mod-stat cine-reveal"><div class="num" data-count="12">0</div><div class="label">módulos integrados na mesma plataforma</div></div>
+    <div class="mod-stat cine-reveal" style="transition-delay:100ms"><div class="num" data-count="100" data-suffix="%">0%</div><div class="label">dos pedidos aprovados com reserva automática de estoque</div></div>
+    <div class="mod-stat cine-reveal" style="transition-delay:200ms"><div class="num" data-count="0">0</div><div class="label">planilhas paralelas de tabela de preço</div></div>
+  </div>
+</section>
+
+<!-- ============ CROSS-SELL ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="mod-crosssell cine-reveal">
+      <h3>O Comercial fica ainda melhor integrado à <a href="index.html#modules">Logística</a></h3>
+      <p>Pedido faturado já vira parada de rota de entrega — sem replanejar no papel nem passar informação por WhatsApp.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FUNDADOR (mesmo layout da Home) ============ -->
+<section class="section" id="about-mod" data-screen-label="fundador">
+  <div class="wrap">
+    <div class="founder-grid">
+      <div class="cine-reveal cine-left">
+        <div class="founder-photo-wrap">
+          <img src="screenshots/thiago-v2.jpg" alt="Thiago Santana Schneider — Fundador do BrewControl">
+        </div>
+        <div class="founder-name-block">
+          <div class="founder-name">Thiago Santana Schneider</div>
+          <div class="founder-role">Fundador · Mestre Cervejeiro</div>
+          <p class="founder-specialty">Biotecnologia · Sommelier · 9 anos de cerveja artesanal</p>
+        </div>
+      </div>
+      <div class="cine-reveal cine-right">
+        <div class="section-label">QUEM CONSTRÓI ISSO</div>
+        <h2 class="section-title" style="margin-bottom:1.5rem">O módulo que nasceu<br><span class="accent">do pedido perdido no WhatsApp.</span></h2>
+        <div class="founder-story">
+          <p>Cervejeiro desde 2017, passei pelos bastidores de várias cervejarias e senti na pele o peso da planilha de preço por canal e do pedido que se perdia no meio do caminho — foi isso que também virou o módulo Comercial.</p>
+          <p>Vender pro canal errado com preço errado é prejuízo silencioso que ninguém percebe até fechar o mês. Se você topa usar no dia a dia e ajudar a moldar o sistema, a conversa começa aqui.</p>
+        </div>
+        <a href="index.html#fundadora" class="btn btn-primary" style="margin-top:var(--s-8)">Conheça o Programa Cervejaria Fundadora →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-inner">
+      <div>
+        <a href="index.html#home" class="brand">
+          <span class="brand-mark">B</span>
+          <span class="brand-text">
+            <span class="brand-name">BREWCONTROL</span>
+            <span class="brand-tag">CRAFT BREWERY ERP</span>
+          </span>
+        </a>
+        <p style="color:var(--fog-400);margin-top:1rem;font-size:0.9rem">Da receita ao cliente, tudo conectado.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <b>Plataforma</b>
+          <a href="index.html#modules">Módulos</a>
+          <a href="index.html#pricing">Planos</a>
+          <a href="guia.html">Guia do Usuário</a>
+          <a href="blog/index.html">Blog</a>
+        </div>
+        <div class="footer-col">
+          <b>Empresa</b>
+          <a href="index.html#about">Fundador</a>
+          <a href="index.html#contact">Contato</a>
+          <a href="https://wa.me/5527981848184" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+        <div class="footer-col">
+          <b>Legal</b>
+          <a href="https://www.iubenda.com/privacy-policy/97313076" target="_blank" rel="noopener noreferrer">Política de Privacidade</a>
+          <a href="https://www.iubenda.com/privacy-policy/97313076/cookie-policy" target="_blank" rel="noopener noreferrer">Política de Cookies</a>
+          <a href="https://app.brewcontrol.app.br/termos" target="_blank" rel="noopener noreferrer">Termos de Uso</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 BrewControl. Todos os direitos reservados.</span>
+      <span class="mono" style="color:var(--fog-600)">v2.0 · INDUSTRIAL</span>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta-bar" id="stickyBar">
+  <span>Quer ver como o BrewControl funciona na prática?</span>
+  <a href="https://wa.me/5527981848184?text=Ol%C3%A1%21%20Quero%20agendar%20uma%20demo%20do%20BrewControl." target="_blank" rel="noopener" class="btn btn-primary">Agendar demo →</a>
+</div>
+
+<script src="landing-v2.js"></script>
+<script>
+(function(){
+  var targets = document.querySelectorAll('.cine-reveal, .reveal-mask');
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.2 });
+  targets.forEach(function(t){ io.observe(t); });
+})();
+
+(function(){
+  var wrap = document.getElementById('heroPlant');
+  var app = document.getElementById('heroAppFloat');
+  if (!wrap) return;
+  wrap.addEventListener('mousemove', function(e){
+    var r = wrap.getBoundingClientRect();
+    var x = (e.clientX - r.left) / r.width - 0.5;
+    var y = (e.clientY - r.top) / r.height - 0.5;
+    wrap.style.transform = 'rotateY(' + (x * 4) + 'deg) rotateX(' + (-y * 4) + 'deg)';
+    if (app) app.style.transform = 'translate(' + (x * -18) + 'px,' + (y * -18) + 'px)';
+  });
+  wrap.addEventListener('mouseleave', function(){
+    wrap.style.transform = 'rotateY(0) rotateX(0)';
+    if (app) app.style.transform = 'translate(0,0)';
+  });
+})();
+
+(function(){
+  var glow = document.getElementById('glowLayer');
+  if (!glow) return;
+  window.addEventListener('scroll', function(){
+    var y = window.scrollY;
+    glow.style.transform = 'translateY(' + (y * 0.15) + 'px)';
+  }, { passive: true });
+})();
+
+(function(){
+  var bar = document.getElementById('stickyBar');
+  if (!bar) return;
+  window.addEventListener('scroll', function(){
+    var scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    var pct = scrollable > 0 ? window.scrollY / scrollable : 0;
+    bar.classList.toggle('show', pct > 0.2);
+  }, { passive: true });
+})();
+</script>
+
+</body>
+</html>

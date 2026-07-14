@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#050508">
+<title>Módulo Ativos &amp; Barris — BrewControl | Rastreio de Barris, Chopeiras e CO₂</title>
+<meta name="description" content="56+ ativos rastreados: barris, chopeiras e cilindros de CO₂, com comodato, pesagem de gás e painel TV — o módulo Ativos & Barris do BrewControl.">
+<link rel="canonical" href="https://brewcontrol.app.br/modulo-ativos.html">
+<meta property="og:title" content="Módulo Ativos & Barris — BrewControl">
+<meta property="og:description" content="Status individual por ativo, nível visual de CO₂ e histórico imutável de eventos — barril, chopeira ou cilindro, sempre rastreado.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="https://brewcontrol.app.br/screenshots/ativos-barris.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800,900&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="landing-v2.css">
+</head>
+<body data-screen-label="modulo-ativos">
+<div class="grain"></div>
+
+<!-- ============ HEADER ============ -->
+<header class="header">
+  <div class="wrap header-inner">
+    <a href="index.html#home" class="brand">
+      <span class="brand-mark">B</span>
+      <span class="brand-text">
+        <span class="brand-name">BREWCONTROL</span>
+        <span class="brand-tag">CRAFT BREWERY ERP</span>
+      </span>
+    </a>
+    <nav class="nav">
+      <a href="index.html#modules">Módulos</a>
+      <a href="index.html#novidades">Novidades</a>
+      <a href="index.html#fundadora">Seja Fundadora</a>
+      <a href="index.html#pricing">Planos</a>
+      <a href="guia.html">Guia</a>
+      <a href="blog/index.html">Blog</a>
+    </nav>
+    <a href="index.html#waitlist" class="btn btn-primary">Acesso Antecipado</a>
+  </div>
+</header>
+
+<!-- ============ HERO — cena própria "Ativos 01": barris numa esteira circular trocando de status/cor, cilindro de CO₂ com ponteiro de pressão, feixe escaneando etiqueta ============ -->
+<section class="hero mod-hero" id="mod-hero-ativos">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <div class="section-label">MÓDULO ATIVOS &amp; BARRIS</div>
+      <h1 class="hero-title cine-reveal cine-left in-view">
+        <span class="line-1">Cada barril rastreado,</span>
+        <span class="line-2">cada CO₂ sob <span class="accent">controle.</span></span>
+      </h1>
+      <p class="section-sub cine-reveal cine-left in-view" style="transition-delay:120ms">56+ ativos rastreados: barris, chopeiras e cilindros de CO₂. Status individual, comodato, pesagem de gás e painel TV — sem planilha pra saber onde está cada um.</p>
+      <a href="https://wa.me/5527981848184?text=Ol%C3%A1%21%20Quero%20testar%20o%20m%C3%B3dulo%20Ativos%20%26%20Barris%20do%20BrewControl." target="_blank" rel="noopener" class="btn btn-primary cine-reveal cine-left in-view" style="transition-delay:220ms">Quero testar Ativos &amp; Barris →</a>
+    </div>
+
+    <!-- LADO DIREITO — ESTEIRA CIRCULAR DE BARRIS + CO₂ + LEITURA DE ETIQUETA -->
+    <div class="hero-canvas scanlines cine-reveal cine-right in-view" id="heroPlant" style="transition-delay:100ms">
+      <div class="hud-bar">
+        <div class="hud-group">
+          <span class="hud-dot"></span>
+          <span>LIVE · ATIVOS 01</span>
+        </div>
+        <div class="hud-group">
+          <span>BR-0231</span>
+          <span style="color: var(--copper-400)">EM CAMPO</span>
+        </div>
+      </div>
+
+      <svg class="ff-plant" viewBox="0 0 600 680" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+        <defs>
+          <linearGradient id="copper" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="oklch(0.80 0.12 55)"/>
+            <stop offset="0.5" stop-color="oklch(0.60 0.14 52)"/>
+            <stop offset="1" stop-color="oklch(0.40 0.13 48)"/>
+          </linearGradient>
+          <linearGradient id="tankMetal" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#4A4A5E"/>
+            <stop offset="1" stop-color="#2A2A3A"/>
+          </linearGradient>
+        </defs>
+
+        <rect x="0" y="560" width="600" height="120" fill="#0F0F18"/>
+        <line x1="0" y1="560" x2="600" y2="560" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <ellipse cx="300" cy="260" rx="270" ry="170" fill="oklch(0.68 0.14 55)" opacity="0.07" filter="blur(20)"/>
+
+        <!-- ATIVOS RASTREADOS -->
+        <g transform="translate(470, 90)">
+          <path d="M -70 -22 L 46 -22 Q 56 -22 56 -12 L 56 14 Q 56 22 46 22 L -70 22 Z" fill="#14141E" stroke="#2A2A3A" stroke-width="1.5"/>
+          <text x="-8" y="-6" text-anchor="middle" font-family="JetBrains Mono" font-size="7" fill="#8A8A9A">ATIVOS RASTREADOS</text>
+          <text x="-8" y="12" text-anchor="middle" font-family="JetBrains Mono" font-size="15" fill="oklch(0.80 0.10 55)" font-weight="700"><tspan id="ativosSvg">56</tspan>+</text>
+        </g>
+
+        <!-- ESTEIRA CIRCULAR — 3 barris trocando de status/cor -->
+        <circle cx="300" cy="260" r="110" fill="none" stroke="#2A2A3A" stroke-width="5"/>
+        <circle cx="300" cy="260" r="110" fill="none" stroke="#3A3A4A" stroke-width="5" stroke-dasharray="2 16">
+          <animate attributeName="stroke-dashoffset" values="0;-36" dur="1.6s" repeatCount="indefinite"/>
+        </circle>
+
+        <!-- indicador de fluxo orbitando -->
+        <g>
+          <circle r="6" fill="oklch(0.68 0.14 55)"/>
+          <circle r="11" fill="none" stroke="oklch(0.68 0.14 55)" stroke-width="1.5" opacity="0.6">
+            <animate attributeName="r" values="6;15;6" dur="1.8s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.7;0;0.7" dur="1.8s" repeatCount="indefinite"/>
+          </circle>
+          <animateMotion dur="9s" repeatCount="indefinite" path="M 300,150 A 110,110 0 1 1 299,150"/>
+        </g>
+
+        <!-- barril CHEIO (topo) -->
+        <g transform="translate(300, 150)">
+          <rect x="-16" y="-22" width="32" height="40" rx="8" fill="url(#copper)" stroke="#1A1A26" stroke-width="1.2"/>
+          <line x1="-16" y1="-8" x2="16" y2="-8" stroke="rgba(0,0,0,0.3)"/>
+          <line x1="-16" y1="8" x2="16" y2="8" stroke="rgba(0,0,0,0.3)"/>
+          <text x="0" y="38" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="oklch(0.80 0.10 55)" font-weight="700">CHEIO</text>
+        </g>
+
+        <!-- barril EM CAMPO (direita) -->
+        <g transform="translate(395, 315)">
+          <rect x="-16" y="-22" width="32" height="40" rx="8" fill="#3A3A4A" stroke="#1A1A26" stroke-width="1.2"/>
+          <line x1="-16" y1="-8" x2="16" y2="-8" stroke="rgba(0,0,0,0.3)"/>
+          <line x1="-16" y1="8" x2="16" y2="8" stroke="rgba(0,0,0,0.3)"/>
+          <text x="0" y="38" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="#8A8A9A">EM CAMPO</text>
+        </g>
+
+        <!-- barril RETORNADO (esquerda) -->
+        <g transform="translate(205, 315)">
+          <rect x="-16" y="-22" width="32" height="40" rx="8" fill="none" stroke="oklch(0.76 0.14 155)" stroke-width="1.6"/>
+          <line x1="-16" y1="-8" x2="16" y2="-8" stroke="oklch(0.76 0.14 155)" stroke-width="0.8" opacity="0.5"/>
+          <line x1="-16" y1="8" x2="16" y2="8" stroke="oklch(0.76 0.14 155)" stroke-width="0.8" opacity="0.5"/>
+          <text x="0" y="38" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="oklch(0.76 0.14 155)" font-weight="700">RETORNADO</text>
+
+          <!-- FEIXE LENDO A ETIQUETA DO BARRIL RETORNADO -->
+          <g transform="translate(0, 78)">
+            <rect x="-30" y="-16" width="60" height="32" fill="#14141E" stroke="#2A2A3A" stroke-width="1.5" rx="3"/>
+            <text x="0" y="-2" text-anchor="middle" font-family="JetBrains Mono" font-size="7" fill="#8A8A9A">ETIQUETA</text>
+            <text x="0" y="10" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="oklch(0.80 0.10 55)" font-weight="700">BR-0231</text>
+            <rect x="-30" y="-16" width="60" height="3" fill="oklch(0.70 0.20 35)" opacity="0.9">
+              <animate attributeName="y" values="-16;14;-16" dur="2s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values="0.9;0.3;0.9" dur="2s" repeatCount="indefinite"/>
+            </rect>
+          </g>
+        </g>
+
+        <!-- CILINDRO DE CO₂ COM PONTEIRO DE PRESSÃO -->
+        <g transform="translate(100, 560)">
+          <path d="M -20 0 L -20 -80 Q -20 -96 0 -96 Q 20 -96 20 -80 L 20 0 Z" fill="url(#tankMetal)" stroke="#1A1A26" stroke-width="1.5"/>
+          <rect x="-22" y="-8" width="44" height="14" fill="#1A1A26" rx="2"/>
+          <clipPath id="co2Clip"><path d="M -19 -1 L -19 -79 Q -19 -95 0 -95 Q 19 -95 19 -79 L 19 -1 Z"/></clipPath>
+          <rect x="-19" y="-60" width="38" height="60" fill="oklch(0.76 0.14 155)" opacity="0.55" clip-path="url(#co2Clip)"/>
+          <g transform="translate(0, -112)">
+            <path d="M -16 0 A 16 16 0 0 1 16 0" fill="none" stroke="#55556A" stroke-width="2.5"/>
+            <line x1="0" y1="0" x2="0" y2="-12" stroke="oklch(0.70 0.15 40)" stroke-width="1.8" stroke-linecap="round" style="transform-origin:0px 0px;animation:gauge-needle 2.6s ease-in-out infinite;"/>
+            <circle r="2" fill="#8A8A9A"/>
+          </g>
+          <text x="0" y="20" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="#8A8A9A">CO₂ · PRESSÃO</text>
+        </g>
+      </svg>
+
+      <div class="grains" data-grains="18" style="pointer-events:none;z-index:3;position:absolute;inset:0;overflow:hidden;"></div>
+
+      <div class="hero-app-float" id="heroAppFloat">
+        <div class="app-mini">
+          <div class="bar"><span></span><span></span><span></span><span class="url">brewcontrol.app/ativos</span></div>
+          <div class="screen">
+            <div class="side">
+              <b>MENU</b>
+              <u></u><u></u><u></u><u></u><u></u><u></u><u class="on"></u>
+            </div>
+            <div class="main">
+              <div class="head">
+                <b>HUB · ATIVOS</b>
+                <span class="sub">BR-0231</span>
+              </div>
+              <div class="cards">
+                <div class="card"><b>ATIVOS RASTREADOS</b><u data-count="56" class="mono">0</u></div>
+                <div class="card"><b>EM CAMPO</b><u data-count="21" class="mono">0</u></div>
+                <div class="card"><b>CO₂ DISPONÍVEL</b><u>72%</u></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hud-footer">
+        <div class="kv">ATIVOS <b>56+</b></div>
+        <div class="kv">EM CAMPO <b style="color:var(--copper-400)">21</b></div>
+        <div class="kv">CO₂ <b style="color:oklch(0.76 0.14 155)">72%</b></div>
+        <div class="kv">SYS <b style="color:oklch(0.76 0.14 155)">NOMINAL</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BENEFÍCIOS ============ -->
+<section class="section" style="position:relative;overflow:hidden">
+  <div class="scroll-glow" id="glowLayer"></div>
+  <div class="wrap">
+    <div class="section-hd cine-reveal">
+      <div class="section-label">BENEFÍCIOS</div>
+      <h2 class="section-title reveal-mask"><span>Não é só um número de <span class="accent">série.</span></span></h2>
+    </div>
+    <div class="mod-benefit-grid">
+      <div class="mod-benefit-card cine-reveal">
+        <div class="glow"></div>
+        <div class="mbc-body">
+          <div class="diff-num">STATUS INDIVIDUAL</div>
+          <h3>Cada barril com o status certo, sempre</h3>
+          <p>Cheio, em campo ou retornado — cada ativo com o status atualizado, sem depender de memória de quem entregou.</p>
+        </div>
+      </div>
+      <div class="mod-benefit-card cine-reveal" style="transition-delay:80ms">
+        <div class="glow"></div>
+        <div class="mbc-body">
+          <div class="diff-num">NÍVEL VISUAL DE CO₂</div>
+          <h3>Veja o gás acabando antes que o chope pare</h3>
+          <p>Pesagem de gás com nível visual, pra trocar o cilindro antes de parar o balcão no meio do movimento.</p>
+        </div>
+      </div>
+      <div class="mod-benefit-card cine-reveal" style="transition-delay:160ms">
+        <div class="glow"></div>
+        <div class="mbc-body">
+          <div class="diff-num">HISTÓRICO IMUTÁVEL</div>
+          <h3>Ninguém apaga o que já aconteceu com o ativo</h3>
+          <p>Todo evento registrado fica guardado — sem edição por fora, pra saber exatamente por onde cada ativo passou.</p>
+        </div>
+      </div>
+      <div class="mod-benefit-card cine-reveal" style="transition-delay:240ms">
+        <div class="glow"></div>
+        <div class="mbc-body">
+          <div class="diff-num">LEITURA DE ETIQUETA</div>
+          <h3>Aponte, leia, e o painel já atualiza sozinho</h3>
+          <p>Ler a etiqueta do ativo já atualiza o status na hora, com painel TV pra acompanhar tudo em tempo real.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMO FUNCIONA ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-hd cine-reveal">
+      <div class="section-label">COMO FUNCIONA</div>
+      <h2 class="section-title">3 passos, do cadastro ao retorno.</h2>
+    </div>
+    <div class="mod-steps">
+      <div class="mod-step cine-reveal cine-left">
+        <div class="step-num">01</div>
+        <h3>Cadastre e etiquete o ativo</h3>
+        <p>Barril, chopeira ou cilindro de CO₂ — cada um com sua etiqueta e histórico próprio desde o dia um.</p>
+      </div>
+      <div class="mod-step cine-reveal" style="transition-delay:100ms">
+        <div class="step-num">02</div>
+        <h3>Acompanhe o status em tempo real</h3>
+        <p>Cheio, em campo ou retornado — leia a etiqueta e o painel já atualiza sozinho, sem planilha.</p>
+      </div>
+      <div class="mod-step cine-reveal cine-right" style="transition-delay:200ms">
+        <div class="step-num">03</div>
+        <h3>Consulte o histórico imutável</h3>
+        <p>Cada evento do ativo guardado pra sempre — pronto pra consultar quando precisar entender o que aconteceu.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NÚMEROS ============ -->
+<section class="section">
+  <div class="wrap mod-stats">
+    <div class="mod-stat cine-reveal"><div class="num" data-count="56" data-suffix="+">0</div><div class="label">ativos rastreados: barris, chopeiras e cilindros de CO₂</div></div>
+    <div class="mod-stat cine-reveal" style="transition-delay:100ms"><div class="num" data-count="100" data-suffix="%">0%</div><div class="label">dos eventos de ativo guardados num histórico imutável</div></div>
+    <div class="mod-stat cine-reveal" style="transition-delay:200ms"><div class="num" data-count="0">0</div><div class="label">planilhas paralelas de controle de barril</div></div>
+  </div>
+</section>
+
+<!-- ============ CROSS-SELL ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="mod-crosssell cine-reveal">
+      <h3>Ativos &amp; Barris fica ainda melhor integrado ao <a href="index.html#modules">Brewpub &amp; Bar</a></h3>
+      <p>Barril conectado na torneira já debita o nível de CO₂ e atualiza o status sozinho, sem apontamento manual.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FUNDADOR (mesmo layout da Home) ============ -->
+<section class="section" id="about-mod" data-screen-label="fundador">
+  <div class="wrap">
+    <div class="founder-grid">
+      <div class="cine-reveal cine-left">
+        <div class="founder-photo-wrap">
+          <img src="screenshots/thiago-v2.jpg" alt="Thiago Santana Schneider — Fundador do BrewControl">
+        </div>
+        <div class="founder-name-block">
+          <div class="founder-name">Thiago Santana Schneider</div>
+          <div class="founder-role">Fundador · Mestre Cervejeiro</div>
+          <p class="founder-specialty">Biotecnologia · Sommelier · 9 anos de cerveja artesanal</p>
+        </div>
+      </div>
+      <div class="cine-reveal cine-right">
+        <div class="section-label">QUEM CONSTRÓI ISSO</div>
+        <h2 class="section-title" style="margin-bottom:1.5rem">O módulo que nasceu<br><span class="accent">do CO₂ que acabou no meio do evento.</span></h2>
+        <div class="founder-story">
+          <p>Já vi o chope parar de sair no meio de um evento lotado porque ninguém percebeu o cilindro de CO₂ esvaziando — foi esse aperto que motivou o Ativos &amp; Barris a existir, com o nível sempre visível.</p>
+          <p>Barril perdido e gás acabando sem aviso é prejuízo silencioso que corrói a operação aos poucos. Se você topa usar no dia a dia e ajudar a moldar o sistema, a conversa começa aqui.</p>
+        </div>
+        <a href="index.html#fundadora" class="btn btn-primary" style="margin-top:var(--s-8)">Conheça o Programa Cervejaria Fundadora →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-inner">
+      <div>
+        <a href="index.html#home" class="brand">
+          <span class="brand-mark">B</span>
+          <span class="brand-text">
+            <span class="brand-name">BREWCONTROL</span>
+            <span class="brand-tag">CRAFT BREWERY ERP</span>
+          </span>
+        </a>
+        <p style="color:var(--fog-400);margin-top:1rem;font-size:0.9rem">Da receita ao cliente, tudo conectado.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <b>Plataforma</b>
+          <a href="index.html#modules">Módulos</a>
+          <a href="index.html#pricing">Planos</a>
+          <a href="guia.html">Guia do Usuário</a>
+          <a href="blog/index.html">Blog</a>
+        </div>
+        <div class="footer-col">
+          <b>Empresa</b>
+          <a href="index.html#about">Fundador</a>
+          <a href="index.html#contact">Contato</a>
+          <a href="https://wa.me/5527981848184" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+        <div class="footer-col">
+          <b>Legal</b>
+          <a href="https://www.iubenda.com/privacy-policy/97313076" target="_blank" rel="noopener noreferrer">Política de Privacidade</a>
+          <a href="https://www.iubenda.com/privacy-policy/97313076/cookie-policy" target="_blank" rel="noopener noreferrer">Política de Cookies</a>
+          <a href="https://app.brewcontrol.app.br/termos" target="_blank" rel="noopener noreferrer">Termos de Uso</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 BrewControl. Todos os direitos reservados.</span>
+      <span class="mono" style="color:var(--fog-600)">v2.0 · INDUSTRIAL</span>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta-bar" id="stickyBar">
+  <span>Quer ver como o BrewControl funciona na prática?</span>
+  <a href="https://wa.me/5527981848184?text=Ol%C3%A1%21%20Quero%20agendar%20uma%20demo%20do%20BrewControl." target="_blank" rel="noopener" class="btn btn-primary">Agendar demo →</a>
+</div>
+
+<script src="landing-v2.js"></script>
+<script>
+(function(){
+  var targets = document.querySelectorAll('.cine-reveal, .reveal-mask');
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.2 });
+  targets.forEach(function(t){ io.observe(t); });
+})();
+
+(function(){
+  var wrap = document.getElementById('heroPlant');
+  var app = document.getElementById('heroAppFloat');
+  if (!wrap) return;
+  wrap.addEventListener('mousemove', function(e){
+    var r = wrap.getBoundingClientRect();
+    var x = (e.clientX - r.left) / r.width - 0.5;
+    var y = (e.clientY - r.top) / r.height - 0.5;
+    wrap.style.transform = 'rotateY(' + (x * 4) + 'deg) rotateX(' + (-y * 4) + 'deg)';
+    if (app) app.style.transform = 'translate(' + (x * -18) + 'px,' + (y * -18) + 'px)';
+  });
+  wrap.addEventListener('mouseleave', function(){
+    wrap.style.transform = 'rotateY(0) rotateX(0)';
+    if (app) app.style.transform = 'translate(0,0)';
+  });
+})();
+
+(function(){
+  var glow = document.getElementById('glowLayer');
+  if (!glow) return;
+  window.addEventListener('scroll', function(){
+    var y = window.scrollY;
+    glow.style.transform = 'translateY(' + (y * 0.15) + 'px)';
+  }, { passive: true });
+})();
+
+(function(){
+  var svg = document.getElementById('ativosSvg');
+  if (!svg) return;
+  var val = 56;
+  setInterval(function(){
+    val += (Math.random() < 0.5 ? 1 : -1);
+    if (val < 52) val = 56;
+    if (val > 61) val = 56;
+    svg.textContent = val;
+  }, 2400);
+})();
+
+(function(){
+  var bar = document.getElementById('stickyBar');
+  if (!bar) return;
+  window.addEventListener('scroll', function(){
+    var scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    var pct = scrollable > 0 ? window.scrollY / scrollable : 0;
+    bar.classList.toggle('show', pct > 0.2);
+  }, { passive: true });
+})();
+</script>
+
+</body>
+</html>

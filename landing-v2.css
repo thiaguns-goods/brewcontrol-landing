@@ -1089,3 +1089,76 @@ body[data-dir="bold"] .price-card { background: var(--ink-000); }
 @media (max-width: 640px) {
   .blog-article { padding-top: 120px; }
 }
+
+/* =========================================================
+   PÁGINAS DE MÓDULO + ANIMAÇÕES (scroll reveal, glow, tilt, count-up)
+   ========================================================= */
+.mod-hero { padding: 150px 0 70px; }
+.mod-hero-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: var(--s-16); align-items: center; }
+.mod-hero-copy .section-sub { margin: var(--s-5) 0 var(--s-8); max-width: 46ch; }
+.mod-hero-visual { perspective: 1200px; }
+.mod-hero-visual img { border-radius: var(--r-xl); border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 30px 80px rgba(0,0,0,0.5); transition: transform 0.15s ease-out; will-change: transform; }
+
+/* Reveal de título (máscara) */
+.reveal-mask { overflow: hidden; display: block; }
+.reveal-mask > span { display: inline-block; transform: translateY(115%); opacity: 0; transition: transform 0.7s var(--ease), opacity 0.7s var(--ease); }
+.reveal-mask.in-view > span { transform: translateY(0); opacity: 1; }
+
+/* Fade-up padronizado ao rolar */
+.fade-up-item { opacity: 0; transform: translateY(28px); transition: opacity 0.6s var(--ease), transform 0.6s var(--ease); }
+.fade-up-item.in-view { opacity: 1; transform: translateY(0); }
+
+/* Cards de benefício com glow seguindo o cursor */
+.mod-benefit-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--s-6); margin-top: var(--s-10); }
+.mod-benefit-card { position: relative; overflow: hidden; border-radius: var(--r-lg); border: 1px solid rgba(255,255,255,0.08); background: var(--ink-050); padding: var(--s-8); }
+.mod-benefit-card .glow { position: absolute; inset: -1px; pointer-events: none; opacity: 0; transition: opacity 0.3s; z-index: 0; }
+.mod-benefit-card:hover .glow { opacity: 1; }
+.mod-benefit-card .mbc-body { position: relative; z-index: 1; }
+.mod-benefit-card h3 { font-family: var(--f-display); font-size: var(--text-lg); color: var(--fog-100); margin-bottom: var(--s-3); font-weight: 700; }
+.mod-benefit-card p { color: var(--fog-400); font-size: var(--text-sm); line-height: 1.7; }
+
+/* Passo a passo */
+.mod-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s-6); margin-top: var(--s-10); }
+.mod-step { background: var(--ink-050); border: 1px solid rgba(255,255,255,0.06); border-radius: var(--r-lg); padding: var(--s-8); }
+.mod-step .step-num { font-family: var(--f-mono); font-size: var(--text-xl); color: var(--copper-400); margin-bottom: var(--s-4); }
+.mod-step h3 { font-family: var(--f-display); color: var(--fog-100); margin-bottom: var(--s-3); font-size: var(--text-md); }
+.mod-step p { color: var(--fog-400); font-size: var(--text-sm); line-height: 1.7; }
+
+/* Números contáveis */
+.mod-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s-8); text-align: center; }
+.mod-stat .num { font-family: var(--f-display); font-size: var(--text-3xl); color: var(--fog-100); font-weight: 800; }
+.mod-stat .label { color: var(--fog-400); font-size: var(--text-sm); margin-top: var(--s-2); }
+
+/* Cross-sell */
+.mod-crosssell { text-align: center; background: var(--metal-brushed-soft); border: 1px solid rgba(255,255,255,0.06); border-radius: var(--r-xl); padding: var(--s-12); }
+.mod-crosssell h3 { font-family: var(--f-display); font-size: var(--text-lg); color: var(--fog-100); margin-bottom: var(--s-4); }
+.mod-crosssell a { color: var(--copper-400); }
+.mod-crosssell p { color: var(--fog-400); }
+
+/* Barra fixa de CTA */
+.sticky-cta-bar { position: fixed; left: 0; right: 0; bottom: -100px; background: rgba(10,10,16,0.9); backdrop-filter: blur(10px); border-top: 1px solid rgba(255,255,255,0.1); padding: var(--s-4) var(--s-6); display: flex; align-items: center; justify-content: center; gap: var(--s-6); z-index: 60; transition: bottom 0.4s var(--ease); }
+.sticky-cta-bar.show { bottom: 0; }
+.sticky-cta-bar span { color: var(--fog-200); font-size: var(--text-sm); }
+
+@media (max-width: 760px) {
+  .mod-hero-grid, .mod-benefit-grid, .mod-steps, .mod-stats { grid-template-columns: 1fr; }
+  .mod-hero { padding-top: 120px; }
+  .sticky-cta-bar { flex-direction: column; text-align: center; gap: var(--s-3); padding: var(--s-4); }
+}
+
+/* Reveal cinematográfico — mais dramático que o fade-up padrão */
+.cine-reveal { opacity: 0; transform: translateY(56px) scale(0.96); transition: opacity 0.9s var(--ease), transform 0.9s var(--ease); }
+.cine-reveal.in-view { opacity: 1; transform: translateY(0) scale(1); }
+.cine-reveal.cine-left { transform: translateX(-56px) scale(0.98); }
+.cine-reveal.cine-left.in-view { transform: translateX(0) scale(1); }
+.cine-reveal.cine-right { transform: translateX(56px) scale(0.98); }
+.cine-reveal.cine-right.in-view { transform: translateX(0) scale(1); }
+
+/* Camadas com profundidade de mouse-parallax no hero de módulo */
+.mod-hero .hero-canvas { transition: transform 0.2s ease-out; }
+.mod-hero .hero-app-float { transition: transform 0.25s ease-out; }
+
+/* Glow ambiente que reage ao scroll (parallax de fundo) */
+.scroll-glow { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 0; }
+.scroll-glow::before { content: ''; position: absolute; top: -20%; left: 50%; width: 900px; height: 900px; margin-left: -450px; background: var(--vol-copper); opacity: 0.5; will-change: transform; }
+.mod-benefit-card, .mod-step, .mod-stat, .mod-crosssell { position: relative; z-index: 1; }

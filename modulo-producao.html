@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#050508">
+<title>Módulo de Produção — BrewControl | Brew Day, Receitas e Rastreabilidade</title>
+<meta name="description" content="Planeje receitas, acompanhe o Brew Day passo a passo e tenha rastreabilidade total do lote — o módulo de Produção do BrewControl.">
+<link rel="canonical" href="https://brewcontrol.app.br/modulo-producao.html">
+<meta property="og:title" content="Módulo de Produção — BrewControl">
+<meta property="og:description" content="Planeje receitas, acompanhe o Brew Day passo a passo e tenha rastreabilidade total do lote.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="https://brewcontrol.app.br/screenshots/producao.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800,900&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="landing-v2.css">
+</head>
+<body data-screen-label="modulo-producao">
+<div class="grain"></div>
+
+<!-- ============ HEADER ============ -->
+<header class="header">
+  <div class="wrap header-inner">
+    <a href="index.html#home" class="brand">
+      <span class="brand-mark">B</span>
+      <span class="brand-text">
+        <span class="brand-name">BREWCONTROL</span>
+        <span class="brand-tag">CRAFT BREWERY ERP</span>
+      </span>
+    </a>
+    <nav class="nav">
+      <a href="index.html#modules">Módulos</a>
+      <a href="index.html#novidades">Novidades</a>
+      <a href="index.html#fundadora">Seja Fundadora</a>
+      <a href="index.html#pricing">Planos</a>
+      <a href="guia.html">Guia</a>
+      <a href="blog/index.html">Blog</a>
+    </nav>
+    <a href="index.html#waitlist" class="btn btn-primary">Acesso Antecipado</a>
+  </div>
+</header>
+
+<!-- ============ HERO — "Mostura 01": cena própria da Produção (mash tun em foco + linha do tempo do Brew Day) ============ -->
+<section class="hero mod-hero" id="mod-hero-producao">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <div class="section-label">MÓDULO DE PRODUÇÃO</div>
+      <h1 class="hero-title cine-reveal cine-left in-view">
+        <span class="line-1">Acabe com o improviso</span>
+        <span class="line-2">na <span class="accent">brassagem.</span></span>
+      </h1>
+      <p class="section-sub cine-reveal cine-left in-view" style="transition-delay:120ms">Planeje a receita, acompanhe o Brew Day passo a passo e saiba exatamente em que etapa cada lote está — sem depender de planilha, caderno ou memória de quem está de plantão.</p>
+      <a href="https://wa.me/5527981848184?text=Ol%C3%A1%21%20Quero%20testar%20o%20m%C3%B3dulo%20de%20Produ%C3%A7%C3%A3o%20do%20BrewControl." target="_blank" rel="noopener" class="btn btn-primary cine-reveal cine-left in-view" style="transition-delay:220ms">Quero testar a Produção →</a>
+    </div>
+
+    <!-- LADO DIREITO — MOSTURA EM FOCO + LINHA DO TEMPO DO BREW DAY -->
+    <div class="hero-canvas scanlines cine-reveal cine-right in-view" id="heroPlant" style="transition-delay:100ms">
+      <div class="hud-bar">
+        <div class="hud-group">
+          <span class="hud-dot"></span>
+          <span>LIVE · MOSTURA 01</span>
+        </div>
+        <div class="hud-group">
+          <span>LT-2604</span>
+          <span style="color: var(--copper-400)">BREW DAY</span>
+        </div>
+      </div>
+
+      <svg class="ff-plant" viewBox="0 0 600 680" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+        <defs>
+          <linearGradient id="copper" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="oklch(0.80 0.12 55)"/>
+            <stop offset="0.5" stop-color="oklch(0.60 0.14 52)"/>
+            <stop offset="1" stop-color="oklch(0.40 0.13 48)"/>
+          </linearGradient>
+          <radialGradient id="mashTop" cx="0.5" cy="0.3" r="0.7">
+            <stop offset="0" stop-color="oklch(0.72 0.13 70)"/>
+            <stop offset="1" stop-color="oklch(0.50 0.11 55)"/>
+          </radialGradient>
+        </defs>
+
+        <rect x="0" y="560" width="600" height="120" fill="#0F0F18"/>
+        <line x1="0" y1="560" x2="600" y2="560" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <ellipse cx="300" cy="280" rx="260" ry="180" fill="oklch(0.68 0.14 55)" opacity="0.08" filter="blur(20)"/>
+
+        <!-- PANELA DE MOSTURA — grande, em close -->
+        <g transform="translate(150, 120)">
+          <path d="M 0 40 L 15 8 L 285 8 L 300 40 Z" fill="url(#copper)" stroke="#1A1A26" stroke-width="1.5"/>
+          <ellipse cx="150" cy="8" rx="135" ry="16" fill="oklch(0.52 0.13 48)" stroke="#1A1A26"/>
+          <rect x="0" y="36" width="300" height="300" fill="url(#copper)" stroke="#1A1A26" stroke-width="1.5"/>
+          <rect x="24" y="44" width="14" height="284" fill="rgba(255,255,255,0.30)" opacity="0.6"/>
+
+          <!-- Janela de visita mostrando o mosto/grão -->
+          <ellipse cx="150" cy="18" rx="95" ry="14" fill="#120C08" stroke="#1A1A26" stroke-width="2"/>
+          <clipPath id="clipMash"><ellipse cx="150" cy="18" rx="92" ry="12"/></clipPath>
+          <g clip-path="url(#clipMash)">
+            <rect x="55" y="6" width="190" height="24" fill="url(#mashTop)"/>
+            <circle cx="115" cy="16" r="4" fill="oklch(0.62 0.10 65)"/>
+            <circle cx="140" cy="20" r="3" fill="oklch(0.58 0.09 60)"/>
+            <circle cx="165" cy="14" r="3.5" fill="oklch(0.64 0.11 68)"/>
+            <circle cx="190" cy="19" r="4" fill="oklch(0.56 0.09 58)"/>
+          </g>
+
+          <!-- Pá de mostura girando -->
+          <g transform="translate(150, 18)">
+            <g style="transform-box:fill-box;transform-origin:center;animation:gear-rotate 4s linear infinite;">
+              <line x1="0" y1="0" x2="0" y2="-14" stroke="#8A8A9A" stroke-width="3" stroke-linecap="round"/>
+              <line x1="-10" y1="-12" x2="10" y2="-12" stroke="#8A8A9A" stroke-width="3" stroke-linecap="round"/>
+            </g>
+          </g>
+
+          <!-- Painel digital de temperatura -->
+          <rect x="30" y="150" width="110" height="46" fill="#0A0A10" stroke="#2A2A3A" rx="3"/>
+          <text x="40" y="168" font-family="JetBrains Mono" font-size="8" fill="#8A8A9A">TEMP. MOSTURA</text>
+          <text x="40" y="188" font-family="JetBrains Mono" font-size="16" fill="oklch(0.72 0.15 45)" font-weight="700">65.5°C</text>
+
+          <!-- Gauge de pressão -->
+          <g transform="translate(230, 172)">
+            <circle r="20" fill="#0E0E16" stroke="#55556A" stroke-width="1.5"/>
+            <circle r="17" fill="#1A1A26"/>
+            <line x1="0" y1="0" x2="0" y2="-13" stroke="oklch(0.70 0.15 40)" stroke-width="2" stroke-linecap="round" style="transform-origin:center;animation:gauge-needle 3s ease-in-out infinite;"/>
+            <circle r="2" fill="#8A8A9A"/>
+          </g>
+
+          <path d="M -10 328 L 310 328 L 296 348 L 4 348 Z" fill="#14141E" stroke="#1A1A26"/>
+        </g>
+
+        <!-- Vapor subindo da mostura -->
+        <foreignObject x="220" y="30" width="40" height="150" style="overflow:visible">
+          <div xmlns="http://www.w3.org/1999/xhtml" class="steam" style="position:relative;width:40px;height:150px;">
+            <span></span><span></span><span></span><span></span>
+          </div>
+        </foreignObject>
+        <foreignObject x="340" y="40" width="40" height="140" style="overflow:visible">
+          <div xmlns="http://www.w3.org/1999/xhtml" class="steam" style="position:relative;width:40px;height:140px;">
+            <span></span><span></span><span></span><span></span>
+          </div>
+        </foreignObject>
+
+        <!-- LINHA DO TEMPO DO BREW DAY -->
+        <g transform="translate(60, 470)">
+          <line x1="20" y1="0" x2="480" y2="0" stroke="#2A2A3A" stroke-width="3" stroke-linecap="round"/>
+          <line x1="20" y1="0" x2="180" y2="0" stroke="oklch(0.68 0.14 55)" stroke-width="3" stroke-linecap="round"/>
+
+          <circle cx="20" cy="0" r="9" fill="oklch(0.68 0.14 55)"/>
+          <text x="20" y="26" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="oklch(0.80 0.10 55)">MOSTURA</text>
+
+          <circle cx="180" cy="0" r="11" fill="oklch(0.68 0.14 55)" stroke="#0E0E16" stroke-width="3"/>
+          <circle cx="180" cy="0" r="16" fill="none" stroke="oklch(0.68 0.14 55)" stroke-width="1.5" opacity="0.6">
+            <animate attributeName="r" values="11;20;11" dur="1.8s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.7;0;0.7" dur="1.8s" repeatCount="indefinite"/>
+          </circle>
+          <text x="180" y="30" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="oklch(0.90 0.12 55)" font-weight="700">FERVURA</text>
+
+          <circle cx="340" cy="0" r="9" fill="#3A3A4A"/>
+          <text x="340" y="26" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#8A8A9A">WHIRLPOOL</text>
+
+          <circle cx="480" cy="0" r="9" fill="#3A3A4A"/>
+          <text x="480" y="26" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="#8A8A9A">TRANSF.</text>
+        </g>
+      </svg>
+
+      <div class="grains" data-grains="18" style="pointer-events:none;z-index:3;position:absolute;inset:0;overflow:hidden;"></div>
+
+      <div class="hero-app-float" id="heroAppFloat">
+        <div class="app-mini">
+          <div class="bar"><span></span><span></span><span></span><span class="url">brewcontrol.app/produção</span></div>
+          <div class="screen">
+            <div class="side">
+              <b>MENU</b>
+              <u class="on"></u><u></u><u></u><u></u><u></u>
+            </div>
+            <div class="main">
+              <div class="head">
+                <b>BREW DAY · LT-2604</b>
+                <span class="sub">Etapa 2/4</span>
+              </div>
+              <div class="cards">
+                <div class="card"><b>ETAPA ATUAL</b><u>FERVURA</u></div>
+                <div class="card"><b>TEMPO ETAPA</b><u data-count="52" data-suffix=" min" class="mono">0 min</u></div>
+                <div class="card"><b>OG ESPERADO</b><u>1.058</u></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hud-footer">
+        <div class="kv">TEMP <b>96.2°C</b></div>
+        <div class="kv">OG <b>1.058</b></div>
+        <div class="kv">ETAPA <b style="color:var(--copper-400)">FERVURA</b></div>
+        <div class="kv">SYS <b style="color:oklch(0.76 0.14 155)">NOMINAL</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BENEFÍCIOS ============ -->
+<section class="section" style="position:relative;overflow:hidden">
+  <div class="scroll-glow" id="glowLayer"></div>
+  <div class="wrap">
+    <div class="section-hd cine-reveal">
+      <div class="section-label">BENEFÍCIOS</div>
+      <h2 class="section-title reveal-mask"><span>Não é só uma tela de <span class="accent">controle.</span></span></h2>
+    </div>
+    <div class="mod-benefit-grid">
+      <div class="mod-benefit-card cine-reveal">
+        <div class="glow"></div>
+        <div class="mbc-body">
+          <div class="diff-num">DENSIDADE E TEOR ALCOÓLICO</div>
+          <h3>Calcule o OG e o FG na hora, sem planilha à parte</h3>
+          <p>Registre a densidade no início e no fim da fermentação e veja o teor alcoólico calculado na hora.</p>
+        </div>
+      </div>
+      <div class="mod-benefit-card cine-reveal" style="transition-delay:80ms">
+        <div class="glow"></div>
+        <div class="mbc-body">
+          <div class="diff-num">BREW DAY GUIADO</div>
+          <h3>Saiba exatamente em que etapa cada lote está</h3>
+          <p>Stepper do Brew Day mostra mostura, fervura, whirlpool e transferência em tempo real, no celular.</p>
+        </div>
+      </div>
+      <div class="mod-benefit-card cine-reveal" style="transition-delay:160ms">
+        <div class="glow"></div>
+        <div class="mbc-body">
+          <div class="diff-num">HISTÓRICO IMUTÁVEL</div>
+          <h3>Nenhuma correção apaga o que aconteceu de verdade</h3>
+          <p>Errou um dado? Registra um evento de correção com o motivo — o histórico original continua auditável.</p>
+        </div>
+      </div>
+      <div class="mod-benefit-card cine-reveal" style="transition-delay:240ms">
+        <div class="glow"></div>
+        <div class="mbc-body">
+          <div class="diff-num">MULTI-FÁBRICA</div>
+          <h3>Mais de uma unidade produtiva? Uma visão só.</h3>
+          <p>O Hub separa lotes, tanques e brassagens por fábrica automaticamente, sem sistema duplicado.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMO FUNCIONA ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-hd cine-reveal">
+      <div class="section-label">COMO FUNCIONA</div>
+      <h2 class="section-title">3 passos, do planejamento ao envase.</h2>
+    </div>
+    <div class="mod-steps">
+      <div class="mod-step cine-reveal cine-left">
+        <div class="step-num">01</div>
+        <h3>Planeje a receita</h3>
+        <p>Ficha técnica com variantes, estilo BJCP, insumos e rendimento esperado.</p>
+      </div>
+      <div class="mod-step cine-reveal" style="transition-delay:100ms">
+        <div class="step-num">02</div>
+        <h3>Registre o dia da brassagem</h3>
+        <p>Brew Day mobile: cada etapa vira um evento — nada é editado depois, só corrigido.</p>
+      </div>
+      <div class="mod-step cine-reveal cine-right" style="transition-delay:200ms">
+        <div class="step-num">03</div>
+        <h3>Acompanhe até o envase</h3>
+        <p>Adega e tanques em tempo real, envase registrado, consumo de estoque disparado sozinho.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NÚMEROS ============ -->
+<section class="section">
+  <div class="wrap mod-stats">
+    <div class="mod-stat cine-reveal"><div class="num" data-count="12">0</div><div class="label">módulos integrados na mesma plataforma</div></div>
+    <div class="mod-stat cine-reveal" style="transition-delay:100ms"><div class="num" data-count="100" data-suffix="%">0%</div><div class="label">dos eventos de produção ficam registrados pra sempre</div></div>
+    <div class="mod-stat cine-reveal" style="transition-delay:200ms"><div class="num" data-count="0">0</div><div class="label">planilhas paralelas necessárias</div></div>
+  </div>
+</section>
+
+<!-- ============ CROSS-SELL ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="mod-crosssell cine-reveal">
+      <h3>A Produção fica ainda melhor integrada ao <a href="index.html#modules">Almoxarifado</a></h3>
+      <p>Consumo de malte, lúpulo e levedura é lançado sozinho assim que a brassagem acontece — o estoque nunca fica desatualizado.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FUNDADOR (mesmo layout da Home) ============ -->
+<section class="section" id="about-mod" data-screen-label="fundador">
+  <div class="wrap">
+    <div class="founder-grid">
+      <div class="cine-reveal cine-left">
+        <div class="founder-photo-wrap">
+          <img src="screenshots/thiago-v2.jpg" alt="Thiago Santana Schneider — Fundador do BrewControl">
+        </div>
+        <div class="founder-name-block">
+          <div class="founder-name">Thiago Santana Schneider</div>
+          <div class="founder-role">Fundador · Mestre Cervejeiro</div>
+          <p class="founder-specialty">Biotecnologia · Sommelier · 9 anos de cerveja artesanal</p>
+        </div>
+      </div>
+      <div class="cine-reveal cine-right">
+        <div class="section-label">QUEM CONSTRÓI ISSO</div>
+        <h2 class="section-title" style="margin-bottom:1.5rem">O módulo que nasceu<br><span class="accent">do chão de fábrica.</span></h2>
+        <div class="founder-story">
+          <p>Cervejeiro desde 2017, passei pelos bastidores de várias cervejarias e senti na pele o peso da planilha, do WhatsApp e da informação espalhada — foi isso que virou o módulo de Produção.</p>
+          <p>Ele ainda está evoluindo com quem faz cerveja de verdade. Se você topa usar no dia a dia e ajudar a moldar o sistema, a conversa começa aqui.</p>
+        </div>
+        <a href="index.html#fundadora" class="btn btn-primary" style="margin-top:var(--s-8)">Conheça o Programa Cervejaria Fundadora →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-inner">
+      <div>
+        <a href="index.html#home" class="brand">
+          <span class="brand-mark">B</span>
+          <span class="brand-text">
+            <span class="brand-name">BREWCONTROL</span>
+            <span class="brand-tag">CRAFT BREWERY ERP</span>
+          </span>
+        </a>
+        <p style="color:var(--fog-400);margin-top:1rem;font-size:0.9rem">Da receita ao cliente, tudo conectado.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <b>Plataforma</b>
+          <a href="index.html#modules">Módulos</a>
+          <a href="index.html#pricing">Planos</a>
+          <a href="guia.html">Guia do Usuário</a>
+          <a href="blog/index.html">Blog</a>
+        </div>
+        <div class="footer-col">
+          <b>Empresa</b>
+          <a href="index.html#about">Fundador</a>
+          <a href="index.html#contact">Contato</a>
+          <a href="https://wa.me/5527981848184" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+        <div class="footer-col">
+          <b>Legal</b>
+          <a href="https://www.iubenda.com/privacy-policy/97313076" target="_blank" rel="noopener noreferrer">Política de Privacidade</a>
+          <a href="https://www.iubenda.com/privacy-policy/97313076/cookie-policy" target="_blank" rel="noopener noreferrer">Política de Cookies</a>
+          <a href="https://app.brewcontrol.app.br/termos" target="_blank" rel="noopener noreferrer">Termos de Uso</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 BrewControl. Todos os direitos reservados.</span>
+      <span class="mono" style="color:var(--fog-600)">v2.0 · INDUSTRIAL</span>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta-bar" id="stickyBar">
+  <span>Quer ver como o BrewControl funciona na prática?</span>
+  <a href="https://wa.me/5527981848184?text=Ol%C3%A1%21%20Quero%20agendar%20uma%20demo%20do%20BrewControl." target="_blank" rel="noopener" class="btn btn-primary">Agendar demo →</a>
+</div>
+
+<script src="landing-v2.js"></script>
+<script>
+(function(){
+  var targets = document.querySelectorAll('.cine-reveal, .reveal-mask');
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.2 });
+  targets.forEach(function(t){ io.observe(t); });
+})();
+
+(function(){
+  var wrap = document.getElementById('heroPlant');
+  var app = document.getElementById('heroAppFloat');
+  if (!wrap) return;
+  wrap.addEventListener('mousemove', function(e){
+    var r = wrap.getBoundingClientRect();
+    var x = (e.clientX - r.left) / r.width - 0.5;
+    var y = (e.clientY - r.top) / r.height - 0.5;
+    wrap.style.transform = 'rotateY(' + (x * 4) + 'deg) rotateX(' + (-y * 4) + 'deg)';
+    if (app) app.style.transform = 'translate(' + (x * -18) + 'px,' + (y * -18) + 'px)';
+  });
+  wrap.addEventListener('mouseleave', function(){
+    wrap.style.transform = 'rotateY(0) rotateX(0)';
+    if (app) app.style.transform = 'translate(0,0)';
+  });
+})();
+
+(function(){
+  var glow = document.getElementById('glowLayer');
+  if (!glow) return;
+  var inner = glow.querySelector ? null : null;
+  window.addEventListener('scroll', function(){
+    var y = window.scrollY;
+    glow.style.transform = 'translateY(' + (y * 0.15) + 'px)';
+  }, { passive: true });
+})();
+
+(function(){
+  var bar = document.getElementById('stickyBar');
+  if (!bar) return;
+  window.addEventListener('scroll', function(){
+    var scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    var pct = scrollable > 0 ? window.scrollY / scrollable : 0;
+    bar.classList.toggle('show', pct > 0.2);
+  }, { passive: true });
+})();
+</script>
+
+</body>
+</html>

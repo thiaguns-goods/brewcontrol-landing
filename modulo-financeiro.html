@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#050508">
+<title>Módulo Financeiro — BrewControl | Fluxo de Caixa, DRE e Centros de Custo</title>
+<meta name="description" content="Contas a pagar e receber, caixa operacional, DRE gerencial e centros de custo em tempo real — o módulo Financeiro do BrewControl.">
+<link rel="canonical" href="https://brewcontrol.app.br/modulo-financeiro.html">
+<meta property="og:title" content="Módulo Financeiro — BrewControl">
+<meta property="og:description" content="Fluxo de caixa em tempo real, DRE gerencial por centro de custo e pipeline de recebíveis por canal, sem planilha paralela.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="https://brewcontrol.app.br/screenshots/financeiro.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800,900&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="landing-v2.css">
+</head>
+<body data-screen-label="modulo-financeiro">
+<div class="grain"></div>
+
+<!-- ============ HEADER ============ -->
+<header class="header">
+  <div class="wrap header-inner">
+    <a href="index.html#home" class="brand">
+      <span class="brand-mark">B</span>
+      <span class="brand-text">
+        <span class="brand-name">BREWCONTROL</span>
+        <span class="brand-tag">CRAFT BREWERY ERP</span>
+      </span>
+    </a>
+    <nav class="nav">
+      <a href="index.html#modules">Módulos</a>
+      <a href="index.html#novidades">Novidades</a>
+      <a href="index.html#fundadora">Seja Fundadora</a>
+      <a href="index.html#pricing">Planos</a>
+      <a href="guia.html">Guia</a>
+      <a href="blog/index.html">Blog</a>
+    </nav>
+    <a href="index.html#waitlist" class="btn btn-primary">Acesso Antecipado</a>
+  </div>
+</header>
+
+<!-- ============ HERO — cena própria "Fluxo 01": balança a pagar/a receber se equilibrando, moedas caindo num pote, DRE em barras ao fundo, ponteiro de fluxo de caixa oscilando ============ -->
+<section class="hero mod-hero" id="mod-hero-financeiro">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <div class="section-label">MÓDULO FINANCEIRO</div>
+      <h1 class="hero-title cine-reveal cine-left in-view">
+        <span class="line-1">Contas em equilíbrio,</span>
+        <span class="line-2">caixa sempre <span class="accent">visível.</span></span>
+      </h1>
+      <p class="section-sub cine-reveal cine-left in-view" style="transition-delay:120ms">Contas a pagar e receber, caixa operacional, DRE gerencial e centros de custo — o saldo de hoje, não uma estimativa de cabeça no fim do mês.</p>
+      <a href="https://wa.me/5527981848184?text=Ol%C3%A1%21%20Quero%20testar%20o%20m%C3%B3dulo%20Financeiro%20do%20BrewControl." target="_blank" rel="noopener" class="btn btn-primary cine-reveal cine-left in-view" style="transition-delay:220ms">Quero testar o Financeiro →</a>
+    </div>
+
+    <!-- LADO DIREITO — BALANÇA, DRE E FLUXO DE CAIXA -->
+    <div class="hero-canvas scanlines cine-reveal cine-right in-view" id="heroPlant" style="transition-delay:100ms">
+      <div class="hud-bar">
+        <div class="hud-group">
+          <span class="hud-dot"></span>
+          <span>LIVE · FLUXO 01</span>
+        </div>
+        <div class="hud-group">
+          <span>SALDO</span>
+          <span style="color: var(--copper-400)">POSITIVO</span>
+        </div>
+      </div>
+
+      <svg class="ff-plant" viewBox="0 0 600 680" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+        <defs>
+          <linearGradient id="copper" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="oklch(0.80 0.12 55)"/>
+            <stop offset="0.5" stop-color="oklch(0.60 0.14 52)"/>
+            <stop offset="1" stop-color="oklch(0.40 0.13 48)"/>
+          </linearGradient>
+          <linearGradient id="jarMetal" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#4A4A5E"/>
+            <stop offset="1" stop-color="#2A2A3A"/>
+          </linearGradient>
+        </defs>
+
+        <rect x="0" y="560" width="600" height="120" fill="#0F0F18"/>
+        <line x1="0" y1="560" x2="600" y2="560" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <ellipse cx="320" cy="280" rx="280" ry="180" fill="oklch(0.68 0.14 55)" opacity="0.07" filter="blur(20)"/>
+
+        <!-- DRE EM BARRAS, AO FUNDO -->
+        <g opacity="0.32" transform="translate(0,-170)">
+          <rect x="56" y="480" width="26" height="80" fill="#3A3A4A">
+            <animate attributeName="y" values="480;430;480" dur="6s" repeatCount="indefinite"/>
+            <animate attributeName="height" values="80;130;80" dur="6s" repeatCount="indefinite"/>
+          </rect>
+          <rect x="94" y="440" width="26" height="120" fill="#3A3A4A">
+            <animate attributeName="y" values="440;490;440" dur="6s" begin="0.5s" repeatCount="indefinite"/>
+            <animate attributeName="height" values="120;70;120" dur="6s" begin="0.5s" repeatCount="indefinite"/>
+          </rect>
+          <rect x="132" y="500" width="26" height="60" fill="oklch(0.55 0.13 50)">
+            <animate attributeName="y" values="500;450;500" dur="6s" begin="1s" repeatCount="indefinite"/>
+            <animate attributeName="height" values="60;110;60" dur="6s" begin="1s" repeatCount="indefinite"/>
+          </rect>
+          <rect x="170" y="460" width="26" height="100" fill="#3A3A4A">
+            <animate attributeName="y" values="460;500;460" dur="6s" begin="1.5s" repeatCount="indefinite"/>
+            <animate attributeName="height" values="100;60;100" dur="6s" begin="1.5s" repeatCount="indefinite"/>
+          </rect>
+          <rect x="208" y="420" width="26" height="140" fill="#3A3A4A">
+            <animate attributeName="y" values="420;470;420" dur="6s" begin="2s" repeatCount="indefinite"/>
+            <animate attributeName="height" values="140;90;140" dur="6s" begin="2s" repeatCount="indefinite"/>
+          </rect>
+          <line x1="46" y1="560" x2="246" y2="560" stroke="#4A4A5E" stroke-width="1.5"/>
+          <text x="146" y="578" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="#5A5A6A">DRE · CENTROS DE CUSTO</text>
+        </g>
+
+        <!-- SALDO EM CAIXA -->
+        <g transform="translate(470, 96)">
+          <path d="M -70 -22 L 46 -22 Q 56 -22 56 -12 L 56 14 Q 56 22 46 22 L -70 22 Z" fill="#14141E" stroke="#2A2A3A" stroke-width="1.5"/>
+          <text x="-8" y="-6" text-anchor="middle" font-family="JetBrains Mono" font-size="7" fill="#8A8A9A">SALDO EM CAIXA</text>
+          <text x="-8" y="12" text-anchor="middle" font-family="JetBrains Mono" font-size="14" fill="oklch(0.80 0.10 55)" font-weight="700">R$ <tspan id="saldoSvg">1.860</tspan></text>
+        </g>
+
+        <!-- BALANÇA A PAGAR / A RECEBER -->
+        <g transform="translate(400, 250)">
+          <rect x="-6" y="0" width="12" height="300" fill="url(#jarMetal)" rx="3"/>
+          <path d="M -34 300 L 34 300 L 26 320 L -26 320 Z" fill="#14141E" stroke="#2A2A3A"/>
+          <circle r="7" fill="#8A8A9A"/>
+
+          <g id="beamGroup">
+            <line x1="-110" y1="0" x2="110" y2="0" stroke="#55556A" stroke-width="4" stroke-linecap="round"/>
+            <line x1="-110" y1="0" x2="-110" y2="46" stroke="#55556A" stroke-width="2"/>
+            <line x1="110" y1="0" x2="110" y2="46" stroke="#55556A" stroke-width="2"/>
+            <path d="M -138 46 Q -110 74 -82 46 Z" fill="url(#copper)" stroke="#1A1A26" stroke-width="1.2" opacity="0.92"/>
+            <path d="M 82 46 Q 110 74 138 46 Z" fill="none" stroke="oklch(0.68 0.14 55)" stroke-width="1.6" opacity="0.85"/>
+            <animateTransform attributeName="transform" type="rotate" values="-7;7;-7" dur="4.6s" repeatCount="indefinite"/>
+          </g>
+        </g>
+        <text x="262" y="352" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="oklch(0.80 0.10 55)" font-weight="700">A PAGAR</text>
+        <text x="538" y="352" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#8A8A9A">A RECEBER</text>
+
+        <!-- POTE DE MOEDAS -->
+        <g transform="translate(110, 560)">
+          <path d="M -30 0 L -22 -70 L 22 -70 L 30 0 Z" fill="url(#jarMetal)" stroke="#1A1A26" stroke-width="1.5"/>
+          <ellipse cx="0" cy="-70" rx="24" ry="6" fill="#1A1A26" stroke="#3A3A4A"/>
+          <clipPath id="jarClip"><path d="M -29 -2 L -22 -68 L 22 -68 L 29 -2 Z"/></clipPath>
+          <g clip-path="url(#jarClip)">
+            <rect x="-30" y="-34" width="60" height="34" fill="url(#copper)" opacity="0.85">
+              <animate attributeName="y" values="-16;-48;-16" dur="7s" repeatCount="indefinite"/>
+              <animate attributeName="height" values="16;48;16" dur="7s" repeatCount="indefinite"/>
+            </rect>
+          </g>
+          <g transform="translate(0,-96)">
+            <circle r="5" fill="url(#copper)">
+              <animateTransform attributeName="transform" type="translate" values="0,0; 0,90" dur="1.8s" begin="0s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values="1;1;0" keyTimes="0;0.85;1" dur="1.8s" begin="0s" repeatCount="indefinite"/>
+            </circle>
+            <circle r="5" fill="url(#copper)">
+              <animateTransform attributeName="transform" type="translate" values="-10,0; -10,90" dur="1.8s" begin="0.6s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values="1;1;0" keyTimes="0;0.85;1" dur="1.8s" begin="0.6s" repeatCount="indefinite"/>
+            </circle>
+            <circle r="5" fill="url(#copper)">
+              <animateTransform attributeName="transform" type="translate" values="10,0; 10,90" dur="1.8s" begin="1.2s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values="1;1;0" keyTimes="0;0.85;1" dur="1.8s" begin="1.2s" repeatCount="indefinite"/>
+            </circle>
+          </g>
+          <text x="0" y="22" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="#8A8A9A">CAIXA OPERACIONAL</text>
+        </g>
+
+        <!-- PONTEIRO DE FLUXO DE CAIXA -->
+        <g transform="translate(230, 585)">
+          <path d="M -30 40 L 30 40 L 22 60 L -22 60 Z" fill="#14141E" stroke="#2A2A3A"/>
+          <rect x="-36" y="30" width="72" height="10" fill="url(#jarMetal)" rx="2"/>
+          <g transform="translate(0, 24)">
+            <path d="M -22 0 A 22 22 0 0 1 22 0" fill="none" stroke="#55556A" stroke-width="3"/>
+            <line x1="0" y1="0" x2="0" y2="-17" stroke="oklch(0.70 0.15 40)" stroke-width="2" stroke-linecap="round" style="transform-origin:0px 0px;animation:gauge-needle 2.6s ease-in-out infinite;"/>
+            <circle r="2.5" fill="#8A8A9A"/>
+          </g>
+          <text x="0" y="72" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="#8A8A9A">FLUXO DE CAIXA</text>
+        </g>
+      </svg>
+
+      <div class="grains" data-grains="18" style="pointer-events:none;z-index:3;position:absolute;inset:0;overflow:hidden;"></div>
+
+      <div class="hero-app-float" id="heroAppFloat">
+        <div class="app-mini">
+          <div class="bar"><span></span><span></span><span></span><span class="url">brewcontrol.app/financeiro</span></div>
+          <div class="screen">
+            <div class="side">
+              <b>MENU</b>
+              <u></u><u></u><u></u><u></u><u class="on"></u>
+            </div>
+            <div class="main">
+              <div class="head">
+                <b>HUB · FINANCEIRO</b>
+                <span class="sub">FLUXO 01</span>
+              </div>
+              <div class="cards">
+                <div class="card"><b>SALDO EM CAIXA</b><u>R$1.860</u></div>
+                <div class="card"><b>A RECEBER (30D)</b><u>R$6.180</u></div>
+                <div class="card"><b>CENTROS DE CUSTO</b><u data-count="5" class="mono">0</u></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hud-footer">
+        <div class="kv">A PAGAR <b>R$ 4.320</b></div>
+        <div class="kv">A RECEBER <b>R$ 6.180</b></div>
+        <div class="kv">SALDO <b style="color:var(--copper-400)">R$ 1.860</b></div>
+        <div class="kv">SYS <b style="color:oklch(0.76 0.14 155)">NOMINAL</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BENEFÍCIOS ============ -->
+<section class="section" style="position:relative;overflow:hidden">
+  <div class="scroll-glow" id="glowLayer"></div>
+  <div class="wrap">
+    <div class="section-hd cine-reveal">
+      <div class="section-label">BENEFÍCIOS</div>
+      <h2 class="section-title reveal-mask"><span>Não é só um extrato no fim do <span class="accent">mês.</span></span></h2>
+    </div>
+    <div class="mod-benefit-grid">
+      <div class="mod-benefit-card cine-reveal">
+        <div class="glow"></div>
+        <div class="mbc-body">
+          <div class="diff-num">PIPELINE DE RECEBÍVEIS</div>
+          <h3>Saiba quanto vai entrar, e de onde</h3>
+          <p>Recebíveis organizados por canal — delivery, distribuidor, varejo — pra enxergar de onde vem o dinheiro antes de cair na conta.</p>
+        </div>
+      </div>
+      <div class="mod-benefit-card cine-reveal" style="transition-delay:80ms">
+        <div class="glow"></div>
+        <div class="mbc-body">
+          <div class="diff-num">DRE &amp; CENTROS DE CUSTO</div>
+          <h3>Resultado por centro de custo, não só no total</h3>
+          <p>DRE gerencial que mostra onde o dinheiro realmente foi, não só quanto sobrou no fim do mês.</p>
+        </div>
+      </div>
+      <div class="mod-benefit-card cine-reveal" style="transition-delay:160ms">
+        <div class="glow"></div>
+        <div class="mbc-body">
+          <div class="diff-num">FLUXO EM TEMPO REAL</div>
+          <h3>O saldo de hoje, não o do fechamento</h3>
+          <p>Cada lançamento atualiza o caixa na hora — sem esperar o fim do mês pra saber se está no azul.</p>
+        </div>
+      </div>
+      <div class="mod-benefit-card cine-reveal" style="transition-delay:240ms">
+        <div class="glow"></div>
+        <div class="mbc-body">
+          <div class="diff-num">RELATÓRIOS POR PERÍODO</div>
+          <h3>Histórico pronto, sem montar planilha</h3>
+          <p>Relatórios por período e por cliente prontos pra consultar, sem exportar nada pra planilha paralela.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMO FUNCIONA ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-hd cine-reveal">
+      <div class="section-label">COMO FUNCIONA</div>
+      <h2 class="section-title">3 passos, do lançamento ao fechamento.</h2>
+    </div>
+    <div class="mod-steps">
+      <div class="mod-step cine-reveal cine-left">
+        <div class="step-num">01</div>
+        <h3>Lance contas a pagar e receber</h3>
+        <p>Cada lançamento já entra no fluxo de caixa na hora, sem digitar em duas telas.</p>
+      </div>
+      <div class="mod-step cine-reveal" style="transition-delay:100ms">
+        <div class="step-num">02</div>
+        <h3>Acompanhe o saldo em tempo real</h3>
+        <p>Veja o caixa operacional se mexer a cada venda, compra ou pagamento — sem esperar o fechamento.</p>
+      </div>
+      <div class="mod-step cine-reveal cine-right" style="transition-delay:200ms">
+        <div class="step-num">03</div>
+        <h3>Feche o mês com a DRE pronta</h3>
+        <p>Resultado por centro de custo já calculado, pronto pra decisão — não pra digitar de novo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NÚMEROS ============ -->
+<section class="section">
+  <div class="wrap mod-stats">
+    <div class="mod-stat cine-reveal"><div class="num" data-count="12">0</div><div class="label">módulos integrados na mesma plataforma</div></div>
+    <div class="mod-stat cine-reveal" style="transition-delay:100ms"><div class="num" data-count="100" data-suffix="%">0%</div><div class="label">dos lançamentos vindos direto do Comercial e do Fiscal</div></div>
+    <div class="mod-stat cine-reveal" style="transition-delay:200ms"><div class="num" data-count="0">0</div><div class="label">planilhas paralelas de fluxo de caixa</div></div>
+  </div>
+</section>
+
+<!-- ============ CROSS-SELL ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="mod-crosssell cine-reveal">
+      <h3>O Financeiro fica ainda melhor integrado ao <a href="index.html#modules">Fiscal</a></h3>
+      <p>Nota emitida já dispara o lançamento certo no financeiro — sem digitar o mesmo valor duas vezes.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FUNDADOR (mesmo layout da Home) ============ -->
+<section class="section" id="about-mod" data-screen-label="fundador">
+  <div class="wrap">
+    <div class="founder-grid">
+      <div class="cine-reveal cine-left">
+        <div class="founder-photo-wrap">
+          <img src="screenshots/thiago-v2.jpg" alt="Thiago Santana Schneider — Fundador do BrewControl">
+        </div>
+        <div class="founder-name-block">
+          <div class="founder-name">Thiago Santana Schneider</div>
+          <div class="founder-role">Fundador · Mestre Cervejeiro</div>
+          <p class="founder-specialty">Biotecnologia · Sommelier · 9 anos de cerveja artesanal</p>
+        </div>
+      </div>
+      <div class="cine-reveal cine-right">
+        <div class="section-label">QUEM CONSTRÓI ISSO</div>
+        <h2 class="section-title" style="margin-bottom:1.5rem">O módulo que nasceu<br><span class="accent">da planilha que nunca fechava.</span></h2>
+        <div class="founder-story">
+          <p>Fechar o mês sem saber ao certo quanto tinha em caixa, torcendo pra planilha bater — foi essa a motivação pra construir o Financeiro, com o saldo sempre visível, não só no fim do mês.</p>
+          <p>Não saber se está no azul ou no vermelho é o tipo de prejuízo que ninguém vê chegando. Se você topa usar no dia a dia e ajudar a moldar o sistema, a conversa começa aqui.</p>
+        </div>
+        <a href="index.html#fundadora" class="btn btn-primary" style="margin-top:var(--s-8)">Conheça o Programa Cervejaria Fundadora →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-inner">
+      <div>
+        <a href="index.html#home" class="brand">
+          <span class="brand-mark">B</span>
+          <span class="brand-text">
+            <span class="brand-name">BREWCONTROL</span>
+            <span class="brand-tag">CRAFT BREWERY ERP</span>
+          </span>
+        </a>
+        <p style="color:var(--fog-400);margin-top:1rem;font-size:0.9rem">Da receita ao cliente, tudo conectado.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <b>Plataforma</b>
+          <a href="index.html#modules">Módulos</a>
+          <a href="index.html#pricing">Planos</a>
+          <a href="guia.html">Guia do Usuário</a>
+          <a href="blog/index.html">Blog</a>
+        </div>
+        <div class="footer-col">
+          <b>Empresa</b>
+          <a href="index.html#about">Fundador</a>
+          <a href="index.html#contact">Contato</a>
+          <a href="https://wa.me/5527981848184" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+        <div class="footer-col">
+          <b>Legal</b>
+          <a href="https://www.iubenda.com/privacy-policy/97313076" target="_blank" rel="noopener noreferrer">Política de Privacidade</a>
+          <a href="https://www.iubenda.com/privacy-policy/97313076/cookie-policy" target="_blank" rel="noopener noreferrer">Política de Cookies</a>
+          <a href="https://app.brewcontrol.app.br/termos" target="_blank" rel="noopener noreferrer">Termos de Uso</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 BrewControl. Todos os direitos reservados.</span>
+      <span class="mono" style="color:var(--fog-600)">v2.0 · INDUSTRIAL</span>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta-bar" id="stickyBar">
+  <span>Quer ver como o BrewControl funciona na prática?</span>
+  <a href="https://wa.me/5527981848184?text=Ol%C3%A1%21%20Quero%20agendar%20uma%20demo%20do%20BrewControl." target="_blank" rel="noopener" class="btn btn-primary">Agendar demo →</a>
+</div>
+
+<script src="landing-v2.js"></script>
+<script>
+(function(){
+  var targets = document.querySelectorAll('.cine-reveal, .reveal-mask');
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.2 });
+  targets.forEach(function(t){ io.observe(t); });
+})();
+
+(function(){
+  var wrap = document.getElementById('heroPlant');
+  var app = document.getElementById('heroAppFloat');
+  if (!wrap) return;
+  wrap.addEventListener('mousemove', function(e){
+    var r = wrap.getBoundingClientRect();
+    var x = (e.clientX - r.left) / r.width - 0.5;
+    var y = (e.clientY - r.top) / r.height - 0.5;
+    wrap.style.transform = 'rotateY(' + (x * 4) + 'deg) rotateX(' + (-y * 4) + 'deg)';
+    if (app) app.style.transform = 'translate(' + (x * -18) + 'px,' + (y * -18) + 'px)';
+  });
+  wrap.addEventListener('mouseleave', function(){
+    wrap.style.transform = 'rotateY(0) rotateX(0)';
+    if (app) app.style.transform = 'translate(0,0)';
+  });
+})();
+
+(function(){
+  var glow = document.getElementById('glowLayer');
+  if (!glow) return;
+  window.addEventListener('scroll', function(){
+    var y = window.scrollY;
+    glow.style.transform = 'translateY(' + (y * 0.15) + 'px)';
+  }, { passive: true });
+})();
+
+(function(){
+  var svg = document.getElementById('saldoSvg');
+  if (!svg) return;
+  var val = 1860;
+  setInterval(function(){
+    val += Math.round((Math.random() - 0.35) * 120);
+    if (val < 900) val = 1860;
+    if (val > 2400) val = 1860;
+    svg.textContent = val.toLocaleString('pt-BR');
+  }, 1500);
+})();
+
+(function(){
+  var bar = document.getElementById('stickyBar');
+  if (!bar) return;
+  window.addEventListener('scroll', function(){
+    var scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    var pct = scrollable > 0 ? window.scrollY / scrollable : 0;
+    bar.classList.toggle('show', pct > 0.2);
+  }, { passive: true });
+})();
+</script>
+
+</body>
+</html>
