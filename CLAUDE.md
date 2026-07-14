@@ -130,7 +130,7 @@ Objetivo: sair de uma Home única e ir para um modelo hub + páginas satélite (
 
 **Antes de replicar para todos os módulos de uma vez, revisar UM novo (ex: Almoxarifado) e confirmar com o Thiago.**
 
-**Status:** as 9 páginas de módulo estão prontas (ver tabela acima). Mega menu no header já implementado (ver seção abaixo). **Pendente:** resumir o conteúdo da seção `#modules` da Home pra um teaser de 3 linhas por módulo com "Saiba mais →" (hoje a Home ainda tem os cards completos com lista de features, redundante com as páginas de módulo).
+**Status:** as 9 páginas de módulo estão prontas (ver tabela acima). Mega menu no header já implementado (ver seção abaixo). Cards da Home (`#modules`) já viraram teaser: cada `.mod-card` é agora um `<a href="modulo-x.html">` (antes eram `<div>` sem link nenhum — clicar não fazia nada), com 1 frase curta + "Saiba mais →" (`.mod-more`) no lugar da lista completa de features (`.mod-list`, removida). Arquitetura "hub + páginas satélite" concluída.
 
 ### Mega menu "Módulos" (implementado Jul/2026)
 

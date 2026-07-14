@@ -712,10 +712,12 @@ h1,h2,h3,h4 { font-family: var(--f-display); font-weight: 800; letter-spacing: -
 }
 .mod-card {
   position: relative;
+  display: block;
   padding: 1.5rem;
   background: var(--metal-brushed-soft);
   border: 1px solid rgba(255,255,255,0.06);
   border-radius: var(--r-lg);
+  color: inherit; text-decoration: none;
   transition: border-color var(--dur-2) var(--ease), transform var(--dur-2) var(--ease);
   overflow: hidden;
 }
@@ -724,6 +726,7 @@ h1,h2,h3,h4 { font-family: var(--f-display); font-weight: 800; letter-spacing: -
   background: linear-gradient(90deg, transparent, rgba(255,255,255,0.14), transparent);
 }
 .mod-card:hover { border-color: oklch(0.68 0.14 55 / 0.4); transform: translateY(-2px); }
+.mod-card:hover .mod-more { color: var(--copper-200); gap: 0.55rem; }
 .mod-card.featured {
   grid-column: span 2;
   background:
@@ -749,19 +752,12 @@ h1,h2,h3,h4 { font-family: var(--f-display); font-weight: 800; letter-spacing: -
 }
 .mod-title { font-size: 1.3rem; color: var(--fog-100); margin-bottom: 0.4rem; }
 .mod-desc { color: var(--fog-400); font-size: 0.92rem; line-height: 1.55; }
-.mod-list {
+.mod-more {
+  display: inline-flex; align-items: center; gap: 0.35rem;
   margin-top: 1rem;
-  display: flex; flex-direction: column; gap: 0.5rem;
-  list-style: none;
-}
-.mod-list li {
-  padding-left: 1.2rem;
-  position: relative;
-  color: var(--fog-200); font-size: 0.87rem;
-}
-.mod-list li::before {
-  content: "/"; position: absolute; left: 0; top: 0;
-  color: var(--copper-400); font-family: var(--f-mono); font-weight: 700;
+  font-family: var(--f-mono); font-size: 0.8rem; letter-spacing: 0.02em;
+  color: var(--copper-400);
+  transition: color var(--dur-2) var(--ease), gap var(--dur-2) var(--ease);
 }
 
 /* =========================================================
