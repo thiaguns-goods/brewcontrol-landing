@@ -79,8 +79,8 @@ O hero da Home tem uma **ilustração SVG animada de uma mini fábrica** (`.hero
 | Financeiro | "Fluxo 01" — balança entre "A PAGAR"/"A RECEBER" se equilibrando (rotate oscilante), moedas caindo num pote com nível subindo, barras de DRE ao fundo (mudas, atrás da balança), ponteiro de fluxo de caixa oscilando (`gauge-needle`) | ✅ feito em `modulo-financeiro.html`, aprovado pelo Thiago |
 | Fiscal | "Fiscal 01" — documento em branco entra numa máquina de validação, carimbo desce, LED verde "SEFAZ" pisca, documento sai com QR code e "AUTORIZADA"; impressora térmica separada imprime cupom NFC-e crescendo | ✅ feito em `modulo-fiscal.html`, aprovado pelo Thiago |
 | Ativos & Barris | "Ativos 01" — 3 barris fixos numa esteira circular (CHEIO copper no topo, EM CAMPO cinza à direita, RETORNADO verde à esquerda) com indicador de fluxo orbitando via `animateMotion`, feixe lendo a etiqueta do barril retornado, cilindro de CO₂ com nível preenchido + ponteiro de pressão (`gauge-needle`) | ✅ feito em `modulo-ativos.html`, aprovado pelo Thiago |
-| Brewpub & Bar | "Brewpub 01" — torneira + jato + copo enchendo em destaque (versão ~1.6x maior do efeito da Home, mesma técnica `.stream`/clipPath), comanda voando da mesa pro KDS (`animateTransform` com arco), vapor de cozinha (`.steam`) ao fundo | ✅ feito em `modulo-brewpub.html`, aguardando revisão do Thiago |
-| PDV Mobile | Tablet/celular no balcão com gesto de toque "+1 copo", barril conectado com nível de líquido caindo a cada toque, resumo de sessão contando no rodapé | ⏳ pendente |
+| Brewpub & Bar | "Brewpub 01" — torneira + jato + copo enchendo em destaque (versão ~1.6x maior do efeito da Home, mesma técnica `.stream`/clipPath), comanda voando da mesa pro KDS (`animateTransform` com arco), vapor de cozinha (`.steam`) ao fundo | ✅ feito em `modulo-brewpub.html`, aprovado pelo Thiago |
+| PDV Mobile | "PDV 01" — tablet num pedestal com botão grande "+1 COPO", dedo tocando com ripple a cada ciclo, barril conectado por um tubo (`animateMotion` levando o pulso do débito) com nível de líquido caindo, resumo de sessão (copos + total) contando no rodapé | ✅ feito em `modulo-pdv-mobile.html`, aguardando revisão do Thiago |
 
 Reaproveitar as animações CSS/keyframes já existentes em vez de duplicar: `.steam`, `.bubbles`, `.stream`, `.grains`, `@keyframes gauge-needle`, `@keyframes gear-rotate`. Cada cena nova só precisa desenhar os elementos SVG específicos e usar essas classes/keyframes prontas pra vapor, bolhas, líquido escorrendo, partículas e ponteiros.
 
@@ -117,8 +117,8 @@ Layout fixo: foto real (`screenshots/thiago-v2.jpg`) + texto ao lado, classes `f
 | Financeiro | `modulo-financeiro.html` ✅ pronta, aprovada (cena "Fluxo 01") |
 | Fiscal | `modulo-fiscal.html` ✅ pronta, aprovada (cena "Fiscal 01") |
 | Ativos & Barris | `modulo-ativos.html` ✅ pronta, aprovada (cena "Ativos 01") |
-| Brewpub & Bar | `modulo-brewpub.html` ✅ pronta, aguardando revisão (cena "Brewpub 01") |
-| PDV Mobile | `modulo-pdv-mobile.html` — pendente |
+| Brewpub & Bar | `modulo-brewpub.html` ✅ pronta, aprovada (cena "Brewpub 01") |
+| PDV Mobile | `modulo-pdv-mobile.html` ✅ pronta, aguardando revisão (cena "PDV 01") |
 
 Ver tabela completa de conceitos de cena por módulo na seção "Peça central da marca" acima.
 
@@ -130,7 +130,15 @@ Objetivo: sair de uma Home única e ir para um modelo hub + páginas satélite (
 
 **Antes de replicar para todos os módulos de uma vez, revisar UM novo (ex: Almoxarifado) e confirmar com o Thiago.**
 
-Depois de todas as páginas prontas: montar o mega menu no header, resumir o conteúdo da Home pra um teaser de 3 linhas por módulo com "Saiba mais →", e atualizar `sitemap.xml`.
+**Status:** as 9 páginas de módulo estão prontas (ver tabela acima). Mega menu no header já implementado (ver seção abaixo). **Pendente:** resumir o conteúdo da seção `#modules` da Home pra um teaser de 3 linhas por módulo com "Saiba mais →" (hoje a Home ainda tem os cards completos com lista de features, redundante com as páginas de módulo).
+
+### Mega menu "Módulos" (implementado Jul/2026)
+
+O link simples `Módulos` do header virou um dropdown (`.nav-item.has-mega` → `.nav-mega-trigger` + `.mega-menu`) com grid 3x3 dos 9 módulos (ícone + nome + 1 linha, reaproveita os mesmos SVGs dos `mod-card` da Home) e um rodapé "Ver todos os módulos →" pro `#modules` da Home. CSS em `landing-v2.css` (busque `.mega-menu`), comportamento (abre no hover via CSS + toggle por clique/teclado, fecha ao clicar fora ou Esc) em `landing-v2.js` (`.nav-item.has-mega`). Presente nas 14 páginas com header compartilhado: `index.html`, as 9 `modulo-*.html` e as 4 páginas de `blog/*.html` — **`guia.html` não tem** (é standalone, com CSS inline próprio, fora do design system v2).
+
+⚠️ **Armadilha já resolvida, não reintroduzir:** o `.mega-menu` precisa de `left: 0` (ancorado à esquerda do botão-gatilho), nunca `left: 50%; transform: translateX(-50%)` — como "Módulos" é o primeiro item do nav, centralizar o menu nele faz a primeira coluna estourar pra fora da viewport à esquerda (ficava invisível, sem erro nenhum no console). Ao adicionar novo item de mega menu no header, ancorar sempre pela esquerda.
+
+Toda página nova (módulo ou blog) que reutilizar o header **precisa incluir o mesmo bloco `.nav-item.has-mega`** (copiar de qualquer `modulo-*.html` existente, ajustando o prefixo dos `href` — vazio se for arquivo na raiz, `../` se for dentro de `blog/`).
 
 ---
 

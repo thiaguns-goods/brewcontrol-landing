@@ -4,21 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#050508">
-<title>Módulo de Almoxarifado — BrewControl | Custo Médio Ponderado, Estoque e Insumos</title>
-<meta name="description" content="Controle malte, lúpulo, levedura e adjuntos com custo médio ponderado automático, alerta de estoque mínimo e inventário auditável — o módulo de Almoxarifado do BrewControl.">
-<link rel="canonical" href="https://brewcontrol.app.br/modulo-almoxarifado.html">
-<meta property="og:title" content="Módulo de Almoxarifado — BrewControl">
-<meta property="og:description" content="Custo médio ponderado automático, alerta de estoque mínimo e inventário auditável, integrado à brassagem.">
+<title>Módulo PDV Mobile — BrewControl | Venda no Balcão sem Login</title>
+<meta name="description" content="Ponto de venda no balcão via tablet ou celular, sem login. Modo torneira, débito automático no barril e resumo de sessão — o módulo PDV Mobile do BrewControl.">
+<link rel="canonical" href="https://brewcontrol.app.br/modulo-pdv-mobile.html">
+<meta property="og:title" content="Módulo PDV Mobile — BrewControl">
+<meta property="og:description" content="Acesso por PIN, +1 copo por toque e débito automático no barril — venda no balcão sem treinar ninguém.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
-<meta property="og:image" content="https://brewcontrol.app.br/screenshots/almoxarifado.png">
+<meta property="og:image" content="https://brewcontrol.app.br/screenshots/dashboard-operacional.png">
 <meta name="twitter:card" content="summary_large_image">
 
 <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800,900&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="landing-v2.css">
 </head>
-<body data-screen-label="modulo-almoxarifado">
+<body data-screen-label="modulo-pdv-mobile">
 <div class="grain"></div>
 
 <!-- ============ HEADER ============ -->
@@ -59,29 +59,29 @@
   </div>
 </header>
 
-<!-- ============ HERO — cena própria "Estoque 01": prateleiras, balança e leitor de código de barras ============ -->
-<section class="hero mod-hero" id="mod-hero-almoxarifado">
+<!-- ============ HERO — cena própria "PDV 01": tablet no balcão com gesto de toque "+1 copo", barril conectado com nível caindo a cada toque, resumo de sessão contando no rodapé ============ -->
+<section class="hero mod-hero" id="mod-hero-pdv">
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <div class="section-label">MÓDULO DE ALMOXARIFADO</div>
+      <div class="section-label">MÓDULO PDV MOBILE</div>
       <h1 class="hero-title cine-reveal cine-left in-view">
-        <span class="line-1">Saiba exatamente quanto</span>
-        <span class="line-2">sua cerveja <span class="accent">custa de verdade.</span></span>
+        <span class="line-1">Um toque vende,</span>
+        <span class="line-2">o barril <span class="accent">desconta.</span></span>
       </h1>
-      <p class="section-sub cine-reveal cine-left in-view" style="transition-delay:120ms">Controle malte, lúpulo, levedura e adjuntos com custo médio ponderado automático, alerta de estoque mínimo e inventário auditável — sem depender de planilha, papel ou "acho que ainda tem".</p>
-      <a href="https://wa.me/5527981848184?text=Ol%C3%A1%21%20Quero%20testar%20o%20m%C3%B3dulo%20de%20Almoxarifado%20do%20BrewControl." target="_blank" rel="noopener" class="btn btn-primary cine-reveal cine-left in-view" style="transition-delay:220ms">Quero testar o Almoxarifado →</a>
+      <p class="section-sub cine-reveal cine-left in-view" style="transition-delay:120ms">Ponto de venda no balcão via tablet ou celular, sem login. Acesso por PIN, +1 copo por toque, débito automático no barril e resumo de sessão pronto no fechamento.</p>
+      <a href="https://wa.me/5527981848184?text=Ol%C3%A1%21%20Quero%20testar%20o%20m%C3%B3dulo%20PDV%20Mobile%20do%20BrewControl." target="_blank" rel="noopener" class="btn btn-primary cine-reveal cine-left in-view" style="transition-delay:220ms">Quero testar o PDV Mobile →</a>
     </div>
 
-    <!-- LADO DIREITO — PRATELEIRAS COM SACOS ENTRANDO/SAINDO + APP FLUTUANTE -->
+    <!-- LADO DIREITO — TABLET NO BALCÃO + BARRIL CONECTADO -->
     <div class="hero-canvas scanlines cine-reveal cine-right in-view" id="heroPlant" style="transition-delay:100ms">
       <div class="hud-bar">
         <div class="hud-group">
           <span class="hud-dot"></span>
-          <span>LIVE · ESTOQUE 01</span>
+          <span>LIVE · PDV 01</span>
         </div>
         <div class="hud-group">
-          <span>SKU-1102</span>
-          <span style="color: var(--copper-400)">SAÍDA</span>
+          <span>SESSÃO 12</span>
+          <span style="color: var(--copper-400)">ATIVA</span>
         </div>
       </div>
 
@@ -92,7 +92,7 @@
             <stop offset="0.5" stop-color="oklch(0.60 0.14 52)"/>
             <stop offset="1" stop-color="oklch(0.40 0.13 48)"/>
           </linearGradient>
-          <linearGradient id="rackMetal" x1="0" y1="0" x2="0" y2="1">
+          <linearGradient id="tabletMetal" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0" stop-color="#4A4A5E"/>
             <stop offset="1" stop-color="#2A2A3A"/>
           </linearGradient>
@@ -100,110 +100,60 @@
 
         <rect x="0" y="560" width="600" height="120" fill="#0F0F18"/>
         <line x1="0" y1="560" x2="600" y2="560" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-        <ellipse cx="300" cy="300" rx="280" ry="170" fill="oklch(0.68 0.14 55)" opacity="0.07" filter="blur(20)"/>
+        <ellipse cx="300" cy="260" rx="270" ry="180" fill="oklch(0.68 0.14 55)" opacity="0.07" filter="blur(20)"/>
 
-        <!-- ESTRUTURA DA PRATELEIRA — postes + 2 níveis de trilho -->
-        <line x1="60" y1="110" x2="60" y2="560" stroke="url(#rackMetal)" stroke-width="8"/>
-        <line x1="300" y1="110" x2="300" y2="560" stroke="url(#rackMetal)" stroke-width="8"/>
-        <line x1="540" y1="110" x2="540" y2="560" stroke="url(#rackMetal)" stroke-width="8"/>
-
-        <!-- NÍVEL A — ENTRADA (sacos chegando da direita) -->
-        <g>
-          <rect x="50" y="176" width="500" height="10" fill="url(#rackMetal)" rx="2"/>
-          <text x="556" y="184" text-anchor="end" font-family="JetBrains Mono" font-size="9" fill="oklch(0.76 0.14 155)">ENTRADA</text>
-          <clipPath id="clipShelfA"><rect x="60" y="120" width="480" height="60"/></clipPath>
-          <g clip-path="url(#clipShelfA)">
-            <g transform="translate(0,150)">
-              <path d="M -22 -26 L 22 -26 Q 26 -26 26 -20 L 26 22 Q 26 26 22 26 L -22 26 Q -26 26 -26 22 L -26 -20 Q -26 -26 -22 -26 Z" fill="url(#copper)" stroke="#1A1A26" stroke-width="1.5">
-                <animateTransform attributeName="transform" type="translate" values="620,0;120,0;120,0" keyTimes="0;0.55;1" dur="5.5s" repeatCount="indefinite"/>
-              </path>
-              <path d="M -14 -14 L 14 -14 M -14 0 L 14 0 M -14 14 L 14 14" stroke="rgba(0,0,0,0.25)" stroke-width="2">
-                <animateTransform attributeName="transform" type="translate" values="620,0;120,0;120,0" keyTimes="0;0.55;1" dur="5.5s" repeatCount="indefinite"/>
-              </path>
-            </g>
-            <g transform="translate(0,150)">
-              <path d="M -22 -26 L 22 -26 Q 26 -26 26 -20 L 26 22 Q 26 26 22 26 L -22 26 Q -26 26 -26 22 L -26 -20 Q -26 -26 -22 -26 Z" fill="url(#copper)" stroke="#1A1A26" stroke-width="1.5" opacity="0.85">
-                <animateTransform attributeName="transform" type="translate" values="620,0;120,0;120,0" keyTimes="0;0.55;1" dur="5.5s" begin="1.8s" repeatCount="indefinite"/>
-              </path>
-            </g>
-            <g transform="translate(0,150)">
-              <path d="M -22 -26 L 22 -26 Q 26 -26 26 -20 L 26 22 Q 26 26 22 26 L -22 26 Q -26 26 -26 22 L -26 -20 Q -26 -26 -22 -26 Z" fill="url(#copper)" stroke="#1A1A26" stroke-width="1.5" opacity="0.7">
-                <animateTransform attributeName="transform" type="translate" values="620,0;120,0;120,0" keyTimes="0;0.55;1" dur="5.5s" begin="3.6s" repeatCount="indefinite"/>
-              </path>
-            </g>
-          </g>
+        <!-- COPOS NA SESSÃO -->
+        <g transform="translate(470, 90)">
+          <path d="M -70 -22 L 46 -22 Q 56 -22 56 -12 L 56 14 Q 56 22 46 22 L -70 22 Z" fill="#14141E" stroke="#2A2A3A" stroke-width="1.5"/>
+          <text x="-8" y="-6" text-anchor="middle" font-family="JetBrains Mono" font-size="7" fill="#8A8A9A">COPOS NA SESSÃO</text>
+          <text x="-8" y="12" text-anchor="middle" font-family="JetBrains Mono" font-size="15" fill="oklch(0.80 0.10 55)" font-weight="700"><tspan id="coposSvg">36</tspan></text>
         </g>
 
-        <!-- NÍVEL B — SAÍDA (sacos saindo pela esquerda) -->
+        <!-- TUBO CONECTANDO O BARRIL AO TABLET -->
+        <path id="kegLine" d="M 130 420 C 180 420 200 320 260 300" fill="none" stroke="#3A3A4A" stroke-width="3" stroke-linecap="round"/>
         <g>
-          <rect x="50" y="326" width="500" height="10" fill="url(#rackMetal)" rx="2"/>
-          <text x="44" y="334" text-anchor="end" font-family="JetBrains Mono" font-size="9" fill="oklch(0.70 0.20 35)">SAÍDA</text>
-          <clipPath id="clipShelfB"><rect x="60" y="270" width="480" height="60"/></clipPath>
-          <g clip-path="url(#clipShelfB)">
-            <g transform="translate(0,300)">
-              <path d="M -22 -26 L 22 -26 Q 26 -26 26 -20 L 26 22 Q 26 26 22 26 L -22 26 Q -26 26 -26 22 L -26 -20 Q -26 -26 -22 -26 Z" fill="url(#copper)" stroke="#1A1A26" stroke-width="1.5">
-                <animateTransform attributeName="transform" type="translate" values="420,0;-60,0;-60,0" keyTimes="0;0.55;1" dur="6s" repeatCount="indefinite"/>
-              </path>
-            </g>
-            <g transform="translate(0,300)">
-              <path d="M -22 -26 L 22 -26 Q 26 -26 26 -20 L 26 22 Q 26 26 22 26 L -22 26 Q -26 26 -26 22 L -26 -20 Q -26 -26 -22 -26 Z" fill="url(#copper)" stroke="#1A1A26" stroke-width="1.5" opacity="0.8">
-                <animateTransform attributeName="transform" type="translate" values="420,0;-60,0;-60,0" keyTimes="0;0.55;1" dur="6s" begin="2s" repeatCount="indefinite"/>
-              </path>
-            </g>
-          </g>
+          <circle r="4" fill="oklch(0.68 0.14 55)"/>
+          <animateMotion dur="2.2s" repeatCount="indefinite" path="M 130 420 C 180 420 200 320 260 300"/>
+          <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="2.2s" repeatCount="indefinite"/>
         </g>
 
-        <!-- CAIXA + FEIXE DE LEITURA DE CÓDIGO DE BARRAS (vão entre as duas prateleiras) -->
-        <g transform="translate(390, 225)">
-          <rect x="-38" y="-30" width="76" height="60" fill="#14141E" stroke="#2A2A3A" stroke-width="1.5" rx="3"/>
-          <rect x="-38" y="-30" width="76" height="14" fill="rgba(255,255,255,0.05)"/>
-          <text x="0" y="-2" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="#8A8A9A">LOTE</text>
-          <text x="0" y="12" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="oklch(0.80 0.10 55)" font-weight="700">INS-2381</text>
-          <rect x="-38" y="-30" width="76" height="3" fill="oklch(0.70 0.20 35)" opacity="0.9">
-            <animate attributeName="y" values="-30;28;-30" dur="2.2s" repeatCount="indefinite"/>
-            <animate attributeName="opacity" values="0.9;0.3;0.9" dur="2.2s" repeatCount="indefinite"/>
+        <!-- BARRIL CONECTADO, NÍVEL CAINDO -->
+        <g transform="translate(110, 470)">
+          <rect x="-30" y="-70" width="60" height="90" rx="10" fill="url(#tabletMetal)" stroke="#1A1A26" stroke-width="1.5"/>
+          <clipPath id="kegClip"><rect x="-29" y="-69" width="58" height="88" rx="9"/></clipPath>
+          <rect x="-29" y="-40" width="58" height="59" fill="oklch(0.68 0.14 55)" opacity="0.7" clip-path="url(#kegClip)">
+            <animate attributeName="y" values="-40;-10;-40" dur="8s" repeatCount="indefinite"/>
+            <animate attributeName="height" values="59;29;59" dur="8s" repeatCount="indefinite"/>
           </rect>
+          <text x="0" y="34" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="#8A8A9A">BARRIL · BR-0118</text>
         </g>
 
-        <!-- BALANÇA COM PONTEIRO OSCILANDO (coluna esquerda, fora da área do card flutuante) -->
-        <g transform="translate(150, 600)">
-          <path d="M -30 40 L 30 40 L 22 60 L -22 60 Z" fill="#14141E" stroke="#2A2A3A"/>
-          <rect x="-36" y="30" width="72" height="10" fill="url(#rackMetal)" rx="2"/>
-          <path d="M -18 30 L 18 30 L 14 8 L -14 8 Z" fill="url(#copper)" stroke="#1A1A26" opacity="0.9"/>
-          <g transform="translate(0, -6)">
-            <path d="M -22 0 A 22 22 0 0 1 22 0" fill="none" stroke="#55556A" stroke-width="3"/>
-            <line x1="0" y1="0" x2="0" y2="-17" stroke="oklch(0.70 0.15 40)" stroke-width="2" stroke-linecap="round" style="transform-origin:0px 0px;animation:gauge-needle 2.6s ease-in-out infinite;"/>
-            <circle r="2.5" fill="#8A8A9A"/>
+        <!-- TABLET NO BALCÃO -->
+        <g transform="translate(340, 195)">
+          <rect x="-105" y="-90" width="210" height="150" rx="14" fill="url(#tabletMetal)" stroke="#1A1A26" stroke-width="2"/>
+          <rect x="-95" y="-80" width="190" height="130" rx="6" fill="#0A0A10"/>
+          <text x="0" y="-58" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="#8A8A9A" letter-spacing="1">PDV · BALCÃO 02</text>
+
+          <!-- botão +1 COPO -->
+          <g id="pdvButton">
+            <rect x="-70" y="-38" width="140" height="66" rx="10" fill="url(#copper)" stroke="#1A1A26" stroke-width="1.5"/>
+            <path d="M -14 -18 L 14 -18 L 11 12 L -11 12 Z" fill="rgba(255,255,255,0.85)"/>
+            <text x="0" y="30" text-anchor="middle" font-family="Cabinet Grotesk" font-size="16" fill="#E8E8EE" font-weight="800">+1 COPO</text>
           </g>
-          <text x="0" y="76" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="#8A8A9A">BALANÇA · 4,2kg</text>
+
+          <!-- pedestal do tablet -->
+          <path d="M -18 60 L 18 60 L 26 82 L -26 82 Z" fill="url(#tabletMetal)" stroke="#1A1A26"/>
         </g>
 
-        <!-- PAINEL DE SALDO EM TEMPO REAL -->
-        <g transform="translate(150, 430)">
-          <rect x="-58" y="-30" width="116" height="60" fill="#0A0A10" stroke="#2A2A3A" rx="4"/>
-          <text x="0" y="-8" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="#8A8A9A" letter-spacing="1">SALDO EM TEMPO REAL</text>
-          <text id="saldoLive" x="0" y="20" text-anchor="middle" font-family="JetBrains Mono" font-size="22" fill="oklch(0.72 0.12 220)" font-weight="700">812</text>
-        </g>
-
-        <g transform="translate(40, 640)" opacity="0.4">
-          <g style="transform-box:fill-box;transform-origin:center;animation:gear-rotate 12s linear infinite;">
-            <circle r="18" fill="none" stroke="#55556A" stroke-width="1.5"/>
-            <circle r="6" fill="none" stroke="#55556A" stroke-width="1.5"/>
-            <g fill="#55556A">
-              <rect x="-2" y="-22" width="4" height="6"/><rect x="-2" y="16" width="4" height="6"/>
-              <rect x="-22" y="-2" width="6" height="4"/><rect x="16" y="-2" width="6" height="4"/>
-            </g>
-          </g>
-        </g>
-        <g transform="translate(540, 620)" opacity="0.4">
-          <g style="transform-box:fill-box;transform-origin:center;animation:gear-rotate 8s linear infinite reverse;">
-            <circle r="12" fill="none" stroke="#55556A" stroke-width="1.2"/>
-            <circle r="4" fill="none" stroke="#55556A" stroke-width="1.2"/>
-            <g fill="#55556A">
-              <rect x="-1.5" y="-15" width="3" height="4"/><rect x="-1.5" y="11" width="3" height="4"/>
-              <rect x="-15" y="-1.5" width="4" height="3"/><rect x="11" y="-1.5" width="4" height="3"/>
-            </g>
-          </g>
+        <!-- DEDO TOCANDO O BOTÃO -->
+        <g transform="translate(340, 157)">
+          <circle r="13" fill="#E8E8EE" opacity="0.9" transform="translate(0,-70)">
+            <animateTransform attributeName="transform" type="translate" values="0,-70; 0,0; 0,-70" keyTimes="0;0.35;1" dur="2.2s" repeatCount="indefinite"/>
+          </circle>
+          <circle r="10" fill="none" stroke="oklch(0.68 0.14 55)" stroke-width="2">
+            <animate attributeName="r" values="10;46;10" keyTimes="0;0.4;1" dur="2.2s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0;0.8;0" keyTimes="0;0.4;1" dur="2.2s" repeatCount="indefinite"/>
+          </circle>
         </g>
       </svg>
 
@@ -211,21 +161,21 @@
 
       <div class="hero-app-float" id="heroAppFloat">
         <div class="app-mini">
-          <div class="bar"><span></span><span></span><span></span><span class="url">brewcontrol.app/almoxarifado</span></div>
+          <div class="bar"><span></span><span></span><span></span><span class="url">brewcontrol.app/pdv</span></div>
           <div class="screen">
             <div class="side">
               <b>MENU</b>
-              <u></u><u class="on"></u><u></u><u></u><u></u>
+              <u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u class="on"></u>
             </div>
             <div class="main">
               <div class="head">
-                <b>HUB · ALMOXARIFADO</b>
-                <span class="sub">SKU-1102</span>
+                <b>HUB · PDV MOBILE</b>
+                <span class="sub">SESSÃO 12</span>
               </div>
               <div class="cards">
-                <div class="card"><b>INSUMOS</b><u data-count="81" class="mono">0</u></div>
-                <div class="card"><b>ALERTA MÍNIMO</b><u data-count="3" class="mono">0</u></div>
-                <div class="card"><b>CATEGORIAS</b><u data-count="6" class="mono">0</u></div>
+                <div class="card"><b>COPOS NA SESSÃO</b><u data-count="36" class="mono">0</u></div>
+                <div class="card"><b>TOTAL SESSÃO</b><u>R$684</u></div>
+                <div class="card"><b>ACESSO</b><u>PIN ····</u></div>
               </div>
             </div>
           </div>
@@ -233,9 +183,9 @@
       </div>
 
       <div class="hud-footer">
-        <div class="kv">SALDO <b>812 un</b></div>
-        <div class="kv">CMP <b>R$ 4,82</b></div>
-        <div class="kv">GIRO <b>12x/mês</b></div>
+        <div class="kv">COPOS <b id="coposLive" style="color:var(--copper-400)">36</b></div>
+        <div class="kv">TOTAL SESSÃO <b>R$ 684</b></div>
+        <div class="kv">BARRIL <b style="color:oklch(0.76 0.14 155)">68%</b></div>
         <div class="kv">SYS <b style="color:oklch(0.76 0.14 155)">NOMINAL</b></div>
       </div>
     </div>
@@ -248,39 +198,39 @@
   <div class="wrap">
     <div class="section-hd cine-reveal">
       <div class="section-label">BENEFÍCIOS</div>
-      <h2 class="section-title reveal-mask"><span>Não é só uma tela de <span class="accent">estoque.</span></span></h2>
+      <h2 class="section-title reveal-mask"><span>Não é só um botão de <span class="accent">venda.</span></span></h2>
     </div>
     <div class="mod-benefit-grid">
       <div class="mod-benefit-card cine-reveal">
         <div class="glow"></div>
         <div class="mbc-body">
-          <div class="diff-num">CUSTO MÉDIO PONDERADO</div>
-          <h3>Saiba quanto cada receita custa de verdade</h3>
-          <p>Toda entrada de compra recalcula o custo médio automaticamente — sem planilha à parte para saber o custo real do lote.</p>
+          <div class="diff-num">ACESSO POR PIN</div>
+          <h3>Sem login demorado no meio do rush</h3>
+          <p>Cada atendente entra com um PIN curto — sem senha esquecida travando o balcão num sábado lotado.</p>
         </div>
       </div>
       <div class="mod-benefit-card cine-reveal" style="transition-delay:80ms">
         <div class="glow"></div>
         <div class="mbc-body">
-          <div class="diff-num">ALERTA DE ESTOQUE MÍNIMO</div>
-          <h3>Nunca mais descubra na hora H que faltou insumo</h3>
-          <p>Defina o mínimo de cada insumo e receba alerta antes que falte malte, lúpulo ou levedura pro próximo lote.</p>
+          <div class="diff-num">+1 COPO POR TOQUE</div>
+          <h3>Vender chope não devia precisar de treinamento</h3>
+          <p>Um toque registra a venda. Simples o bastante pra qualquer atendente novo aprender em segundos.</p>
         </div>
       </div>
       <div class="mod-benefit-card cine-reveal" style="transition-delay:160ms">
         <div class="glow"></div>
         <div class="mbc-body">
-          <div class="diff-num">INVENTÁRIO AUDITÁVEL</div>
-          <h3>Toda contagem física vira histórico, nada se perde</h3>
-          <p>Errou uma contagem? Registra o ajuste com o motivo — o histórico original continua auditável, igual na Produção.</p>
+          <div class="diff-num">DÉBITO AUTOMÁTICO</div>
+          <h3>Cada copo já desconta do barril certo</h3>
+          <p>Modo torneira debita o barril conectado na hora — sem pesar nem anotar nada por fora.</p>
         </div>
       </div>
       <div class="mod-benefit-card cine-reveal" style="transition-delay:240ms">
         <div class="glow"></div>
         <div class="mbc-body">
-          <div class="diff-num">CONSUMO AUTOMÁTICO NA BRASSAGEM</div>
-          <h3>O estoque nunca fica desatualizado</h3>
-          <p>Assim que a brassagem acontece, o consumo de malte, lúpulo e levedura é lançado sozinho no Almoxarifado.</p>
+          <div class="diff-num">RESUMO DE SESSÃO</div>
+          <h3>Feche o balcão sabendo exatamente quanto saiu</h3>
+          <p>Copos vendidos e total já prontos no fechamento da sessão — sem contar copo na mão.</p>
         </div>
       </div>
     </div>
@@ -292,23 +242,23 @@
   <div class="wrap">
     <div class="section-hd cine-reveal">
       <div class="section-label">COMO FUNCIONA</div>
-      <h2 class="section-title">3 passos, da compra ao consumo automático.</h2>
+      <h2 class="section-title">3 passos, do PIN ao fechamento.</h2>
     </div>
     <div class="mod-steps">
       <div class="mod-step cine-reveal cine-left">
         <div class="step-num">01</div>
-        <h3>Cadastre insumos e fornecedores</h3>
-        <p>Malte, lúpulo, levedura e adjuntos, com unidade de medida e fornecedor de cada um.</p>
+        <h3>Entre com o PIN</h3>
+        <p>Sem login demorado — o atendente entra direto no balcão, pronto pra vender.</p>
       </div>
       <div class="mod-step cine-reveal" style="transition-delay:100ms">
         <div class="step-num">02</div>
-        <h3>Registre a entrada da compra</h3>
-        <p>A nota de compra vira entrada de estoque — o custo médio ponderado recalcula sozinho.</p>
+        <h3>Toque +1 copo</h3>
+        <p>Cada venda já debita o barril conectado, sem digitar nada a mais na correria.</p>
       </div>
       <div class="mod-step cine-reveal cine-right" style="transition-delay:200ms">
         <div class="step-num">03</div>
-        <h3>Deixe o consumo sair automático</h3>
-        <p>Quando a brassagem acontece, o Almoxarifado dá baixa nos insumos sozinho, sem lançamento manual.</p>
+        <h3>Feche a sessão com o resumo pronto</h3>
+        <p>Copos vendidos e total já calculados — sem contar copo na mão no fim do turno.</p>
       </div>
     </div>
   </div>
@@ -318,8 +268,8 @@
 <section class="section">
   <div class="wrap mod-stats">
     <div class="mod-stat cine-reveal"><div class="num" data-count="12">0</div><div class="label">módulos integrados na mesma plataforma</div></div>
-    <div class="mod-stat cine-reveal" style="transition-delay:100ms"><div class="num" data-count="100" data-suffix="%">0%</div><div class="label">das movimentações de estoque ficam registradas pra sempre</div></div>
-    <div class="mod-stat cine-reveal" style="transition-delay:200ms"><div class="num" data-count="0">0</div><div class="label">planilhas paralelas pra saber o que tem no estoque</div></div>
+    <div class="mod-stat cine-reveal" style="transition-delay:100ms"><div class="num" data-count="100" data-suffix="%">0%</div><div class="label">dos débitos no barril feitos automaticamente</div></div>
+    <div class="mod-stat cine-reveal" style="transition-delay:200ms"><div class="num" data-count="0">0</div><div class="label">copos contados na mão no fim do turno</div></div>
   </div>
 </section>
 
@@ -327,8 +277,8 @@
 <section class="section">
   <div class="wrap">
     <div class="mod-crosssell cine-reveal">
-      <h3>O Almoxarifado fica ainda melhor integrado à <a href="index.html#modules">Produção</a></h3>
-      <p>Toda brassagem consome malte, lúpulo e levedura automaticamente do estoque — sem lançamento manual, sem planilha por fora.</p>
+      <h3>O PDV Mobile fica ainda melhor integrado a <a href="index.html#modules">Ativos &amp; Barris</a></h3>
+      <p>Cada copo vendido já atualiza o nível do barril rastreado, sem pesar nada na mão.</p>
     </div>
   </div>
 </section>
@@ -349,10 +299,10 @@
       </div>
       <div class="cine-reveal cine-right">
         <div class="section-label">QUEM CONSTRÓI ISSO</div>
-        <h2 class="section-title" style="margin-bottom:1.5rem">O módulo que nasceu<br><span class="accent">do balanço de estoque.</span></h2>
+        <h2 class="section-title" style="margin-bottom:1.5rem">O módulo que nasceu<br><span class="accent">do balcão lotado sem tempo pra treinar ninguém.</span></h2>
         <div class="founder-story">
-          <p>Cervejeiro desde 2017, passei pelos bastidores de várias cervejarias e senti na pele o peso da planilha, do WhatsApp e da informação espalhada — foi isso que também virou o módulo de Almoxarifado.</p>
-          <p>Contar saco de malte à mão e não saber o custo real da receita é uma dor que todo cervejeiro conhece. Se você topa usar no dia a dia e ajudar a moldar o sistema, a conversa começa aqui.</p>
+          <p>Contratei ajuda extra pra um evento grande e não tinha tempo de treinar ninguém num sistema complicado — foi aí que o PDV Mobile nasceu, simples o bastante pra qualquer pessoa vender no primeiro minuto.</p>
+          <p>Perder venda porque o sistema é complicado demais é prejuízo que ninguém deveria aceitar. Se você topa usar no dia a dia e ajudar a moldar o sistema, a conversa começa aqui.</p>
         </div>
         <a href="index.html#fundadora" class="btn btn-primary" style="margin-top:var(--s-8)">Conheça o Programa Cervejaria Fundadora →</a>
       </div>
@@ -447,14 +397,16 @@
 })();
 
 (function(){
-  var el = document.getElementById('saldoLive');
-  if (!el) return;
-  var val = 812;
+  var svg = document.getElementById('coposSvg');
+  var live = document.getElementById('coposLive');
+  if (!svg) return;
+  var val = 36;
   setInterval(function(){
-    val -= (Math.random() < 0.82 ? 1 : -6);
-    if (val < 758) val = 812;
-    el.textContent = val;
-  }, 850);
+    val += 1;
+    if (val > 58) val = 36;
+    svg.textContent = val;
+    if (live) live.textContent = val;
+  }, 2200);
 })();
 
 (function(){

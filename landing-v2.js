@@ -166,4 +166,34 @@
       } catch (_) {}
     });
   }
+
+  // -------- Mega menu (Módulos) --------
+  const megaItems = document.querySelectorAll('.nav-item.has-mega');
+  megaItems.forEach((item) => {
+    const trigger = item.querySelector('.nav-mega-trigger');
+    if (!trigger) return;
+    trigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = item.classList.contains('open');
+      megaItems.forEach((o) => {
+        o.classList.remove('open');
+        o.querySelector('.nav-mega-trigger')?.setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        trigger.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+  document.addEventListener('click', () => {
+    megaItems.forEach((o) => {
+      o.classList.remove('open');
+      o.querySelector('.nav-mega-trigger')?.setAttribute('aria-expanded', 'false');
+    });
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      megaItems.forEach((o) => o.classList.remove('open'));
+    }
+  });
 })();
