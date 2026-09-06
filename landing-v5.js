@@ -149,6 +149,100 @@
     });
   }
 
+  /*
+   * Real mini-demos are progressive: the landing keeps its screenshot fallback until an
+   * entry is explicitly enabled in media/demos/manifest.json. This prevents 404s and
+   * lets each workflow ship independently.
+   */
+  const loadRealDemos = async () => {
+    if (reduce) return;
+
+    try {
+      const response = await fetch('media/demos/manifest.json', { cache: 'no-store' });
+      if (!response.ok) return;
+
+      const manifest = await response.json();
+      const keys = ['production', 'assets', 'commercial', 'brewpub'];
+      const mediaBlocks = Array.from(document.querySelectorAll('[data-demo-cycle]')).slice(0, keys.length);
+
+      mediaBlocks.forEach((media, index) => {
+        const demo = manifest?.demos?.[keys[index]];
+        if (!demo?.available || (!demo.webm && !demo.mp4)) return;
+
+        const controller = cycleControllers.find((item) => item.media === media);
+        controller?.stop();
+
+        const images = Array.from(media.querySelectorAll('img[data-cycle]'));
+        const video = document.createElement('video');
+        video.muted = true;
+        video.loop = true;
+        video.playsInline = true;
+        video.preload = 'none';
+        video.setAttribute('aria-label', demo.title || 'Demonstração do BrewControl em funcionamento');
+        video.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;border-radius:inherit;opacity:0;transition:opacity .35s ease;z-index:3;background:#071014;';
+        if (demo.poster) video.poster = demo.poster;
+
+        if (demo.webm) {
+          const source = document.createElement('source');
+          source.src = demo.webm;
+          source.type = 'video/webm';
+          video.appendChild(source);
+        }
+        if (demo.mp4) {
+          const source = document.createElement('source');
+          source.src = demo.mp4;
+          source.type = 'video/mp4';
+          video.appendChild(source);
+        }
+
+        const restoreFallback = () => {
+          video.remove();
+          images.forEach((image, imageIndex) => { image.style.opacity = imageIndex ? '0' : '1'; });
+          controller?.start();
+        };
+
+        video.addEventListener('loadeddata', () => {
+          images.forEach((image) => { image.style.opacity = '0'; });
+          video.style.opacity = '1';
+        }, { once: true });
+        video.addEventListener('error', restoreFallback, { once: true });
+        media.appendChild(video);
+
+        const play = () => {
+          if (document.hidden) return;
+          const promise = video.play();
+          promise?.catch?.(() => {});
+        };
+        const pause = () => video.pause();
+
+        if ('IntersectionObserver' in window) {
+          const videoObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => entry.isIntersecting ? play() : pause());
+          }, { rootMargin: '120px 0px', threshold: 0.08 });
+          videoObserver.observe(media);
+        } else {
+          play();
+        }
+
+        document.addEventListener('visibilitychange', () => {
+          if (document.hidden) pause();
+          else {
+            const rect = media.getBoundingClientRect();
+            if (rect.bottom > -120 && rect.top < window.innerHeight + 120) play();
+          }
+        });
+      });
+    } catch (_) {
+      /* Screenshot fallback remains authoritative when media metadata cannot be loaded. */
+    }
+  };
+
+  if ('requestIdleCallback' in window) {
+    window.requestIdleCallback(loadRealDemos, { timeout: 1400 });
+  } else {
+    window.setTimeout(loadRealDemos, 600);
+  }
+
   /* The dashboard keeps subtle depth on pointer devices, but updates at most once per animation frame. */
   const stage = document.querySelector('.product-stage');
   const shell = document.querySelector('.product-shell');
