@@ -1,0 +1,212 @@
+/* Landing V5 performance + hero composition refinement */
+
+/* Expensive glass is reserved for the hero itself. Fixed/translucent elements use opaque blends to avoid continuous backdrop repaints while scrolling. */
+.header.scrolled{
+  background:rgba(6,14,18,.965);
+  backdrop-filter:none;
+}
+.btn.ghost,
+.product-shell,
+.float-card,
+.proof-strip,
+.fact-card,
+.op-step,
+.media-hud,
+.price,
+.brew-film-inner:after{
+  backdrop-filter:none;
+}
+
+/* Do not promote every decorative element to its own compositing layer. */
+[data-parallax]{
+  will-change:auto;
+  transform:none!important;
+}
+
+/* HERO PRODUCT — one strong product screen + a compact module dock. */
+.product-stage{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:9px;
+  align-items:start;
+  padding:0 0 4px;
+  perspective:1100px;
+}
+.product-shell{
+  grid-column:1/-1;
+  position:relative;
+  z-index:2;
+  margin-bottom:-24px;
+  background:linear-gradient(145deg,rgba(22,39,42,.96),rgba(7,18,22,.985));
+  box-shadow:0 34px 90px rgba(0,0,0,.44),0 0 48px rgba(74,164,161,.055);
+  transition:transform .16s var(--ease);
+}
+.product-stage:after{
+  content:'';
+  grid-column:1/-1;
+  position:absolute;
+  left:5%;right:5%;bottom:29px;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(140,197,189,.18),rgba(255,198,107,.24),rgba(140,197,189,.18),transparent);
+  z-index:1;
+  pointer-events:none;
+}
+.float-card,
+.fc1,.fc2,.fc3,.fc4{
+  position:relative;
+  inset:auto!important;
+  width:auto;
+  min-width:0;
+  z-index:4;
+  display:grid;
+  grid-template-columns:58px minmax(0,1fr);
+  grid-template-rows:auto auto;
+  column-gap:9px;
+  align-items:center;
+  padding:7px;
+  border-radius:14px;
+  background:linear-gradient(145deg,rgba(10,27,31,.97),rgba(21,33,32,.97));
+  border-color:rgba(140,197,189,.22);
+  box-shadow:0 13px 34px rgba(0,0,0,.28);
+  transition:transform .18s var(--ease),border-color .18s var(--ease),background .18s var(--ease);
+  translate:none!important;
+}
+.float-card:hover{
+  transform:translateY(-3px);
+  border-color:rgba(255,198,107,.38);
+  background:linear-gradient(145deg,rgba(15,34,37,.99),rgba(31,38,33,.99));
+}
+.float-card .thumb{
+  grid-row:1/3;
+  grid-column:1;
+  width:58px;
+  height:50px;
+  border-radius:9px;
+}
+.float-card .play{
+  width:19px;
+  height:19px;
+  right:5px;
+  bottom:5px;
+  font-size:.45rem;
+}
+.float-card strong{
+  grid-column:2;
+  margin:0;
+  min-width:0;
+  font-size:.68rem;
+  line-height:1.13;
+}
+.float-card small{
+  grid-column:2;
+  margin:1px 0 0;
+  min-width:0;
+  color:#82918e;
+  font-size:.53rem;
+  line-height:1.2;
+}
+
+/* Continuous atmosphere runs only while the hero is visible. */
+.steam,
+.bubble-field i,
+.product-shell:before,
+.stage-image img{
+  animation-play-state:paused!important;
+}
+.hero.hero-active .steam,
+.hero.hero-active .bubble-field i,
+.hero.hero-active .product-shell:before,
+.hero.hero-active .stage-image img{
+  animation-play-state:running!important;
+}
+
+/* Keep the atmosphere, but make it compositor-friendly. */
+.steam{
+  filter:blur(13px);
+  opacity:.14;
+  will-change:transform,opacity;
+}
+.steam.s3{display:none}
+.bubble-field i:nth-child(n+7){display:none}
+.bubble-field i{will-change:transform,opacity}
+.flow-lines,
+.flow-section:before{
+  animation:none!important;
+}
+.flow-lines{opacity:.11}
+.product-stage:before{filter:blur(24px)}
+.hero:after{filter:blur(11px)}
+
+/* Skip most rendering work for deep below-the-fold sections until the browser approaches them. */
+.platform,
+.flow-section,
+.story-section,
+.modules,
+.founder-section,
+.pricing,
+.answers,
+.final-cta{
+  content-visibility:auto;
+  contain-intrinsic-size:900px;
+}
+.story-media,
+.module-card,
+.price,
+.fact-card,
+.op-step,
+.brew-film{
+  contain:paint;
+}
+
+/* Make image transforms cheaper and prevent giant repaint areas. */
+.stage-image,
+.story-media .screen,
+.float-card .thumb,
+.brew-film-inner{
+  contain:paint;
+}
+
+@media(max-width:1120px){
+  .product-stage{grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+  .product-shell{margin-bottom:-18px}
+  .float-card{grid-template-columns:48px minmax(0,1fr);column-gap:7px;padding:6px}
+  .float-card .thumb{width:48px;height:43px}
+  .float-card strong{font-size:.63rem}
+  .float-card small{font-size:.49rem}
+}
+
+@media(max-width:700px){
+  .product-stage{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:9px;
+  }
+  .product-shell{
+    grid-column:1/-1;
+    width:100%;
+    margin-bottom:2px;
+    transform:none!important;
+  }
+  .float-card,
+  .fc1,.fc2,.fc3,.fc4{
+    width:auto;
+    display:grid;
+    margin:0;
+    position:relative;
+  }
+  .float-card .thumb{width:50px;height:44px}
+  .product-stage:after{display:none}
+  .steam{filter:blur(9px);opacity:.1}
+  .bubble-field i:nth-child(n+5){display:none}
+}
+
+@media(max-width:430px){
+  .product-stage{grid-template-columns:1fr 1fr}
+  .float-card{grid-template-columns:42px minmax(0,1fr);column-gap:6px}
+  .float-card .thumb{width:42px;height:38px}
+  .float-card small{display:none}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .steam,.bubble-field i,.product-shell:before,.stage-image img{animation:none!important}
+}
