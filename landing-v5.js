@@ -11,16 +11,31 @@
   window.addEventListener('scroll', setHeader, { passive: true });
 
   if (menu && nav) {
-    menu.addEventListener('click', () => {
-      const open = nav.classList.toggle('mobile-open');
-      menu.setAttribute('aria-expanded', String(open));
-      menu.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
-    });
-    nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
+    const closeMenu = () => {
       nav.classList.remove('mobile-open');
+      nav.removeAttribute('style');
       menu.setAttribute('aria-expanded', 'false');
       menu.setAttribute('aria-label', 'Abrir menu');
-    }));
+      document.body.style.removeProperty('overflow');
+    };
+    const openMenu = () => {
+      nav.classList.add('mobile-open');
+      nav.style.cssText = 'display:flex;position:fixed;top:76px;left:14px;right:14px;z-index:120;flex-direction:column;align-items:stretch;gap:2px;padding:12px;border:1px solid rgba(255,255,255,.11);border-radius:18px;background:rgba(7,17,22,.94);backdrop-filter:blur(22px) saturate(125%);box-shadow:0 24px 70px rgba(0,0,0,.45);';
+      nav.querySelectorAll('a').forEach((link) => {
+        link.style.cssText = 'display:block;padding:13px 12px;border-radius:11px;';
+      });
+      menu.setAttribute('aria-expanded', 'true');
+      menu.setAttribute('aria-label', 'Fechar menu');
+      document.body.style.overflow = 'hidden';
+    };
+    menu.addEventListener('click', () => {
+      nav.classList.contains('mobile-open') ? closeMenu() : openMenu();
+    });
+    nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 1120 && nav.classList.contains('mobile-open')) closeMenu();
+      if (window.innerWidth <= 700 && nav.classList.contains('mobile-open')) nav.style.top = '68px';
+    }, { passive: true });
   }
 
   if (!reduce && 'IntersectionObserver' in window) {
