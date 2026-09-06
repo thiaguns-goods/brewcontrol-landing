@@ -31,7 +31,7 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-JVBBG635J3"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-JVBBG635J3')</script>
 <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800,900&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400,500,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="module-production-v5.css?v=20260906a">
 <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 <script type="application/ld+json">
@@ -39,7 +39,7 @@
   "@context":"https://schema.org",
   "@graph":[
     {"@type":"Organization","@id":"https://brewcontrol.app.br/#organization","name":"BrewControl","url":"https://brewcontrol.app.br/","logo":"https://brewcontrol.app.br/favicon.svg"},
-    {"@type":"SoftwareApplication","@id":"https://brewcontrol.app.br/#software","name":"BrewControl","alternateName":"BrewControl ERP","url":"https://brewcontrol.app.br/","applicationCategory":"BusinessApplication","applicationSubCategory":"ERP para cervejarias artesanais","operatingSystem":"Web","inLanguage":"pt-BR","publisher":{"@id":"https://brewcontrol.app.br/#organization"},"description":"Sistema de gestão para cervejarias artesanais com produção, estoque, ativos e barris, comercial, logística, financeiro, fiscal, PDV e brewpub."},
+    {"@type":"SoftwareApplication","@id":"https://brewcontrol.app.br/#software","name":"BrewControl","alternateName":"BrewControl ERP","url":"https://brewcontrol.app.br/","applicationCategory":"BusinessApplication","applicationSubCategory":"ERP para cervejarias artesanais","operatingSystem":"Web","inLanguage":"pt-BR","publisher":{"@id":"https://brewcontrol.app.br/#organization"},"description":"Sistema de gestão para cervejarias artesanais com produção, estoque, ativos e barris, comercial, logística, financeiro, PDV e brewpub, além de infraestrutura fiscal em evolução e homologação controlada."},
     {"@type":"WebSite","@id":"https://brewcontrol.app.br/#website","url":"https://brewcontrol.app.br/","name":"BrewControl","publisher":{"@id":"https://brewcontrol.app.br/#organization"},"inLanguage":"pt-BR"},
     {"@type":"WebPage","@id":"https://brewcontrol.app.br/modulo-ativos.html#webpage","url":"https://brewcontrol.app.br/modulo-ativos.html","name":"Controle de Barris, Chopeiras e CO₂ — BrewControl","description":"Página de Ativos & Barris do BrewControl, com status, localização e histórico de barris, chopeiras e cilindros.","about":{"@id":"https://brewcontrol.app.br/#software"},"isPartOf":{"@id":"https://brewcontrol.app.br/#website"},"primaryImageOfPage":"https://brewcontrol.app.br/screenshots/ativos-barris.png","dateModified":"2026-09-06","inLanguage":"pt-BR"},
     {"@type":"FAQPage","@id":"https://brewcontrol.app.br/modulo-ativos.html#faq","mainEntity":[
@@ -72,7 +72,7 @@
       <h1>Cada barril.<br><em>Uma história inteira.</em></h1>
       <p>Barris, chopeiras e cilindros não são só quantidade em estoque. São ativos que saem, voltam, mudam de status, carregam lote, passam por limpeza e manutenção e precisam continuar identificáveis durante toda a operação.</p>
       <div class="hero-actions"><a class="btn primary" href="https://app.brewcontrol.app.br/">Abrir o BrewControl ↗</a><a class="btn ghost" href="#fluxo">Ver a vida do ativo ↓</a></div>
-      <div class="hero-proof"><span class="pulse" aria-hidden="true"></span><span>Interface real do BrewControl. Sem contadores promocionais baseados em uma única cervejaria.</span></div>
+      <div class="hero-proof"><span class="pulse" aria-hidden="true"></span><span>Interface real · identificação individual · status, localização e histórico operacional.</span></div>
     </div>
     <div class="reveal">
       <div class="product-window"><div class="window-bar"><span class="window-dot hot"></span><span class="window-dot"></span><span class="window-dot"></span><span class="window-label">INTERFACE REAL · ATIVOS & BARRIS</span></div><div class="demo-media" data-demo-key="assets"><img src="screenshots/ativos-barris.png" width="1440" height="900" fetchpriority="high" alt="Tela real de Ativos e Barris do BrewControl"><video muted loop playsinline preload="none"></video><div class="video-badge"><i aria-hidden="true"></i><span>INTERFACE REAL</span></div></div></div>
@@ -103,19 +103,19 @@
       <article class="timeline-card reveal"><span class="timeline-index">04</span><h3>Cliente / rota</h3><p>O estado e a localização ajudam a diferenciar o que está em trânsito do que permanece com um cliente.</p></article>
       <article class="timeline-card reveal"><span class="timeline-index">05</span><h3>Retorno</h3><p>O retorno vira novo fato operacional e prepara o ativo para limpeza, novo uso ou manutenção.</p></article>
     </div>
-    <div class="event-note reveal"><span class="event-dot" aria-hidden="true"></span><div><b>Ativo atual + timeline</b><span> O card mostra o agora; os eventos explicam como o barril chegou ali.</span></div><code>inventory_kegs/{kegId}/events</code></div>
+    <div class="event-note reveal"><span class="event-dot" aria-hidden="true"></span><div><b>Ativo atual + linha do tempo</b><span> O card mostra o agora; os eventos explicam como o barril chegou ali.</span></div><code>Linha do tempo do ativo</code></div>
   </div>
 </section>
 
 <section class="interface" id="interface" aria-labelledby="interface-title">
   <div class="wrap">
-    <div class="interface-head reveal"><div class="kicker">PRODUTO REAL</div><div><h2 class="section-title" id="interface-title">O parque de ativos precisa ser legível de relance.</h2><p class="section-lead">A interface prioriza status e contexto operacional. O poster abaixo é uma tela real; quando o mini-demo de Ativos estiver capturado, esse mesmo espaço passará a reproduzir o loop validado.</p></div></div>
+    <div class="interface-head reveal"><div class="kicker">PRODUTO REAL</div><div><h2 class="section-title" id="interface-title">O parque de ativos precisa ser legível de relance.</h2><p class="section-lead">A interface prioriza status e contexto operacional. As demonstrações curtas serão adicionadas gradualmente para mostrar ações de identificação, movimentação e retorno usando a tela real do BrewControl.</p></div></div>
     <div class="interface-grid">
       <div class="screen-frame reveal"><div class="demo-media" data-demo-key="assets"><img src="screenshots/ativos-barris.png" loading="lazy" alt="Interface real de barris e ativos do BrewControl"><video muted loop playsinline preload="none"></video><div class="video-badge"><i aria-hidden="true"></i><span>INTERFACE REAL</span></div></div></div>
       <div class="interface-notes">
         <article class="note-card reveal"><span>STATUS</span><h3>Cheio, limpo, sujo, cliente, manutenção.</h3><p>O estado operacional precisa aparecer rápido para quem está separando, recebendo ou conferindo ativos.</p></article>
         <article class="note-card reveal"><span>LOCALIZAÇÃO</span><h3>Fábrica, rota ou cliente não são a mesma coisa.</h3><p>O contexto de localização evita transformar “fora da fábrica” em uma categoria genérica que não ajuda a operação.</p></article>
-        <article class="note-card reveal"><span>HISTÓRICO</span><h3>O detalhe do ativo continua depois do status.</h3><p>A timeline permite consultar eventos anteriores sem depender apenas do estado atual mostrado no card.</p></article>
+        <article class="note-card reveal"><span>HISTÓRICO</span><h3>O detalhe do ativo continua depois do status.</h3><p>A linha do tempo permite consultar eventos anteriores sem depender apenas do estado atual mostrado no card.</p></article>
       </div>
     </div>
   </div>
@@ -125,7 +125,7 @@
   <div class="wrap">
     <div class="integration-head reveal"><div class="kicker">ATIVO É UM OBJETO COMPARTILHADO</div><div><h2 class="section-title" id="integrations-title">Produção enche. Logística movimenta. O histórico é o mesmo.</h2><p class="section-lead">Ativos & Barris não precisa duplicar a realidade dos outros módulos. O mesmo barril recebe contexto conforme atravessa produção, separação, rota, cliente e retorno.</p></div></div>
     <div class="integration-grid">
-      <article class="integration-card reveal"><div class="integration-copy"><span>PRODUÇÃO → ATIVOS</span><h3>Envase cria contexto no barril.</h3><p>Eventos de <strong>keg packaging</strong> em Produção podem gerar o evento de barril cheio, atualizar o status e vincular lote/estilo ao ativo físico usado no envase.</p></div><div class="mini-screen"><img src="screenshots/producao.png" loading="lazy" alt="Tela real de Produção do BrewControl"></div></article>
+      <article class="integration-card reveal"><div class="integration-copy"><span>PRODUÇÃO → ATIVOS</span><h3>Envase cria contexto no barril.</h3><p>O envase em barris pode registrar o barril como cheio, atualizar o status e vincular lote/estilo ao ativo físico usado na operação.</p></div><div class="mini-screen"><img src="screenshots/producao.png" loading="lazy" alt="Tela real de Produção do BrewControl"></div></article>
       <article class="integration-card reveal"><div class="integration-copy"><span>LOGÍSTICA → ATIVOS</span><h3>Saída e retorno atualizam a localização.</h3><p>A operação de rota registra movimentações como saída para cliente e retorno, permitindo que status e localização acompanhem o deslocamento real do ativo.</p></div><div class="mini-screen"><img src="screenshots/logistica.png" loading="lazy" alt="Tela real de Logística do BrewControl"></div></article>
     </div>
   </div>
@@ -136,7 +136,7 @@
     <div class="reveal"><div class="kicker">RESPOSTAS DIRETAS</div><h2 class="section-title" id="faq-title">Ativos & Barris no BrewControl.</h2><p class="section-lead" style="color:#615b54">Informação factual, legível por pessoas, mecanismos de busca e agentes de IA.</p></div>
     <div class="faq-list reveal">
       <details><summary>Quais ativos o BrewControl controla?</summary><p>O domínio de Ativos foi desenhado para barris e ativos de tiragem, incluindo chopeiras e cilindros de CO₂. Cada família pode carregar identificação, estado e localização operacional.</p></details>
-      <details><summary>O BrewControl mantém histórico de cada barril?</summary><p>Sim. A timeline pode registrar lavagem, envase, saída, retorno, manutenção, correções e outros fatos do ciclo. O estado atual continua disponível sem transformar o histórico em edição direta.</p></details>
+      <details><summary>O BrewControl mantém histórico de cada barril?</summary><p>Sim. A linha do tempo pode registrar lavagem, envase, saída, retorno, manutenção, correções e outros fatos do ciclo. O estado atual continua disponível sem transformar o histórico em edição direta.</p></details>
       <details><summary>É possível saber onde o barril está?</summary><p>Sim. O modelo possui contexto de localização para distinguir situações como fábrica, rota e cliente. A precisão depende dos eventos efetivamente registrados durante a operação.</p></details>
       <details><summary>Ativos se integra à Produção?</summary><p>Sim. O envase em barris pode gerar evento de barril cheio e associar o ativo ao contexto do lote/estilo produzido.</p></details>
       <details><summary>Ativos se integra à Logística?</summary><p>Sim. Eventos de saída e retorno da rota podem atualizar status e localização dos ativos movimentados.</p></details>
