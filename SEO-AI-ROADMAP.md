@@ -6,14 +6,14 @@ Updated: 2026-09-06
 
 Make BrewControl easy to discover, understand, verify, and cite across traditional search engines and AI-assisted search experiences, without relying on unsupported AEO/GEO hacks.
 
-## Implemented in Landing V4
+## Implemented in Landing V5
 
 - canonical URL on Home;
 - search-oriented title and meta description;
 - `robots` and `googlebot` directives allowing large previews and snippets;
 - explicit `robots.txt` allowances for OAI-SearchBot, ChatGPT-User, GPTBot, Googlebot, Bingbot and other crawlers;
 - refreshed XML sitemap;
-- Schema.org JSON-LD `@graph` with Organization, Person, WebSite, WebPage and SoftwareApplication entities;
+- Schema.org JSON-LD `@graph` with Organization, Person, WebSite, WebPage, SoftwareApplication and FAQPage entities;
 - public pricing represented as Offer entities;
 - Open Graph and Twitter metadata;
 - SVG favicon;
@@ -26,7 +26,13 @@ Make BrewControl easy to discover, understand, verify, and cite across tradition
 - public IndexNow key file prepared for future notification workflow;
 - mobile-first semantic navigation;
 - `prefers-reduced-motion` support;
-- documented rule that product truth in HTML must match visual/media claims.
+- documented rule that product truth in HTML must match visual/media claims;
+- expensive scroll-linked parallax removed from V5;
+- continuous hero animation paused offscreen;
+- below-the-fold sections use rendering containment/content visibility where appropriate;
+- progressive real-video runtime prepared through `media/demos/manifest.json`;
+- screenshots remain the authoritative fallback until a real demo is explicitly enabled;
+- real videos are designed to pause outside the viewport and load only after the page is idle.
 
 ## Activation required after production merge
 
@@ -70,16 +76,34 @@ Create expert-led evergreen pages targeting actual brewery decisions, with real 
 
 Each page should answer a distinct intent, link naturally to the relevant module, include original domain expertise, and avoid mass-produced keyword pages.
 
-## Media backlog
+## Media pipeline
 
-For important workflows, capture real 6–10 second loops with WebM + MP4 + poster image:
+Runtime infrastructure is ready. See `DEMO-CAPTURE-PLAN.md` and `media/demos/manifest.json`.
+
+Capture real 6–10 second loops with WebM + MP4 + poster image, in this order:
 
 1. Production;
 2. Assets / kegs;
 3. Commercial + logistics;
 4. Brewpub + finance.
 
-For production videos, add VideoObject structured data where the page genuinely hosts a watchable video and provide descriptive surrounding text.
+Each workflow can be released independently. Keep its manifest entry `available: false` until both encodes are present and the Preview is validated.
+
+When a real video becomes publicly watchable on a canonical page, add `VideoObject` structured data with factual name, description, thumbnail/poster, upload date and content URL. Do not publish `VideoObject` for placeholder or unavailable media.
+
+## Module-page backlog
+
+The module pages already have useful product-specific copy and canonical URLs, but they still use the older Landing V2 visual system. Before production rollout, reconcile them with Landing V5 without erasing their domain-specific content.
+
+Priorities:
+
+1. fix navigation anchors so they point to current V5 Home sections;
+2. align brand/header/CTA language with the V5 Home;
+3. add consistent crawler directives and complete Open Graph/Twitter metadata;
+4. add WebPage/BreadcrumbList/SoftwareApplication relationships where factually appropriate;
+5. remove or verify quantitative claims that depend on a specific tenant/demo state;
+6. reuse the V5 materials/colors/motion discipline rather than rebuilding nine unrelated pages;
+7. keep each module page focused on a distinct search intent.
 
 ## Authority / entity consistency
 
