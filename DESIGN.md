@@ -1,107 +1,100 @@
 # Design
 
-## Status
+## Landing V4 — direção visual canônica
 
-A Home está em redesign V3 na branch `landing-v3-preview`. As páginas satélite de módulo permanecem na linguagem V2 até uma migração específica; não devem ser alteradas por efeito colateral desta Home.
+A Home do BrewControl usa uma linguagem **industrial editorial**, não uma tela escura contínua.
 
-## Direction — Living Brewery
+### Princípio central
 
-A Home V3 é **product-led, industrial e cinematográfica**. O visitante deve perceber primeiro o BrewControl real operando e só depois ler a explicação. A estética continua escura, metálica, técnica e confiante, mas reduz decoração que compete com o produto.
+O produto real é o protagonista. O visitante deve entender rapidamente que o BrewControl é um ERP / sistema de gestão específico para cervejarias artesanais e, em seguida, ver a operação conectada acontecendo por meio de interfaces reais.
 
-A pergunta de cada seção é: **isso ajuda a mostrar a cervejaria funcionando?** Motion, profundidade e HUDs só entram quando reforçam produto, fluxo ou integração.
+### Ritmo de superfícies
 
-## Product as Hero
+A Home alterna deliberadamente entre superfícies escuras e claras:
 
-Na Home V3, a interface real do BrewControl é a principal evidência visual. Screenshots e, progressivamente, loops curtos de vídeo do sistema substituem a antiga dependência da ilustração "Planta 01" no hero.
+1. **Hero — carvão escuro + cobre**: impacto, identidade e interface real do sistema.
+2. **Definição do produto — papel/aço claro**: máxima legibilidade e resposta direta para humanos, mecanismos de busca e agentes.
+3. **Product Story — claro**: screenshots reais, narrativa operacional e leitura longa confortável.
+4. **Integração — escuro**: momento técnico de contraste, mostrando como uma ação repercute na operação.
+5. **Módulos — aço claro**: catálogo leve e navegável, sem efeito de parede de cards pretos.
+6. **Fundador — claro quente**: prova humana e autoridade de domínio.
+7. **Planos — escuro**: bloco comercial com contraste forte.
+8. **Respostas diretas + CTA — claro/quente**: fechamento legível, citável e orientado à ação.
 
-- Nunca inventar dashboards, números ou funcionalidades para marketing.
-- Preferir captura do produto real a mockup redesenhado.
-- Vídeos de módulo devem ser curtos, silenciosos, em loop e demonstrar uma ação completa.
-- Enquanto o vídeo real não estiver disponível, usar transições controladas entre screenshots reais como fallback.
-- `Planta 01` continua válida nas páginas V2 de módulo existentes, mas não é requisito da Home V3.
+A página nunca deve virar um light mode genérico, nem voltar a ser um túnel preto contínuo. O contraste entre zonas é parte da identidade.
 
-## Narrative
+## Paleta
 
-A Home não apresenta módulos como nove produtos independentes. Ela conta uma operação conectada:
+- Carvão principal: `#0b0c0f`
+- Carvão secundário: `#111318`
+- Papel quente: `#f0ece6`
+- Papel claro: `#f7f3ed`
+- Aço claro: `#e5e0d8`
+- Texto escuro: `#171616`
+- Texto claro: `#f6f2ed`
+- Cobre principal: `#c9793c`
+- Cobre claro: `#e5a05f`
 
-1. Produção — receita, lote, Brew Day e tanque.
-2. Estoque + Ativos — insumos, envase e barris.
-3. Comercial + Logística — pedido, separação e entrega.
-4. Brewpub + Financeiro — venda, operação de bar e visão gerencial.
+Cobre continua sendo o único acento de marca dominante. Verde é reservado a status operacional pontual.
 
-Depois dessa história, a seção "Uma ação. Toda a operação reage." explica integração como comportamento do sistema, não como lista de integrações.
+## Tipografia
 
-## Color
+- Display: Cabinet Grotesk
+- Corpo: Satoshi
+- Dados / HUD: JetBrains Mono
+- Títulos usam escala fluida com `clamp()`.
+- Headings precisam permanecer semanticamente estruturados (`h1`, `h2`, `h3`) e legíveis fora do contexto visual.
 
-Paleta escura com um único acento quente.
+## Produto real como mídia
 
-| Papel | Valor V3 |
-|---|---|
-| Fundo | `#050507` |
-| Superfície | `#0D0D12` / `#121219` |
-| Texto principal | `#F5F2ED` |
-| Texto secundário | `#AAA5A0` |
-| Cobre | `#D78646` |
-| Cobre claro | `#F1B06F` |
-| Status positivo | `#61D28A` — somente telemetria/estado |
+Screenshots e futuros mini vídeos devem mostrar o BrewControl real.
 
-Cobre é a cor de identidade. Verde/vermelho são cores semânticas de status, nunca acentos decorativos.
+Prioridade de loops:
+1. Produção
+2. Ativos / Barris
+3. Comercial + Logística
+4. Brewpub + Financeiro
 
-## Typography
+Padrão dos loops:
+- 6–10 segundos;
+- uma ação principal por vídeo;
+- sem áudio obrigatório;
+- cursor deliberado;
+- WebM + MP4;
+- poster estático real;
+- nunca expor dados sensíveis de tenant;
+- respeitar `prefers-reduced-motion`.
 
-- Display: Cabinet Grotesk, 700–900.
-- Corpo: Satoshi, 400–700.
-- Telemetria/HUD: JetBrains Mono.
-- Títulos usam escala fluida com `clamp()` e tracking negativo controlado.
-- Labels técnicos são pequenos, mono e uppercase; não usar mono para texto corrido.
+## Search / AI readability
 
-## Layout
+Design e conteúdo não podem depender de elementos puramente visuais para comunicar o produto.
 
-- Largura máxima: 1240px.
-- Hero dividido entre tese e produto real.
-- Seções longas alternam copy e mídia para criar ritmo editorial.
-- Cards só quando representam uma unidade real de decisão ou navegação.
-- Espaço vazio é parte da hierarquia; evitar paredes de features.
-- Mobile reorganiza a narrativa em coluna única sem remover conteúdo essencial.
+- O que é o BrewControl deve existir como texto HTML visível.
+- Links principais devem ser `<a>` reais.
+- Ações devem usar `<button>` ou `<a>` semanticamente adequados.
+- Imagens devem ter `alt` factual.
+- Headings devem representar a hierarquia real da página.
+- Conteúdo essencial não pode ficar escondido apenas em animações, canvas ou imagens.
+- Layout deve ser estável para leitores de tela e agentes de navegador.
 
 ## Motion
 
-Motion deve explicar, não distrair.
+Motion continua sendo parte da identidade, mas é subordinado ao produto:
 
-- Hero: tilt leve apenas em dispositivos com ponteiro fino.
-- Produto: zoom lento e brilho discreto.
-- Story: crossfade entre telas reais como fallback de vídeo.
-- Scroll reveal: uma entrada simples por bloco, sem cascatas excessivas.
-- Toda animação respeita `prefers-reduced-motion`.
-- Quando loops reais forem adicionados, usar `autoplay muted loop playsinline`, poster estático e carregamento preguiçoso quando possível.
+- reveals leves;
+- parallax discreto no frame principal;
+- crossfade de screenshots como fallback temporário;
+- nenhuma animação deve impedir leitura ou interação;
+- `prefers-reduced-motion` é obrigatório.
 
-## Video Capture Standard
+## Anti-padrões
 
-Objetivo futuro da V3: trocar os fallbacks por loops reais do app.
-
-- 6–10 segundos por loop.
-- Uma ação principal por vídeo.
-- Sem narração e sem áudio obrigatório.
-- Cursor deliberado; sem movimentos de procura.
-- Preferir 16:10 ou 16:9 e enquadramento consistente.
-- Exportar WebM + MP4 de fallback.
-- Não expor dados sensíveis de clientes ou tenants.
-- Produção, Ativos/Barris, Comercial/Logística e Brewpub/Financeiro são os quatro primeiros loops prioritários.
-
-## Accessibility
-
-- Contraste mínimo WCAG AA para texto.
-- Navegação por teclado preservada.
-- Menu mobile expõe `aria-expanded`.
-- Imagens de produto têm `alt` descritivo.
-- `prefers-reduced-motion` desativa animações não essenciais.
-
-## Anti-patterns
-
-- Não retornar ao grid massivo de feature cards na Home.
-- Não colocar painel de tweaks/dev em produção.
-- Não criar gradientes roxo/azul ou estética SaaS genérica.
-- Não usar stock photography.
-- Não inventar métricas de uptime, volume, clientes ou eficiência.
-- Não falsificar vídeo do produto com uma animação que pareça interação real.
-- Não remover links legais, contato, analytics ou SEO durante refinamentos visuais.
+- página inteira preta sem zonas de descanso;
+- estética cyberpunk/neon;
+- gradientes multicoloridos;
+- excesso de glow;
+- mockups genéricos de SaaS;
+- texto importante preso dentro de SVG/canvas/imagem;
+- grids intermináveis de cards escuros;
+- inventar funcionalidades;
+- efeitos que prejudiquem Core Web Vitals, acessibilidade ou rastreabilidade.
