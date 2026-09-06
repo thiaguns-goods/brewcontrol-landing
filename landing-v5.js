@@ -1,26 +1,48 @@
 (() => {
   'use strict';
+
+  /* Small override sheet kept separate so the visual/performance pass is easy to review or revert. */
+  if (!document.querySelector('link[data-v5-performance]')) {
+    const perfStyles = document.createElement('link');
+    perfStyles.rel = 'stylesheet';
+    perfStyles.href = 'landing-v5-performance.css?v=20260906b';
+    perfStyles.dataset.v5Performance = 'true';
+    document.head.appendChild(perfStyles);
+  }
+
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const coarse = window.matchMedia('(pointer: coarse)').matches;
   const header = document.querySelector('.header');
   const menu = document.querySelector('.menu');
   const nav = document.querySelector('.nav');
+  const hero = document.querySelector('.hero');
 
-  const setHeader = () => header?.classList.toggle('scrolled', window.scrollY > 24);
+  /* Header state is rAF-throttled instead of doing DOM work on every scroll event. */
+  let headerTicking = false;
+  const setHeader = () => {
+    header?.classList.toggle('scrolled', window.scrollY > 24);
+    headerTicking = false;
+  };
+  const requestHeader = () => {
+    if (headerTicking) return;
+    headerTicking = true;
+    requestAnimationFrame(setHeader);
+  };
   setHeader();
-  window.addEventListener('scroll', setHeader, { passive: true });
+  window.addEventListener('scroll', requestHeader, { passive: true });
 
   if (menu && nav) {
     const closeMenu = () => {
       nav.classList.remove('mobile-open');
       nav.removeAttribute('style');
+      nav.querySelectorAll('a').forEach((link) => link.removeAttribute('style'));
       menu.setAttribute('aria-expanded', 'false');
       menu.setAttribute('aria-label', 'Abrir menu');
       document.body.style.removeProperty('overflow');
     };
     const openMenu = () => {
       nav.classList.add('mobile-open');
-      nav.style.cssText = 'display:flex;position:fixed;top:76px;left:14px;right:14px;z-index:120;flex-direction:column;align-items:stretch;gap:2px;padding:12px;border:1px solid rgba(255,255,255,.11);border-radius:18px;background:rgba(7,17,22,.94);backdrop-filter:blur(22px) saturate(125%);box-shadow:0 24px 70px rgba(0,0,0,.45);';
+      nav.style.cssText = 'display:flex;position:fixed;top:76px;left:14px;right:14px;z-index:120;flex-direction:column;align-items:stretch;gap:2px;padding:12px;border:1px solid rgba(255,255,255,.11);border-radius:18px;background:rgba(7,17,22,.97);box-shadow:0 24px 70px rgba(0,0,0,.45);';
       nav.querySelectorAll('a').forEach((link) => {
         link.style.cssText = 'display:block;padding:13px 12px;border-radius:11px;';
       });
@@ -46,85 +68,129 @@
           io.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.09, rootMargin: '0px 0px -45px' });
+    }, { threshold: 0.08, rootMargin: '0px 0px -36px' });
     document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
   } else {
     document.querySelectorAll('.reveal').forEach((el) => el.classList.add('on'));
   }
 
+  /* Ambient hero effects only animate while the hero is actually on screen. */
+  if (hero) {
+    if (reduce || !('IntersectionObserver' in window)) {
+      hero.classList.add('hero-active');
+    } else {
+      const heroObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => hero.classList.toggle('hero-active', entry.isIntersecting && !document.hidden));
+      }, { rootMargin: '80px 0px 80px', threshold: 0.01 });
+      heroObserver.observe(hero);
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) hero.classList.remove('hero-active');
+      });
+    }
+  }
+
+  /* Crossfades start only when their media block is close to the viewport and stop after it leaves. */
+  const cycleControllers = [];
   document.querySelectorAll('[data-demo-cycle]').forEach((media) => {
     const images = Array.from(media.querySelectorAll('img[data-cycle]'));
     if (images.length < 2 || reduce) return;
+
     media.style.position = 'relative';
     let active = 0;
+    let timer = null;
+
     images.forEach((image, index) => {
       image.style.position = 'absolute';
       image.style.inset = '0';
       image.style.opacity = index ? '0' : '1';
-      image.style.transition = 'opacity .8s ease, transform 4s ease';
-      if (!index) image.style.transform = 'scale(1.015)';
+      image.style.transition = 'opacity .55s ease';
     });
-    setInterval(() => {
+
+    const step = () => {
       images[active].style.opacity = '0';
-      images[active].style.transform = 'scale(1.04)';
       active = (active + 1) % images.length;
       images[active].style.opacity = '1';
-      images[active].style.transform = 'scale(1.015)';
-    }, 3900);
+    };
+    const start = () => {
+      if (timer || document.hidden) return;
+      timer = window.setInterval(step, 4300);
+    };
+    const stop = () => {
+      if (!timer) return;
+      window.clearInterval(timer);
+      timer = null;
+    };
+
+    cycleControllers.push({ media, start, stop });
   });
 
+  if (cycleControllers.length) {
+    if ('IntersectionObserver' in window) {
+      const mediaObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          const controller = cycleControllers.find((item) => item.media === entry.target);
+          if (!controller) return;
+          entry.isIntersecting ? controller.start() : controller.stop();
+        });
+      }, { rootMargin: '180px 0px', threshold: 0.01 });
+      cycleControllers.forEach((controller) => mediaObserver.observe(controller.media));
+    } else {
+      cycleControllers.forEach((controller) => controller.start());
+    }
+
+    document.addEventListener('visibilitychange', () => {
+      cycleControllers.forEach((controller) => {
+        if (document.hidden) controller.stop();
+        else {
+          const rect = controller.media.getBoundingClientRect();
+          if (rect.bottom > -180 && rect.top < window.innerHeight + 180) controller.start();
+        }
+      });
+    });
+  }
+
+  /* The dashboard keeps subtle depth on pointer devices, but updates at most once per animation frame. */
   const stage = document.querySelector('.product-stage');
   const shell = document.querySelector('.product-shell');
   if (stage && shell && !reduce && !coarse) {
-    stage.addEventListener('mousemove', (event) => {
+    let tiltFrame = 0;
+    let lastEvent = null;
+    const renderTilt = () => {
+      tiltFrame = 0;
+      if (!lastEvent) return;
       const rect = stage.getBoundingClientRect();
-      const x = (event.clientX - rect.left) / rect.width - .5;
-      const y = (event.clientY - rect.top) / rect.height - .5;
-      shell.style.transform = `rotateY(${(-4 + x * 4.6).toFixed(2)}deg) rotateX(${(1.5 - y * 3.4).toFixed(2)}deg) translateY(${(-Math.abs(x) * 2).toFixed(1)}px)`;
-      stage.querySelectorAll('.float-card').forEach((card, i) => {
-        const depth = 7 + i * 2;
-        card.style.translate = `${(x * depth).toFixed(1)}px ${(y * depth).toFixed(1)}px`;
-      });
-    });
+      const x = (lastEvent.clientX - rect.left) / rect.width - .5;
+      const y = (lastEvent.clientY - rect.top) / rect.height - .5;
+      shell.style.transform = `rotateY(${(-2.4 + x * 2.8).toFixed(2)}deg) rotateX(${(.8 - y * 2).toFixed(2)}deg)`;
+    };
+    stage.addEventListener('mousemove', (event) => {
+      lastEvent = event;
+      if (!tiltFrame) tiltFrame = requestAnimationFrame(renderTilt);
+    }, { passive: true });
     stage.addEventListener('mouseleave', () => {
-      shell.style.transform = 'rotateY(-4deg) rotateX(1.5deg)';
-      stage.querySelectorAll('.float-card').forEach((card) => { card.style.translate = ''; });
+      lastEvent = null;
+      if (tiltFrame) cancelAnimationFrame(tiltFrame);
+      tiltFrame = 0;
+      shell.style.transform = 'rotateY(-2.4deg) rotateX(.8deg)';
     });
   }
 
-  if (!reduce) {
-    const parallax = Array.from(document.querySelectorAll('[data-parallax]'));
-    let ticking = false;
-    const updateParallax = () => {
-      const viewport = window.innerHeight || 1;
-      parallax.forEach((el) => {
-        const rect = el.getBoundingClientRect();
-        if (rect.bottom < -120 || rect.top > viewport + 120) return;
-        const speed = Number(el.dataset.parallax || .08);
-        const offset = ((rect.top + rect.height / 2) - viewport / 2) * speed;
-        el.style.transform = `translate3d(0, ${offset.toFixed(1)}px, 0)`;
-      });
-      ticking = false;
-    };
-    const requestParallax = () => {
-      if (!ticking) {
-        requestAnimationFrame(updateParallax);
-        ticking = true;
-      }
-    };
-    requestParallax();
-    window.addEventListener('scroll', requestParallax, { passive: true });
-    window.addEventListener('resize', requestParallax, { passive: true });
-  }
-
-  const hero = document.querySelector('.hero');
+  /* Pointer light follows the cursor only; there is intentionally no scroll-linked parallax anymore. */
   if (hero && !reduce && !coarse) {
-    hero.addEventListener('pointermove', (event) => {
+    let pointerFrame = 0;
+    let pointerEvent = null;
+    const renderPointerLight = () => {
+      pointerFrame = 0;
+      if (!pointerEvent) return;
       const rect = hero.getBoundingClientRect();
-      const x = (event.clientX - rect.left) / rect.width;
-      const y = (event.clientY - rect.top) / rect.height;
+      const x = (pointerEvent.clientX - rect.left) / rect.width;
+      const y = (pointerEvent.clientY - rect.top) / rect.height;
       hero.style.setProperty('--mx', `${(x * 100).toFixed(1)}%`);
       hero.style.setProperty('--my', `${(y * 100).toFixed(1)}%`);
+    };
+    hero.addEventListener('pointermove', (event) => {
+      pointerEvent = event;
+      if (!pointerFrame) pointerFrame = requestAnimationFrame(renderPointerLight);
     }, { passive: true });
   }
 })();
