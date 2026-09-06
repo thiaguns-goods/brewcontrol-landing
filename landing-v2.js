@@ -6,6 +6,40 @@
 (function () {
   'use strict';
 
+  // -------- V5 compatibility for public module pages --------
+  const isModulePage = document.body?.dataset.screenLabel?.startsWith('modulo-');
+  if (isModulePage) {
+    const style = document.createElement('link');
+    style.rel = 'stylesheet';
+    style.href = 'module-v5.css?v=20260906';
+    style.dataset.moduleV5 = 'true';
+    document.head.appendChild(style);
+
+    const anchorMap = new Map([
+      ['index.html#modules', 'index.html#modulos'],
+      ['index.html#novidades', 'index.html#produto'],
+      ['index.html#fundadora', 'index.html#fundador'],
+      ['index.html#pricing', 'index.html#planos'],
+      ['index.html#waitlist', 'index.html#planos']
+    ]);
+    document.querySelectorAll('a[href^="index.html#"]').forEach((link) => {
+      const next = anchorMap.get(link.getAttribute('href'));
+      if (next) link.setAttribute('href', next);
+    });
+
+    const brandTag = document.querySelector('.brand-tag');
+    if (brandTag) brandTag.textContent = 'BREWERY OPERATING SYSTEM';
+
+    const headerCta = document.querySelector('.header .btn.btn-primary');
+    if (headerCta) {
+      headerCta.href = 'https://app.brewcontrol.app.br/';
+      headerCta.textContent = 'Entrar no app ↗';
+    }
+
+    document.getElementById('tweaksPanel')?.remove();
+    document.getElementById('tweaksOpen')?.remove();
+  }
+
   // -------- Reveal on scroll --------
   const reveal = (el, cb) => {
     const io = new IntersectionObserver((entries) => {
@@ -58,7 +92,8 @@
   // -------- Bubbles generation --------
   const bubbleHosts = document.querySelectorAll('[data-bubbles]');
   bubbleHosts.forEach(host => {
-    const count = parseInt(host.dataset.bubbles) || 18;
+    const requested = parseInt(host.dataset.bubbles) || 18;
+    const count = isModulePage ? Math.min(requested, 8) : requested;
     for (let i = 0; i < count; i++) {
       const b = document.createElement('i');
       const size = 3 + Math.random() * 7;
@@ -74,7 +109,8 @@
   // -------- Grains falling --------
   const grainHosts = document.querySelectorAll('[data-grains]');
   grainHosts.forEach(host => {
-    const count = parseInt(host.dataset.grains) || 14;
+    const requested = parseInt(host.dataset.grains) || 14;
+    const count = isModulePage ? Math.min(requested, 6) : requested;
     const h = host.clientHeight || 600;
     for (let i = 0; i < count; i++) {
       const g = document.createElement('i');
@@ -94,16 +130,18 @@
   const handleActivate = () => panel?.classList.add('open');
   const handleDeactivate = () => panel?.classList.remove('open');
 
-  window.addEventListener('message', (e) => {
-    const d = e.data || {};
-    if (d.type === '__activate_edit_mode') handleActivate();
-    if (d.type === '__deactivate_edit_mode') handleDeactivate();
-  });
+  if (!isModulePage) {
+    window.addEventListener('message', (e) => {
+      const d = e.data || {};
+      if (d.type === '__activate_edit_mode') handleActivate();
+      if (d.type === '__deactivate_edit_mode') handleDeactivate();
+    });
 
-  // Announce availability
-  try {
-    window.parent.postMessage({ type: '__edit_mode_available' }, '*');
-  } catch (_) {}
+    // Announce availability
+    try {
+      window.parent.postMessage({ type: '__edit_mode_available' }, '*');
+    } catch (_) {}
+  }
 
   // Local toggle for dev / if no host
   document.getElementById('tweaksOpen')?.addEventListener('click', handleActivate);
