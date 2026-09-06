@@ -12,14 +12,14 @@ Make BrewControl easy to discover, understand, verify, and cite across tradition
 - search-oriented title and meta description;
 - `robots` and `googlebot` directives allowing large previews and snippets;
 - explicit `robots.txt` allowances for OAI-SearchBot, ChatGPT-User, GPTBot, Googlebot, Bingbot and other crawlers;
-- refreshed XML sitemap;
+- refreshed XML sitemap with 2026-09-06 `lastmod` on rebuilt module pages;
 - Schema.org JSON-LD `@graph` with Organization, Person, WebSite, WebPage, SoftwareApplication and FAQPage entities;
 - public pricing represented as Offer entities;
 - Open Graph and Twitter metadata;
 - SVG favicon;
 - semantic, visible definition of what BrewControl is and who it is for;
-- direct-answer section for common product questions;
-- crawlable HTML links to all public module pages;
+- direct-answer sections for common product questions;
+- crawlable HTML links to public module pages;
 - descriptive image alt text;
 - hero image preload and font preconnects;
 - `llms.txt` as optional compatibility metadata for systems that choose to consume it;
@@ -33,6 +33,76 @@ Make BrewControl easy to discover, understand, verify, and cite across tradition
 - progressive real-video runtime prepared through `media/demos/manifest.json`;
 - screenshots remain the authoritative fallback until a real demo is explicitly enabled;
 - real videos are designed to pause outside the viewport and load only after the page is idle.
+
+## Module search surfaces — rebuilt in V5
+
+All nine public module pages were reconciled against current BrewControl sources before copy was rewritten. The pages now share the V5 visual language and expose factual, indexable HTML + page-specific FAQ structured data.
+
+### Production
+
+Primary intent: software / sistema de produção para cervejarias.
+
+Public truth emphasizes recipe/version → batch → brews → Brew Day → tank/cellar → packaging, event history, production-to-inventory consumption and keg packaging-to-assets integration. Unsupported multi-factory marketing was removed.
+
+### Almoxarifado
+
+Primary intent: controle de estoque / insumos para cervejarias.
+
+Public truth covers ingredient categories, balance, average cost, physical location, movements, purchases, suppliers, physical inventory, consumption and the implemented `inventory_forecast` AI experience for rupture/tendency support.
+
+### Ativos & Barris
+
+Primary intent: controle e rastreabilidade de barris / chopeiras / CO₂.
+
+Transient tenant-specific metrics such as “56+ assets” were removed. Copy now focuses on asset identity, status, location, lifecycle events and the real Production/Logistics integrations.
+
+### Comercial
+
+Primary intent: software de vendas para cervejarias.
+
+Page reflects the current Commercial hub: orders, quotes, customers, catalog, prices by channel, calendar, goals, public delivery links and the real handoff from eligible orders to Logistics.
+
+### Logística
+
+Primary intent: logística / rotas / entregas para cervejarias.
+
+Page reflects un-routed sales orders, route creation from multiple orders, Entrega Day, quick delivery, vehicles, km controls and kegs at clients. Claims not supported by current code were removed.
+
+### Brewpub & PDV
+
+Primary intent: sistema para brewpub / bar com produção própria.
+
+Page reflects orders/tables, menu, KDS, cash day/shift, campaigns, tap lines and server-side transactional order closing, including inventory/CMV effects where configured.
+
+### Financeiro
+
+Primary intent: gestão financeira para cervejarias.
+
+Page reflects financial entries, receivables, payables area, cash, cost centers, DRE, reports, monthly result and revenue source classification. It explicitly says the module is managerial/operational and is not a substitute for formal accounting or full bank reconciliation.
+
+### Fiscal
+
+Primary intent: fiscal / NF-e / NFC-e para cervejarias.
+
+The page is intentionally transparent: the infrastructure exists, but public status is **hardening / homologation before fiscal production**. It must not be marketed as fully production-ready until the canonical fiscal gates are closed and accounting validation is complete. Do not expose internal security bug details on the public site; expose only the release status and the fact that production activation is gated.
+
+### PDV Mobile
+
+Primary intent: ponto parceiro / recebimento de pedidos e barris.
+
+The previous “balcão sem login / +1 copo” marketing did not match current code and was removed. The current surface identifies a `pdv_mobile` customer by PIN inside an authorized brewery context, shows its pending orders and kegs, and transactionally records keg receipt. Do not confuse it with Brewpub/PDV checkout.
+
+## Pre-production truth gate
+
+Before merge, reconcile the remaining Home summary copy with the detailed module truth:
+
+- Home must not imply Fiscal is homologated/production-ready;
+- Home module card must not describe PDV Mobile as generic fast checkout;
+- Home Schema/FAQ should describe Fiscal as an area in hardening where appropriate rather than implying complete production readiness;
+- avoid exposing implementation-only collection paths in marketing copy;
+- check all nine module links and page titles on the final Preview.
+
+This is a merge blocker for Landing V5.
 
 ## Activation required after production merge
 
@@ -72,7 +142,7 @@ Create expert-led evergreen pages targeting actual brewery decisions, with real 
 - rastreabilidade de lotes de cerveja;
 - gestão comercial e logística de chope;
 - custos e CMV em cervejarias;
-- comparação entre BrewControl e processos manuais / planilhas, usando critérios factuais e verificáveis.
+- comparação entre BrewControl e processos manuais / planilhas, using factual and verifiable criteria.
 
 Each page should answer a distinct intent, link naturally to the relevant module, include original domain expertise, and avoid mass-produced keyword pages.
 
@@ -90,20 +160,6 @@ Capture real 6–10 second loops with WebM + MP4 + poster image, in this order:
 Each workflow can be released independently. Keep its manifest entry `available: false` until both encodes are present and the Preview is validated.
 
 When a real video becomes publicly watchable on a canonical page, add `VideoObject` structured data with factual name, description, thumbnail/poster, upload date and content URL. Do not publish `VideoObject` for placeholder or unavailable media.
-
-## Module-page backlog
-
-The module pages already have useful product-specific copy and canonical URLs, but they still use the older Landing V2 visual system. Before production rollout, reconcile them with Landing V5 without erasing their domain-specific content.
-
-Priorities:
-
-1. fix navigation anchors so they point to current V5 Home sections;
-2. align brand/header/CTA language with the V5 Home;
-3. add consistent crawler directives and complete Open Graph/Twitter metadata;
-4. add WebPage/BreadcrumbList/SoftwareApplication relationships where factually appropriate;
-5. remove or verify quantitative claims that depend on a specific tenant/demo state;
-6. reuse the V5 materials/colors/motion discipline rather than rebuilding nine unrelated pages;
-7. keep each module page focused on a distinct search intent.
 
 ## Authority / entity consistency
 
