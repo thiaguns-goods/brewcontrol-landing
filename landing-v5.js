@@ -17,6 +17,18 @@
   const nav = document.querySelector('.nav');
   const hero = document.querySelector('.hero');
 
+  /* Keep Home labels aligned with the current module truth while the static root copy is under the pre-merge truth gate. */
+  const fiscalCard = document.querySelector('a.module-card[href="modulo-fiscal.html"]');
+  const pdvMobileCard = document.querySelector('a.module-card[href="modulo-pdv-mobile.html"]');
+  if (fiscalCard) {
+    const copy = fiscalCard.querySelector('p');
+    if (copy) copy.textContent = 'Infraestrutura de NF-e e NFC-e em hardening e homologação.';
+  }
+  if (pdvMobileCard) {
+    const copy = pdvMobileCard.querySelector('p');
+    if (copy) copy.textContent = 'Ponto parceiro: pedidos, recebimento e barris no cliente.';
+  }
+
   /* Header state is rAF-throttled instead of doing DOM work on every scroll event. */
   let headerTicking = false;
   const setHeader = () => {
