@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "updated": "2026-09-06",
+  "demos": {
+    "production": {
+      "available": false,
+      "title": "Produção — do planejamento ao tanque",
+      "webm": "media/demos/production.webm",
+      "mp4": "media/demos/production.mp4",
+      "poster": "screenshots/producao.png",
+      "durationSeconds": 8
+    },
+    "assets": {
+      "available": false,
+      "title": "Ativos & Barris — rastreabilidade em campo",
+      "webm": "media/demos/assets.webm",
+      "mp4": "media/demos/assets.mp4",
+      "poster": "screenshots/ativos-barris.png",
+      "durationSeconds": 7
+    },
+    "commercial": {
+      "available": false,
+      "title": "Comercial + Logística — da venda à entrega",
+      "webm": "media/demos/commercial-logistics.webm",
+      "mp4": "media/demos/commercial-logistics.mp4",
+      "poster": "screenshots/comercial.png",
+      "durationSeconds": 8
+    },
+    "brewpub": {
+      "available": false,
+      "title": "Brewpub + Financeiro — balcão, caixa e resultado",
+      "webm": "media/demos/brewpub-finance.webm",
+      "mp4": "media/demos/brewpub-finance.mp4",
+      "poster": "screenshots/brewpub.png",
+      "durationSeconds": 8
+    }
+  }
+}
