@@ -6,6 +6,12 @@
   const nav = document.querySelector('.nav');
 
   const setHeader = () => header?.classList.toggle('scrolled', window.scrollY > 24);
+  const closeMenu = () => {
+    if (!menu || !nav) return;
+    nav.classList.remove('mobile-open');
+    menu.setAttribute('aria-expanded', 'false');
+  };
+
   setHeader();
   window.addEventListener('scroll', setHeader, { passive: true });
 
@@ -13,6 +19,13 @@
     menu.addEventListener('click', () => {
       const open = nav.classList.toggle('mobile-open');
       menu.setAttribute('aria-expanded', String(open));
+    });
+    nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') closeMenu();
+    });
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 1000) closeMenu();
     });
   }
 
@@ -49,12 +62,12 @@
     if (imgs.length < 2 || reduce) return;
     let active = 0;
     imgs.forEach((img, index) => {
-      img.style.position = index ? 'absolute' : 'relative';
+      img.style.position = 'absolute';
       img.style.inset = '0';
       img.style.opacity = index ? '0' : '1';
       img.style.transition = 'opacity .75s ease';
     });
-    setInterval(() => {
+    window.setInterval(() => {
       imgs[active].style.opacity = '0';
       active = (active + 1) % imgs.length;
       imgs[active].style.opacity = '1';
