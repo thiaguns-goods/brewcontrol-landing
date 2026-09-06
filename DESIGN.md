@@ -1,69 +1,107 @@
 # Design
 
-## Theme
+## Status
 
-Industrial cinematográfico — escuro por padrão, metálico, um único acento de cor (cobre). Não é dark mode "por segurança": é a estética deliberada de uma sala de controle de fábrica. Nunca migrar para claro ou para paleta multicolorida.
+A Home está em redesign V3 na branch `landing-v3-preview`. As páginas satélite de módulo permanecem na linguagem V2 até uma migração específica; não devem ser alteradas por efeito colateral desta Home.
+
+## Direction — Living Brewery
+
+A Home V3 é **product-led, industrial e cinematográfica**. O visitante deve perceber primeiro o BrewControl real operando e só depois ler a explicação. A estética continua escura, metálica, técnica e confiante, mas reduz decoração que compete com o produto.
+
+A pergunta de cada seção é: **isso ajuda a mostrar a cervejaria funcionando?** Motion, profundidade e HUDs só entram quando reforçam produto, fluxo ou integração.
+
+## Product as Hero
+
+Na Home V3, a interface real do BrewControl é a principal evidência visual. Screenshots e, progressivamente, loops curtos de vídeo do sistema substituem a antiga dependência da ilustração "Planta 01" no hero.
+
+- Nunca inventar dashboards, números ou funcionalidades para marketing.
+- Preferir captura do produto real a mockup redesenhado.
+- Vídeos de módulo devem ser curtos, silenciosos, em loop e demonstrar uma ação completa.
+- Enquanto o vídeo real não estiver disponível, usar transições controladas entre screenshots reais como fallback.
+- `Planta 01` continua válida nas páginas V2 de módulo existentes, mas não é requisito da Home V3.
+
+## Narrative
+
+A Home não apresenta módulos como nove produtos independentes. Ela conta uma operação conectada:
+
+1. Produção — receita, lote, Brew Day e tanque.
+2. Estoque + Ativos — insumos, envase e barris.
+3. Comercial + Logística — pedido, separação e entrega.
+4. Brewpub + Financeiro — venda, operação de bar e visão gerencial.
+
+Depois dessa história, a seção "Uma ação. Toda a operação reage." explica integração como comportamento do sistema, não como lista de integrações.
 
 ## Color
 
-Tudo em `landing-v2.css` `:root`. OKLCH para a rampa de cobre e status; hex para a base neutra (já fixada, não reconverter).
+Paleta escura com um único acento quente.
 
-| Papel | Token | Valor |
-|---|---|---|
-| Fundo mais escuro | `--ink-000` | `#050508` |
-| Fundo de seção / card | `--ink-050` a `--ink-100` | `#0A0A10` / `#0E0E16` |
-| Bordas / divisores sutis | `--ink-300`..`--ink-600` | `#1A1A26`..`#3C3C50` |
-| Texto principal | `--fog-100` | `#E8E8EE` |
-| Texto secundário | `--fog-200` | `#C9C9D4` |
-| Texto apagado / legendas | `--fog-400` | `#8A8A9A` |
-| Texto muito apagado | `--fog-600` | `#5A5A6A` |
-| Acento único (cobre) | `--copper-50`..`--copper-600` | `oklch(0.92 0.04 55)` .. `oklch(0.50 0.14 48)` |
-| Glow do acento | `--copper-glow` | `oklch(0.68 0.14 55 / 0.35)` |
-| Âmbar (ponte com o app, uso pontual) | `--amber-400/500` | `#FBBF24` / `#F59E0B` |
-| Status ok/warn/hot/cool | `--status-*` | oklch, uso restrito a HUD/telemetria |
+| Papel | Valor V3 |
+|---|---|
+| Fundo | `#050507` |
+| Superfície | `#0D0D12` / `#121219` |
+| Texto principal | `#F5F2ED` |
+| Texto secundário | `#AAA5A0` |
+| Cobre | `#D78646` |
+| Cobre claro | `#F1B06F` |
+| Status positivo | `#61D28A` — somente telemetria/estado |
 
-Regra dura: **um acento só** (cobre). Âmbar é herdado da marca do app e usado com moderação (ex: LED de gauge). Nunca introduzir uma segunda cor de destaque, gradiente arco-íris ou paleta pastel/creme.
-
-Superfícies metálicas via gradients reutilizáveis: `--metal-brushed`, `--metal-brushed-soft`, `--metal-light`. Glow volumétrico via `--vol-copper` / `--vol-amber` (radial-gradient).
+Cobre é a cor de identidade. Verde/vermelho são cores semânticas de status, nunca acentos decorativos.
 
 ## Typography
 
-- Display / títulos: `--f-display` = Cabinet Grotesk (carregada via Fontshare), peso 700-900, `letter-spacing: -0.02em`.
-- Corpo: `--f-body` = Satoshi, peso 400-700.
-- Dados técnicos / HUD / mono: `--f-mono` = JetBrains Mono.
-- Escala fluida via `clamp()`: `--text-xs` (0.72-0.82rem) até `--text-3xl` (2.8-6.6rem) — nunca usar `px` fixo para tamanho de fonte em título.
-- `.accent` (itálico + cobre) marca a palavra-chave dentro de um título — usado com moderação, uma vez por título.
+- Display: Cabinet Grotesk, 700–900.
+- Corpo: Satoshi, 400–700.
+- Telemetria/HUD: JetBrains Mono.
+- Títulos usam escala fluida com `clamp()` e tracking negativo controlado.
+- Labels técnicos são pequenos, mono e uppercase; não usar mono para texto corrido.
 
-## Spacing & Layout
+## Layout
 
-- Escala de espaçamento: `--s-1` (0.25rem) até `--s-32` (8rem). Não usar valores px soltos onde já existe variável.
-- Larguras de conteúdo: `--w-narrow` 680px (blog/artigos), `--w-default` 1080px, `--w-wide` 1280px (grid principal, classe `.wrap`).
-- Raios: `--r-sm` 6px, `--r-md` 10px, `--r-lg` 16px, `--r-xl` 22px.
-- Grid é o padrão para seções 2D (hero, benefícios, steps, stats); flexbox para barras 1D (header, footer, HUD).
+- Largura máxima: 1240px.
+- Hero dividido entre tese e produto real.
+- Seções longas alternam copy e mídia para criar ritmo editorial.
+- Cards só quando representam uma unidade real de decisão ou navegação.
+- Espaço vazio é parte da hierarquia; evitar paredes de features.
+- Mobile reorganiza a narrativa em coluna única sem remover conteúdo essencial.
 
 ## Motion
 
-- Easing padrão: `--ease: cubic-bezier(0.2, 0.8, 0.2, 1)` (ease-out). Durações: `--dur-1` 180ms (micro), `--dur-2` 380ms (padrão), `--dur-3` 700ms (dramático).
-- `--fx-intensity` controla intensidade global via painel de tweaks — não hardcodar valores que ignorem essa variável em novas animações.
-- **`.cine-reveal`** (+ `.cine-left` / `.cine-right`): entrada cinematográfica — opacity + translateY/X + scale, ativada via `IntersectionObserver` (`threshold: 0.2`) em script inline por página. É o padrão de reveal das páginas de módulo (mais dramático que `.fade-up-item`, que é o reveal simples usado no blog).
-- **`.reveal-mask`**: título com máscara (`overflow:hidden` no contêiner + `translateY` no `<span>` interno).
-- **`.mod-benefit-card .glow`**: brilho seguindo o cursor, calculado via `mousemove` por card.
-- **`data-count` / `data-suffix`** em `.num`: contador que sobe ao entrar na tela — lógica centralizada em `landing-v2.js`, nunca duplicar.
-- **`.sticky-cta-bar`**: barra fixa de CTA que sobe após ~20% de rolagem da página.
-- Toda animação precisa de alternativa em `@media (prefers-reduced-motion: reduce)`.
-- Reveals nunca escondem conteúdo por padrão sem fallback visível — motion melhora um estado já visível, não substitui o carregamento do conteúdo.
+Motion deve explicar, não distrair.
 
-## Components
+- Hero: tilt leve apenas em dispositivos com ponteiro fino.
+- Produto: zoom lento e brilho discreto.
+- Story: crossfade entre telas reais como fallback de vídeo.
+- Scroll reveal: uma entrada simples por bloco, sem cascatas excessivas.
+- Toda animação respeita `prefers-reduced-motion`.
+- Quando loops reais forem adicionados, usar `autoplay muted loop playsinline`, poster estático e carregamento preguiçoso quando possível.
 
-- **`.hero-canvas` / "Planta 01"**: ilustração SVG animada de mini fábrica (tanques, vapor, bolhas de fermentação, ponteiro de pressão, engrenagens girando, jato enchendo copo) + `.hero-app-float` (card flutuante simulando a tela real do app, com mouse-parallax leve via `rotateY/rotateX`). Peça central da marca — **nunca substituir por print estático**; adaptar a cena (elementos, HUD, labels) ao tema de cada módulo mantendo a mesma anatomia técnica.
-- **`.mod-hero` / `.mod-benefit-card` / `.mod-steps` / `.mod-stat` / `.mod-crosssell`**: anatomia padrão de página de módulo (ver `modulo-producao.html`, molde aprovado): hero com Planta 01 → benefícios em cards com glow → "como funciona" em 3 passos → números com count-up → cross-sell pro módulo relacionado → bloco do fundador → `.sticky-cta-bar`.
-- **Bloco do fundador**: `founder-grid` / `founder-photo-wrap` (foto real `screenshots/thiago-v2.jpg`) / `founder-name-block` / `founder-story`. Composição fixa em toda página; só o texto de transição entre módulo e fundador muda.
-- **`.section-label` / `.section-title` / `.section-sub`**: cabeçalho de seção padrão (label mono uppercase + título display + subtítulo).
-- Cards são aceitos aqui (`.mod-benefit-card`, `.mod-step`) mas sempre com propósito visual (glow, numeração) — não empilhar cards genéricos sem função.
+## Video Capture Standard
 
-## Anti-patterns (specific to this project)
+Objetivo futuro da V3: trocar os fallbacks por loops reais do app.
 
-- Não introduzir Tailwind, Sass, ou qualquer pré-processador — só CSS puro com variáveis nativas.
-- Não usar `px` fixo em títulos onde há `--text-*` com `clamp()`.
-- Não criar uma segunda cor de acento nem gradiente multicolorido.
-- Não trocar a cena SVG animada por captura de tela do app.
+- 6–10 segundos por loop.
+- Uma ação principal por vídeo.
+- Sem narração e sem áudio obrigatório.
+- Cursor deliberado; sem movimentos de procura.
+- Preferir 16:10 ou 16:9 e enquadramento consistente.
+- Exportar WebM + MP4 de fallback.
+- Não expor dados sensíveis de clientes ou tenants.
+- Produção, Ativos/Barris, Comercial/Logística e Brewpub/Financeiro são os quatro primeiros loops prioritários.
+
+## Accessibility
+
+- Contraste mínimo WCAG AA para texto.
+- Navegação por teclado preservada.
+- Menu mobile expõe `aria-expanded`.
+- Imagens de produto têm `alt` descritivo.
+- `prefers-reduced-motion` desativa animações não essenciais.
+
+## Anti-patterns
+
+- Não retornar ao grid massivo de feature cards na Home.
+- Não colocar painel de tweaks/dev em produção.
+- Não criar gradientes roxo/azul ou estética SaaS genérica.
+- Não usar stock photography.
+- Não inventar métricas de uptime, volume, clientes ou eficiência.
+- Não falsificar vídeo do produto com uma animação que pareça interação real.
+- Não remover links legais, contato, analytics ou SEO durante refinamentos visuais.
