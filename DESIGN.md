@@ -1,69 +1,146 @@
 # Design
 
-## Theme
+## Landing V5 — direção visual canônica
 
-Industrial cinematográfico — escuro por padrão, metálico, um único acento de cor (cobre). Não é dark mode "por segurança": é a estética deliberada de uma sala de controle de fábrica. Nunca migrar para claro ou para paleta multicolorida.
+A Home do BrewControl deve parecer **uma cervejaria em movimento transformada em software**. A referência não é um SaaS genérico claro ou escuro: é aço, vapor, cerveja, pressão, fluxo, entrega, velocidade e dados convivendo na mesma cena.
 
-## Color
+### Princípio central
 
-Tudo em `landing-v2.css` `:root`. OKLCH para a rampa de cobre e status; hex para a base neutra (já fixada, não reconverter).
+O produto real continua sendo o protagonista, mas agora vive dentro de um **ambiente cenográfico industrial**. O visitante precisa sentir o universo da cervejaria antes mesmo de ler todos os detalhes e, ao mesmo tempo, entender claramente que o BrewControl é um ERP / sistema de gestão específico para cervejarias artesanais.
 
-| Papel | Token | Valor |
-|---|---|---|
-| Fundo mais escuro | `--ink-000` | `#050508` |
-| Fundo de seção / card | `--ink-050` a `--ink-100` | `#0A0A10` / `#0E0E16` |
-| Bordas / divisores sutis | `--ink-300`..`--ink-600` | `#1A1A26`..`#3C3C50` |
-| Texto principal | `--fog-100` | `#E8E8EE` |
-| Texto secundário | `--fog-200` | `#C9C9D4` |
-| Texto apagado / legendas | `--fog-400` | `#8A8A9A` |
-| Texto muito apagado | `--fog-600` | `#5A5A6A` |
-| Acento único (cobre) | `--copper-50`..`--copper-600` | `oklch(0.92 0.04 55)` .. `oklch(0.50 0.14 48)` |
-| Glow do acento | `--copper-glow` | `oklch(0.68 0.14 55 / 0.35)` |
-| Âmbar (ponte com o app, uso pontual) | `--amber-400/500` | `#FBBF24` / `#F59E0B` |
-| Status ok/warn/hot/cool | `--status-*` | oklch, uso restrito a HUD/telemetria |
+A página não deve depender de uma divisão extrema entre preto e branco. As superfícies devem fluir entre:
 
-Regra dura: **um acento só** (cobre). Âmbar é herdado da marca do app e usado com moderação (ex: LED de gauge). Nunca introduzir uma segunda cor de destaque, gradiente arco-íris ou paleta pastel/creme.
+- grafite profundo;
+- azul-petróleo / teal esfumaçado;
+- cobre e âmbar;
+- aço escovado;
+- creme quente / malte;
+- tons orgânicos de cerveja e espuma.
 
-Superfícies metálicas via gradients reutilizáveis: `--metal-brushed`, `--metal-brushed-soft`, `--metal-light`. Glow volumétrico via `--vol-copper` / `--vol-amber` (radial-gradient).
+## Hero — fábrica viva
 
-## Typography
+O Hero representa a cervejaria operando.
 
-- Display / títulos: `--f-display` = Cabinet Grotesk (carregada via Fontshare), peso 700-900, `letter-spacing: -0.02em`.
-- Corpo: `--f-body` = Satoshi, peso 400-700.
-- Dados técnicos / HUD / mono: `--f-mono` = JetBrains Mono.
-- Escala fluida via `clamp()`: `--text-xs` (0.72-0.82rem) até `--text-3xl` (2.8-6.6rem) — nunca usar `px` fixo para tamanho de fonte em título.
-- `.accent` (itálico + cobre) marca a palavra-chave dentro de um título — usado com moderação, uma vez por título.
+Elementos permitidos e desejados:
+- silhuetas abstratas de tanques;
+- tubulações e aço;
+- vapor / steam;
+- bolhas de fermentação / carbonatação;
+- linhas de fluxo e velocidade;
+- cerveja âmbar e espuma como matéria visual;
+- reflexos de cobre e luz industrial;
+- profundidade e glassmorphism controlado;
+- interface real do BrewControl em primeiro plano;
+- cards flutuantes mostrando módulos reais.
 
-## Spacing & Layout
+Esses elementos devem apoiar o produto, nunca virar cenário de videogame ou cyberpunk.
 
-- Escala de espaçamento: `--s-1` (0.25rem) até `--s-32` (8rem). Não usar valores px soltos onde já existe variável.
-- Larguras de conteúdo: `--w-narrow` 680px (blog/artigos), `--w-default` 1080px, `--w-wide` 1280px (grid principal, classe `.wrap`).
-- Raios: `--r-sm` 6px, `--r-md` 10px, `--r-lg` 16px, `--r-xl` 22px.
-- Grid é o padrão para seções 2D (hero, benefícios, steps, stats); flexbox para barras 1D (header, footer, HUD).
+## Ritmo de superfícies
 
-## Motion
+1. **Hero — fábrica cinematográfica**: azul-petróleo, grafite, aço, cobre, vapor e cerveja.
+2. **Plataforma — malte / aço claro**: creme quente + steel + teal suave, com textura e espuma abstrata.
+3. **Fluxo operacional — teal / cobre escuro**: sensação de energia, pressão e movimento entre áreas.
+4. **Product Story — aço / malte claro**: telas reais em frames escuros com fundos orgânicos e profundidade.
+5. **Módulos — deep teal / umber**: cards translúcidos e colorização estratégica, sem parede preta uniforme.
+6. **Fundador — malte / steel**: superfície humana e editorial.
+7. **Planos — teal / cobre escuro**: comercial, premium e com brilho âmbar controlado.
+8. **Respostas — creme / teal claro**: alta legibilidade e conteúdo citável.
+9. **CTA final — fábrica noturna**: encerra com energia e não com branco puro.
 
-- Easing padrão: `--ease: cubic-bezier(0.2, 0.8, 0.2, 1)` (ease-out). Durações: `--dur-1` 180ms (micro), `--dur-2` 380ms (padrão), `--dur-3` 700ms (dramático).
-- `--fx-intensity` controla intensidade global via painel de tweaks — não hardcodar valores que ignorem essa variável em novas animações.
-- **`.cine-reveal`** (+ `.cine-left` / `.cine-right`): entrada cinematográfica — opacity + translateY/X + scale, ativada via `IntersectionObserver` (`threshold: 0.2`) em script inline por página. É o padrão de reveal das páginas de módulo (mais dramático que `.fade-up-item`, que é o reveal simples usado no blog).
-- **`.reveal-mask`**: título com máscara (`overflow:hidden` no contêiner + `translateY` no `<span>` interno).
-- **`.mod-benefit-card .glow`**: brilho seguindo o cursor, calculado via `mousemove` por card.
-- **`data-count` / `data-suffix`** em `.num`: contador que sobe ao entrar na tela — lógica centralizada em `landing-v2.js`, nunca duplicar.
-- **`.sticky-cta-bar`**: barra fixa de CTA que sobe após ~20% de rolagem da página.
-- Toda animação precisa de alternativa em `@media (prefers-reduced-motion: reduce)`.
-- Reveals nunca escondem conteúdo por padrão sem fallback visível — motion melhora um estado já visível, não substitui o carregamento do conteúdo.
+## Paleta
 
-## Components
+- Night: `#071116`
+- Night secondary: `#0b1d22`
+- Deep teal: `#10272a`
+- Teal: `#4aa4a1`
+- Teal soft: `#8cc5bd`
+- Copper: `#b9652e`
+- Amber: `#f0a844`
+- Amber light: `#ffc66b`
+- Cream / malt: `#f1e6d5`
+- Cream secondary: `#e6d8c4`
+- Steel: `#c6cfca`
+- Dark ink: `#171817`
 
-- **`.hero-canvas` / "Planta 01"**: ilustração SVG animada de mini fábrica (tanques, vapor, bolhas de fermentação, ponteiro de pressão, engrenagens girando, jato enchendo copo) + `.hero-app-float` (card flutuante simulando a tela real do app, com mouse-parallax leve via `rotateY/rotateX`). Peça central da marca — **nunca substituir por print estático**; adaptar a cena (elementos, HUD, labels) ao tema de cada módulo mantendo a mesma anatomia técnica.
-- **`.mod-hero` / `.mod-benefit-card` / `.mod-steps` / `.mod-stat` / `.mod-crosssell`**: anatomia padrão de página de módulo (ver `modulo-producao.html`, molde aprovado): hero com Planta 01 → benefícios em cards com glow → "como funciona" em 3 passos → números com count-up → cross-sell pro módulo relacionado → bloco do fundador → `.sticky-cta-bar`.
-- **Bloco do fundador**: `founder-grid` / `founder-photo-wrap` (foto real `screenshots/thiago-v2.jpg`) / `founder-name-block` / `founder-story`. Composição fixa em toda página; só o texto de transição entre módulo e fundador muda.
-- **`.section-label` / `.section-title` / `.section-sub`**: cabeçalho de seção padrão (label mono uppercase + título display + subtítulo).
-- Cards são aceitos aqui (`.mod-benefit-card`, `.mod-step`) mas sempre com propósito visual (glow, numeração) — não empilhar cards genéricos sem função.
+Âmbar/cobre representam cerveja, calor, energia e marca. Teal representa tecnologia, aço e ambiente operacional. Verde permanece reservado a status operacional.
 
-## Anti-patterns (specific to this project)
+## Tipografia
 
-- Não introduzir Tailwind, Sass, ou qualquer pré-processador — só CSS puro com variáveis nativas.
-- Não usar `px` fixo em títulos onde há `--text-*` com `clamp()`.
-- Não criar uma segunda cor de acento nem gradiente multicolorido.
-- Não trocar a cena SVG animada por captura de tela do app.
+- Display: Cabinet Grotesk
+- Corpo: Satoshi
+- Dados / HUD: JetBrains Mono
+- Títulos usam escala fluida com `clamp()`.
+- Headings permanecem semanticamente corretos e legíveis sem decoração.
+
+## Produto real como mídia
+
+Screenshots e futuros mini vídeos devem mostrar o BrewControl real.
+
+Prioridade de loops:
+1. Produção
+2. Ativos / Barris
+3. Comercial + Logística
+4. Brewpub + Financeiro
+
+Padrão dos loops:
+- 6–10 segundos;
+- uma ação principal por vídeo;
+- sem áudio obrigatório;
+- cursor deliberado;
+- WebM + MP4;
+- poster estático real;
+- nenhum dado sensível de tenant;
+- `prefers-reduced-motion` obrigatório.
+
+Até os vídeos existirem, o fallback é crossfade de screenshots reais — nunca mockup fictício apresentado como funcionalidade real.
+
+## Atmosfera e motion
+
+Motion representa processos físicos da cervejaria:
+- vapor sobe lentamente;
+- bolhas sobem como fermentação / carbonatação;
+- linhas fluem como pressão, gás, rota e dados;
+- reflexos atravessam o frame do produto;
+- cards ganham profundidade leve com ponteiro;
+- seções entram com reveals curtos;
+- parallax é discreto e limitado a elementos decorativos.
+
+Não usar partículas aleatórias sem significado.
+
+## Search / AI readability
+
+A riqueza visual nunca pode esconder a verdade do produto.
+
+- definição do BrewControl em HTML visível;
+- links principais como `<a>` reais;
+- ações semanticamente corretas;
+- imagens com `alt` factual;
+- headings com hierarquia real;
+- conteúdo essencial fora de canvas, SVG decorativo e imagens;
+- JSON-LD e metadados devem refletir apenas funcionalidades e ofertas verdadeiras;
+- layout estável para leitores de tela e agentes de navegador.
+
+## Performance
+
+A atmosfera visual deve ser construída prioritariamente com CSS e assets já existentes.
+
+- sem biblioteca pesada de animação se CSS/JS nativo resolver;
+- evitar vídeos no Hero antes de ter poster e formatos otimizados;
+- pausar/evitar efeitos desnecessários fora da viewport;
+- respeitar `prefers-reduced-motion`;
+- não sacrificar Core Web Vitals para efeitos decorativos.
+
+## Anti-padrões
+
+- preto puro por páginas inteiras;
+- branco puro como única alternativa;
+- alternância binária preto/branco;
+- estética cyberpunk/neon;
+- gradiente arco-íris;
+- glows sem hierarquia;
+- mockups de SaaS genéricos;
+- efeitos de partículas sem relação com cervejaria;
+- números de clientes, volume ou uptime sem evidência real;
+- logos de clientes não autorizados;
+- texto importante dentro de imagens;
+- animações que prejudiquem leitura, acessibilidade ou performance.

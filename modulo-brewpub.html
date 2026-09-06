@@ -1,441 +1,76 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#050508">
-<title>Módulo Brewpub &amp; Bar — BrewControl | Comandas, KDS e Torneiras</title>
-<meta name="description" content="Mesas, comandas, KDS, caixa do turno e torneiras vinculadas a barris da adega, com impressão térmica e dicas de venda — o módulo Brewpub & Bar do BrewControl.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#071116">
+<title>Sistema para Brewpub e Bar — BrewControl | Comandas, KDS, Caixa e Torneiras</title>
+<meta name="description" content="Conheça o Brewpub do BrewControl: comandas, mesas, cardápio, KDS, caixa, turno, campanhas, torneiras e operação de bar conectados ao ERP da cervejaria.">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta name="googlebot" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta name="application-name" content="BrewControl">
 <link rel="canonical" href="https://brewcontrol.app.br/modulo-brewpub.html">
-<meta property="og:title" content="Módulo Brewpub & Bar — BrewControl">
-<meta property="og:description" content="Comandas por mesa, KDS na cozinha e torneiras vinculadas aos barris da adega — o chope sai do tanque direto pro copo, sem planilha no meio.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="/screenshots/brewpub.png" fetchpriority="high">
+<meta property="og:title" content="Brewpub & Bar — BrewControl">
+<meta property="og:description" content="Comandas, cardápio, KDS, caixa, campanhas e torneiras dentro do mesmo ecossistema da cervejaria.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
+<meta property="og:url" content="https://brewcontrol.app.br/modulo-brewpub.html">
+<meta property="og:site_name" content="BrewControl">
 <meta property="og:image" content="https://brewcontrol.app.br/screenshots/brewpub.png">
+<meta property="og:image:alt" content="Interface real do Brewpub do BrewControl">
 <meta name="twitter:card" content="summary_large_image">
-
+<meta name="twitter:title" content="Sistema para Brewpub e Bar — BrewControl">
+<meta name="twitter:description" content="PDV de brewpub com comandas, KDS, caixa e torneiras conectado à gestão da cervejaria.">
+<meta name="twitter:image" content="https://brewcontrol.app.br/screenshots/brewpub.png">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JVBBG635J3"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-JVBBG635J3')</script>
 <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800,900&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="landing-v2.css">
-</head>
-<body data-screen-label="modulo-brewpub">
-<div class="grain"></div>
-
-<!-- ============ HEADER ============ -->
-<header class="header">
-  <div class="wrap header-inner">
-    <a href="index.html#home" class="brand">
-      <span class="brand-mark">B</span>
-      <span class="brand-text">
-        <span class="brand-name">BREWCONTROL</span>
-        <span class="brand-tag">CRAFT BREWERY ERP</span>
-      </span>
-    </a>
-    <nav class="nav">
-    <div class="nav-item has-mega">
-      <button class="nav-mega-trigger" aria-haspopup="true" aria-expanded="false">Módulos <svg class="chev" width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-      <div class="mega-menu">
-        <div class="mega-grid">
-          <a href="modulo-producao.html" class="mega-item"><span class="mega-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/></svg></span><span class="mega-text"><b>Hub de Produção</b><small>Receitas, lotes e Brew Day mobile</small></span></a>
-          <a href="modulo-brewpub.html" class="mega-item"><span class="mega-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 4h12v14H6zM6 18c0 2 2 4 6 4s6-2 6-4"/></svg></span><span class="mega-text"><b>Brewpub &amp; Bar</b><small>Comandas, KDS e torneiras</small></span></a>
-          <a href="modulo-ativos.html" class="mega-item"><span class="mega-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></span><span class="mega-text"><b>Ativos &amp; Barris</b><small>Barris, chopeiras e CO₂ rastreados</small></span></a>
-          <a href="modulo-financeiro.html" class="mega-item"><span class="mega-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span><span class="mega-text"><b>Financeiro</b><small>Fluxo de caixa e DRE gerencial</small></span></a>
-          <a href="modulo-almoxarifado.html" class="mega-item"><span class="mega-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span><span class="mega-text"><b>Almoxarifado</b><small>Insumos, custo médio e inventário</small></span></a>
-          <a href="modulo-comercial.html" class="mega-item"><span class="mega-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></span><span class="mega-text"><b>Comercial</b><small>Pedidos B2B e preço por canal</small></span></a>
-          <a href="modulo-logistica.html" class="mega-item"><span class="mega-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span><span class="mega-text"><b>Logística</b><small>Rotas, paradas e km rodado</small></span></a>
-          <a href="modulo-fiscal.html" class="mega-item"><span class="mega-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></span><span class="mega-text"><b>Fiscal</b><small>NF-e, NFC-e e certificado A1</small></span></a>
-          <a href="modulo-pdv-mobile.html" class="mega-item"><span class="mega-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></span><span class="mega-text"><b>PDV Mobile</b><small>Venda no balcão, sem login</small></span></a>
-        </div>
-        <div class="mega-foot"><a href="index.html#modules">Ver todos os módulos →</a></div>
-      </div>
-    </div>
-      <a href="index.html#novidades">Novidades</a>
-      <a href="index.html#fundadora">Seja Fundadora</a>
-      <a href="index.html#pricing">Planos</a>
-      <a href="guia.html">Guia</a>
-      <a href="blog/index.html">Blog</a>
-    </nav>
-    <a href="index.html#waitlist" class="btn btn-primary">Acesso Antecipado</a>
-  </div>
-</header>
-
-<!-- ============ HERO — cena própria "Brewpub 01": torneira enchendo copo em destaque (versão isolada/maior do efeito da Home), comandas voando de uma mesa pro KDS, vapor de cozinha ao fundo ============ -->
-<section class="hero mod-hero" id="mod-hero-brewpub">
-  <div class="wrap hero-grid">
-    <div class="hero-copy">
-      <div class="section-label">MÓDULO BREWPUB &amp; BAR</div>
-      <h1 class="hero-title cine-reveal cine-left in-view">
-        <span class="line-1">Do tanque ao copo,</span>
-        <span class="line-2">da mesa à <span class="accent">cozinha.</span></span>
-      </h1>
-      <p class="section-sub cine-reveal cine-left in-view" style="transition-delay:120ms">Comandas por mesa, KDS na cozinha, caixa do turno e torneiras vinculadas aos barris da adega — com impressão térmica e dicas de venda em tempo real pro garçom.</p>
-      <a href="https://wa.me/5527981848184?text=Ol%C3%A1%21%20Quero%20testar%20o%20m%C3%B3dulo%20Brewpub%20%26%20Bar%20do%20BrewControl." target="_blank" rel="noopener" class="btn btn-primary cine-reveal cine-left in-view" style="transition-delay:220ms">Quero testar o Brewpub &amp; Bar →</a>
-    </div>
-
-    <!-- LADO DIREITO — TORNEIRA EM DESTAQUE + COMANDA VOANDO PRA COZINHA -->
-    <div class="hero-canvas scanlines cine-reveal cine-right in-view" id="heroPlant" style="transition-delay:100ms">
-      <div class="hud-bar">
-        <div class="hud-group">
-          <span class="hud-dot"></span>
-          <span>LIVE · BREWPUB 01</span>
-        </div>
-        <div class="hud-group">
-          <span>MESA 07</span>
-          <span style="color: var(--copper-400)">NA COZINHA</span>
-        </div>
-      </div>
-
-      <svg class="ff-plant" viewBox="0 0 600 680" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-        <defs>
-          <linearGradient id="copper" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="oklch(0.80 0.12 55)"/>
-            <stop offset="0.5" stop-color="oklch(0.60 0.14 52)"/>
-            <stop offset="1" stop-color="oklch(0.40 0.13 48)"/>
-          </linearGradient>
-          <linearGradient id="tapMetal" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#4A4A5E"/>
-            <stop offset="1" stop-color="#2A2A3A"/>
-          </linearGradient>
-        </defs>
-
-        <rect x="0" y="560" width="600" height="120" fill="#0F0F18"/>
-        <line x1="0" y1="560" x2="600" y2="560" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-        <ellipse cx="300" cy="240" rx="270" ry="180" fill="oklch(0.68 0.14 55)" opacity="0.07" filter="blur(20)"/>
-
-        <!-- CHOPE SERVIDO HOJE -->
-        <g transform="translate(470, 90)">
-          <path d="M -70 -22 L 46 -22 Q 56 -22 56 -12 L 56 14 Q 56 22 46 22 L -70 22 Z" fill="#14141E" stroke="#2A2A3A" stroke-width="1.5"/>
-          <text x="-8" y="-6" text-anchor="middle" font-family="JetBrains Mono" font-size="7" fill="#8A8A9A">CHOPE SERVIDO HOJE</text>
-          <text x="-8" y="12" text-anchor="middle" font-family="JetBrains Mono" font-size="15" fill="oklch(0.80 0.10 55)" font-weight="700"><tspan id="chopeSvg">128</tspan>L</text>
-        </g>
-
-        <!-- TORNEIRA EM DESTAQUE -->
-        <g transform="translate(300, 60)">
-          <rect x="-16" y="-14" width="32" height="16" rx="2" fill="url(#tapMetal)" stroke="#1A1A26" stroke-width="1.2"/>
-          <rect x="-11" y="0" width="22" height="32" fill="#55556A"/>
-          <rect x="-18" y="32" width="36" height="11" rx="2" fill="url(#copper)" stroke="#1A1A26" stroke-width="1.2"/>
-          <rect x="-4" y="43" width="8" height="24" fill="url(#copper)"/>
-          <text x="0" y="-22" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="#8A8A9A">TORNEIRA · TQ-03</text>
-        </g>
-
-        <!-- JATO -->
-        <foreignObject x="282" y="187" width="36" height="126" style="overflow:visible">
-          <div xmlns="http://www.w3.org/1999/xhtml" class="stream" style="position:relative;width:9px;height:126px;margin:0 auto;"></div>
-        </foreignObject>
-
-        <!-- COPO ENCHENDO -->
-        <g transform="translate(268, 313)">
-          <path d="M 0 0 L 64 0 L 58 67 L 6 67 Z" fill="rgba(0,0,0,0.3)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
-          <clipPath id="clipGlassBig"><path d="M 0 0 L 64 0 L 58 67 L 6 67 Z"/></clipPath>
-          <g clip-path="url(#clipGlassBig)">
-            <rect x="0" y="26" width="64" height="42" fill="oklch(0.78 0.16 75)">
-              <animate attributeName="y" values="32;6;32" dur="6s" repeatCount="indefinite"/>
-              <animate attributeName="height" values="35;61;35" dur="6s" repeatCount="indefinite"/>
-            </rect>
-            <rect x="0" y="22" width="64" height="10" fill="oklch(0.95 0.05 85)">
-              <animate attributeName="y" values="29;3;29" dur="6s" repeatCount="indefinite"/>
-            </rect>
-          </g>
-          <rect x="8" y="3" width="3" height="58" fill="rgba(255,255,255,0.3)"/>
-        </g>
-
-        <!-- VAPOR DA COZINHA, AO FUNDO -->
-        <foreignObject x="196" y="300" width="40" height="150" style="overflow:visible">
-          <div xmlns="http://www.w3.org/1999/xhtml" class="steam" style="position:relative;width:40px;height:150px;">
-            <span></span><span></span><span></span><span></span>
-          </div>
-        </foreignObject>
-
-        <!-- MESA -->
-        <g transform="translate(90, 470)">
-          <ellipse cx="0" cy="10" rx="28" ry="9" fill="#1A1A26"/>
-          <ellipse cx="0" cy="0" rx="28" ry="10" fill="#2A2A3A" stroke="#1A1A26"/>
-          <rect x="-8" y="-9" width="16" height="10" rx="1.5" fill="#E8E8EE" transform="rotate(-8)"/>
-          <text x="0" y="30" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="#8A8A9A">MESA 07</text>
-        </g>
-
-        <!-- KDS — TELA DE COZINHA -->
-        <g transform="translate(216, 470)">
-          <rect x="-20" y="-26" width="40" height="30" rx="3" fill="url(#tapMetal)" stroke="#1A1A26" stroke-width="1.5"/>
-          <rect x="-16" y="-22" width="32" height="22" fill="url(#copper)" opacity="0.5">
-            <animate attributeName="opacity" values="0.3;0.75;0.3" dur="2.2s" repeatCount="indefinite"/>
-          </rect>
-          <rect x="-6" y="4" width="12" height="8" fill="#55556A"/>
-          <rect x="-16" y="12" width="32" height="4" fill="#1A1A26" rx="1"/>
-          <text x="0" y="30" text-anchor="middle" font-family="JetBrains Mono" font-size="8" fill="oklch(0.80 0.10 55)" font-weight="700">KDS</text>
-        </g>
-
-        <!-- COMANDA VOANDO DA MESA PRO KDS -->
-        <g transform="translate(90,470)">
-          <rect x="-7" y="-9" width="14" height="18" rx="1.5" fill="#E8E8EE" stroke="#1A1A26" stroke-width="1"/>
-          <line x1="-4" y1="-4" x2="4" y2="-4" stroke="#8A8A9A" stroke-width="1"/>
-          <line x1="-4" y1="0" x2="4" y2="0" stroke="#8A8A9A" stroke-width="1"/>
-          <line x1="-4" y1="4" x2="1" y2="4" stroke="#8A8A9A" stroke-width="1"/>
-          <animateTransform attributeName="transform" type="translate" values="90,470; 153,405; 216,470" keyTimes="0;0.5;1" dur="3.2s" repeatCount="indefinite"/>
-          <animate attributeName="opacity" values="0;1;1;1;0" keyTimes="0;0.08;0.5;0.92;1" dur="3.2s" repeatCount="indefinite"/>
-        </g>
-      </svg>
-
-      <div class="grains" data-grains="18" style="pointer-events:none;z-index:3;position:absolute;inset:0;overflow:hidden;"></div>
-
-      <div class="hero-app-float" id="heroAppFloat">
-        <div class="app-mini">
-          <div class="bar"><span></span><span></span><span></span><span class="url">brewcontrol.app/brewpub</span></div>
-          <div class="screen">
-            <div class="side">
-              <b>MENU</b>
-              <u></u><u></u><u></u><u></u><u></u><u></u><u></u><u class="on"></u>
-            </div>
-            <div class="main">
-              <div class="head">
-                <b>HUB · BREWPUB</b>
-                <span class="sub">MESA 07</span>
-              </div>
-              <div class="cards">
-                <div class="card"><b>MESAS ATIVAS</b><u data-count="7" class="mono">0</u></div>
-                <div class="card"><b>COMANDAS HOJE</b><u data-count="42" class="mono">0</u></div>
-                <div class="card"><b>CHOPE SERVIDO</b><u>128L</u></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="hud-footer">
-        <div class="kv">MESAS ATIVAS <b>7</b></div>
-        <div class="kv">COMANDAS HOJE <b>42</b></div>
-        <div class="kv">CHOPE <b style="color:var(--copper-400)">128L</b></div>
-        <div class="kv">SYS <b style="color:oklch(0.76 0.14 155)">NOMINAL</b></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ BENEFÍCIOS ============ -->
-<section class="section" style="position:relative;overflow:hidden">
-  <div class="scroll-glow" id="glowLayer"></div>
-  <div class="wrap">
-    <div class="section-hd cine-reveal">
-      <div class="section-label">BENEFÍCIOS</div>
-      <h2 class="section-title reveal-mask"><span>Não é só uma comanda de <span class="accent">papel.</span></span></h2>
-    </div>
-    <div class="mod-benefit-grid">
-      <div class="mod-benefit-card cine-reveal">
-        <div class="glow"></div>
-        <div class="mbc-body">
-          <div class="diff-num">COMANDA POR MESA</div>
-          <h3>Cada mesa com sua comanda, sem confundir pedido</h3>
-          <p>Cardápio com chope vinculado às torneiras da adega — o garçom lança o pedido certo, na mesa certa.</p>
-        </div>
-      </div>
-      <div class="mod-benefit-card cine-reveal" style="transition-delay:80ms">
-        <div class="glow"></div>
-        <div class="mbc-body">
-          <div class="diff-num">KDS · TELA DE COZINHA</div>
-          <h3>Pedido chega na cozinha sem gritar o nome</h3>
-          <p>Comanda enviada já aparece na tela da cozinha — sem papel perdido, sem grito por cima do balcão.</p>
-        </div>
-      </div>
-      <div class="mod-benefit-card cine-reveal" style="transition-delay:160ms">
-        <div class="glow"></div>
-        <div class="mbc-body">
-          <div class="diff-num">DICAS DE VENDA</div>
-          <h3>O garçom sugere sem decorar o cardápio</h3>
-          <p>Dicas de venda em tempo real ajudam o garçom a sugerir o próximo chope ou petisco, na hora certa.</p>
-        </div>
-      </div>
-      <div class="mod-benefit-card cine-reveal" style="transition-delay:240ms">
-        <div class="glow"></div>
-        <div class="mbc-body">
-          <div class="diff-num">IMPRESSÃO TÉRMICA</div>
-          <h3>Cozinha e bar imprimem sozinhos</h3>
-          <p>Pedido sai impresso direto na cozinha e no bar, sem repetir o mesmo pedido em duas telas diferentes.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ COMO FUNCIONA ============ -->
-<section class="section">
-  <div class="wrap">
-    <div class="section-hd cine-reveal">
-      <div class="section-label">COMO FUNCIONA</div>
-      <h2 class="section-title">3 passos, da mesa ao fechamento do turno.</h2>
-    </div>
-    <div class="mod-steps">
-      <div class="mod-step cine-reveal cine-left">
-        <div class="step-num">01</div>
-        <h3>Abra a comanda na mesa</h3>
-        <p>Cardápio com chope já vinculado às torneiras da adega, pronto pro garçom lançar o pedido.</p>
-      </div>
-      <div class="mod-step cine-reveal" style="transition-delay:100ms">
-        <div class="step-num">02</div>
-        <h3>Pedido vai direto pro KDS</h3>
-        <p>Cozinha e bar recebem o pedido na tela e impresso, sem papel perdido no bolso do garçom.</p>
-      </div>
-      <div class="mod-step cine-reveal cine-right" style="transition-delay:200ms">
-        <div class="step-num">03</div>
-        <h3>Feche o turno com a receita no financeiro</h3>
-        <p>Caixa do turno fechado já manda a receita certa pro financeiro, sem bater na calculadora.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ NÚMEROS ============ -->
-<section class="section">
-  <div class="wrap mod-stats">
-    <div class="mod-stat cine-reveal"><div class="num" data-count="12">0</div><div class="label">módulos integrados na mesma plataforma</div></div>
-    <div class="mod-stat cine-reveal" style="transition-delay:100ms"><div class="num" data-count="100" data-suffix="%">0%</div><div class="label">dos pedidos chegando na cozinha sem papel perdido</div></div>
-    <div class="mod-stat cine-reveal" style="transition-delay:200ms"><div class="num" data-count="0">0</div><div class="label">comandas esquecidas no bolso do garçom</div></div>
-  </div>
-</section>
-
-<!-- ============ CROSS-SELL ============ -->
-<section class="section">
-  <div class="wrap">
-    <div class="mod-crosssell cine-reveal">
-      <h3>O Brewpub &amp; Bar fica ainda melhor integrado ao <a href="index.html#modules">PDV Mobile</a></h3>
-      <p>Balcão lotado sem mesa livre? O PDV Mobile assume a venda direto no tablet, com o mesmo barril conectado.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ============ FUNDADOR (mesmo layout da Home) ============ -->
-<section class="section" id="about-mod" data-screen-label="fundador">
-  <div class="wrap">
-    <div class="founder-grid">
-      <div class="cine-reveal cine-left">
-        <div class="founder-photo-wrap">
-          <img src="screenshots/thiago-v2.jpg" alt="Thiago Santana Schneider — Fundador do BrewControl">
-        </div>
-        <div class="founder-name-block">
-          <div class="founder-name">Thiago Santana Schneider</div>
-          <div class="founder-role">Fundador · Mestre Cervejeiro</div>
-          <p class="founder-specialty">Biotecnologia · Sommelier · 9 anos de cerveja artesanal</p>
-        </div>
-      </div>
-      <div class="cine-reveal cine-right">
-        <div class="section-label">QUEM CONSTRÓI ISSO</div>
-        <h2 class="section-title" style="margin-bottom:1.5rem">O módulo que nasceu<br><span class="accent">da comanda perdida no bolso errado.</span></h2>
-        <div class="founder-story">
-          <p>Numa noite lotada, uma comanda de papel se perdeu no bolso errado e a cozinha nunca recebeu o pedido — foi esse tipo de falha boba que motivou o Brewpub &amp; Bar a existir, ligando mesa, cozinha e caixa numa coisa só.</p>
-          <p>Cliente esperando pedido que nunca chegou é o tipo de erro que devolve mal-estar, não venda. Se você topa usar no dia a dia e ajudar a moldar o sistema, a conversa começa aqui.</p>
-        </div>
-        <a href="index.html#fundadora" class="btn btn-primary" style="margin-top:var(--s-8)">Conheça o Programa Cervejaria Fundadora →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ FOOTER ============ -->
-<footer class="footer">
-  <div class="wrap">
-    <div class="footer-inner">
-      <div>
-        <a href="index.html#home" class="brand">
-          <span class="brand-mark">B</span>
-          <span class="brand-text">
-            <span class="brand-name">BREWCONTROL</span>
-            <span class="brand-tag">CRAFT BREWERY ERP</span>
-          </span>
-        </a>
-        <p style="color:var(--fog-400);margin-top:1rem;font-size:0.9rem">Da receita ao cliente, tudo conectado.</p>
-      </div>
-      <div class="footer-links">
-        <div class="footer-col">
-          <b>Plataforma</b>
-          <a href="index.html#modules">Módulos</a>
-          <a href="index.html#pricing">Planos</a>
-          <a href="guia.html">Guia do Usuário</a>
-          <a href="blog/index.html">Blog</a>
-        </div>
-        <div class="footer-col">
-          <b>Empresa</b>
-          <a href="index.html#about">Fundador</a>
-          <a href="index.html#contact">Contato</a>
-          <a href="https://wa.me/5527981848184" target="_blank" rel="noopener">WhatsApp</a>
-        </div>
-        <div class="footer-col">
-          <b>Legal</b>
-          <a href="https://www.iubenda.com/privacy-policy/97313076" target="_blank" rel="noopener noreferrer">Política de Privacidade</a>
-          <a href="https://www.iubenda.com/privacy-policy/97313076/cookie-policy" target="_blank" rel="noopener noreferrer">Política de Cookies</a>
-          <a href="https://app.brewcontrol.app.br/termos" target="_blank" rel="noopener noreferrer">Termos de Uso</a>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 BrewControl. Todos os direitos reservados.</span>
-      <span class="mono" style="color:var(--fog-600)">v2.0 · INDUSTRIAL</span>
-    </div>
-  </div>
-</footer>
-
-<div class="sticky-cta-bar" id="stickyBar">
-  <span>Quer ver como o BrewControl funciona na prática?</span>
-  <a href="https://wa.me/5527981848184?text=Ol%C3%A1%21%20Quero%20agendar%20uma%20demo%20do%20BrewControl." target="_blank" rel="noopener" class="btn btn-primary">Agendar demo →</a>
-</div>
-
-<script src="landing-v2.js"></script>
-<script>
-(function(){
-  var targets = document.querySelectorAll('.cine-reveal, .reveal-mask');
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); }
-    });
-  }, { threshold: 0.2 });
-  targets.forEach(function(t){ io.observe(t); });
-})();
-
-(function(){
-  var wrap = document.getElementById('heroPlant');
-  var app = document.getElementById('heroAppFloat');
-  if (!wrap) return;
-  wrap.addEventListener('mousemove', function(e){
-    var r = wrap.getBoundingClientRect();
-    var x = (e.clientX - r.left) / r.width - 0.5;
-    var y = (e.clientY - r.top) / r.height - 0.5;
-    wrap.style.transform = 'rotateY(' + (x * 4) + 'deg) rotateX(' + (-y * 4) + 'deg)';
-    if (app) app.style.transform = 'translate(' + (x * -18) + 'px,' + (y * -18) + 'px)';
-  });
-  wrap.addEventListener('mouseleave', function(){
-    wrap.style.transform = 'rotateY(0) rotateX(0)';
-    if (app) app.style.transform = 'translate(0,0)';
-  });
-})();
-
-(function(){
-  var glow = document.getElementById('glowLayer');
-  if (!glow) return;
-  window.addEventListener('scroll', function(){
-    var y = window.scrollY;
-    glow.style.transform = 'translateY(' + (y * 0.15) + 'px)';
-  }, { passive: true });
-})();
-
-(function(){
-  var svg = document.getElementById('chopeSvg');
-  if (!svg) return;
-  var val = 128;
-  setInterval(function(){
-    val += (Math.random() < 0.65 ? 1 : 0);
-    if (val > 156) val = 128;
-    svg.textContent = val;
-  }, 2000);
-})();
-
-(function(){
-  var bar = document.getElementById('stickyBar');
-  if (!bar) return;
-  window.addEventListener('scroll', function(){
-    var scrollable = document.documentElement.scrollHeight - window.innerHeight;
-    var pct = scrollable > 0 ? window.scrollY / scrollable : 0;
-    bar.classList.toggle('show', pct > 0.2);
-  }, { passive: true });
-})();
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400,500,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="module-production-v5.css?v=20260906a">
+<noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {"@type":"Organization","@id":"https://brewcontrol.app.br/#organization","name":"BrewControl","url":"https://brewcontrol.app.br/","logo":"https://brewcontrol.app.br/favicon.svg"},
+    {"@type":"SoftwareApplication","@id":"https://brewcontrol.app.br/#software","name":"BrewControl","alternateName":"BrewControl ERP","url":"https://brewcontrol.app.br/","applicationCategory":"BusinessApplication","applicationSubCategory":"ERP e PDV para cervejarias e brewpubs","operatingSystem":"Web","inLanguage":"pt-BR","publisher":{"@id":"https://brewcontrol.app.br/#organization"},"description":"Sistema de gestão para cervejarias com produção, estoque, ativos, comercial, logística, financeiro e operação de brewpub/PDV, além de infraestrutura fiscal em evolução e homologação controlada."},
+    {"@type":"WebSite","@id":"https://brewcontrol.app.br/#website","url":"https://brewcontrol.app.br/","name":"BrewControl","publisher":{"@id":"https://brewcontrol.app.br/#organization"},"inLanguage":"pt-BR"},
+    {"@type":"WebPage","@id":"https://brewcontrol.app.br/modulo-brewpub.html#webpage","url":"https://brewcontrol.app.br/modulo-brewpub.html","name":"Sistema para Brewpub e Bar — BrewControl","description":"Página do Brewpub/PDV do BrewControl: comandas, cardápio, KDS, caixa, campanhas e torneiras.","about":{"@id":"https://brewcontrol.app.br/#software"},"isPartOf":{"@id":"https://brewcontrol.app.br/#website"},"primaryImageOfPage":"https://brewcontrol.app.br/screenshots/brewpub.png","dateModified":"2026-09-06","inLanguage":"pt-BR"},
+    {"@type":"FAQPage","@id":"https://brewcontrol.app.br/modulo-brewpub.html#faq","mainEntity":[
+      {"@type":"Question","name":"O BrewControl possui comandas e mesas para brewpub?","acceptedAnswer":{"@type":"Answer","text":"Sim. O Brewpub possui gestão de comandas e mesas, com abertura, lançamento de itens, fechamento e pagamento."}},
+      {"@type":"Question","name":"O BrewControl possui KDS para cozinha?","acceptedAnswer":{"@type":"Answer","text":"Sim. Existe uma tela KDS dedicada à cozinha, com status por item e acompanhamento do tempo de preparo."}},
+      {"@type":"Question","name":"O BrewControl controla abertura e fechamento de caixa?","acceptedAnswer":{"@type":"Answer","text":"Sim. Há Caixa do Dia e Turno de Caixa, incluindo saldo inicial, sangrias e totais por forma de pagamento."}},
+      {"@type":"Question","name":"O BrewControl possui controle de torneiras?","acceptedAnswer":{"@type":"Answer","text":"Sim. O Brewpub possui uma área de Torneiras para gerenciar linhas de chope, o que está sendo servido e o status operacional."}},
+      {"@type":"Question","name":"O fechamento da comanda afeta estoque e financeiro?","acceptedAnswer":{"@type":"Answer","text":"Sim. O fechamento valida a comanda, registra o pagamento e trata os efeitos operacionais de estoque e CMV conforme os itens configurados."}}
+    ]}
+  ]
+}
 </script>
+</head>
+<body>
+<header class="prod-header"><div class="wrap header-in"><a class="brand" href="index.html#home" aria-label="BrewControl, voltar ao início"><span class="brand-mark" aria-hidden="true">B</span><span><span class="brand-name">BREWCONTROL</span><span class="brand-sub">BREWERY OPERATING SYSTEM</span></span></a><nav class="nav" aria-label="Navegação do Brewpub"><a href="#visao">Visão geral</a><a href="#fluxo">Atendimento</a><a href="#interface">Interface</a><a href="#integracoes">Integração</a><a href="#faq">Perguntas</a><a href="index.html#planos">Planos</a></nav><a class="header-cta" href="https://app.brewcontrol.app.br/">Entrar no app ↗</a><button class="menu" type="button" aria-label="Abrir menu" aria-expanded="false"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true"><path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button></div></header>
+<main>
+<section class="prod-hero" id="visao"><div class="hero-atmosphere" aria-hidden="true"><span class="hero-tank t1"></span><span class="hero-tank t2"></span><span class="steam s1"></span><span class="steam s2"></span></div><div class="wrap hero-grid"><div class="hero-copy reveal"><div class="eyebrow">BREWPUB & PDV · BREWCONTROL</div><h1>Do pedido no balcão<br><em>ao resultado do turno.</em></h1><p>Comandas, mesas, cardápio, KDS, pagamentos, turno de caixa, campanhas e torneiras dentro do mesmo sistema que já conhece a cervejaria. O Brewpub deixa de ser uma operação paralela ao ERP.</p><div class="hero-actions"><a class="btn primary" href="https://app.brewcontrol.app.br/">Abrir o BrewControl ↗</a><a class="btn ghost" href="#fluxo">Ver o atendimento ↓</a></div><div class="hero-proof"><span class="pulse" aria-hidden="true"></span><span>Interface real · fechamento transacional da comanda · operação web responsiva.</span></div></div><div class="reveal"><div class="product-window"><div class="window-bar"><span class="window-dot hot"></span><span class="window-dot"></span><span class="window-dot"></span><span class="window-label">INTERFACE REAL · BREWPUB</span></div><div class="demo-media" data-demo-key="brewpub"><img src="screenshots/brewpub.png" width="1440" height="900" fetchpriority="high" alt="Tela real do Brewpub do BrewControl"><video muted loop playsinline preload="none"></video><div class="video-badge"><i aria-hidden="true"></i><span>INTERFACE REAL</span></div></div></div><div class="flow-chips" aria-label="Fluxo do Brewpub"><span class="flow-chip">Mesa / comanda</span><span class="flow-chip">Itens</span><span class="flow-chip">KDS</span><span class="flow-chip">Pagamento</span><span class="flow-chip">Caixa</span></div></div></div></section>
+<section class="overview" id="produto" aria-labelledby="overview-title"><div class="wrap"><div class="overview-head reveal"><div class="kicker">BAR DA CERVEJARIA</div><div><h2 class="section-title" id="overview-title">O PDV opera rápido sem esquecer que existe uma cervejaria por trás dele.</h2><p class="section-lead">O hub atual mostra comandas abertas, fechadas no dia e receita do dia. A partir dali a equipe acessa cardápio, caixa, turno, campanhas, torneiras, KDS, impressoras e outras configurações da operação de bar.</p></div></div><div class="cap-grid"><article class="cap-card reveal"><span class="cap-num">01 · ATENDIMENTO</span><h3>Mesas e comandas</h3><p>Abra comandas, lance itens e acompanhe o que continua em aberto. O fechamento registra pagamento e encerra a operação daquela conta.</p></article><article class="cap-card reveal"><span class="cap-num">02 · PRODUÇÃO DE PEDIDOS</span><h3>KDS para a cozinha</h3><p>A cozinha possui tela própria com <strong>status por item e semáforo de tempo</strong>, reduzindo a dependência de papel ou conversa atravessada entre salão e preparo.</p></article><article class="cap-card reveal"><span class="cap-num">03 · CAIXA</span><h3>Caixa do Dia e turno</h3><p>Acompanhe comandas fechadas, valores por forma de pagamento e abertura/fechamento de turno com saldo inicial e sangrias.</p></article><article class="cap-card reveal"><span class="cap-num">04 · SERVIÇO</span><h3>Torneiras, campanhas e cardápio</h3><p>Gerencie produtos, linhas de chope e promoções no mesmo domínio usado por quem está atendendo o cliente.</p></article></div></div></section>
 
+<section class="production-flow" id="fluxo" aria-labelledby="flow-title"><div class="wrap"><div class="flow-head reveal"><div class="kicker">ATENDIMENTO EM MOVIMENTO</div><div><h2 class="section-title" id="flow-title">A comanda percorre salão, cozinha e caixa sem virar três controles diferentes.</h2><p class="section-lead">O fluxo começa na mesa ou balcão, recebe itens do cardápio, envia o que precisa de preparo, acompanha o atendimento e fecha com pagamento único ou misto.</p></div></div><div class="timeline" aria-label="Etapas de uma comanda"><article class="timeline-card reveal"><span class="timeline-index">01</span><h3>Abertura</h3><p>A comanda nasce associada ao atendimento e fica visível entre as abertas do Brewpub.</p></article><article class="timeline-card reveal"><span class="timeline-index">02</span><h3>Lançamento</h3><p>Produtos do cardápio entram na conta com quantidade, preço e regras de desconto configuradas.</p></article><article class="timeline-card reveal"><span class="timeline-index">03</span><h3>Preparo</h3><p>Itens de cozinha podem seguir para o KDS e avançar pelos estados de preparo.</p></article><article class="timeline-card reveal"><span class="timeline-index">04</span><h3>Fechamento</h3><p>O operador confirma pagamento, taxa de serviço quando aplicável e encerra a comanda.</p></article><article class="timeline-card reveal"><span class="timeline-index">05</span><h3>Turno</h3><p>O resultado aparece no caixa do dia e no turno, junto dos totais por forma de pagamento.</p></article></div><div class="event-note reveal"><span class="event-dot" aria-hidden="true"></span><div><b>Comanda → pagamento → estoque/CMV</b><span> O fechamento é tratado como uma única operação para reduzir risco de baixa ou encerramento duplicado.</span></div><code>atendimento → fechamento → resultado</code></div></div></section>
+
+<section class="interface" id="interface" aria-labelledby="interface-title"><div class="wrap"><div class="interface-head reveal"><div class="kicker">PRODUTO REAL</div><div><h2 class="section-title" id="interface-title">O turno inteiro cabe em um hub operacional.</h2><p class="section-lead">A página principal do Brewpub usa dados reais de comandas para mostrar o que está aberto, o que foi fechado hoje e a receita do dia, com atalhos para cada sala operacional.</p></div></div><div class="interface-grid"><div class="screen-frame reveal"><div class="demo-media" data-demo-key="brewpub"><img src="screenshots/brewpub.png" loading="lazy" alt="Interface real do Brewpub no BrewControl"><video muted loop playsinline preload="none"></video><div class="video-badge"><i aria-hidden="true"></i><span>INTERFACE REAL</span></div></div></div><div class="interface-notes"><article class="note-card reveal"><span>COMANDAS</span><h3>Abertas agora, não apenas relatório de ontem.</h3><p>O hub acompanha comandas em tempo real e abre rapidamente a conta que precisa de ação.</p></article><article class="note-card reveal"><span>KDS</span><h3>Cozinha com superfície própria.</h3><p>Usuários de cozinha podem ser direcionados diretamente ao KDS, sem precisar navegar por telas administrativas do Brewpub.</p></article><article class="note-card reveal"><span>CAMPANHAS</span><h3>Promoção pode aparecer no momento da venda.</h3><p>O motor de vendas possui campanhas, combos, descontos e happy hour integrados ao contexto de atendimento.</p></article></div></div></div></section>
+
+<section class="integrations" id="integracoes" aria-labelledby="integrations-title"><div class="wrap"><div class="integration-head reveal"><div class="kicker">BREWPUB → ESTOQUE & FINANCEIRO</div><div><h2 class="section-title" id="integrations-title">Fechar a mesa também é um fato operacional da cervejaria.</h2><p class="section-lead">No fechamento, o sistema recalcula os totais, registra a forma de pagamento e trata os efeitos configurados de estoque e CMV. No Financeiro, receitas podem ser analisadas por origem, incluindo PDV/Brewpub.</p></div></div><div class="integration-grid"><article class="integration-card reveal"><div class="integration-copy"><span>BREWPUB → ESTOQUE</span><h3>O item vendido pode baixar o que foi consumido.</h3><p>O fechamento trata itens de estoque e também produtos de cozinha/fichas quando configurados, evitando que o consumo fique desconectado da venda.</p></div><div class="mini-screen"><img src="screenshots/almoxarifado.png" loading="lazy" alt="Tela real do Almoxarifado do BrewControl"></div></article><article class="integration-card reveal"><div class="integration-copy"><span>BREWPUB → FINANCEIRO</span><h3>A origem da receita continua identificável.</h3><p>O dashboard Financeiro possui classificação de entradas por origem, incluindo Comercial, PDV e Brewpub, para analisar de onde vem o resultado operacional.</p></div><div class="mini-screen"><img src="screenshots/financeiro.png" loading="lazy" alt="Tela real do Financeiro do BrewControl"></div></article></div></div></section>
+
+<section class="faq" id="faq" aria-labelledby="faq-title"><div class="wrap faq-grid"><div class="reveal"><div class="kicker">RESPOSTAS DIRETAS</div><h2 class="section-title" id="faq-title">Brewpub e PDV no BrewControl.</h2><p class="section-lead" style="color:#615b54">O que existe hoje no produto, em texto indexável e verificável.</p></div><div class="faq-list reveal"><details><summary>O BrewControl possui comandas e mesas?</summary><p>Sim. O Brewpub possui fluxos para mesas e comandas, incluindo abertura, lançamento de itens e fechamento com pagamento.</p></details><details><summary>Existe KDS para cozinha?</summary><p>Sim. Há uma tela KDS dedicada com status por item e acompanhamento do tempo de preparo.</p></details><details><summary>Existe abertura e fechamento de turno de caixa?</summary><p>Sim. O Brewpub possui Caixa do Dia e Turno de Caixa, com saldo inicial, sangrias e totais por forma de pagamento.</p></details><details><summary>O sistema possui controle de torneiras?</summary><p>Sim. A área de Torneiras permite acompanhar as linhas de chope e atualizar o que está sendo servido e seus estados operacionais.</p></details><details><summary>O fechamento da comanda é apenas uma mudança visual de status?</summary><p>Não. O fechamento valida a comanda, recalcula total e taxa, registra pagamento e executa as alterações operacionais de forma transacional para evitar fechamento duplicado.</p></details></div></div></section>
+
+<section class="maker" aria-label="Sobre quem desenvolve o BrewControl"><div class="wrap maker-in reveal"><img src="screenshots/thiago-v2.jpg" loading="lazy" alt="Thiago Santana Schneider, fundador do BrewControl"><div class="maker-copy"><div class="kicker">BAR + CERVEJARIA</div><h2>O balcão não deveria ser uma ilha separada da fábrica.</h2><p>O Brewpub foi construído como uma superfície de operação dentro do mesmo ecossistema que acompanha estoque, produto e resultado.</p></div><a class="btn ghost" href="index.html#fundador">Conhecer a história →</a></div></section>
+<section class="final-cta" aria-labelledby="cta-title"><div class="wrap reveal"><div class="kicker">BREWCONTROL BREWPUB</div><h2 id="cta-title">Mesa aberta, cozinha trabalhando, caixa fechando — tudo no mesmo contexto.</h2><p>Veja como o resultado do Brewpub continua no Financeiro do BrewControl.</p><div class="cta-actions"><a class="btn primary" href="modulo-financeiro.html">Ver Financeiro →</a><a class="btn ghost" href="https://app.brewcontrol.app.br/">Entrar no app ↗</a></div></div></section>
+</main>
+<footer class="footer"><div class="wrap footer-in"><span>© 2026 BrewControl · ERP para cervejarias artesanais</span><div class="footer-links"><a href="index.html#home">Início</a><a href="index.html#planos">Planos</a><a href="blog/index.html">Conteúdo</a><a href="https://www.iubenda.com/privacy-policy/97313076" target="_blank" rel="noopener noreferrer">Privacidade</a><a href="https://app.brewcontrol.app.br/termos" target="_blank" rel="noopener noreferrer">Termos</a></div></div></footer>
+<script src="module-production-v5.js?v=20260906a" defer></script>
 </body>
 </html>

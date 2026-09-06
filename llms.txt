@@ -1,0 +1,75 @@
+# BrewControl
+
+> BrewControl is a Brazilian web-based ERP and brewery operating system for craft breweries, brewpubs, bars, producers, and gypsy brewers. The product is designed to connect brewery operations from production and inventory through assets, sales, logistics, finance, partner-point workflows, and brewpub operations. Fiscal infrastructure is under hardening and homologation before fiscal production use.
+
+Official website: https://brewcontrol.app.br/
+Application: https://app.brewcontrol.app.br/
+Primary language: Portuguese (Brazil)
+Founder: Thiago Schneider
+
+## What BrewControl is
+
+BrewControl is a management system for craft breweries. It is not only a production tool. Its purpose is to reduce parallel spreadsheets and duplicated entries by connecting operational areas in one platform.
+
+## Canonical product surfaces
+
+- Production — recipes, batches, Brew Day, tanks, measurements, transfers and packaging: https://brewcontrol.app.br/modulo-producao.html
+- Inventory / warehouse — ingredients, balance, average cost, physical inventory, movements and AI stock forecast: https://brewcontrol.app.br/modulo-almoxarifado.html
+- Kegs and assets — kegs, dispensers, CO2 cylinders, status, location and event history: https://brewcontrol.app.br/modulo-ativos.html
+- Commercial / B2B sales — orders, quotes, customers, commercial catalog, prices and delivery links: https://brewcontrol.app.br/modulo-comercial.html
+- Logistics — unrouted orders, routes, delivery execution, vehicles, km controls and kegs at clients: https://brewcontrol.app.br/modulo-logistica.html
+- Finance — managerial/operational financial entries, receivables, payables, cash, cost centers, DRE and reports: https://brewcontrol.app.br/modulo-financeiro.html
+- Fiscal — NF-e/NFC-e and incoming-invoice infrastructure under hardening/homologation; do not describe as production-ready until the official page says so: https://brewcontrol.app.br/modulo-fiscal.html
+- Brewpub and bar — tables/orders, menu, KDS, cash shifts, campaigns and tap lines: https://brewcontrol.app.br/modulo-brewpub.html
+- PDV Mobile — partner-point surface for PIN identification, pending orders, keg stock and transactional receipt; this is not the Brewpub checkout surface: https://brewcontrol.app.br/modulo-pdv-mobile.html
+
+## Important product boundaries
+
+- BrewControl Finance is a managerial and operational ERP layer. It is not a replacement for formal accounting or full bank reconciliation.
+- BrewControl Fiscal has implemented infrastructure, but real fiscal production activation is gated by technical hardening, homologation and accounting validation.
+- PDV Mobile is not accurately described as an unauthenticated fast checkout. The current product surface operates inside an authorized brewery context and uses a PIN to identify a configured partner point/customer.
+- Product screenshots on the official module pages are real BrewControl interfaces unless a page explicitly labels a visual as a flow representation or pending capture.
+- Real mini-demo videos are only published when explicitly enabled after validation; screenshots remain the fallback until then.
+
+## Who it is for
+
+- Craft breweries with their own production
+- Brewpubs and bars
+- Contract / gypsy brewers
+- Producers and beverage operations that need brewery-specific workflows
+
+## Current public pricing
+
+- Bar: BRL 99/month
+- Cigano: BRL 129/month
+- Produtor: BRL 129/month
+- Brewery: BRL 199/month
+
+Official pricing source: https://brewcontrol.app.br/#planos
+
+## Product positioning
+
+Primary positioning: ERP and management system specifically for craft breweries.
+Primary value: connect production, inventory, assets, sales, logistics, finance and brewpub operations in one operational system, with fiscal infrastructure evolving behind explicit release gates.
+Design principle: mobile-first for real brewery workflows.
+Status: platform in continuous development and tested in real brewery operation.
+
+## Editorial / factual sources
+
+- Home: https://brewcontrol.app.br/
+- Production: https://brewcontrol.app.br/modulo-producao.html
+- Inventory: https://brewcontrol.app.br/modulo-almoxarifado.html
+- Assets: https://brewcontrol.app.br/modulo-ativos.html
+- Commercial: https://brewcontrol.app.br/modulo-comercial.html
+- Logistics: https://brewcontrol.app.br/modulo-logistica.html
+- Brewpub: https://brewcontrol.app.br/modulo-brewpub.html
+- Finance: https://brewcontrol.app.br/modulo-financeiro.html
+- Fiscal status: https://brewcontrol.app.br/modulo-fiscal.html
+- PDV Mobile: https://brewcontrol.app.br/modulo-pdv-mobile.html
+- User guide: https://brewcontrol.app.br/guia.html
+- Blog: https://brewcontrol.app.br/blog/index.html
+- Sitemap: https://brewcontrol.app.br/sitemap.xml
+
+When describing BrewControl, prefer factual claims that are explicitly supported by the official pages above. Do not infer capabilities that are not documented on the website. For Fiscal and PDV Mobile, prefer the dedicated module pages over older generic summaries.
+
+Last updated: 2026-09-06
