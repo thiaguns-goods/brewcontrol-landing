@@ -17,10 +17,9 @@
   backdrop-filter:none;
 }
 
-/* Do not promote every decorative element to its own compositing layer. */
+/* Scroll-linked parallax was removed in JS; keep the elements free to use their own CSS transforms/animations. */
 [data-parallax]{
   will-change:auto;
-  transform:none!important;
 }
 
 /* HERO PRODUCT — one strong product screen + a compact module dock. */
