@@ -1,0 +1,35 @@
+{
+  "siteUrl": "https://www.brewcontrol.app.br",
+  "canonicalHost": "www.brewcontrol.app.br",
+  "sitemapPath": "/sitemap.xml",
+  "robotsPath": "/robots.txt",
+  "llmsPath": "/llms.txt",
+  "criticalPaths": [
+    "/",
+    "/modulo-producao.html",
+    "/modulo-almoxarifado.html",
+    "/modulo-ativos.html",
+    "/modulo-comercial.html",
+    "/modulo-logistica.html",
+    "/modulo-financeiro.html",
+    "/modulo-brewpub.html",
+    "/modulo-fiscal.html",
+    "/modulo-pdv-mobile.html"
+  ],
+  "dataThresholds": {
+    "minimumImpressionsToAct": 20,
+    "opportunityPositionMin": 4,
+    "opportunityPositionMax": 30,
+    "materialClickDropPercent": 40,
+    "materialImpressionDropPercent": 50
+  },
+  "topicClusters": [
+    "ERP e sistema para cervejaria",
+    "Produção e rastreabilidade",
+    "Barris, chopeiras e ativos",
+    "Estoque e insumos",
+    "Comercial e logística de chope",
+    "Brewpub e gestão financeira",
+    "Cervejaria cigana e terceirização"
+  ]
+}
