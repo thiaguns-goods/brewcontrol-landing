@@ -1,0 +1,56 @@
+name: Canonicalize public host to www
+
+on:
+  push:
+    branches:
+      - post-launch-canonical-www
+
+permissions:
+  contents: write
+
+jobs:
+  canonicalize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Normalize public BrewControl URLs
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          old = 'https://brewcontrol.app.br'
+          new = 'https://www.brewcontrol.app.br'
+          allowed = {'.html', '.xml', '.txt', '.md', '.json', '.js', '.css'}
+          changed = []
+
+          for path in Path('.').rglob('*'):
+              if not path.is_file() or '.git' in path.parts or path.suffix.lower() not in allowed:
+                  continue
+              try:
+                  text = path.read_text(encoding='utf-8')
+              except UnicodeDecodeError:
+                  continue
+              updated = text.replace(old, new)
+              if updated != text:
+                  path.write_text(updated, encoding='utf-8')
+                  changed.append(str(path))
+
+          print('Updated files:')
+          for path in changed:
+              print(f' - {path}')
+          PY
+
+      - name: Commit normalization if needed
+        run: |
+          if git diff --quiet; then
+            echo 'No canonical host changes needed.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add .
+          git commit -m 'fix: canonicalize public URLs on www host'
+          git push
