@@ -1,6 +1,14 @@
 (() => {
   'use strict';
 
+  if (!document.querySelector('script[data-brewcontrol-analytics]')) {
+    const analytics = document.createElement('script');
+    analytics.src = 'analytics-v5.js?v=20260907a';
+    analytics.async = false;
+    analytics.dataset.brewcontrolAnalytics = 'true';
+    document.head.appendChild(analytics);
+  }
+
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const coarse = window.matchMedia('(pointer: coarse)').matches;
   const menu = document.querySelector('.menu');
