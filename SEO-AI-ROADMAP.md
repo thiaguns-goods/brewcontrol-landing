@@ -109,7 +109,7 @@ This is a merge blocker for Landing V5.
 ### Google Search Console
 
 1. Verify `brewcontrol.app.br` as a domain property, preferably via DNS.
-2. Submit `https://brewcontrol.app.br/sitemap.xml`.
+2. Submit `https://www.brewcontrol.app.br/sitemap.xml`.
 3. Inspect Home and every module page.
 4. Request indexing after major releases where appropriate.
 5. Monitor Core Web Vitals, indexing, rich-result eligibility and Generative AI performance reports.
@@ -168,7 +168,7 @@ Keep these facts consistent across the official website, social profiles, app st
 - Brand: BrewControl
 - Category: ERP / system for craft brewery management
 - Market: Brazil / Portuguese-speaking brewery operations
-- Website: https://brewcontrol.app.br/
+- Website: https://www.brewcontrol.app.br/
 - Founder: Thiago Schneider
 - Core areas: production, inventory, assets/kegs, commercial, logistics, finance, fiscal, PDV, brewpub
 

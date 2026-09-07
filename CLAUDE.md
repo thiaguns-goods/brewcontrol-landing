@@ -144,7 +144,7 @@ Toda página nova (módulo ou blog) que reutilizar o header **precisa incluir o 
 
 ## 📞 Referência rápida
 
-- Site: https://brewcontrol.app.br
+- Site: https://www.brewcontrol.app.br
 - App real (outro projeto): https://app.brewcontrol.app.br
 - Repositório: github.com/thiaguns-goods/brewcontrol-landing (público)
 - Vercel: projeto `brewcontrol-landing`, team `thiaguns-goods-projects`
