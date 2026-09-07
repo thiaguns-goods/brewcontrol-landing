@@ -1,6 +1,14 @@
 (() => {
   'use strict';
 
+  if (!document.querySelector('script[data-brewcontrol-analytics]')) {
+    const analytics = document.createElement('script');
+    analytics.src = 'analytics-v5.js?v=20260907a';
+    analytics.async = false;
+    analytics.dataset.brewcontrolAnalytics = 'true';
+    document.head.appendChild(analytics);
+  }
+
   /* Small override sheet kept separate so the visual/performance pass is easy to review or revert. */
   if (!document.querySelector('link[data-v5-performance]')) {
     const perfStyles = document.createElement('link');
