@@ -1,0 +1,122 @@
+name: SEO Sentinel
+
+on:
+  schedule:
+    - cron: '17 11 * * *'
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - '.github/workflows/seo-sentinel.yml'
+      - 'scripts/seo-health-check.mjs'
+      - 'seo-ops.config.json'
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: seo-sentinel-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  technical-seo-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run SEO health check
+        id: audit
+        continue-on-error: true
+        run: node scripts/seo-health-check.mjs
+
+      - name: Upload SEO report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: seo-health-report
+          path: |
+            seo-health-report.json
+            seo-health-report.md
+          retention-days: 30
+
+      - name: Open or update technical SEO alert
+        if: steps.audit.outcome == 'failure' && github.event_name != 'pull_request'
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const fs = require('fs');
+            const title = '[SEO Sentinel] Regressão técnica';
+            const report = fs.readFileSync('seo-health-report.md', 'utf8');
+            const body = `${report}\n\n---\nGerado automaticamente pelo workflow \`SEO Sentinel\`. Corrija a causa; o alerta será fechado automaticamente quando o health-check voltar a PASS.`;
+
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              per_page: 100
+            });
+
+            const existing = issues.find((issue) => issue.title === title && !issue.pull_request);
+            if (existing) {
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existing.number,
+                body
+              });
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existing.number,
+                body: `Nova falha detectada em ${new Date().toISOString()}. O corpo da Issue foi atualizado com o relatório mais recente.`
+              });
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body,
+                labels: ['post-launch']
+              });
+            }
+
+      - name: Close recovered technical SEO alert
+        if: steps.audit.outcome == 'success' && github.event_name != 'pull_request'
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const title = '[SEO Sentinel] Regressão técnica';
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              per_page: 100
+            });
+
+            const existing = issues.find((issue) => issue.title === title && !issue.pull_request);
+            if (existing) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existing.number,
+                body: `✅ Health-check voltou a PASS em ${new Date().toISOString()}. Fechando o alerta automaticamente.`
+              });
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existing.number,
+                state: 'closed'
+              });
+            }
+
+      - name: Fail workflow when audit failed
+        if: steps.audit.outcome == 'failure'
+        run: exit 1
