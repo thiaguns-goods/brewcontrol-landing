@@ -25,6 +25,25 @@
   const nav = document.querySelector('.nav');
   const hero = document.querySelector('.hero');
 
+  /* Issue #47: expose the Help Center on the landing preview without touching guia.html. */
+  if (nav && !nav.querySelector('[data-help-center-nav]')) {
+    const helpLink = document.createElement('a');
+    helpLink.href = 'ajuda/';
+    helpLink.textContent = 'Ajuda';
+    helpLink.dataset.helpCenterNav = 'true';
+    nav.appendChild(helpLink);
+  }
+  const footerLinks = document.querySelector('.footer-links');
+  if (footerLinks && !footerLinks.querySelector('[data-help-center-footer]')) {
+    const helpFooterLink = document.createElement('a');
+    helpFooterLink.href = 'ajuda/';
+    helpFooterLink.textContent = 'Central de Ajuda';
+    helpFooterLink.dataset.helpCenterFooter = 'true';
+    const guideLink = footerLinks.querySelector('a[href="guia.html"]');
+    if (guideLink) guideLink.insertAdjacentElement('afterend', helpFooterLink);
+    else footerLinks.prepend(helpFooterLink);
+  }
+
   /* Keep Home labels aligned with the current module truth while the static root copy is under the pre-merge truth gate. */
   const fiscalCard = document.querySelector('a.module-card[href="modulo-fiscal.html"]');
   const pdvMobileCard = document.querySelector('a.module-card[href="modulo-pdv-mobile.html"]');
