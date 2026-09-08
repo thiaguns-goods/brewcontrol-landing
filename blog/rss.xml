@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog BrewControl</title>
+    <link>https://www.brewcontrol.app.br/blog/index.html</link>
+    <description>Gestão, operação e tecnologia para cervejarias artesanais.</description>
+    <language>pt-BR</language>
+    <lastBuildDate>Tue, 08 Sep 2026 13:00:00 GMT</lastBuildDate>
+    <atom:link href="https://www.brewcontrol.app.br/blog/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>5 gargalos operacionais que fazem uma cervejaria perder tempo e controle</title>
+      <link>https://www.brewcontrol.app.br/blog/gargalos-operacionais-cervejaria.html</link>
+      <guid isPermaLink="true">https://www.brewcontrol.app.br/blog/gargalos-operacionais-cervejaria.html</guid>
+      <pubDate>Tue, 08 Sep 2026 13:00:00 GMT</pubDate>
+      <description>Informação espalhada, barris sem contexto, estoque desconectado, venda separada da entrega e financeiro atrasado: cinco sintomas de uma operação fragmentada.</description>
+    </item>
+    <item>
+      <title>Planilha ou sistema de gestão? Quando faz sentido migrar sua cervejaria</title>
+      <link>https://www.brewcontrol.app.br/blog/planilha-vs-sistema-cervejaria.html</link>
+      <guid isPermaLink="true">https://www.brewcontrol.app.br/blog/planilha-vs-sistema-cervejaria.html</guid>
+      <pubDate>Fri, 03 Jul 2026 12:00:00 GMT</pubDate>
+      <description>Os sinais de que o controle manual começou a exigir mais reconciliação, memória e retrabalho do que a operação consegue absorver.</description>
+    </item>
+    <item>
+      <title>Como controlar o estoque da cervejaria sem perder litro nem contexto</title>
+      <link>https://www.brewcontrol.app.br/blog/controle-estoque-cervejaria.html</link>
+      <guid isPermaLink="true">https://www.brewcontrol.app.br/blog/controle-estoque-cervejaria.html</guid>
+      <pubDate>Fri, 03 Jul 2026 12:00:00 GMT</pubDate>
+      <description>Por que o saldo não bate e como movimentações ligadas à operação reduzem diferenças de estoque.</description>
+    </item>
+    <item>
+      <title>Por dentro do BrewControl: tour pelos módulos com prints reais</title>
+      <link>https://www.brewcontrol.app.br/blog/tour-modulos-brewcontrol.html</link>
+      <guid isPermaLink="true">https://www.brewcontrol.app.br/blog/tour-modulos-brewcontrol.html</guid>
+      <pubDate>Fri, 03 Jul 2026 12:00:00 GMT</pubDate>
+      <description>Um passeio pelas interfaces reais de produção, estoque, barris, comercial, logística, financeiro, Brewpub e o status atual do Fiscal e PDV Mobile.</description>
+    </item>
+  </channel>
+</rss>

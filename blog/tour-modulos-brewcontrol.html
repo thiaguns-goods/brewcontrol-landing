@@ -1,183 +1,39 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#050508">
-<title>Por Dentro do BrewControl: Tour pelos Módulos (com Prints Reais)</title>
-<meta name="description" content="Um tour completo pelos módulos do BrewControl — produção, estoque, comercial, logística, financeiro, fiscal, ativos e brewpub — com prints reais do sistema.">
-<link rel="canonical" href="https://www.brewcontrol.app.br/blog/tour-modulos-brewcontrol.html">
-<meta property="og:title" content="Por Dentro do BrewControl: Tour pelos Módulos (com Prints Reais)">
-<meta property="og:description" content="Produção, estoque, comercial, logística, financeiro, fiscal e brewpub — como cada tela funciona na prática.">
-<meta property="og:type" content="article">
-<meta property="og:locale" content="pt_BR">
-<meta property="og:url" content="https://www.brewcontrol.app.br/blog/tour-modulos-brewcontrol.html">
-<meta property="og:site_name" content="BrewControl">
-<meta property="og:image" content="https://www.brewcontrol.app.br/screenshots/producao.png">
-<meta name="twitter:card" content="summary_large_image">
-
-<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800,900&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../landing-v2.css">
-
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Por Dentro do BrewControl: Tour pelos Módulos (com Prints Reais)","description":"Um tour completo pelos módulos do BrewControl — produção, estoque, comercial, logística, financeiro, fiscal, ativos e brewpub.","image":"https://www.brewcontrol.app.br/screenshots/producao.png","author":{"@type":"Person","name":"Thiago Santana Schneider"},"publisher":{"@type":"Organization","name":"BrewControl"},"datePublished":"2026-07-03"}</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#071116">
+<title>Por Dentro do BrewControl: Tour pelos Módulos com Prints Reais</title>
+<meta name="description" content="Tour pelos módulos do BrewControl com interfaces reais: produção, estoque, barris, comercial, logística, financeiro, Brewpub e status atual da infraestrutura fiscal e PDV Mobile.">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"><meta name="googlebot" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<link rel="canonical" href="https://www.brewcontrol.app.br/blog/tour-modulos-brewcontrol.html"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="alternate" type="application/rss+xml" title="Blog BrewControl" href="https://www.brewcontrol.app.br/blog/rss.xml">
+<meta property="og:title" content="Por dentro do BrewControl: tour pelos módulos"><meta property="og:description" content="Veja as interfaces reais e o papel de cada área no ecossistema BrewControl."><meta property="og:type" content="article"><meta property="og:locale" content="pt_BR"><meta property="og:url" content="https://www.brewcontrol.app.br/blog/tour-modulos-brewcontrol.html"><meta property="og:site_name" content="BrewControl"><meta property="og:image" content="https://www.brewcontrol.app.br/screenshots/producao.png"><meta property="og:image:alt" content="Tela real de produção do BrewControl"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Tour pelos módulos do BrewControl"><meta name="twitter:description" content="Produto real, telas reais e o status atual de cada área."><meta name="twitter:image" content="https://www.brewcontrol.app.br/screenshots/producao.png">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JVBBG635J3"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-JVBBG635J3')</script>
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin><link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800,900&f[]=satoshi@400,500,700&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400,500,600&display=swap" rel="stylesheet"><link rel="stylesheet" href="blog-v5.css?v=20260908a">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.brewcontrol.app.br/#organization","name":"BrewControl","url":"https://www.brewcontrol.app.br/","logo":"https://www.brewcontrol.app.br/favicon.svg"},{"@type":"Person","@id":"https://www.brewcontrol.app.br/#founder","name":"Thiago Schneider"},{"@type":"BlogPosting","headline":"Por dentro do BrewControl: um tour pelos módulos com prints reais","description":"Tour pelas áreas do BrewControl com interfaces reais e status atual do produto.","image":"https://www.brewcontrol.app.br/screenshots/producao.png","author":{"@id":"https://www.brewcontrol.app.br/#founder"},"publisher":{"@id":"https://www.brewcontrol.app.br/#organization"},"datePublished":"2026-07-03","dateModified":"2026-09-08","mainEntityOfPage":"https://www.brewcontrol.app.br/blog/tour-modulos-brewcontrol.html","inLanguage":"pt-BR"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"BrewControl","item":"https://www.brewcontrol.app.br/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.brewcontrol.app.br/blog/index.html"},{"@type":"ListItem","position":3,"name":"Tour pelos módulos","item":"https://www.brewcontrol.app.br/blog/tour-modulos-brewcontrol.html"}]}]}</script>
 </head>
-<body data-screen-label="blog-post">
-<div class="grain"></div>
-
-<header class="header">
-  <div class="wrap header-inner">
-    <a href="../index.html#home" class="brand">
-      <span class="brand-mark">B</span>
-      <span class="brand-text">
-        <span class="brand-name">BREWCONTROL</span>
-        <span class="brand-tag">CRAFT BREWERY ERP</span>
-      </span>
-    </a>
-    <nav class="nav">
-    <div class="nav-item has-mega">
-      <button class="nav-mega-trigger" aria-haspopup="true" aria-expanded="false">Módulos <svg class="chev" width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-      <div class="mega-menu">
-        <div class="mega-grid">
-          <a href="../modulo-producao.html" class="mega-item"><span class="mega-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"/></svg></span><span class="mega-text"><b>Hub de Produção</b><small>Receitas, lotes e Brew Day mobile</small></span></a>
-          <a href="../modulo-brewpub.html" class="mega-item"><span class="mega-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 4h12v14H6zM6 18c0 2 2 4 6 4s6-2 6-4"/></svg></span><span class="mega-text"><b>Brewpub &amp; Bar</b><small>Comandas, KDS e torneiras</small></span></a>
-          <a href="../modulo-ativos.html" class="mega-item"><span class="mega-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></span><span class="mega-text"><b>Ativos &amp; Barris</b><small>Barris, chopeiras e CO₂ rastreados</small></span></a>
-          <a href="../modulo-financeiro.html" class="mega-item"><span class="mega-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span><span class="mega-text"><b>Financeiro</b><small>Fluxo de caixa e DRE gerencial</small></span></a>
-          <a href="../modulo-almoxarifado.html" class="mega-item"><span class="mega-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 7H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span><span class="mega-text"><b>Almoxarifado</b><small>Insumos, custo médio e inventário</small></span></a>
-          <a href="../modulo-comercial.html" class="mega-item"><span class="mega-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></span><span class="mega-text"><b>Comercial</b><small>Pedidos B2B e preço por canal</small></span></a>
-          <a href="../modulo-logistica.html" class="mega-item"><span class="mega-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></span><span class="mega-text"><b>Logística</b><small>Rotas, paradas e km rodado</small></span></a>
-          <a href="../modulo-fiscal.html" class="mega-item"><span class="mega-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></span><span class="mega-text"><b>Fiscal</b><small>NF-e, NFC-e e certificado A1</small></span></a>
-          <a href="../modulo-pdv-mobile.html" class="mega-item"><span class="mega-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></span><span class="mega-text"><b>PDV Mobile</b><small>Venda no balcão, sem login</small></span></a>
-        </div>
-        <div class="mega-foot"><a href="../index.html#modules">Ver todos os módulos →</a></div>
-      </div>
-    </div>
-      <a href="../index.html#novidades">Novidades</a>
-      <a href="../index.html#fundadora">Seja Fundadora</a>
-      <a href="../index.html#pricing">Planos</a>
-      <a href="../guia.html">Guia</a>
-      <a href="index.html">Blog</a>
-    </nav>
-    <a href="../index.html#waitlist" class="btn btn-primary">Acesso Antecipado</a>
-  </div>
-</header>
-
-<article class="blog-article">
-  <a href="index.html" class="blog-back">← Voltar pro blog</a>
-  <span class="cat">Por dentro do sistema</span>
-  <h1>Por dentro do BrewControl: um tour pelos módulos (com prints reais do sistema)</h1>
-  <p class="lede">Em vez de só descrever recursos, resolvemos mostrar a tela mesmo. Um passeio rápido por cada módulo do BrewControl, do jeito que ele aparece pra quem usa todo dia.</p>
-
-  <h2>Produção</h2>
-  <p>Do planejamento do lote ao dia da brassagem: perfis de mostura, fermentação e receita ficam salvos e reutilizáveis. Cada evento do lote (mostura, fervura, transferência pra fermentador, medição de densidade) é registrado no histórico — nada é editado depois, só corrigido com um novo evento.</p>
-  <figure>
-    <img src="../screenshots/producao.png" alt="Tela de produção do BrewControl" loading="lazy">
-    <figcaption>Acompanhamento do lote em tempo real, do planejamento à brassagem.</figcaption>
-  </figure>
-
-  <h2>Almoxarifado</h2>
-  <p>Saldo de insumos calculado automaticamente pelas movimentações — nada de célula que alguém esquece de atualizar. O consumo de malte, lúpulo e levedura é lançado sozinho assim que a brassagem acontece.</p>
-  <figure>
-    <img src="../screenshots/dashboard-operacional.png" alt="Painel operacional do BrewControl" loading="lazy">
-    <figcaption>Visão consolidada de estoque, tanques e pedidos.</figcaption>
-  </figure>
-
-  <h2>Comercial</h2>
-  <p>Pedido não baixa estoque na hora — ele reserva. O estoque só muda de verdade quando a entrega é confirmada na Logística. Isso evita o clássico problema de vender o mesmo barril duas vezes.</p>
-  <figure>
-    <img src="../screenshots/comercial.png" alt="Tela do módulo comercial do BrewControl" loading="lazy">
-    <figcaption>Novo pedido com disponibilidade real de barris, chopeiras e cilindros por data.</figcaption>
-  </figure>
-
-  <h2>Logística</h2>
-  <p>A execução da entrega é o único momento em que o estoque realmente muda de mão. O vínculo físico entre barril e cliente (quem está "em campo" com o quê) nasce aqui, não no pedido.</p>
-  <figure>
-    <img src="../screenshots/logistica.png" alt="Tela de logística do BrewControl" loading="lazy">
-    <figcaption>Rotas e confirmação de entrega, com atualização automática do estoque de ativos.</figcaption>
-  </figure>
-
-  <h2>Ativos (barris, chopeiras e cilindros)</h2>
-  <p>Cada barril, chopeira e cilindro de CO₂ é um ativo com identidade e histórico próprios — não uma linha genérica de estoque. Dá pra saber, a qualquer momento, onde cada um está e em que status.</p>
-  <figure>
-    <img src="../screenshots/ativos-co2.png" alt="Tela de controle de cilindros de CO2 do BrewControl" loading="lazy">
-    <figcaption>Controle de cilindros de CO₂ com o mesmo rigor de rastreabilidade dos barris.</figcaption>
-  </figure>
-  <figure>
-    <img src="../screenshots/ativos-patrimonio.png" alt="Tela de controle de patrimônio do BrewControl" loading="lazy">
-    <figcaption>Patrimônio da cervejaria (equipamentos, chopeiras) num só lugar.</figcaption>
-  </figure>
-
-  <h2>Financeiro</h2>
-  <p>Contas a pagar e a receber, DRE gerencial e fluxo de caixa — alimentados pelas operações do dia a dia, não digitados duas vezes. Entrega confirmada gera conta a receber automaticamente; o recebimento em si é sempre confirmado manualmente, pra bater com o extrato real.</p>
-  <figure>
-    <img src="../screenshots/financeiro.png" alt="Tela financeira do BrewControl" loading="lazy">
-    <figcaption>DRE gerencial e fluxo de caixa conectados à operação.</figcaption>
-  </figure>
-
-  <h2>Fiscal</h2>
-  <p>Assistente de emissão de NFC-e/NF-e integrado — configure uma vez (certificado, token, códigos fiscais) e a nota pode sair automaticamente ao fechar a venda, sem digitar tudo de novo num emissor separado.</p>
-  <figure>
-    <img src="../screenshots/fiscal.png" alt="Tela do assistente fiscal do BrewControl" loading="lazy">
-    <figcaption>Configuração guiada da emissão fiscal, com teste de conexão antes de ativar.</figcaption>
-  </figure>
-
-  <h2>Brewpub (bar próprio)</h2>
-  <p>Pra quem também vende no próprio bar: comandas, mesas, cardápio e caixa do dia — com o barril conectado direto na torneira e a baixa de estoque automática a cada chope servido.</p>
-  <figure>
-    <img src="../screenshots/brewpub.png" alt="Tela do módulo Brewpub do BrewControl" loading="lazy">
-    <figcaption>Comandas, torneiras e caixa do dia integrados ao estoque de barris.</figcaption>
-  </figure>
-
-  <p>Esse é o sistema real, rodando hoje em produção — não uma maquete. Se quiser ver funcionando com os dados da sua própria cervejaria, a próxima seção é o convite certo.</p>
-
-  <div class="cta-box">
-    <h3>Quer testar sem pagar nada?</h3>
-    <p>Abrimos 5 vagas no Programa Cervejaria Fundadora: acesso completo ao BrewControl por 6 meses, de graça — você paga só o que é de terceiro (IA e emissão de nota fiscal).</p>
-    <a href="https://wa.me/5527981848184?text=Ol%C3%A1%21%20Vi%20o%20tour%20pelos%20m%C3%B3dulos%20e%20quero%20saber%20mais%20sobre%20o%20Programa%20Cervejaria%20Fundadora." target="_blank" rel="noopener" class="btn btn-primary">Quero ser cervejaria fundadora →</a>
-  </div>
-</article>
-
-<footer class="footer">
-  <div class="wrap">
-    <div class="footer-inner">
-      <div>
-        <a href="../index.html#home" class="brand">
-          <span class="brand-mark">B</span>
-          <span class="brand-text">
-            <span class="brand-name">BREWCONTROL</span>
-            <span class="brand-tag">CRAFT BREWERY ERP</span>
-          </span>
-        </a>
-        <p style="color:var(--fog-400);margin-top:1rem;font-size:0.9rem">Da receita ao cliente, tudo conectado.</p>
-      </div>
-      <div class="footer-links">
-        <div class="footer-col">
-          <b>Plataforma</b>
-          <a href="../index.html#modules">Módulos</a>
-          <a href="../index.html#pricing">Planos</a>
-          <a href="../guia.html">Guia do Usuário</a>
-          <a href="index.html">Blog</a>
-        </div>
-        <div class="footer-col">
-          <b>Empresa</b>
-          <a href="../index.html#about">Fundador</a>
-          <a href="../index.html#contact">Contato</a>
-          <a href="https://wa.me/5527981848184" target="_blank" rel="noopener">WhatsApp</a>
-        </div>
-        <div class="footer-col">
-          <b>Legal</b>
-          <a href="https://www.iubenda.com/privacy-policy/97313076" target="_blank" rel="noopener noreferrer">Política de Privacidade</a>
-          <a href="https://www.iubenda.com/privacy-policy/97313076/cookie-policy" target="_blank" rel="noopener noreferrer">Política de Cookies</a>
-          <a href="https://app.brewcontrol.app.br/termos" target="_blank" rel="noopener noreferrer">Termos de Uso</a>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 BrewControl. Todos os direitos reservados.</span>
-      <span class="mono" style="color:var(--fog-600)">v2.0 · INDUSTRIAL</span>
-    </div>
-  </div>
-</footer>
-
+<body>
+<header class="header"><div class="wrap header-in"><a class="brand" href="../index.html#home"><span class="brand-mark">B</span><span><span class="brand-name">BREWCONTROL</span><span class="brand-sub">BREWERY OPERATING SYSTEM</span></span></a><nav class="nav"><a href="../index.html#produto">Produto</a><a href="../index.html#modulos">Módulos</a><a href="../index.html#planos">Planos</a><a href="index.html" aria-current="page">Conteúdo</a></nav><a class="header-cta" href="https://app.brewcontrol.app.br/">Entrar no app ↗</a></div></header>
+<main>
+<section class="article-hero"><div class="wrap article-head"><a class="back" href="index.html">← VOLTAR AO BLOG</a><span class="cat">Produto real</span><h1>Por dentro do BrewControl: um tour pelos módulos com prints reais</h1><p class="lede">Em vez de explicar o produto só com uma lista de recursos, este artigo mostra as interfaces reais e o papel de cada área dentro da operação conectada.</p><div class="article-meta"><span>Thiago Schneider</span><span class="dot"></span><time datetime="2026-07-03">3 jul 2026</time><span class="dot"></span><span>Atualizado em 8 set 2026</span></div></div></section>
+<div class="wrap article-shell"><article class="article">
+<p>O BrewControl é um ERP voltado a cervejarias artesanais. A proposta não é colocar vários sistemas lado a lado, e sim fazer com que produção, estoque, ativos, pedidos, entregas, Brewpub e gestão compartilhem contexto.</p>
+<div class="callout"><b>Transparência de produto</b><p>As imagens abaixo são telas reais do BrewControl. Onde uma área ainda está em evolução ou homologação, o texto deixa isso explícito.</p></div>
+<h2>Produção</h2><p>Produção concentra planejamento, receitas, lotes e acompanhamento das etapas operacionais. O objetivo é que o histórico do lote permaneça ligado aos eventos que realmente aconteceram na fábrica.</p><figure><img src="../screenshots/producao.png" loading="lazy" alt="Tela real do módulo Produção do BrewControl"><figcaption>Interface real de Produção.</figcaption></figure><p><a href="../modulo-producao.html">Conheça a página completa de Produção →</a></p>
+<h2>Almoxarifado e estoque</h2><p>O Almoxarifado acompanha insumos e movimentações. A conexão com Produção ajuda a reduzir a distância entre o consumo físico e o registro digital.</p><figure><img src="../screenshots/almoxarifado.png" loading="lazy" alt="Tela real de Almoxarifado do BrewControl"><figcaption>Interface real de Almoxarifado.</figcaption></figure><p><a href="../modulo-almoxarifado.html">Conheça o Almoxarifado →</a></p>
+<h2>Ativos &amp; Barris</h2><p>Barris, chopeiras, cilindros e patrimônio precisam de identidade e histórico próprios. O foco é rastrear estado, localização e relação com a operação — não apenas contar unidades.</p><figure><img src="../screenshots/ativos-barris.png" loading="lazy" alt="Tela real de barris do BrewControl"><figcaption>Controle de barris com contexto operacional.</figcaption></figure><figure><img src="../screenshots/ativos-co2.png" loading="lazy" alt="Tela real de cilindros de CO2 do BrewControl"><figcaption>Controle de cilindros de CO₂.</figcaption></figure><p><a href="../modulo-ativos.html">Conheça Ativos &amp; Barris →</a></p>
+<h2>Comercial</h2><p>Comercial organiza pedidos e disponibilidade dentro do contexto da cervejaria. Um pedido é parte de um fluxo maior e não precisa ser reconstruído quando chega à logística.</p><figure><img src="../screenshots/comercial.png" loading="lazy" alt="Tela real do módulo Comercial do BrewControl"><figcaption>Interface real do Comercial.</figcaption></figure><p><a href="../modulo-comercial.html">Conheça o Comercial →</a></p>
+<h2>Logística</h2><p>Logística acompanha execução, rotas e entrega. É aqui que o contexto de pedido, ativos e cliente precisa permanecer consistente durante a movimentação física.</p><figure><img src="../screenshots/logistica.png" loading="lazy" alt="Tela real do módulo Logística do BrewControl"><figcaption>Interface real de Logística.</figcaption></figure><p><a href="../modulo-logistica.html">Conheça a Logística →</a></p>
+<h2>Brewpub</h2><p>Para a operação de bar próprio, o Brewpub reúne fluxos de atendimento, comandas, PDV e caixa dentro do mesmo ecossistema da cervejaria.</p><figure><img src="../screenshots/brewpub.png" loading="lazy" alt="Tela real do Brewpub do BrewControl"><figcaption>Interface real do Brewpub.</figcaption></figure><p><a href="../modulo-brewpub.html">Conheça o Brewpub →</a></p>
+<h2>Financeiro</h2><p>O Financeiro trabalha com contas, caixa e visão gerencial conectados aos fatos operacionais. A integração deve reduzir redigitação, sem presumir que um recebimento aconteceu antes da confirmação financeira real.</p><figure><img src="../screenshots/financeiro.png" loading="lazy" alt="Tela real do módulo Financeiro do BrewControl"><figcaption>Interface real do Financeiro.</figcaption></figure><p><a href="../modulo-financeiro.html">Conheça o Financeiro →</a></p>
+<h2>Fiscal: infraestrutura em hardening e homologação</h2><p>A área Fiscal já possui infraestrutura para NF-e, NFC-e, documentos e entrada fiscal, mas <strong>não deve ser apresentada como produção fiscal liberada</strong>. O status público atual é de hardening e homologação, com validação técnica e contábil antes de documentos reais.</p><figure><img src="../screenshots/fiscal.png" loading="lazy" alt="Interface real da infraestrutura Fiscal do BrewControl"><figcaption>A interface existe; a liberação para produção fiscal depende de homologação.</figcaption></figure><p><a href="../modulo-fiscal.html">Veja o status atual do Fiscal →</a></p>
+<h2>PDV Mobile para ponto parceiro</h2><p>O PDV Mobile atual não é o caixa do Brewpub. É uma interface voltada ao ponto parceiro para consultar pedidos destinados a ele, visualizar barris vinculados e confirmar recebimento dentro do contexto autorizado da cervejaria.</p><p><a href="../modulo-pdv-mobile.html">Entenda o PDV Mobile atual →</a></p>
+<h2>O que conecta tudo isso?</h2><p>O valor do ecossistema aparece quando uma área não precisa recriar o fato que já aconteceu na anterior. Produção gera contexto para estoque. Comercial prepara a operação que logística executa. Ativos acompanham os movimentos físicos. Financeiro recebe fatos operacionais com origem.</p>
+<div class="inline-links"><a href="gargalos-operacionais-cervejaria.html"><span>Leia: 5 gargalos operacionais que motivam essa integração</span><strong>→</strong></a><a href="planilha-vs-sistema-cervejaria.html"><span>Leia: quando a planilha deixa de acompanhar a operação</span><strong>→</strong></a></div>
+<div class="cta-box"><h3>Quer explorar o BrewControl por área?</h3><p>A landing atual reúne os módulos, interfaces e o estágio público de cada parte do produto.</p><a class="btn primary" href="../index.html#modulos">Explorar os módulos →</a></div>
+</article><aside class="aside"><div class="aside-card"><b>Módulos</b><a href="../modulo-producao.html">Produção</a><a href="../modulo-almoxarifado.html">Almoxarifado</a><a href="../modulo-ativos.html">Ativos &amp; Barris</a><a href="../modulo-comercial.html">Comercial</a><a href="../modulo-logistica.html">Logística</a><a href="../modulo-brewpub.html">Brewpub</a><a href="../modulo-financeiro.html">Financeiro</a><a href="../modulo-fiscal.html">Fiscal</a><a href="../modulo-pdv-mobile.html">PDV Mobile</a></div><div class="aside-card aside-note">Fiscal permanece publicamente marcado como infraestrutura em hardening/homologação. PDV Mobile é a interface de ponto parceiro, diferente do caixa Brewpub.</div></aside></div>
+</main>
+<footer class="footer"><div class="wrap"><div class="footer-grid"><div><a class="brand" href="../index.html"><span class="brand-mark">B</span><span><span class="brand-name">BREWCONTROL</span><span class="brand-sub">BREWERY OPERATING SYSTEM</span></span></a><p>A cervejaria inteira operando como um sistema.</p></div><div class="footer-links"><div><b>Plataforma</b><a href="../index.html#modulos">Módulos</a><a href="../index.html#planos">Planos</a></div><div><b>Conteúdo</b><a href="index.html">Blog</a><a href="rss.xml">RSS</a></div><div><b>Legal</b><a href="https://www.iubenda.com/privacy-policy/97313076">Privacidade</a><a href="https://app.brewcontrol.app.br/termos">Termos</a></div></div></div><div class="footer-bottom"><span>© 2026 BrewControl.</span><span>V5 · EDITORIAL SYSTEM</span></div></div></footer>
 </body>
 </html>
