@@ -23,6 +23,59 @@ function gtag(){dataLayer.push(arguments)}
 gtag('js',new Date());
 gtag('config','G-JVBBG635J3');
 function track(name){gtag('event','link_bio_click',{link_name:name,source:'instagram_bio'});}
+
+const featuredByDate={
+  default:{
+    href:'/blog/gargalos-operacionais-cervejaria.html?utm_source=instagram&utm_medium=social&utm_campaign=link_in_bio&utm_content=featured_gargalos',
+    track:'featured_gargalos',
+    micro:'ARTIGO · OPERAÇÃO',
+    title:'5 gargalos operacionais que fazem uma cervejaria perder tempo e controle',
+    text:'Informação espalhada, barris sem contexto, estoque desconectado e áreas que não conversam.'
+  },
+  '2026-09-11':{
+    href:'/blog/tour-modulos-brewcontrol.html?utm_source=instagram&utm_medium=social&utm_campaign=link_in_bio&utm_content=featured_tour',
+    track:'featured_tour',
+    micro:'ARTIGO · PRODUTO',
+    title:'Por dentro do BrewControl: como os módulos se conectam na operação real',
+    text:'Produção, estoque, barris, comercial, logística, financeiro e brewpub vistos como uma operação única.'
+  },
+  '2026-09-12':{
+    href:'/blog/tour-modulos-brewcontrol.html?utm_source=instagram&utm_medium=social&utm_campaign=link_in_bio&utm_content=featured_tour',
+    track:'featured_tour',
+    micro:'ARTIGO · PRODUTO',
+    title:'Por dentro do BrewControl: como os módulos se conectam na operação real',
+    text:'Produção, estoque, barris, comercial, logística, financeiro e brewpub vistos como uma operação única.'
+  },
+  '2026-09-13':{
+    href:'/blog/controle-estoque-cervejaria.html?utm_source=instagram&utm_medium=social&utm_campaign=link_in_bio&utm_content=featured_barris',
+    track:'featured_barris',
+    micro:'ARTIGO · ESTOQUE E BARRIS',
+    title:'Estoque e barris: como parar de perder contexto operacional',
+    text:'Rastreabilidade, movimentações e contexto para saber o que saiu, voltou e onde cada ativo está.'
+  },
+  '2026-09-14':{
+    href:'/blog/controle-estoque-cervejaria.html?utm_source=instagram&utm_medium=social&utm_campaign=link_in_bio&utm_content=featured_barris',
+    track:'featured_barris',
+    micro:'ARTIGO · ESTOQUE E BARRIS',
+    title:'Estoque e barris: como parar de perder contexto operacional',
+    text:'Rastreabilidade, movimentações e contexto para saber o que saiu, voltou e onde cada ativo está.'
+  }
+};
+
+function saoPauloDate(){
+  return new Intl.DateTimeFormat('en-CA',{timeZone:'America/Sao_Paulo',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+}
+
+document.addEventListener('DOMContentLoaded',()=>{
+  const cfg=featuredByDate[saoPauloDate()]||featuredByDate.default;
+  const card=document.getElementById('featured-card');
+  if(!card)return;
+  card.href=cfg.href;
+  card.onclick=()=>track(cfg.track);
+  document.getElementById('featured-micro').textContent=cfg.micro;
+  document.getElementById('featured-title').textContent=cfg.title;
+  document.getElementById('featured-text').textContent=cfg.text;
+});
 </script>
 </head>
 <body>
@@ -36,11 +89,11 @@ function track(name){gtag('event','link_bio_click',{link_name:name,source:'insta
 
   <section class="featured" aria-labelledby="featured-title">
     <div class="label">EM DESTAQUE</div>
-    <a class="featured-card" href="/blog/gargalos-operacionais-cervejaria.html?utm_source=instagram&utm_medium=social&utm_campaign=link_in_bio&utm_content=featured" onclick="track('featured_gargalos')">
+    <a id="featured-card" class="featured-card" href="/blog/gargalos-operacionais-cervejaria.html?utm_source=instagram&utm_medium=social&utm_campaign=link_in_bio&utm_content=featured_gargalos" onclick="track('featured_gargalos')">
       <div>
-        <span class="micro">ARTIGO · OPERAÇÃO</span>
+        <span id="featured-micro" class="micro">ARTIGO · OPERAÇÃO</span>
         <h2 id="featured-title">5 gargalos operacionais que fazem uma cervejaria perder tempo e controle</h2>
-        <p>Informação espalhada, barris sem contexto, estoque desconectado e áreas que não conversam.</p>
+        <p id="featured-text">Informação espalhada, barris sem contexto, estoque desconectado e áreas que não conversam.</p>
       </div>
       <span class="arrow">↗</span>
     </a>
