@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#071116">
+<title>BrewControl — links oficiais</title>
+<meta name="description" content="Links oficiais do BrewControl: artigos, produto, módulos e acesso ao sistema.">
+<meta name="robots" content="noindex,follow,max-image-preview:large">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@500,700,800,900&f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="links.css?v=20260908a">
+<meta property="og:title" content="BrewControl — links oficiais">
+<meta property="og:description" content="Conteúdo, produto e operação cervejeira em um só lugar.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.brewcontrol.app.br/links/">
+<meta property="og:image" content="https://www.brewcontrol.app.br/screenshots/dashboard-operacional.png">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JVBBG635J3"></script>
+<script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments)}
+gtag('js',new Date());
+gtag('config','G-JVBBG635J3');
+function track(name){gtag('event','link_bio_click',{link_name:name,source:'instagram_bio'});}
+
+const featuredByDate={
+  default:{
+    href:'/blog/gargalos-operacionais-cervejaria.html?utm_source=instagram&utm_medium=social&utm_campaign=link_in_bio&utm_content=featured_gargalos',
+    track:'featured_gargalos',
+    micro:'ARTIGO · OPERAÇÃO',
+    title:'5 gargalos operacionais que fazem uma cervejaria perder tempo e controle',
+    text:'Informação espalhada, barris sem contexto, estoque desconectado e áreas que não conversam.'
+  },
+  '2026-09-11':{
+    href:'/blog/tour-modulos-brewcontrol.html?utm_source=instagram&utm_medium=social&utm_campaign=link_in_bio&utm_content=featured_tour',
+    track:'featured_tour',
+    micro:'ARTIGO · PRODUTO',
+    title:'Por dentro do BrewControl: como os módulos se conectam na operação real',
+    text:'Produção, estoque, barris, comercial, logística, financeiro e brewpub vistos como uma operação única.'
+  },
+  '2026-09-12':{
+    href:'/blog/tour-modulos-brewcontrol.html?utm_source=instagram&utm_medium=social&utm_campaign=link_in_bio&utm_content=featured_tour',
+    track:'featured_tour',
+    micro:'ARTIGO · PRODUTO',
+    title:'Por dentro do BrewControl: como os módulos se conectam na operação real',
+    text:'Produção, estoque, barris, comercial, logística, financeiro e brewpub vistos como uma operação única.'
+  },
+  '2026-09-13':{
+    href:'/blog/controle-estoque-cervejaria.html?utm_source=instagram&utm_medium=social&utm_campaign=link_in_bio&utm_content=featured_barris',
+    track:'featured_barris',
+    micro:'ARTIGO · ESTOQUE E BARRIS',
+    title:'Estoque e barris: como parar de perder contexto operacional',
+    text:'Rastreabilidade, movimentações e contexto para saber o que saiu, voltou e onde cada ativo está.'
+  },
+  '2026-09-14':{
+    href:'/blog/controle-estoque-cervejaria.html?utm_source=instagram&utm_medium=social&utm_campaign=link_in_bio&utm_content=featured_barris',
+    track:'featured_barris',
+    micro:'ARTIGO · ESTOQUE E BARRIS',
+    title:'Estoque e barris: como parar de perder contexto operacional',
+    text:'Rastreabilidade, movimentações e contexto para saber o que saiu, voltou e onde cada ativo está.'
+  }
+};
+
+function saoPauloDate(){
+  return new Intl.DateTimeFormat('en-CA',{timeZone:'America/Sao_Paulo',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+}
+
+document.addEventListener('DOMContentLoaded',()=>{
+  const cfg=featuredByDate[saoPauloDate()]||featuredByDate.default;
+  const card=document.getElementById('featured-card');
+  if(!card)return;
+  card.href=cfg.href;
+  card.onclick=()=>track(cfg.track);
+  document.getElementById('featured-micro').textContent=cfg.micro;
+  document.getElementById('featured-title').textContent=cfg.title;
+  document.getElementById('featured-text').textContent=cfg.text;
+});
+</script>
+</head>
+<body>
+<main class="page">
+  <section class="profile">
+    <a class="mark" href="/" aria-label="BrewControl"><span>B</span></a>
+    <p class="eyebrow">BREWCONTROL ERP</p>
+    <h1>A cervejaria inteira<br><em>operando como um sistema.</em></h1>
+    <p class="intro">Produto real, conteúdo técnico e bastidores de quem vive a operação de cervejarias artesanais.</p>
+  </section>
+
+  <section class="featured" aria-labelledby="featured-title">
+    <div class="label">EM DESTAQUE</div>
+    <a id="featured-card" class="featured-card" href="/blog/gargalos-operacionais-cervejaria.html?utm_source=instagram&utm_medium=social&utm_campaign=link_in_bio&utm_content=featured_gargalos" onclick="track('featured_gargalos')">
+      <div>
+        <span id="featured-micro" class="micro">ARTIGO · OPERAÇÃO</span>
+        <h2 id="featured-title">5 gargalos operacionais que fazem uma cervejaria perder tempo e controle</h2>
+        <p id="featured-text">Informação espalhada, barris sem contexto, estoque desconectado e áreas que não conversam.</p>
+      </div>
+      <span class="arrow">↗</span>
+    </a>
+  </section>
+
+  <section class="links" aria-label="Links principais">
+    <a href="/?utm_source=instagram&utm_medium=social&utm_campaign=link_in_bio&utm_content=home" onclick="track('home')">
+      <span><b>Conheça o BrewControl</b><small>ERP para cervejarias artesanais</small></span><i>↗</i>
+    </a>
+    <a href="/blog/index.html?utm_source=instagram&utm_medium=social&utm_campaign=link_in_bio&utm_content=blog" onclick="track('blog')">
+      <span><b>Blog BrewControl</b><small>Gestão, produção, estoque, barris e operação</small></span><i>↗</i>
+    </a>
+    <a href="/blog/tour-modulos-brewcontrol.html?utm_source=instagram&utm_medium=social&utm_campaign=link_in_bio&utm_content=tour" onclick="track('tour_modulos')">
+      <span><b>Por dentro do produto</b><small>Tour pelos módulos reais do BrewControl</small></span><i>↗</i>
+    </a>
+    <a href="/blog/controle-estoque-cervejaria.html?utm_source=instagram&utm_medium=social&utm_campaign=link_in_bio&utm_content=estoque" onclick="track('estoque_barris')">
+      <span><b>Estoque e barris</b><small>Como parar de perder contexto operacional</small></span><i>↗</i>
+    </a>
+  </section>
+
+  <section class="product-card">
+    <div>
+      <span class="micro">PRODUTO</span>
+      <h2>Quer ver o sistema funcionando?</h2>
+      <p>Explore módulos, planos e a proposta do BrewControl.</p>
+    </div>
+    <a href="/?utm_source=instagram&utm_medium=social&utm_campaign=link_in_bio&utm_content=produto" onclick="track('produto_cta')">Explorar BrewControl <span>→</span></a>
+  </section>
+
+  <footer>
+    <span>BREWCONTROL · BREWERY OPERATING SYSTEM</span>
+    <a href="https://app.brewcontrol.app.br/" onclick="track('app_login')">Entrar no app ↗</a>
+  </footer>
+</main>
+</body>
+</html>
