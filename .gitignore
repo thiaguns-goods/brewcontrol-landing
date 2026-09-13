@@ -5,3 +5,6 @@ tools/remotion/output/*
 !tools/remotion/output/.gitkeep
 tools/remotion/.cache/
 tools/remotion/.remotion/
+tools/remotion/.agents/
+tools/remotion/.claude/
+tools/remotion/skills-lock.json
