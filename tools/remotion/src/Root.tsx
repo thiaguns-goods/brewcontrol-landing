@@ -1,0 +1,2 @@
+import React from 'react'; import {Composition} from 'remotion'; import {BrewControlDemo} from './compositions/BrewControlDemo'; import {demos} from './config/demos';
+export const RemotionRoot:React.FC=()=><>{Object.values(demos).map(d=><Composition key={d.id} id={`BrewControlDemo-${d.id}`} component={BrewControlDemo} width={d.width} height={d.height} fps={d.fps} durationInFrames={d.durationInFrames??300} defaultProps={{source:d.source,trimStartFrame:d.trimStartFrame,trimEndFrame:d.trimEndFrame}}/>)}</>;
