@@ -2,6 +2,13 @@ name: SEO Opportunity DRY RUN
 
 on:
   workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/seo-opportunity-dry-run.yml'
+      - 'scripts/seo-opportunity-dry-run.mjs'
+      - 'seo-ops.config.json'
 
 permissions:
   contents: read
@@ -29,19 +36,50 @@ jobs:
           node-version: '20'
 
       - name: Preflight required secrets
+        id: preflight
         shell: bash
         run: |
           set -euo pipefail
-          if [[ -z "${SEO_GOOGLE_SERVICE_ACCOUNT_JSON:-}" ]]; then
-            echo "Missing GitHub Secret: SEO_GOOGLE_SERVICE_ACCOUNT_JSON" >&2
-            exit 1
-          fi
-          if [[ -z "${BING_API_KEY:-}" ]]; then
-            echo "Missing GitHub Secret: SEO_BING_API_KEY" >&2
-            exit 1
+          missing=()
+          [[ -n "${SEO_GOOGLE_SERVICE_ACCOUNT_JSON:-}" ]] || missing+=("SEO_GOOGLE_SERVICE_ACCOUNT_JSON")
+          [[ -n "${BING_API_KEY:-}" ]] || missing+=("SEO_BING_API_KEY")
+
+          if (( ${#missing[@]} > 0 )); then
+            echo "HAS_SECRETS=false" >> "$GITHUB_ENV"
+            printf -v missing_csv '%s,' "${missing[@]}"
+            missing_csv="${missing_csv%,}"
+            export MISSING_SECRETS="$missing_csv"
+            node - <<'NODE'
+          const fs = require('fs');
+          const missing = (process.env.MISSING_SECRETS || '').split(',').filter(Boolean);
+          const report = {
+            generatedAt: new Date().toISOString(),
+            status: 'BLOCKED',
+            mode: 'dry-run-read-only',
+            reason: 'required GitHub Secrets are not configured',
+            missingSecrets: missing,
+            guardrails: {
+              issueWrite: false,
+              siteMutation: false,
+              sitemapSubmission: false,
+              indexingSubmission: false,
+              artificialTraffic: false
+            }
+          };
+          fs.writeFileSync('seo-opportunity-dry-run.json', `${JSON.stringify(report, null, 2)}\n`);
+          fs.writeFileSync(
+            'seo-opportunity-dry-run.md',
+            `# SEO Opportunity DRY RUN\n\nStatus: **BLOCKED**\n\nFaltam GitHub Secrets: ${missing.map((x) => `\`${x}\``).join(', ')}.\n\nNenhuma API foi consultada e nenhuma alteração foi executada.\n`
+          );
+          NODE
+            echo "DRY RUN bloqueado por credenciais ausentes: $missing_csv"
+          else
+            echo "HAS_SECRETS=true" >> "$GITHUB_ENV"
+            echo "Credenciais necessárias estão configuradas; iniciando coleta read-only."
           fi
 
       - name: Prepare ephemeral Google credentials
+        if: env.HAS_SECRETS == 'true'
         shell: bash
         run: |
           set -euo pipefail
@@ -52,6 +90,7 @@ jobs:
           echo "GOOGLE_APPLICATION_CREDENTIALS=$credentials" >> "$GITHUB_ENV"
 
       - name: Install audited Search Console MCP
+        if: env.HAS_SECRETS == 'true'
         shell: bash
         run: |
           set -euo pipefail
@@ -73,6 +112,7 @@ jobs:
           cp "$GITHUB_WORKSPACE/scripts/seo-opportunity-dry-run.mjs" "$deps/analyzer.mjs"
 
       - name: Run read-only opportunity analysis
+        if: env.HAS_SECRETS == 'true'
         id: analysis
         continue-on-error: true
         shell: bash
@@ -112,6 +152,6 @@ jobs:
           rm -f "$HOME/.search-console-mcp-tokens.enc"
           rm -rf "$RUNNER_TEMP/seo-deps"
 
-      - name: Fail when analysis was not fully successful
-        if: steps.analysis.outcome != 'success'
+      - name: Fail when live analysis was not fully successful
+        if: env.HAS_SECRETS == 'true' && steps.analysis.outcome != 'success'
         run: exit 1
