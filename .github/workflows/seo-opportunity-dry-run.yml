@@ -8,6 +8,7 @@ on:
     paths:
       - '.github/workflows/seo-opportunity-dry-run.yml'
       - 'scripts/seo-opportunity-dry-run.mjs'
+      - 'scripts/seo-validation-sample.mjs'
       - 'seo-ops.config.json'
 
 permissions:
@@ -110,6 +111,7 @@ jobs:
           test -f "$deps/node_modules/search-console-mcp/dist/ga4/utils.js"
 
           cp "$GITHUB_WORKSPACE/scripts/seo-opportunity-dry-run.mjs" "$deps/analyzer.mjs"
+          cp "$GITHUB_WORKSPACE/scripts/seo-validation-sample.mjs" "$deps/validation.mjs"
 
       - name: Run read-only opportunity analysis
         if: env.HAS_SECRETS == 'true'
@@ -120,7 +122,16 @@ jobs:
           set -euo pipefail
           node "$RUNNER_TEMP/seo-deps/analyzer.mjs"
 
-      - name: Add report to workflow summary
+      - name: Generate read-only validation sample
+        if: env.HAS_SECRETS == 'true'
+        id: validation
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -euo pipefail
+          node "$RUNNER_TEMP/seo-deps/validation.mjs"
+
+      - name: Add reports to workflow summary
         if: always()
         shell: bash
         run: |
@@ -132,7 +143,14 @@ jobs:
             echo "O relatório não foi gerado." >> "$GITHUB_STEP_SUMMARY"
           fi
 
-      - name: Upload dry-run report
+          if [[ -f seo-validation-sample.md ]]; then
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            echo "---" >> "$GITHUB_STEP_SUMMARY"
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            cat seo-validation-sample.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Upload dry-run reports
         if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -140,6 +158,8 @@ jobs:
           path: |
             seo-opportunity-dry-run.json
             seo-opportunity-dry-run.md
+            seo-validation-sample.json
+            seo-validation-sample.md
           if-no-files-found: warn
           retention-days: 30
 
@@ -153,5 +173,5 @@ jobs:
           rm -rf "$RUNNER_TEMP/seo-deps"
 
       - name: Fail when live analysis was not fully successful
-        if: env.HAS_SECRETS == 'true' && steps.analysis.outcome != 'success'
+        if: env.HAS_SECRETS == 'true' && (steps.analysis.outcome != 'success' || steps.validation.outcome != 'success')
         run: exit 1
