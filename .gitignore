@@ -1,0 +1,10 @@
+tools/remotion/node_modules/
+tools/remotion/public/raw/*
+!tools/remotion/public/raw/.gitkeep
+tools/remotion/output/*
+!tools/remotion/output/.gitkeep
+tools/remotion/.cache/
+tools/remotion/.remotion/
+tools/remotion/.agents/
+tools/remotion/.claude/
+tools/remotion/skills-lock.json
