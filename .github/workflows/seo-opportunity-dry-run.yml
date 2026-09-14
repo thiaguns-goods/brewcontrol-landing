@@ -1,0 +1,177 @@
+name: SEO Opportunity DRY RUN
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/seo-opportunity-dry-run.yml'
+      - 'scripts/seo-opportunity-dry-run.mjs'
+      - 'scripts/seo-validation-sample.mjs'
+      - 'seo-ops.config.json'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: seo-opportunity-dry-run-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  opportunity-dry-run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GA4_PROPERTY_ID: '529736619'
+      SEO_GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.SEO_GOOGLE_SERVICE_ACCOUNT_JSON }}
+      BING_API_KEY: ${{ secrets.SEO_BING_API_KEY }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Preflight required secrets
+        id: preflight
+        shell: bash
+        run: |
+          set -euo pipefail
+          missing=()
+          [[ -n "${SEO_GOOGLE_SERVICE_ACCOUNT_JSON:-}" ]] || missing+=("SEO_GOOGLE_SERVICE_ACCOUNT_JSON")
+          [[ -n "${BING_API_KEY:-}" ]] || missing+=("SEO_BING_API_KEY")
+
+          if (( ${#missing[@]} > 0 )); then
+            echo "HAS_SECRETS=false" >> "$GITHUB_ENV"
+            printf -v missing_csv '%s,' "${missing[@]}"
+            missing_csv="${missing_csv%,}"
+            export MISSING_SECRETS="$missing_csv"
+            node - <<'NODE'
+          const fs = require('fs');
+          const missing = (process.env.MISSING_SECRETS || '').split(',').filter(Boolean);
+          const report = {
+            generatedAt: new Date().toISOString(),
+            status: 'BLOCKED',
+            mode: 'dry-run-read-only',
+            reason: 'required GitHub Secrets are not configured',
+            missingSecrets: missing,
+            guardrails: {
+              issueWrite: false,
+              siteMutation: false,
+              sitemapSubmission: false,
+              indexingSubmission: false,
+              artificialTraffic: false
+            }
+          };
+          fs.writeFileSync('seo-opportunity-dry-run.json', `${JSON.stringify(report, null, 2)}\n`);
+          fs.writeFileSync(
+            'seo-opportunity-dry-run.md',
+            `# SEO Opportunity DRY RUN\n\nStatus: **BLOCKED**\n\nFaltam GitHub Secrets: ${missing.map((x) => `\`${x}\``).join(', ')}.\n\nNenhuma API foi consultada e nenhuma alteração foi executada.\n`
+          );
+          NODE
+            echo "DRY RUN bloqueado por credenciais ausentes: $missing_csv"
+          else
+            echo "HAS_SECRETS=true" >> "$GITHUB_ENV"
+            echo "Credenciais necessárias estão configuradas; iniciando coleta read-only."
+          fi
+
+      - name: Prepare ephemeral Google credentials
+        if: env.HAS_SECRETS == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          credentials="$RUNNER_TEMP/brewcontrol-seo-google.json"
+          printf '%s' "$SEO_GOOGLE_SERVICE_ACCOUNT_JSON" > "$credentials"
+          chmod 600 "$credentials"
+          node -e "JSON.parse(require('fs').readFileSync(process.argv[1], 'utf8'));" "$credentials"
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$credentials" >> "$GITHUB_ENV"
+
+      - name: Install audited Search Console MCP
+        if: env.HAS_SECRETS == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          deps="$RUNNER_TEMP/seo-deps"
+          mkdir -p "$deps"
+          cd "$deps"
+          npm init -y >/dev/null 2>&1
+          npm install --ignore-scripts --no-audit --no-fund --save-exact search-console-mcp@2.1.3
+
+          actual="$(node -p "require('$RUNNER_TEMP/seo-deps/node_modules/search-console-mcp/package.json').version")"
+          test "$actual" = "2.1.3"
+
+          test -f "$deps/node_modules/search-console-mcp/dist/common/auth/config.js"
+          test -f "$deps/node_modules/search-console-mcp/dist/google/tools/analytics.js"
+          test -f "$deps/node_modules/search-console-mcp/dist/bing/tools/analytics.js"
+          test -f "$deps/node_modules/search-console-mcp/dist/ga4/tools/analytics.js"
+          test -f "$deps/node_modules/search-console-mcp/dist/ga4/utils.js"
+
+          cp "$GITHUB_WORKSPACE/scripts/seo-opportunity-dry-run.mjs" "$deps/analyzer.mjs"
+          cp "$GITHUB_WORKSPACE/scripts/seo-validation-sample.mjs" "$deps/validation.mjs"
+
+      - name: Run read-only opportunity analysis
+        if: env.HAS_SECRETS == 'true'
+        id: analysis
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -euo pipefail
+          node "$RUNNER_TEMP/seo-deps/analyzer.mjs"
+
+      - name: Generate read-only validation sample
+        if: env.HAS_SECRETS == 'true'
+        id: validation
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -euo pipefail
+          node "$RUNNER_TEMP/seo-deps/validation.mjs"
+
+      - name: Add reports to workflow summary
+        if: always()
+        shell: bash
+        run: |
+          if [[ -f seo-opportunity-dry-run.md ]]; then
+            cat seo-opportunity-dry-run.md >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "# SEO Opportunity DRY RUN" >> "$GITHUB_STEP_SUMMARY"
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            echo "O relatório não foi gerado." >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+          if [[ -f seo-validation-sample.md ]]; then
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            echo "---" >> "$GITHUB_STEP_SUMMARY"
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            cat seo-validation-sample.md >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Upload dry-run reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: seo-opportunity-dry-run
+          path: |
+            seo-opportunity-dry-run.json
+            seo-opportunity-dry-run.md
+            seo-validation-sample.json
+            seo-validation-sample.md
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Cleanup ephemeral credentials and config
+        if: always()
+        shell: bash
+        run: |
+          rm -f "$RUNNER_TEMP/brewcontrol-seo-google.json"
+          rm -f "$HOME/.search-console-mcp-config.enc"
+          rm -f "$HOME/.search-console-mcp-tokens.enc"
+          rm -rf "$RUNNER_TEMP/seo-deps"
+
+      - name: Fail when live analysis was not fully successful
+        if: env.HAS_SECRETS == 'true' && (steps.analysis.outcome != 'success' || steps.validation.outcome != 'success')
+        run: exit 1
