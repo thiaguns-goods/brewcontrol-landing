@@ -1,0 +1,337 @@
+/* Landing V5 — Motion Layer V1
+ * Purposeful motion only: hierarchy, operation flow, state and feedback.
+ * No external animation library. All enhancements fail open.
+ */
+
+:root{
+  --motion-spring:cubic-bezier(.22,1.32,.36,1);
+  --motion-soft:cubic-bezier(.2,.8,.2,1);
+}
+
+/* ---------- Hero: one-time staged entrance ---------- */
+.motion-layer .hero-copy.motion-stage.on>.eyebrow,
+.motion-layer .hero-copy.motion-stage.on>h1,
+.motion-layer .hero-copy.motion-stage.on>p,
+.motion-layer .hero-copy.motion-stage.on>.hero-actions,
+.motion-layer .hero-copy.motion-stage.on>.hero-proof{
+  opacity:0;
+  transform:translate3d(0,18px,0);
+  transition:
+    opacity .62s var(--motion-soft),
+    transform .78s var(--motion-spring);
+}
+.motion-layer .hero-copy.motion-stage.motion-stage-live.on>.eyebrow{opacity:1;transform:none;transition-delay:.03s}
+.motion-layer .hero-copy.motion-stage.motion-stage-live.on>h1{opacity:1;transform:none;transition-delay:.12s}
+.motion-layer .hero-copy.motion-stage.motion-stage-live.on>p{opacity:1;transform:none;transition-delay:.21s}
+.motion-layer .hero-copy.motion-stage.motion-stage-live.on>.hero-actions{opacity:1;transform:none;transition-delay:.30s}
+.motion-layer .hero-copy.motion-stage.motion-stage-live.on>.hero-proof{opacity:1;transform:none;transition-delay:.38s}
+
+.motion-layer .product-stage.motion-stage.on .product-shell,
+.motion-layer .product-stage.motion-stage.on .float-card{
+  opacity:0;
+  transform:translate3d(0,20px,0) scale(.965);
+  transition:
+    opacity .58s var(--motion-soft),
+    transform .82s var(--motion-spring),
+    border-color .2s var(--motion-soft),
+    background .2s var(--motion-soft);
+}
+.motion-layer .product-stage.motion-stage.motion-stage-live.on .product-shell{
+  opacity:1;
+  transform:rotateY(-2.4deg) rotateX(.8deg);
+  transition-delay:.22s;
+}
+.motion-layer .product-stage.motion-stage.motion-stage-live.on .float-card{opacity:1;transform:none}
+.motion-layer .product-stage.motion-stage.motion-stage-live.on .fc1{transition-delay:.34s}
+.motion-layer .product-stage.motion-stage.motion-stage-live.on .fc2{transition-delay:.41s}
+.motion-layer .product-stage.motion-stage.motion-stage-live.on .fc3{transition-delay:.48s}
+.motion-layer .product-stage.motion-stage.motion-stage-live.on .fc4{transition-delay:.55s}
+.motion-layer .float-card:hover{
+  transform:translateY(-4px) scale(1.012)!important;
+  transition-timing-function:var(--motion-spring)!important;
+}
+
+/* ---------- Header: gliding section indicator ---------- */
+.motion-layer .nav.motion-nav{
+  position:relative;
+}
+.motion-layer .nav.motion-nav a:after{
+  opacity:0;
+}
+.motion-layer .nav-indicator{
+  position:absolute;
+  left:0;
+  bottom:1px;
+  width:var(--nav-w,0px);
+  height:2px;
+  border-radius:999px;
+  background:linear-gradient(90deg,var(--amber),var(--teal));
+  box-shadow:0 0 18px rgba(240,168,68,.18);
+  opacity:var(--nav-opacity,0);
+  transform:translate3d(var(--nav-x,0px),0,0);
+  transform-origin:left center;
+  transition:
+    transform .42s var(--motion-spring),
+    width .42s var(--motion-spring),
+    opacity .18s ease;
+  pointer-events:none;
+}
+
+/* ---------- Operation flow: the product story moves left to right ---------- */
+.motion-layer .operation-ribbon.motion-sequence{
+  isolation:isolate;
+}
+.motion-layer .operation-ribbon.motion-sequence:before{
+  content:'';
+  position:absolute;
+  left:2%;
+  right:2%;
+  top:44px;
+  height:1px;
+  z-index:0;
+  background:linear-gradient(90deg,
+    rgba(240,168,68,.05),
+    rgba(240,168,68,.72) 16%,
+    rgba(140,197,189,.72) 55%,
+    rgba(74,164,161,.12));
+  box-shadow:0 0 22px rgba(140,197,189,.16);
+  transform:scaleX(0);
+  transform-origin:left center;
+  transition:transform 1.05s cubic-bezier(.2,.78,.2,1) .08s;
+  pointer-events:none;
+}
+.motion-layer .operation-ribbon.motion-sequence.is-active:before{
+  transform:scaleX(1);
+}
+.motion-layer .operation-ribbon.motion-sequence .op-step{
+  z-index:1;
+  opacity:.2;
+  transform:translate3d(0,18px,0) scale(.985);
+  border-color:rgba(255,255,255,.075);
+  transition:
+    opacity .42s ease var(--motion-delay,0ms),
+    transform .68s var(--motion-spring) var(--motion-delay,0ms),
+    border-color .45s ease var(--motion-delay,0ms),
+    background .45s ease var(--motion-delay,0ms),
+    box-shadow .45s ease var(--motion-delay,0ms);
+}
+.motion-layer .operation-ribbon.motion-sequence .op-step:after{
+  content:'';
+  position:absolute;
+  left:-55%;
+  top:0;
+  width:46%;
+  height:1px;
+  background:linear-gradient(90deg,transparent,var(--amber2),var(--teal-soft),transparent);
+  opacity:0;
+  pointer-events:none;
+}
+.motion-layer .operation-ribbon.motion-sequence.is-active .op-step{
+  opacity:1;
+  transform:none;
+  border-color:rgba(255,198,107,.16);
+  background:linear-gradient(155deg,rgba(255,255,255,.078),rgba(255,255,255,.026));
+  box-shadow:0 16px 45px rgba(0,0,0,.08);
+}
+.motion-layer .operation-ribbon.motion-sequence.is-active .op-step:after{
+  animation:motion-flow-sweep .72s ease-out both;
+  animation-delay:calc(.12s + var(--motion-delay,0ms));
+}
+.motion-layer .operation-ribbon.motion-sequence.is-active .velocity{
+  opacity:.82;
+  transition:opacity .35s ease calc(.12s + var(--motion-delay,0ms));
+}
+@keyframes motion-flow-sweep{
+  0%{left:-55%;opacity:0}
+  18%{opacity:.85}
+  100%{left:112%;opacity:0}
+}
+
+.motion-layer .event-line.motion-event{
+  opacity:.42;
+  transform:translate3d(0,10px,0);
+  transition:
+    opacity .5s ease,
+    transform .7s var(--motion-spring),
+    border-color .45s ease,
+    box-shadow .45s ease;
+}
+.motion-layer .event-line.motion-event.is-live{
+  opacity:1;
+  transform:none;
+  border-color:rgba(255,198,107,.36);
+  box-shadow:0 18px 45px rgba(12,18,18,.16),0 0 34px rgba(240,168,68,.045);
+}
+.motion-layer .event-line.motion-event.is-live .event-dot{
+  animation:motion-event-pulse .9s ease-out 1;
+}
+@keyframes motion-event-pulse{
+  0%{box-shadow:0 0 0 0 rgba(240,168,68,.52),0 0 18px rgba(240,168,68,.35)}
+  70%{box-shadow:0 0 0 14px rgba(240,168,68,0),0 0 28px rgba(240,168,68,.42)}
+  100%{box-shadow:0 0 0 8px rgba(240,168,68,.08),0 0 25px rgba(240,168,68,.35)}
+}
+
+/* ---------- Module cards: contained cursor spotlight + spring feedback ---------- */
+.motion-layer .module-card.motion-spotlight{
+  --spot-x:50%;
+  --spot-y:50%;
+  transition:
+    transform .48s var(--motion-spring),
+    border-color .22s ease,
+    background .22s ease,
+    box-shadow .32s ease;
+}
+.motion-layer .module-card.motion-spotlight:before{
+  content:'';
+  position:absolute;
+  inset:-1px;
+  z-index:0;
+  border-radius:inherit;
+  background:
+    radial-gradient(240px circle at var(--spot-x) var(--spot-y),
+      rgba(255,198,107,.16),
+      rgba(74,164,161,.085) 35%,
+      transparent 70%);
+  opacity:0;
+  transition:opacity .24s ease;
+  pointer-events:none;
+}
+.motion-layer .module-card.motion-spotlight:after{z-index:0}
+.motion-layer .module-card.motion-spotlight>*{
+  position:relative;
+  z-index:1;
+}
+.motion-layer .module-card.motion-spotlight>.arrow{
+  position:absolute;
+  right:22px;
+  top:22px;
+}
+.motion-layer .module-card.motion-spotlight:hover,
+.motion-layer .module-card.motion-spotlight:focus-visible{
+  transform:translateY(-7px) scale(1.008);
+  border-color:rgba(255,198,107,.32);
+  box-shadow:0 22px 54px rgba(0,0,0,.14);
+}
+.motion-layer .module-card.motion-spotlight:hover:before,
+.motion-layer .module-card.motion-spotlight:focus-visible:before{
+  opacity:1;
+}
+.motion-layer .module-card.motion-spotlight .arrow{
+  transition:transform .46s var(--motion-spring),color .2s ease;
+}
+.motion-layer .module-card.motion-spotlight:hover .arrow,
+.motion-layer .module-card.motion-spotlight:focus-visible .arrow{
+  transform:translate3d(3px,-3px,0);
+  color:#ffe0a5;
+}
+
+/* ---------- FAQ: progressive, accessible accordion ---------- */
+.motion-layer .answer-list.motion-accordion article{
+  padding:0;
+}
+.motion-layer .answer-list.motion-accordion .answer-heading{
+  margin:0;
+}
+.motion-layer .answer-toggle{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  padding:24px 0;
+  border:0;
+  background:transparent;
+  color:var(--ink);
+  text-align:left;
+  cursor:pointer;
+  font:760 1.05rem var(--display);
+}
+.motion-layer .answer-toggle:focus-visible{
+  outline:2px solid #9c4f21;
+  outline-offset:6px;
+  border-radius:4px;
+}
+.motion-layer .answer-mark{
+  flex:0 0 auto;
+  width:30px;
+  height:30px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(31,27,22,.18);
+  border-radius:50%;
+  color:#8e4b24;
+  font:500 1.05rem var(--body);
+  transition:
+    transform .5s var(--motion-spring),
+    background .22s ease,
+    color .22s ease,
+    border-color .22s ease;
+}
+.motion-layer .answer-panel{
+  display:grid;
+  grid-template-rows:0fr;
+  opacity:.5;
+  transition:
+    grid-template-rows .52s var(--motion-soft),
+    opacity .32s ease;
+}
+.motion-layer .answer-panel-inner{
+  min-height:0;
+  overflow:hidden;
+}
+.motion-layer .answer-panel p{
+  margin:0;
+  padding:0 48px 24px 0;
+}
+.motion-layer .answer-list.motion-accordion article.is-open .answer-panel{
+  grid-template-rows:1fr;
+  opacity:1;
+}
+.motion-layer .answer-list.motion-accordion article.is-open .answer-mark{
+  transform:rotate(45deg);
+  color:#fff;
+  background:#9c4f21;
+  border-color:#9c4f21;
+}
+
+/* Keep mobile movement linear and legible. */
+@media(max-width:1120px){
+  .motion-layer .nav-indicator{display:none}
+  .motion-layer .operation-ribbon.motion-sequence:before{display:none}
+}
+@media(max-width:700px){
+  .motion-layer .operation-ribbon.motion-sequence .op-step{
+    transform:translate3d(0,12px,0);
+  }
+  .motion-layer .answer-toggle{padding:21px 0}
+  .motion-layer .answer-panel p{padding-right:12px}
+}
+
+/* Motion must never be required to understand the page. */
+@media(prefers-reduced-motion:reduce){
+  .motion-layer .hero-copy.motion-stage.on>*,
+  .motion-layer .product-stage.motion-stage.on .product-shell,
+  .motion-layer .product-stage.motion-stage.on .float-card,
+  .motion-layer .operation-ribbon.motion-sequence .op-step,
+  .motion-layer .event-line.motion-event,
+  .motion-layer .answer-panel,
+  .motion-layer .answer-mark,
+  .motion-layer .module-card.motion-spotlight,
+  .motion-layer .module-card.motion-spotlight .arrow,
+  .motion-layer .nav-indicator{
+    transition:none!important;
+    animation:none!important;
+  }
+  .motion-layer .hero-copy.motion-stage.on>*,
+  .motion-layer .product-stage.motion-stage.on .product-shell,
+  .motion-layer .product-stage.motion-stage.on .float-card,
+  .motion-layer .operation-ribbon.motion-sequence .op-step,
+  .motion-layer .event-line.motion-event{
+    opacity:1!important;
+    transform:none!important;
+  }
+  .motion-layer .operation-ribbon.motion-sequence:before,
+  .motion-layer .operation-ribbon.motion-sequence .op-step:after{
+    display:none!important;
+  }
+}
