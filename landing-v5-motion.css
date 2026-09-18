@@ -201,6 +201,11 @@
   position:relative;
   z-index:1;
 }
+.motion-layer .module-card.motion-spotlight>.arrow{
+  position:absolute;
+  right:22px;
+  top:22px;
+}
 .motion-layer .module-card.motion-spotlight:hover,
 .motion-layer .module-card.motion-spotlight:focus-visible{
   transform:translateY(-7px) scale(1.008);
