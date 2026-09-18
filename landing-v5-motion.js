@@ -96,12 +96,17 @@
       const resolveActiveLink = () => {
         const probe = window.scrollY + window.innerHeight * 0.34;
         let next = null;
+        let bestTop = -Infinity;
 
         navLinks.forEach((link) => {
           const selector = link.getAttribute('href');
           const section = selector ? document.querySelector(selector) : null;
           if (!section) return;
-          if (section.offsetTop <= probe) next = link;
+          const sectionTop = section.offsetTop;
+          if (sectionTop <= probe && sectionTop > bestTop) {
+            bestTop = sectionTop;
+            next = link;
+          }
         });
 
         activeLink = next;
