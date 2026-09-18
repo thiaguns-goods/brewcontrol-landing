@@ -42,10 +42,10 @@
   transition-delay:.22s;
 }
 .motion-layer .product-stage.motion-stage.motion-stage-live.on .float-card{opacity:1;transform:none}
-.motion-layer.motion-booted .product-stage.on .fc1{transition-delay:.34s}
-.motion-layer.motion-booted .product-stage.on .fc2{transition-delay:.41s}
-.motion-layer.motion-booted .product-stage.on .fc3{transition-delay:.48s}
-.motion-layer.motion-booted .product-stage.on .fc4{transition-delay:.55s}
+.motion-layer .product-stage.motion-stage.motion-stage-live.on .fc1{transition-delay:.34s}
+.motion-layer .product-stage.motion-stage.motion-stage-live.on .fc2{transition-delay:.41s}
+.motion-layer .product-stage.motion-stage.motion-stage-live.on .fc3{transition-delay:.48s}
+.motion-layer .product-stage.motion-stage.motion-stage-live.on .fc4{transition-delay:.55s}
 .motion-layer .float-card:hover{
   transform:translateY(-4px) scale(1.012)!important;
   transition-timing-function:var(--motion-spring)!important;
