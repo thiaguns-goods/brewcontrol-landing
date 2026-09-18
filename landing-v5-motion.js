@@ -7,18 +7,45 @@
 
   root.classList.add('motion-layer');
 
-  const boot = () => {
+  /* ---------------- Hero ---------------- */
+  const stageHeroElement = (element) => {
+    if (!element) return;
+    element.classList.add('motion-stage');
+
+    const start = () => {
+      if (element.classList.contains('motion-stage-live')) return;
+      element.classList.add('motion-stage-live');
+    };
+
     if (reduce) {
-      root.classList.add('motion-booted');
+      start();
       return;
     }
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => root.classList.add('motion-booted'));
+
+    const startAfterPaint = () => {
+      requestAnimationFrame(() => requestAnimationFrame(start));
+    };
+
+    if (element.classList.contains('on')) {
+      startAfterPaint();
+      return;
+    }
+
+    const observer = new MutationObserver(() => {
+      if (!element.classList.contains('on')) return;
+      observer.disconnect();
+      startAfterPaint();
     });
+    observer.observe(element, { attributes: true, attributeFilter: ['class'] });
+
+    window.setTimeout(() => {
+      observer.disconnect();
+      start();
+    }, 1200);
   };
 
-  /* ---------------- Hero ---------------- */
-  boot();
+  stageHeroElement(document.querySelector('.hero-copy.reveal'));
+  stageHeroElement(document.querySelector('.product-stage.reveal'));
 
   /* ---------------- Operation flow ---------------- */
   const ribbon = document.querySelector('.operation-ribbon');
@@ -27,7 +54,7 @@
 
   if (ribbon && flowSteps.length) {
     ribbon.classList.add('motion-sequence');
-    flowSteps.forEach((step, index) => step.style.setProperty('--motion-index', String(index)));
+    flowSteps.forEach((step, index) => step.style.setProperty('--motion-delay', `${index * 95}ms`));
     eventLine?.classList.add('motion-event');
 
     let flowActivated = false;
