@@ -6,29 +6,28 @@
 :root{
   --motion-spring:cubic-bezier(.22,1.32,.36,1);
   --motion-soft:cubic-bezier(.2,.8,.2,1);
-  --motion-flow-delay:95ms;
 }
 
 /* ---------- Hero: one-time staged entrance ---------- */
-.motion-layer .hero-copy.on>.eyebrow,
-.motion-layer .hero-copy.on>h1,
-.motion-layer .hero-copy.on>p,
-.motion-layer .hero-copy.on>.hero-actions,
-.motion-layer .hero-copy.on>.hero-proof{
+.motion-layer .hero-copy.motion-stage.on>.eyebrow,
+.motion-layer .hero-copy.motion-stage.on>h1,
+.motion-layer .hero-copy.motion-stage.on>p,
+.motion-layer .hero-copy.motion-stage.on>.hero-actions,
+.motion-layer .hero-copy.motion-stage.on>.hero-proof{
   opacity:0;
   transform:translate3d(0,18px,0);
   transition:
     opacity .62s var(--motion-soft),
     transform .78s var(--motion-spring);
 }
-.motion-layer.motion-booted .hero-copy.on>.eyebrow{opacity:1;transform:none;transition-delay:.03s}
-.motion-layer.motion-booted .hero-copy.on>h1{opacity:1;transform:none;transition-delay:.12s}
-.motion-layer.motion-booted .hero-copy.on>p{opacity:1;transform:none;transition-delay:.21s}
-.motion-layer.motion-booted .hero-copy.on>.hero-actions{opacity:1;transform:none;transition-delay:.30s}
-.motion-layer.motion-booted .hero-copy.on>.hero-proof{opacity:1;transform:none;transition-delay:.38s}
+.motion-layer .hero-copy.motion-stage.motion-stage-live.on>.eyebrow{opacity:1;transform:none;transition-delay:.03s}
+.motion-layer .hero-copy.motion-stage.motion-stage-live.on>h1{opacity:1;transform:none;transition-delay:.12s}
+.motion-layer .hero-copy.motion-stage.motion-stage-live.on>p{opacity:1;transform:none;transition-delay:.21s}
+.motion-layer .hero-copy.motion-stage.motion-stage-live.on>.hero-actions{opacity:1;transform:none;transition-delay:.30s}
+.motion-layer .hero-copy.motion-stage.motion-stage-live.on>.hero-proof{opacity:1;transform:none;transition-delay:.38s}
 
-.motion-layer .product-stage.on .product-shell,
-.motion-layer .product-stage.on .float-card{
+.motion-layer .product-stage.motion-stage.on .product-shell,
+.motion-layer .product-stage.motion-stage.on .float-card{
   opacity:0;
   transform:translate3d(0,20px,0) scale(.965);
   transition:
@@ -37,12 +36,12 @@
     border-color .2s var(--motion-soft),
     background .2s var(--motion-soft);
 }
-.motion-layer.motion-booted .product-stage.on .product-shell{
+.motion-layer .product-stage.motion-stage.motion-stage-live.on .product-shell{
   opacity:1;
   transform:rotateY(-2.4deg) rotateX(.8deg);
   transition-delay:.22s;
 }
-.motion-layer.motion-booted .product-stage.on .float-card{opacity:1;transform:none}
+.motion-layer .product-stage.motion-stage.motion-stage-live.on .float-card{opacity:1;transform:none}
 .motion-layer.motion-booted .product-stage.on .fc1{transition-delay:.34s}
 .motion-layer.motion-booted .product-stage.on .fc2{transition-delay:.41s}
 .motion-layer.motion-booted .product-stage.on .fc3{transition-delay:.48s}
@@ -110,11 +109,11 @@
   transform:translate3d(0,18px,0) scale(.985);
   border-color:rgba(255,255,255,.075);
   transition:
-    opacity .42s ease calc(var(--motion-index,0) * var(--motion-flow-delay)),
-    transform .68s var(--motion-spring) calc(var(--motion-index,0) * var(--motion-flow-delay)),
-    border-color .45s ease calc(var(--motion-index,0) * var(--motion-flow-delay)),
-    background .45s ease calc(var(--motion-index,0) * var(--motion-flow-delay)),
-    box-shadow .45s ease calc(var(--motion-index,0) * var(--motion-flow-delay));
+    opacity .42s ease var(--motion-delay,0ms),
+    transform .68s var(--motion-spring) var(--motion-delay,0ms),
+    border-color .45s ease var(--motion-delay,0ms),
+    background .45s ease var(--motion-delay,0ms),
+    box-shadow .45s ease var(--motion-delay,0ms);
 }
 .motion-layer .operation-ribbon.motion-sequence .op-step:after{
   content:'';
@@ -136,11 +135,11 @@
 }
 .motion-layer .operation-ribbon.motion-sequence.is-active .op-step:after{
   animation:motion-flow-sweep .72s ease-out both;
-  animation-delay:calc(.12s + var(--motion-index,0) * var(--motion-flow-delay));
+  animation-delay:calc(.12s + var(--motion-delay,0ms));
 }
 .motion-layer .operation-ribbon.motion-sequence.is-active .velocity{
   opacity:.82;
-  transition:opacity .35s ease calc(.12s + var(--motion-index,0) * var(--motion-flow-delay));
+  transition:opacity .35s ease calc(.12s + var(--motion-delay,0ms));
 }
 @keyframes motion-flow-sweep{
   0%{left:-55%;opacity:0}
@@ -305,9 +304,9 @@
 
 /* Motion must never be required to understand the page. */
 @media(prefers-reduced-motion:reduce){
-  .motion-layer .hero-copy.on>*,
-  .motion-layer .product-stage.on .product-shell,
-  .motion-layer .product-stage.on .float-card,
+  .motion-layer .hero-copy.motion-stage.on>*,
+  .motion-layer .product-stage.motion-stage.on .product-shell,
+  .motion-layer .product-stage.motion-stage.on .float-card,
   .motion-layer .operation-ribbon.motion-sequence .op-step,
   .motion-layer .event-line.motion-event,
   .motion-layer .answer-panel,
@@ -318,9 +317,9 @@
     transition:none!important;
     animation:none!important;
   }
-  .motion-layer .hero-copy.on>*,
-  .motion-layer .product-stage.on .product-shell,
-  .motion-layer .product-stage.on .float-card,
+  .motion-layer .hero-copy.motion-stage.on>*,
+  .motion-layer .product-stage.motion-stage.on .product-shell,
+  .motion-layer .product-stage.motion-stage.on .float-card,
   .motion-layer .operation-ribbon.motion-sequence .op-step,
   .motion-layer .event-line.motion-event{
     opacity:1!important;
