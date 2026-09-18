@@ -293,9 +293,9 @@
 /* Keep mobile movement linear and legible. */
 @media(max-width:1120px){
   .motion-layer .nav-indicator{display:none}
+  .motion-layer .operation-ribbon.motion-sequence:before{display:none}
 }
 @media(max-width:700px){
-  .motion-layer .operation-ribbon.motion-sequence:before{display:none}
   .motion-layer .operation-ribbon.motion-sequence .op-step{
     transform:translate3d(0,12px,0);
   }
