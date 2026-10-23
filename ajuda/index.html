@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#071116">
+<title>Central de Ajuda — BrewControl</title>
+<meta name="description" content="Central de Ajuda BrewControl: encontre documentação por tarefa, módulo, função e tipo de problema.">
+<meta name="robots" content="noindex,follow">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="help.css?v=20260908a">
+<script src="search-data.js?v=20260908a" defer></script>
+<script src="help.js?v=20260908a" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+<header class="help-header">
+  <div class="wrap header-inner">
+    <a class="help-brand" href="../index.html" aria-label="BrewControl"><span class="brand-mark">B</span><span class="brand-text">BREWCONTROL<small>CENTRAL DE AJUDA</small></span></a>
+    <nav class="help-nav" data-help-nav aria-label="Navegação da Central"><a href="index.html" aria-current="page">Ajuda</a><a href="../blog/index.html">Conteúdo</a><a href="../index.html#modulos">Módulos</a><a href="novidades.html">O que mudou</a><a class="app-link" href="https://app.brewcontrol.app.br/">Entrar no app ↗</a></nav>
+    <button class="help-menu" data-help-menu type="button" aria-label="Abrir menu" aria-expanded="false"><span></span></button>
+  </div>
+</header>
+<main id="conteudo">
+  <section class="help-hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <div class="eyebrow">CENTRAL DE AJUDA BREWCONTROL</div>
+        <h1>Encontre a resposta.<br><em>Continue a operação.</em></h1>
+        <p>Pesquise por tarefa, módulo, função ou problema. A Central está sendo preparada para receber apenas conteúdo operacional revisado e rastreável.</p>
+      </div>
+      <aside class="hero-side" aria-label="Status editorial">
+        <strong>Fundação pública em validação</strong>
+        <p>A estrutura está pronta. Procedimentos reais do BrewControl entram somente após os gates documentais.</p>
+        <div class="source-note"><span>◎</span><p><b>Source of truth first.</b> Nada nesta versão substitui manuais ou regras ainda não auditadas.</p></div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="search-shell" aria-label="Busca na Central de Ajuda">
+    <div class="wrap search-wrap">
+      <div class="search-box">
+        <label class="sr-only" for="help-search">Pesquisar na Central de Ajuda</label>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="m16.5 16.5 4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input id="help-search" data-help-search type="search" autocomplete="off" placeholder="O que você precisa fazer ou resolver?" aria-describedby="search-hint">
+        <button class="search-clear" data-help-clear type="button" hidden>Limpar</button>
+      </div>
+      <div class="search-meta"><span id="search-hint">Tente: barris, estoque, problema, comercial, ajuda</span><span data-help-result-count aria-live="polite"></span></div>
+      <div class="search-results" data-help-results hidden aria-label="Resultados da busca"></div>
+      <div class="search-empty" data-help-empty hidden role="status"><strong>Nada encontrado com esse termo.</strong><p>Tente uma palavra mais simples, um módulo ou um sinônimo. Se o assunto depender de procedimento ainda não auditado, ele pode ainda não estar publicado.</p></div>
+    </div>
+  </section>
+
+  <div class="help-main">
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head"><div class="label">PRIMEIROS PASSOS</div><div><h2>Comece pela forma mais rápida.</h2><p>A Central prioriza intenção e tarefa. Você não precisa conhecer o nome exato de uma tela para encontrar o lugar certo.</p></div></div>
+        <div class="quick-start">
+          <a class="quick-link" href="artigo.html?demo=usar-central"><span class="num">01</span><div><h3>Como usar esta Central</h3><p>Busca, hubs, status editorial e revisão.</p></div><span class="arrow">Abrir →</span></a>
+          <a class="quick-link" href="#modulos"><span class="num">02</span><div><h3>Entrar por módulo</h3><p>Vá direto para a área relacionada à sua dúvida.</p></div><span class="arrow">Ver módulos →</span></a>
+          <a class="quick-link" href="troubleshooting.html"><span class="num">03</span><div><h3>Algo deu errado?</h3><p>Organize o contexto antes de procurar uma solução.</p></div><span class="arrow">Resolver problemas →</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head"><div class="label">TAREFAS FREQUENTES</div><div><h2>Procure pelo que você quer resolver.</h2><p>Os atalhos abaixo levam para áreas seguras da Central. Passos operacionais específicos ainda dependem da auditoria documental.</p></div></div>
+        <div class="task-list">
+          <button class="task-link" type="button" data-search-term="barris"><span><b>Encontrar ajuda sobre barris e ativos</b><small>Hub estrutural do módulo</small></span><i>⌕</i></button>
+          <button class="task-link" type="button" data-search-term="estoque"><span><b>Encontrar ajuda sobre estoque</b><small>Estoque, almoxarifado e insumos</small></span><i>⌕</i></button>
+          <button class="task-link" type="button" data-search-term="comercial"><span><b>Encontrar ajuda comercial</b><small>Entrada para documentação de vendas</small></span><i>⌕</i></button>
+          <a class="task-link" href="troubleshooting.html"><span><b>Resolver um problema</b><small>Diagnóstico neutro e busca pelo termo exato</small></span><i>→</i></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="modulos">
+      <div class="wrap">
+        <div class="section-head"><div class="label">MÓDULOS</div><div><h2>Entre pela área da operação.</h2><p>Os hubs já estão prontos para receber artigos verificados. Nesta fundação, eles mostram apenas a arquitetura editorial.</p></div></div>
+        <div class="module-list">
+          <a class="module-link" href="modulo.html?m=producao"><span class="module-code">01 · MÓDULO</span><b>Produção</b><small>Hub em preparação →</small></a>
+          <a class="module-link" href="modulo.html?m=estoque"><span class="module-code">02 · MÓDULO</span><b>Estoque &amp; Almoxarifado</b><small>Hub em preparação →</small></a>
+          <a class="module-link" href="modulo.html?m=ativos"><span class="module-code">03 · MÓDULO</span><b>Ativos &amp; Barris</b><small>Hub em preparação →</small></a>
+          <a class="module-link" href="modulo.html?m=comercial"><span class="module-code">04 · MÓDULO</span><b>Comercial</b><small>Hub em preparação →</small></a>
+          <a class="module-link" href="modulo.html?m=logistica"><span class="module-code">05 · MÓDULO</span><b>Logística</b><small>Hub em preparação →</small></a>
+          <a class="module-link" href="modulo.html?m=financeiro"><span class="module-code">06 · MÓDULO</span><b>Financeiro</b><small>Hub em preparação →</small></a>
+          <a class="module-link" href="modulo.html?m=brewpub"><span class="module-code">07 · MÓDULO</span><b>Brewpub</b><small>Hub em preparação →</small></a>
+          <a class="module-link" href="modulo.html?m=fiscal"><span class="module-code">08 · MÓDULO</span><b>Fiscal</b><small>Hub em preparação →</small></a>
+          <a class="module-link" href="modulo.html?m=pdv-mobile"><span class="module-code">09 · MÓDULO</span><b>PDV Mobile</b><small>Hub em preparação →</small></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap split-section">
+        <div>
+          <div class="section-head compact"><div class="label">POR FUNÇÃO</div><div><h2>Ajuda no contexto do seu papel.</h2></div></div>
+          <div class="role-row"><a href="index.html?q=producao">Produção</a><a href="index.html?q=estoque">Almoxarifado</a><a href="index.html?q=comercial">Comercial</a><a href="index.html?q=logistica">Logística</a><a href="index.html?q=financeiro">Financeiro</a><a href="index.html?q=gestor">Gestão</a></div>
+        </div>
+        <div>
+          <div class="section-head compact"><div class="label">CONCEITOS IMPORTANTES</div><div><h2>Saiba o que está lendo.</h2></div></div>
+          <div class="clean-list"><a href="conceitos.html#conteudo-verificado"><span><b>Conteúdo verificado</b><small>Status, fonte e última revisão</small></span><i>→</i></a><a href="conceitos.html#arquitetura"><span><b>Como a Central organiza artigos</b><small>Tarefa, módulo, função e problema</small></span><i>→</i></a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap split-section">
+        <div class="status-panel"><span class="status-kicker">RESOLVER PROBLEMAS</span><h3>Você sabe o que aconteceu, mas não sabe onde procurar?</h3><p>Use o template de troubleshooting para registrar contexto, mensagem exibida e área envolvida antes de buscar um procedimento específico.</p><a href="troubleshooting.html">Abrir Resolver problemas →</a></div>
+        <div class="status-panel"><span class="status-kicker">O QUE MUDOU</span><h3>Acompanhe a evolução da própria Central.</h3><p>A fundação V1 cria a arquitetura, a busca e os templates. O conteúdo operacional será incorporado em etapas, após revisão.</p><a href="novidades.html">Ver histórico da Central →</a></div>
+      </div>
+    </section>
+  </div>
+</main>
+<footer class="help-footer"><div class="wrap footer-grid"><div><strong>BrewControl · Central de Ajuda</strong><p>Documentação pública com foco em clareza, rastreabilidade e revisão.</p></div><div class="footer-links"><a href="../index.html">Produto</a><a href="../blog/index.html">Conteúdo</a><a href="../guia.html">Guia atual</a><a href="novidades.html">O que mudou</a></div></div></footer>
+</body>
+</html>
