@@ -1,5 +1,8 @@
 # CLAUDE.md — Landing Page BrewControl
 
+> **NOTA DE GOVERNANÇA — NEXUS GOAL (25/11/2026):** Para novos agentes e tarefas, a autoridade atual é [AGENTS.md](AGENTS.md) e o [protocolo universal](https://github.com/thiaguns-goods/nexus-knowledge/blob/main/NEXUS-GOAL-PROTOCOL.md). Este arquivo conserva contexto histórico de uma ferramenta anterior e **não autoriza invocar Claude, publicar a landing, alterar design nem iniciar deploy**. Respeitar as aprovações específicas de conteúdo e a política do repositório.
+
+
 > Arquivo de memória para Claude/Cowork. Leia isto COMPLETO antes de qualquer tarefa nesta pasta.
 > Projeto: Landing page pública do BrewControl (marketing) — **não confundir com o app "studio"**, que é outro repositório/projeto.
 > Dono: Thiago Santana Schneider — não é programador. Explicação em linguagem simples, sem jargão técnico desnecessário. Ele aprova mudanças de conteúdo antes da execução.
